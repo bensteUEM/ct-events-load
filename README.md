@@ -6,8 +6,8 @@ This project visualizes event load for services.
 
 ### Prerequisites
 
--   Node.js (version compatible with the project)
--   npm or yarn
+- Node.js (version compatible with the project)
+- npm or yarn
 
 ### Installation
 
@@ -51,10 +51,12 @@ npm run dev
 > "System Settings" > "Integrations" > "API" > "Cross-Origin Resource Sharing"
 >
 > If login works in Chrome but not in Safari, the issue is usually that Safari has stricter cookie handling:
+>
 > - Safari blocks `Secure; SameSite=None` cookies on `http://localhost` (Chrome allows them in dev).
 > - Safari also blocks cookies if the API is on another domain (third‑party cookies).
 >
 > **Fix:**
+>
 > 1. Use a Vite proxy so API calls go through your local server (`/api → https://xyz.church.tools`). This makes cookies look first‑party.
 > 2. Run your dev server with **HTTPS**. You can generate a local trusted certificate with [mkcert](https://github.com/FiloSottile/mkcert).
 >

@@ -30,10 +30,10 @@ html,
         ui-sans-serif,
         system-ui,
         sans-serif,
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol',
-        'Noto Color Emoji'
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji"
     );
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
@@ -88,12 +88,15 @@ pre {
         Menlo,
         Monaco,
         Consolas,
-        'Liberation Mono',
-        'Courier New',
+        "Liberation Mono",
+        "Courier New",
         monospace
     );
     font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-variation-settings: var(
+        --default-mono-font-variation-settings,
+        normal
+    );
     font-size: 1em;
 }
 
@@ -201,7 +204,8 @@ textarea {
     opacity: 1;
 }
 
-@supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size: 1px) {
+@supports (not ((-webkit-appearance: -apple-pay-button))) or
+    (contain-intrinsic-size: 1px) {
     ::placeholder {
         color: currentColor;
     }
@@ -275,7 +279,7 @@ textarea {
 }
 
 button,
-input:where([type='button'], [type='reset'], [type='submit']) {
+input:where([type="button"], [type="reset"], [type="submit"]) {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
@@ -295,6 +299,6 @@ input:where([type='button'], [type='reset'], [type='submit']) {
     height: auto;
 }
 
-[hidden]:where(:not([hidden='until-found'])) {
+[hidden]:where(:not([hidden="until-found"])) {
     display: none !important;
 }

@@ -39,7 +39,7 @@ type DataPoint = { person: string; serviceName: string; count: number };
 async function fetchEvents(
     relevant_calendars: number[],
     fromDate: Date,
-    toDate: Date
+    toDate: Date,
 ): Promise<Event[]> {
     console.log("Fetching events for calendars:", relevant_calendars);
     // Fetch all events
@@ -49,7 +49,7 @@ async function fetchEvents(
         "/events?include=eventServices",
         {
             params: {}, //TODO params are ignored ...???
-        }
+        },
     );
 
     // Filter calendar and daterange sort by startDate j
@@ -57,7 +57,7 @@ async function fetchEvents(
         const eventDate = new Date(event.startDate);
         return (
             relevant_calendars.some(
-                (id) => id == event.calendar.domainIdentifier
+                (id) => id == event.calendar.domainIdentifier,
             ) &&
             eventDate >= fromDate &&
             eventDate <= toDate
@@ -81,10 +81,13 @@ async function fetchEvents(
  * @returns dict of serviceId and ServiceObject
  */ async function fetchServicesDict(): Promise<Record<number, Service>> {
     const services: Service[] = await churchtoolsClient.get("/services");
-    return services.reduce((acc, service) => {
-        acc[service.id] = service;
-        return acc;
-    }, {} as Record<number, Service>);
+    return services.reduce(
+        (acc, service) => {
+            acc[service.id] = service;
+            return acc;
+        },
+        {} as Record<number, Service>,
+    );
 }
 
 /**
@@ -99,19 +102,19 @@ async function fetchEvents(
 async function printEventServices(
     events: Event[],
     servicesDict: Record<number, Service[]>,
-    relevant_services: number[]
+    relevant_services: number[],
 ) {
     // Print nicely
     events.forEach((event) => {
         console.log(
-            `Event: ${event.name} (${event.startDate} - ${event.endDate})`
+            `Event: ${event.name} (${event.startDate} - ${event.endDate})`,
         );
         if (event.eventServices && event.eventServices.length > 0) {
             event.eventServices.forEach((service) => {
                 if (!relevant_services.some((id) => id == service.serviceId))
                     return;
                 console.log(
-                    `${servicesDict[service.serviceId].name} ${service.name}`
+                    `${servicesDict[service.serviceId].name} ${service.name}`,
                 );
             });
         } else {
@@ -131,7 +134,7 @@ async function printEventServices(
 function countServicesPerPersonPerMonth(
     events: Event[],
     servicesDict: Record<number, Service>,
-    relevant_services: number[]
+    relevant_services: number[],
 ): DataPoint[] {
     console.log("Filtering for services:", relevant_services);
     const dataPoints: DataPoint[] = [];
@@ -147,7 +150,7 @@ function countServicesPerPersonPerMonth(
 
             // check if this combination already exists in dataPoints
             const existing = dataPoints.find(
-                (d) => d.person == personName && d.serviceName == serviceName
+                (d) => d.person == personName && d.serviceName == serviceName,
             );
 
             if (existing) {
@@ -181,14 +184,14 @@ Chart.register(
     CategoryScale,
     LinearScale,
     Tooltip,
-    Legend
+    Legend,
 );
 
 function renderStackedChart(containerId: string, dataPoints: DataPoint[]) {
     console.log(`Rendering chart with DataPoints`, dataPoints);
     const persons = Array.from(new Set(dataPoints.map((d) => d.person)));
     const serviceNames = Array.from(
-        new Set(dataPoints.map((d) => d.serviceName))
+        new Set(dataPoints.map((d) => d.serviceName)),
     );
 
     const datasets = serviceNames.map((serviceName, idx) => ({
@@ -196,8 +199,8 @@ function renderStackedChart(containerId: string, dataPoints: DataPoint[]) {
         data: persons.map(
             (p) =>
                 dataPoints.find(
-                    (d) => d.person === p && d.serviceName === serviceName
-                )?.count ?? 0
+                    (d) => d.person === p && d.serviceName === serviceName,
+                )?.count ?? 0,
         ),
         backgroundColor: `hsl(${(idx * 60) % 360}, 70%, 60%)`,
     }));
@@ -234,7 +237,7 @@ async function main() {
     const dataPoints = countServicesPerPersonPerMonth(
         events,
         servicesDict,
-        selected_services
+        selected_services,
     );
 
     /* HTML Updates */
@@ -256,12 +259,12 @@ async function main() {
                           (service) =>
                               `<li>${
                                   servicesDict[service.serviceId]?.name ?? "?"
-                              } ${service.name ?? "?"}</li>`
+                              } ${service.name ?? "?"}</li>`,
                       )
                       .join("") ?? "<li>No services</li>"
               }
             </ul>
-          `
+          `,
           )
           .join("")}
     </div>

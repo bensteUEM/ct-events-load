@@ -151,7 +151,7 @@ export type AccountStatement = {
 };
 
 export type AccountType = {
-    balanceType: 'assets' | 'liabilities' | null;
+    balanceType: "assets" | "liabilities" | null;
     id: number;
     /**
      * @deprecated
@@ -163,7 +163,7 @@ export type AccountType = {
 };
 
 export type AccountTypeNew = {
-    balanceType: 'assets' | 'liabilities' | null;
+    balanceType: "assets" | "liabilities" | null;
     name: string;
     sortKey?: number;
 };
@@ -190,7 +190,7 @@ export type AccountingPeriod = AccountingPeriodBase & {
         /**
          * Flag if current user can edit this accounting period, like changing the name.
          */
-        'edit accounting period': boolean;
+        "edit accounting period": boolean;
     };
 };
 
@@ -226,23 +226,23 @@ export type Action = {
     group: ActionGroup | null;
     icon?: string;
     key:
-        | 'add-member-to-group'
-        | 'edit-group-membership'
-        | 'change-member-status-requested-waiting'
-        | 'change-member-status-requested-active'
-        | 'change-member-status-requested-to_delete'
-        | 'change-member-status-active-requested'
-        | 'change-member-status-active-waiting'
-        | 'change-member-status-active-to_delete'
-        | 'change-member-status-to_delete-requested'
-        | 'change-member-status-to_delete-waiting'
-        | 'change-member-status-to_delete-active'
-        | 'change-member-status-waiting-active'
-        | 'change-member-status-waiting-to_delete'
-        | 'send-member-email'
-        | 'create-follow-up'
-        | 'special:wait'
-        | 'special:repeat';
+        | "add-member-to-group"
+        | "edit-group-membership"
+        | "change-member-status-requested-waiting"
+        | "change-member-status-requested-active"
+        | "change-member-status-requested-to_delete"
+        | "change-member-status-active-requested"
+        | "change-member-status-active-waiting"
+        | "change-member-status-active-to_delete"
+        | "change-member-status-to_delete-requested"
+        | "change-member-status-to_delete-waiting"
+        | "change-member-status-to_delete-active"
+        | "change-member-status-waiting-active"
+        | "change-member-status-waiting-to_delete"
+        | "send-member-email"
+        | "create-follow-up"
+        | "special:wait"
+        | "special:repeat";
     name?: string;
 };
 
@@ -294,10 +294,7 @@ export type Address = AddressUpdate & {
 /**
  * Special color values used for groups
  */
-export enum AddressColor {
-    DEFAULT = 'default',
-    PARENT = 'parent',
-}
+export type AddressColor = 'default' | 'parent';
 
 export type AddressCreate = {
     addition: string | null;
@@ -423,11 +420,11 @@ export type AgendaItemBase = {
 };
 
 export type AgendaItemHeader = AgendaItemBase & {
-    type: 'header';
+    type: "header";
 };
 
 export type AgendaItemNormal = AgendaItemBase & {
-    type: 'normal';
+    type: "normal";
 };
 
 export type AgendaItemSong = AgendaItemBase & {
@@ -444,7 +441,7 @@ export type AgendaItemSong = AgendaItemBase & {
         songId?: number;
         title?: string;
     };
-    type: 'header';
+    type: "header";
 };
 
 export type AppointmentAdditionals = {
@@ -655,34 +652,33 @@ export type ArrangementCreate = {
 /**
  * Possible keys that the song is arranged in
  */
-export enum ArrangementKey {
-    A = 'A',
-    AB = 'Ab',
-    B = 'B',
-    BB = 'Bb',
-    C = 'C',
-    D = 'D',
-    DB = 'Db',
-    E = 'E',
-    EB = 'Eb',
-    F = 'F',
-    'F#' = 'F#',
-    G = 'G',
-    GB = 'Gb',
-    AM = 'Am',
-    BM = 'Bm',
-    BBM = 'Bbm',
-    CM = 'Cm',
-    'C#M' = 'C#m',
-    DM = 'Dm',
-    'D#M' = 'D#m',
-    EM = 'Em',
-    EBM = 'Ebm',
-    FM = 'Fm',
-    'F#M' = 'F#m',
-    GM = 'Gm',
-    'G#M' = 'G#m',
-}
+export type ArrangementKey =
+    | 'A'
+    | 'Ab'
+    | 'B'
+    | 'Bb'
+    | 'C'
+    | 'D'
+    | 'Db'
+    | 'E'
+    | 'Eb'
+    | 'F'
+    | 'F#'
+    | 'G'
+    | 'Gb'
+    | 'Am'
+    | 'Bm'
+    | 'Bbm'
+    | 'Cm'
+    | 'C#m'
+    | 'Dm'
+    | 'D#m'
+    | 'Em'
+    | 'Ebm'
+    | 'Fm'
+    | 'F#m'
+    | 'Gm'
+    | 'G#m';
 
 export type Association = {
     abbreviation: string;
@@ -874,10 +870,7 @@ export type BookingCreate = {
 /**
  * This is a string that can only be true or false.
  */
-export enum BooleanString {
-    _0 = '0',
-    _1 = '1',
-}
+export type BooleanString = '0' | '1';
 
 export type BulkInfos = {
     /**
@@ -922,7 +915,7 @@ export type Calendar = CalendarCreate & {
 };
 
 export type CalendarCreate = CalendarUpdate & {
-    type: 'church' | 'group' | 'personal';
+    type: "church" | "group" | "personal";
 };
 
 export type CalendarUpdate = {
@@ -987,12 +980,7 @@ export type ChatNew = {
 /**
  * status of chat room
  */
-export enum ChatStatus {
-    NOT_STARTED = 'NOT_STARTED',
-    STARTING = 'STARTING',
-    STARTED = 'STARTED',
-    STOPPED = 'STOPPED',
-}
+export type ChatStatus = 'NOT_STARTED' | 'STARTING' | 'STARTED' | 'STOPPED';
 
 export type ChatUpdate = {
     creator?: number;
@@ -1027,7 +1015,7 @@ export type CheckinCreate = {
 
 export type ChurchQuery = {
     description?: string;
-    method?: 'ChurchQuery';
+    method?: "ChurchQuery";
     params?: {
         computedFields?: Array<{
             name?: string;
@@ -1149,7 +1137,7 @@ export type Config = {
     alpha_book_enabled?: boolean;
     app_security_request?: boolean;
     authorized_persons?: string;
-    brand: 'ChurchTools' | 'VereinTools';
+    brand: "ChurchTools" | "VereinTools";
     build?: string;
     ccli_access_token?: string;
     ccli_auto_reporting_enabled?: boolean;
@@ -1281,7 +1269,7 @@ export type Config = {
     db_server?: string;
     db_user?: string;
     default_phone_area_code?: string;
-    emailServer?: 'own' | 'churchtools';
+    emailServer?: "own" | "churchtools";
     encryptionkey?: string;
     env?: string;
     evangelische_termine_api_key?: string;
@@ -1322,7 +1310,7 @@ export type Config = {
     last_translation_update?: string;
     ldap_otp_enabled?: boolean;
     licenseSettings?: {
-        hide_licensetab?: '0' | '1';
+        hide_licensetab?: "0" | "1";
     };
     log_debug?: BooleanString;
     login_message?: string;
@@ -1357,7 +1345,7 @@ export type Config = {
     post_sortcode?: number;
     post_wizard_completed?: boolean;
     post_wizard_groups?: string;
-    prevent_change_security_settings?: '0' | '1';
+    prevent_change_security_settings?: "0" | "1";
     prevent_export?: boolean;
     prevent_manual_finance_account_creation?: boolean;
     privacy_policy_external?: boolean;
@@ -1393,7 +1381,7 @@ export type Config = {
     site_offline?: boolean;
     site_startpage?: string;
     site_url?: string;
-    'support-user-active-since'?: ZuluDate;
+    "support-user-active-since"?: ZuluDate;
     test?: BooleanString;
     timezone?: string;
     verificationStatus: VerificationStatus;
@@ -1490,87 +1478,48 @@ export type Country = {
 /**
  * A color in ChurchTools
  */
-export enum CtColor {
-    ACCENT = 'accent',
-    AMBER = 'amber',
-    BASIC = 'basic',
-    BLUE = 'blue',
-    CRITICAL = 'critical',
-    CONSTRUCTIVE = 'constructive',
-    CYAN = 'cyan',
-    EMERALD = 'emerald',
-    ERROR = 'error',
-    FUCHSIA = 'fuchsia',
-    GREEN = 'green',
-    INDIGO = 'indigo',
-    INFO = 'info',
-    LIME = 'lime',
-    MAGIC = 'magic',
-    ORANGE = 'orange',
-    PINK = 'pink',
-    PURPLE = 'purple',
-    RED = 'red',
-    ROSE = 'rose',
-    SKY = 'sky',
-    SUCCESS = 'success',
-    TEAL = 'teal',
-    VIOLET = 'violet',
-    WARNING = 'warning',
-    YELLOW = 'yellow',
-    DESTRUCTIVE = 'destructive',
-}
+export type CtColor =
+    | 'accent'
+    | 'amber'
+    | 'basic'
+    | 'blue'
+    | 'critical'
+    | 'constructive'
+    | 'cyan'
+    | 'emerald'
+    | 'error'
+    | 'fuchsia'
+    | 'green'
+    | 'indigo'
+    | 'info'
+    | 'lime'
+    | 'magic'
+    | 'orange'
+    | 'pink'
+    | 'purple'
+    | 'red'
+    | 'rose'
+    | 'sky'
+    | 'success'
+    | 'teal'
+    | 'violet'
+    | 'warning'
+    | 'yellow'
+    | 'destructive';
 
-export type CtFile = {
-    additionalInfos: Array<string>;
-    domainId: string;
-    domainType: string;
-    fileUrl: string;
-    filename: string;
-    id: number;
-    imageOption: {
-        crop?: {
-            bottom: number;
-            left: number;
-            right: number;
-            top: number;
-        };
-        focus?: {
-            x: number;
-            y: number;
-        };
-    } | null;
-    imageUrl: string | null;
-    meta: {
-        createdDate: ZuluDate;
-        createdPerson?: DomainObjectPerson;
-        modifiedDate: ZuluDate;
-        modifiedPerson?: DomainObjectPerson;
-    };
-    name: string;
-    relativeUrl: string;
-    securityLevelId: number;
-    showOnlyWhenEditable: boolean;
-    /**
-     * The file size in byte
-     */
-    size: number | null;
-    type: 'file' | 'link';
-};
-
-export enum CtModule {
-    CHURCHCAL = 'churchcal',
-    CHURCHCHECKIN = 'churchcheckin',
-    CHURCHDB = 'churchdb',
-    CHURCHFINANCE = 'churchfinance',
-    CHURCHGROUP = 'churchgroup',
-    CHURCHREPORT = 'churchreport',
-    CHURCHRESOURCE = 'churchresource',
-    CHURCHSERVICE = 'churchservice',
-    CHURCHSYNC = 'churchsync',
-    CHURCHWIKI = 'churchwiki',
-    FINANCE = 'finance',
-    POST = 'post',
-}
+export type CtModule =
+    | 'churchcal'
+    | 'churchcheckin'
+    | 'churchdb'
+    | 'churchfinance'
+    | 'churchgroup'
+    | 'churchreport'
+    | 'churchresource'
+    | 'churchservice'
+    | 'churchsync'
+    | 'churchwiki'
+    | 'finance'
+    | 'post';
 
 export type CustomModule = CustomModuleCreate & {
     id: number;
@@ -1608,15 +1557,15 @@ export type CustomModuleDataValueCreate = {
  * A permission object for a specific custom module.
  */
 export type CustomModulePermission = {
-    'create custom category': boolean;
-    'create custom data': Array<number>;
-    'delete custom category': Array<number>;
-    'delete custom data': Array<number>;
-    'edit custom category': Array<number>;
-    'edit custom data': Array<number>;
+    "create custom category": boolean;
+    "create custom data": Array<number>;
+    "delete custom category": Array<number>;
+    "delete custom data": Array<number>;
+    "edit custom category": Array<number>;
+    "edit custom data": Array<number>;
     view: boolean;
-    'view custom category': Array<number>;
-    'view custom data': Array<number>;
+    "view custom category": Array<number>;
+    "view custom data": Array<number>;
 };
 
 /**
@@ -1765,7 +1714,7 @@ export type Device = {
     /**
      * Device Type
      */
-    type: 'APN' | 'FCM';
+    type: "APN" | "FCM";
     /**
      * Use meta.modifiedDate instead
      *
@@ -1801,7 +1750,7 @@ export type DomainObjectAction = {
         [key: string]: unknown;
     };
     domainIdentifier?: string;
-    domainType: '';
+    domainType: "";
     frontendUrl?: string;
     icon: string;
     imageUrl?: null;
@@ -1841,8 +1790,8 @@ export type DomainObjectEvent = DomainObject & {
     domainAttributes: {
         startDate?: string;
     };
-    domainType: 'event';
-    icon: 'calendar-day';
+    domainType: "event";
+    icon: "calendar-day";
 };
 
 /**
@@ -1853,25 +1802,25 @@ export type DomainObjectExternalPerson = DomainObject & {
     domainAttributes: {
         email?: string;
     };
-    domainType: 'externalPerson';
-    icon: 'user';
+    domainType: "externalPerson";
+    icon: "user";
 };
 
 export type DomainObjectFile = DomainObject & {
     domainAttributes: {
         [key: string]: unknown;
     };
-    domainType: 'file';
+    domainType: "file";
     frontendUrl: string;
-    icon: 'file';
+    icon: "file";
 };
 
 export type DomainObjectFurtherLink = DomainObject & {
     domainAttributes: {
         [key: string]: unknown;
     };
-    domainType: 'furtherLink';
-    icon: 'link';
+    domainType: "furtherLink";
+    icon: "link";
 };
 
 export type DomainObjectGroup = DomainObject & {
@@ -1882,11 +1831,11 @@ export type DomainObjectGroup = DomainObject & {
         groupTypeId: number;
         guid: string;
         note: string;
-        visibility: 'public' | 'hidden' | 'restricted' | 'intern';
+        visibility: "public" | "hidden" | "restricted" | "intern";
     };
-    domainType: 'group';
+    domainType: "group";
     frontendUrl: string;
-    icon: 'users';
+    icon: "users";
 };
 
 /**
@@ -1907,9 +1856,9 @@ export type DomainObjectGroupMembership = DomainObject & {
         personId: number;
         roleId: number;
     };
-    domainType: 'group_membership';
+    domainType: "group_membership";
     frontendUrl: string;
-    icon: 'user';
+    icon: "user";
     infos: Array<string>;
 };
 
@@ -1918,8 +1867,8 @@ export type DomainObjectGrouphomepage = DomainObject & {
         childGroupIds: Array<number>;
         parentGroupId: number;
     };
-    domainType: 'grouphomepage';
-    icon: 'globe';
+    domainType: "grouphomepage";
+    icon: "globe";
 };
 
 export type DomainObjectImage = {
@@ -1940,7 +1889,7 @@ export type DomainObjectImage = {
 };
 
 export type DomainObjectLogo = DomainObject & {
-    domainType: 'logo';
+    domainType: "logo";
     icon: string;
 };
 
@@ -1951,8 +1900,8 @@ export type DomainObjectOsmAddress = DomainObject & {
     domainAttributes: {
         [key: string]: unknown;
     };
-    domainType: 'osm-address';
-    icon: 'location-dot';
+    domainType: "osm-address";
+    icon: "location-dot";
 };
 
 export type DomainObjectPayload = {
@@ -1975,9 +1924,9 @@ export type DomainObjectPerson = DomainObject & {
         isArchived: boolean;
         lastName: string;
     };
-    domainType: 'person';
+    domainType: "person";
     frontendUrl: string;
-    icon: 'user';
+    icon: "user";
     infos: Array<string>;
 };
 
@@ -1985,8 +1934,8 @@ export type DomainObjectPost = DomainObject & {
     domainAttributes: {
         [key: string]: unknown;
     };
-    domainType: 'post';
-    icon: 'newspaper';
+    domainType: "post";
+    icon: "newspaper";
     infos: Array<string>;
 };
 
@@ -1994,16 +1943,16 @@ export type DomainObjectSong = DomainObject & {
     domainAttributes: {
         [key: string]: unknown;
     };
-    domainType: 'song';
-    icon: 'music';
+    domainType: "song";
+    icon: "music";
 };
 
 export type DomainObjectWikiPage = DomainObject & {
     domainAttributes: {
         wikiCategoryId: number;
     };
-    domainType: 'wiki_page';
-    icon: 'file';
+    domainType: "wiki_page";
+    icon: "file";
 };
 
 export type DomainType = string;
@@ -2090,7 +2039,12 @@ export type DynamicGroupRule = {
 /**
  * Status of dynamic group update.
  */
-export type DynamicGroupStatus = 'active' | 'inactive' | 'manual' | 'none' | null;
+export type DynamicGroupStatus =
+    | "active"
+    | "inactive"
+    | "manual"
+    | "none"
+    | null;
 
 export type Event = {
     adminIds?: Array<number>;
@@ -2238,13 +2192,13 @@ export type FactBase = {
 };
 
 export type FactNumber = FactBase & {
-    type: 'number';
+    type: "number";
     unit?: string;
 };
 
 export type FactSelect = FactBase & {
     options: Array<string>;
-    type: 'select';
+    type: "select";
 };
 
 export type FeatureUsage = {
@@ -2256,21 +2210,20 @@ export type FeatureUsage = {
      * Feature, tour or event name.
      */
     name: string;
-    type: 'feature' | 'tour' | 'event';
+    type: "feature" | "tour" | "event";
 };
 
 /**
  * The intern code of the field category the field belongs to. This is used to define the category of the field.
  */
-export enum FieldCategoryCode {
-    F_GROUP = 'f_group',
-    F_ADDRESS = 'f_address',
-    F_CHURCH = 'f_church',
-    F_CATEGORY = 'f_category',
-    F_DEP = 'f_dep',
-    F_GROWPATH = 'f_growpath',
-    F_DATASECURITY = 'f_datasecurity',
-}
+export type FieldCategoryCode =
+    | 'f_group'
+    | 'f_address'
+    | 'f_church'
+    | 'f_category'
+    | 'f_dep'
+    | 'f_growpath'
+    | 'f_datasecurity';
 
 /**
  * Field Mapping
@@ -2293,7 +2246,7 @@ export type FieldMappingEntry = {
     fromFilter?: string;
     id: number;
     others?: Array<unknown>;
-    system: 'master' | 'externalSystem';
+    system: "master" | "externalSystem";
     to: string;
     toFilter?: string;
     valueMapping?: Array<unknown>;
@@ -2307,18 +2260,54 @@ export type FieldOption = {
 /**
  * The intern code of the field type the field belongs to. This is used to define the type of the field.
  */
-export enum FieldTypeCode {
-    SELECT = 'select',
-    TEXT = 'text',
-    DATE = 'date',
-    DATETIME = 'datetime',
-    TEXTAREA = 'textarea',
-    CHECKBOX = 'checkbox',
-    NUMBER = 'number',
-    MULTISELECT = 'multiselect',
-    API = 'api',
-    RADIOSELECT = 'radioselect',
-}
+export type FieldTypeCode =
+    | 'select'
+    | 'text'
+    | 'date'
+    | 'datetime'
+    | 'textarea'
+    | 'checkbox'
+    | 'number'
+    | 'multiselect'
+    | 'api'
+    | 'radioselect';
+
+export type File = {
+    additionalInfos: Array<string>;
+    domainId: string;
+    domainType: string;
+    fileUrl: string;
+    filename: string;
+    id: number;
+    imageOption: {
+        crop?: {
+            bottom: number;
+            left: number;
+            right: number;
+            top: number;
+        };
+        focus?: {
+            x: number;
+            y: number;
+        };
+    } | null;
+    imageUrl: string | null;
+    meta: {
+        createdDate: ZuluDate;
+        createdPerson?: DomainObjectPerson;
+        modifiedDate: ZuluDate;
+        modifiedPerson?: DomainObjectPerson;
+    };
+    name: string;
+    relativeUrl: string;
+    securityLevelId: number;
+    showOnlyWhenEditable: boolean;
+    /**
+     * The file size in byte
+     */
+    size: number | null;
+    type: 'file' | 'link';
+};
 
 /**
  * File or Link
@@ -2403,7 +2392,7 @@ export type FollowUp2 = FollowUpCreate & {
     id: number;
     membershipId: number | null;
     meta: MetaDataEntityId;
-    origin: 'default' | 'routine' | 'bulk-job' | 'migration';
+    origin: "default" | "routine" | "bulk-job" | "migration";
     personId: number;
 };
 
@@ -2420,13 +2409,7 @@ export type FollowUpCreate = {
     title: string;
 };
 
-export enum FollowUpFilter {
-    DUE_TODAY = 'due-today',
-    DUE_AFTER_TODAY = 'due-after-today',
-    DUE_BEFORE_TODAY = 'due-before-today',
-    DUE_UNSPECIFIED = 'due-unspecified',
-    DONE = 'done',
-}
+export type FollowUpFilter = 'due-today' | 'due-after-today' | 'due-before-today' | 'due-unspecified' | 'done';
 
 export type FollowUpInterval = {
     count: number;
@@ -2476,7 +2459,7 @@ export type GetAllGroupMembersQueryParams = {
     allowed_chat_writers_only?: boolean;
     comment?: string;
     group_member_statuses?: Array<MemberStatus>;
-    include?: Array<'tags' | 'aggregations'>;
+    include?: Array<"tags" | "aggregations">;
     limit?: number;
     /**
      * A simple date in ISO format, e.g. '2022-10-19'
@@ -2486,7 +2469,7 @@ export type GetAllGroupMembersQueryParams = {
      * A simple date in ISO format, e.g. '2022-10-19'
      */
     member_start_date_before?: string;
-    orderDirections?: Array<'ASC' | 'DESC'>;
+    orderDirections?: Array<"ASC" | "DESC">;
     orderFields?: Array<string>;
     page?: number;
     personFields?: Array<string>;
@@ -2500,370 +2483,370 @@ export type GetAllGroupMembersQueryParams = {
  */
 export type GlobalPermissions = {
     churchcal?: {
-        'admin church category': boolean;
-        'admin group category': boolean;
-        'admin personal category': boolean;
-        'assistance mode': boolean;
-        'create group category': boolean;
-        'create personal category': boolean;
-        'edit calendar entry template': Array<number>;
-        'edit category': Array<number>;
+        "admin church category": boolean;
+        "admin group category": boolean;
+        "admin personal category": boolean;
+        "assistance mode": boolean;
+        "create group category": boolean;
+        "create personal category": boolean;
+        "edit calendar entry template": Array<number>;
+        "edit category": Array<number>;
         view: boolean;
-        'view category': Array<number>;
+        "view category": Array<number>;
     };
     churchcheckin?: {
-        'create person': boolean;
-        'edit masterdata': boolean;
+        "create person": boolean;
+        "edit masterdata": boolean;
         view: boolean;
     };
     churchcore?: {
-        'administer church html templates': boolean;
-        'administer custom modules'?: boolean;
-        'administer persons': boolean;
-        'administer settings': boolean;
-        'edit languages': Array<number>;
-        'edit public profiles': boolean;
-        'edit translations masterdata': boolean;
-        'edit website releases': boolean;
-        'edit website staff': boolean;
-        'invite persons': boolean;
-        'login to external system': Array<number>;
-        'simulate persons': boolean;
-        'use church html templates': Array<number>;
-        'use churchquery'?: boolean;
-        'view logfile': boolean;
-        'view website': boolean;
+        "administer church html templates": boolean;
+        "administer custom modules"?: boolean;
+        "administer persons": boolean;
+        "administer settings": boolean;
+        "edit languages": Array<number>;
+        "edit public profiles": boolean;
+        "edit translations masterdata": boolean;
+        "edit website releases": boolean;
+        "edit website staff": boolean;
+        "invite persons": boolean;
+        "login to external system": Array<number>;
+        "simulate persons": boolean;
+        "use church html templates": Array<number>;
+        "use churchquery"?: boolean;
+        "view logfile": boolean;
+        "view website": boolean;
     };
     churchdb?: {
-        'administer global filters': boolean;
+        "administer global filters": boolean;
         /**
          * @deprecated
          */
-        'administer groups': boolean;
-        'complex filter': boolean;
+        "administer groups": boolean;
+        "complex filter": boolean;
         /**
          * @deprecated
          */
-        'create groups of grouptype': Array<number>;
-        'create person': boolean;
-        'create print labels': boolean;
+        "create groups of grouptype": Array<number>;
+        "create person": boolean;
+        "create print labels": boolean;
         /**
          * @deprecated
          */
-        'delete group': Array<number>;
+        "delete group": Array<number>;
         /**
          * @deprecated
          */
-        'delete groups of grouptype': Array<number>;
-        'delete persons': boolean;
-        'edit bulkletter': boolean;
+        "delete groups of grouptype": Array<number>;
+        "delete persons": boolean;
+        "edit bulkletter": boolean;
         /**
          * @deprecated
          */
-        'edit group': Array<number>;
-        'edit group memberships': boolean;
+        "edit group": Array<number>;
+        "edit group memberships": boolean;
         /**
          * @deprecated
          */
-        'edit group memberships of group': Array<number>;
+        "edit group memberships of group": Array<number>;
         /**
          * @deprecated
          */
-        'edit group memberships of grouptype': Array<number>;
+        "edit group memberships of grouptype": Array<number>;
         /**
          * @deprecated
          */
-        'edit groups of grouptype': Array<number>;
-        'edit masterdata': boolean;
-        'edit relations': boolean;
-        'export data': boolean;
-        'push/pull archive': boolean;
-        'security level edit own data': Array<number>;
+        "edit groups of grouptype": Array<number>;
+        "edit masterdata": boolean;
+        "edit relations": boolean;
+        "export data": boolean;
+        "push/pull archive": boolean;
+        "security level edit own data": Array<number>;
         /**
          * @deprecated
          */
-        'security level group': Array<number>;
-        'security level person': Array<number>;
-        'security level view own data': Array<number>;
-        'send sms': boolean;
+        "security level group": Array<number>;
+        "security level person": Array<number>;
+        "security level view own data": Array<number>;
+        "send sms": boolean;
         view: boolean;
-        'view alldata': Array<number>;
-        'view archive': boolean;
-        'view birthdaylist': boolean;
-        'view comments': Array<number>;
+        "view alldata": Array<number>;
+        "view archive": boolean;
+        "view birthdaylist": boolean;
+        "view comments": Array<number>;
         /**
          * @deprecated
          */
-        'view group': Array<number>;
+        "view group": Array<number>;
         /**
          * @deprecated
          */
-        'view groups of grouptype': Array<number>;
-        'view memberliste': boolean;
-        'view person history': boolean;
-        'view person tags': boolean;
-        'view station': Array<number>;
-        'view statistics': boolean;
+        "view groups of grouptype": Array<number>;
+        "view memberliste": boolean;
+        "view person history": boolean;
+        "view person tags": boolean;
+        "view station": Array<number>;
+        "view statistics": boolean;
         /**
          * @deprecated
          */
-        'view tags': boolean;
-        'write access': boolean;
+        "view tags": boolean;
+        "write access": boolean;
     };
     churchgroup?: {
-        'administer global views': boolean;
-        'administer groups': boolean;
-        'create groups of grouptype': Array<number>;
-        'delete group': Array<number>;
-        'delete groups of grouptype': Array<number>;
-        'edit group': Array<number>;
-        'edit group memberships of group': Array<number>;
-        'edit group memberships of grouptype': Array<number>;
-        'edit groups of grouptype': Array<number>;
-        'edit masterdata': boolean;
-        'security level group': Array<number>;
+        "administer global views": boolean;
+        "administer groups": boolean;
+        "create groups of grouptype": Array<number>;
+        "delete group": Array<number>;
+        "delete groups of grouptype": Array<number>;
+        "edit group": Array<number>;
+        "edit group memberships of group": Array<number>;
+        "edit group memberships of grouptype": Array<number>;
+        "edit groups of grouptype": Array<number>;
+        "edit masterdata": boolean;
+        "security level group": Array<number>;
         view: boolean;
-        'view group': Array<number>;
-        'view group history': boolean;
-        'view group tags': boolean;
-        'view groups of grouptype': Array<number>;
+        "view group": Array<number>;
+        "view group history": boolean;
+        "view group tags": boolean;
+        "view groups of grouptype": Array<number>;
     };
     churchreport?: {
-        'edit masterdata': boolean;
+        "edit masterdata": boolean;
         view: boolean;
-        'view query': Array<number>;
+        "view query": Array<number>;
     };
     churchresource?: {
-        'administer bookings': Array<number>;
-        'assistance mode': boolean;
-        'create bookings': Array<number>;
-        'create virtual bookings': boolean;
-        'edit masterdata': boolean;
+        "administer bookings": Array<number>;
+        "assistance mode": boolean;
+        "create bookings": Array<number>;
+        "create virtual bookings": boolean;
+        "edit masterdata": boolean;
         view: boolean;
-        'view resource': Array<number>;
+        "view resource": Array<number>;
     };
     churchservice?: {
-        'edit agenda': Array<number>;
-        'edit agenda templates': Array<number>;
-        'edit events': Array<number>;
-        'edit fact': Array<number>;
-        'edit masterdata': boolean;
-        'edit servicegroup': Array<number>;
-        'edit songcategory': Array<number>;
-        'edit template': boolean;
-        'export facts': boolean;
-        'manage absent': boolean;
-        'use ccli': boolean;
+        "edit agenda": Array<number>;
+        "edit agenda templates": Array<number>;
+        "edit events": Array<number>;
+        "edit fact": Array<number>;
+        "edit masterdata": boolean;
+        "edit servicegroup": Array<number>;
+        "edit songcategory": Array<number>;
+        "edit template": boolean;
+        "export facts": boolean;
+        "manage absent": boolean;
+        "use ccli": boolean;
         view: boolean;
-        'view agenda': Array<number>;
-        'view events': Array<number>;
-        'view fact': Array<number>;
-        'view history': boolean;
-        'view servicegroup': Array<number>;
-        'view song statistics': boolean;
-        'view songcategory': Array<number>;
+        "view agenda": Array<number>;
+        "view events": Array<number>;
+        "view fact": Array<number>;
+        "view history": boolean;
+        "view servicegroup": Array<number>;
+        "view song statistics": boolean;
+        "view songcategory": Array<number>;
     };
     churchsync?: {
         view: boolean;
     };
     churchwiki?: {
-        'edit category': Array<number>;
-        'edit masterdata': boolean;
+        "edit category": Array<number>;
+        "edit masterdata": boolean;
         view: boolean;
-        'view category': Array<number>;
+        "view category": Array<number>;
     };
     finance?: {
-        'edit accounting period': Array<number>;
-        'edit masterdata': boolean;
+        "edit accounting period": Array<number>;
+        "edit masterdata": boolean;
         view: boolean;
-        'view accounting period': Array<number>;
+        "view accounting period": Array<number>;
     };
     post?: {
-        'moderate posts': boolean;
+        "moderate posts": boolean;
     };
     [key: string]:
         | CustomModulePermission
         | {
-              'admin church category': boolean;
-              'admin group category': boolean;
-              'admin personal category': boolean;
-              'assistance mode': boolean;
-              'create group category': boolean;
-              'create personal category': boolean;
-              'edit calendar entry template': Array<number>;
-              'edit category': Array<number>;
+              "admin church category": boolean;
+              "admin group category": boolean;
+              "admin personal category": boolean;
+              "assistance mode": boolean;
+              "create group category": boolean;
+              "create personal category": boolean;
+              "edit calendar entry template": Array<number>;
+              "edit category": Array<number>;
               view: boolean;
-              'view category': Array<number>;
+              "view category": Array<number>;
           }
         | {
-              'create person': boolean;
-              'edit masterdata': boolean;
-              view: boolean;
-          }
-        | {
-              'administer church html templates': boolean;
-              'administer custom modules'?: boolean;
-              'administer persons': boolean;
-              'administer settings': boolean;
-              'edit languages': Array<number>;
-              'edit public profiles': boolean;
-              'edit translations masterdata': boolean;
-              'edit website releases': boolean;
-              'edit website staff': boolean;
-              'invite persons': boolean;
-              'login to external system': Array<number>;
-              'simulate persons': boolean;
-              'use church html templates': Array<number>;
-              'use churchquery'?: boolean;
-              'view logfile': boolean;
-              'view website': boolean;
-          }
-        | {
-              'administer global filters': boolean;
-              /**
-               * @deprecated
-               */
-              'administer groups': boolean;
-              'complex filter': boolean;
-              /**
-               * @deprecated
-               */
-              'create groups of grouptype': Array<number>;
-              'create person': boolean;
-              'create print labels': boolean;
-              /**
-               * @deprecated
-               */
-              'delete group': Array<number>;
-              /**
-               * @deprecated
-               */
-              'delete groups of grouptype': Array<number>;
-              'delete persons': boolean;
-              'edit bulkletter': boolean;
-              /**
-               * @deprecated
-               */
-              'edit group': Array<number>;
-              'edit group memberships': boolean;
-              /**
-               * @deprecated
-               */
-              'edit group memberships of group': Array<number>;
-              /**
-               * @deprecated
-               */
-              'edit group memberships of grouptype': Array<number>;
-              /**
-               * @deprecated
-               */
-              'edit groups of grouptype': Array<number>;
-              'edit masterdata': boolean;
-              'edit relations': boolean;
-              'export data': boolean;
-              'push/pull archive': boolean;
-              'security level edit own data': Array<number>;
-              /**
-               * @deprecated
-               */
-              'security level group': Array<number>;
-              'security level person': Array<number>;
-              'security level view own data': Array<number>;
-              'send sms': boolean;
-              view: boolean;
-              'view alldata': Array<number>;
-              'view archive': boolean;
-              'view birthdaylist': boolean;
-              'view comments': Array<number>;
-              /**
-               * @deprecated
-               */
-              'view group': Array<number>;
-              /**
-               * @deprecated
-               */
-              'view groups of grouptype': Array<number>;
-              'view memberliste': boolean;
-              'view person history': boolean;
-              'view person tags': boolean;
-              'view station': Array<number>;
-              'view statistics': boolean;
-              /**
-               * @deprecated
-               */
-              'view tags': boolean;
-              'write access': boolean;
-          }
-        | {
-              'administer global views': boolean;
-              'administer groups': boolean;
-              'create groups of grouptype': Array<number>;
-              'delete group': Array<number>;
-              'delete groups of grouptype': Array<number>;
-              'edit group': Array<number>;
-              'edit group memberships of group': Array<number>;
-              'edit group memberships of grouptype': Array<number>;
-              'edit groups of grouptype': Array<number>;
-              'edit masterdata': boolean;
-              'security level group': Array<number>;
-              view: boolean;
-              'view group': Array<number>;
-              'view group history': boolean;
-              'view group tags': boolean;
-              'view groups of grouptype': Array<number>;
-          }
-        | {
-              'edit masterdata': boolean;
-              view: boolean;
-              'view query': Array<number>;
-          }
-        | {
-              'administer bookings': Array<number>;
-              'assistance mode': boolean;
-              'create bookings': Array<number>;
-              'create virtual bookings': boolean;
-              'edit masterdata': boolean;
-              view: boolean;
-              'view resource': Array<number>;
-          }
-        | {
-              'edit agenda': Array<number>;
-              'edit agenda templates': Array<number>;
-              'edit events': Array<number>;
-              'edit fact': Array<number>;
-              'edit masterdata': boolean;
-              'edit servicegroup': Array<number>;
-              'edit songcategory': Array<number>;
-              'edit template': boolean;
-              'export facts': boolean;
-              'manage absent': boolean;
-              'use ccli': boolean;
-              view: boolean;
-              'view agenda': Array<number>;
-              'view events': Array<number>;
-              'view fact': Array<number>;
-              'view history': boolean;
-              'view servicegroup': Array<number>;
-              'view song statistics': boolean;
-              'view songcategory': Array<number>;
-          }
-        | {
+              "create person": boolean;
+              "edit masterdata": boolean;
               view: boolean;
           }
         | {
-              'edit category': Array<number>;
-              'edit masterdata': boolean;
-              view: boolean;
-              'view category': Array<number>;
+              "administer church html templates": boolean;
+              "administer custom modules"?: boolean;
+              "administer persons": boolean;
+              "administer settings": boolean;
+              "edit languages": Array<number>;
+              "edit public profiles": boolean;
+              "edit translations masterdata": boolean;
+              "edit website releases": boolean;
+              "edit website staff": boolean;
+              "invite persons": boolean;
+              "login to external system": Array<number>;
+              "simulate persons": boolean;
+              "use church html templates": Array<number>;
+              "use churchquery"?: boolean;
+              "view logfile": boolean;
+              "view website": boolean;
           }
         | {
-              'edit accounting period': Array<number>;
-              'edit masterdata': boolean;
+              "administer global filters": boolean;
+              /**
+               * @deprecated
+               */
+              "administer groups": boolean;
+              "complex filter": boolean;
+              /**
+               * @deprecated
+               */
+              "create groups of grouptype": Array<number>;
+              "create person": boolean;
+              "create print labels": boolean;
+              /**
+               * @deprecated
+               */
+              "delete group": Array<number>;
+              /**
+               * @deprecated
+               */
+              "delete groups of grouptype": Array<number>;
+              "delete persons": boolean;
+              "edit bulkletter": boolean;
+              /**
+               * @deprecated
+               */
+              "edit group": Array<number>;
+              "edit group memberships": boolean;
+              /**
+               * @deprecated
+               */
+              "edit group memberships of group": Array<number>;
+              /**
+               * @deprecated
+               */
+              "edit group memberships of grouptype": Array<number>;
+              /**
+               * @deprecated
+               */
+              "edit groups of grouptype": Array<number>;
+              "edit masterdata": boolean;
+              "edit relations": boolean;
+              "export data": boolean;
+              "push/pull archive": boolean;
+              "security level edit own data": Array<number>;
+              /**
+               * @deprecated
+               */
+              "security level group": Array<number>;
+              "security level person": Array<number>;
+              "security level view own data": Array<number>;
+              "send sms": boolean;
               view: boolean;
-              'view accounting period': Array<number>;
+              "view alldata": Array<number>;
+              "view archive": boolean;
+              "view birthdaylist": boolean;
+              "view comments": Array<number>;
+              /**
+               * @deprecated
+               */
+              "view group": Array<number>;
+              /**
+               * @deprecated
+               */
+              "view groups of grouptype": Array<number>;
+              "view memberliste": boolean;
+              "view person history": boolean;
+              "view person tags": boolean;
+              "view station": Array<number>;
+              "view statistics": boolean;
+              /**
+               * @deprecated
+               */
+              "view tags": boolean;
+              "write access": boolean;
           }
         | {
-              'moderate posts': boolean;
+              "administer global views": boolean;
+              "administer groups": boolean;
+              "create groups of grouptype": Array<number>;
+              "delete group": Array<number>;
+              "delete groups of grouptype": Array<number>;
+              "edit group": Array<number>;
+              "edit group memberships of group": Array<number>;
+              "edit group memberships of grouptype": Array<number>;
+              "edit groups of grouptype": Array<number>;
+              "edit masterdata": boolean;
+              "security level group": Array<number>;
+              view: boolean;
+              "view group": Array<number>;
+              "view group history": boolean;
+              "view group tags": boolean;
+              "view groups of grouptype": Array<number>;
+          }
+        | {
+              "edit masterdata": boolean;
+              view: boolean;
+              "view query": Array<number>;
+          }
+        | {
+              "administer bookings": Array<number>;
+              "assistance mode": boolean;
+              "create bookings": Array<number>;
+              "create virtual bookings": boolean;
+              "edit masterdata": boolean;
+              view: boolean;
+              "view resource": Array<number>;
+          }
+        | {
+              "edit agenda": Array<number>;
+              "edit agenda templates": Array<number>;
+              "edit events": Array<number>;
+              "edit fact": Array<number>;
+              "edit masterdata": boolean;
+              "edit servicegroup": Array<number>;
+              "edit songcategory": Array<number>;
+              "edit template": boolean;
+              "export facts": boolean;
+              "manage absent": boolean;
+              "use ccli": boolean;
+              view: boolean;
+              "view agenda": Array<number>;
+              "view events": Array<number>;
+              "view fact": Array<number>;
+              "view history": boolean;
+              "view servicegroup": Array<number>;
+              "view song statistics": boolean;
+              "view songcategory": Array<number>;
+          }
+        | {
+              view: boolean;
+          }
+        | {
+              "edit category": Array<number>;
+              "edit masterdata": boolean;
+              view: boolean;
+              "view category": Array<number>;
+          }
+        | {
+              "edit accounting period": Array<number>;
+              "edit masterdata": boolean;
+              view: boolean;
+              "view accounting period": Array<number>;
+          }
+        | {
+              "moderate posts": boolean;
           }
         | undefined;
 };
@@ -3124,7 +3107,7 @@ export type GroupHomepage = {
     /**
      * Type how groups are listed on the page.
      */
-    defaultView?: 'tile' | 'minitile' | 'list';
+    defaultView?: "tile" | "minitile" | "list";
     /**
      * The depth of the group hierarchy that should be displayed on the group homepage.
      */
@@ -3138,7 +3121,12 @@ export type GroupHomepage = {
      */
     filters: Array<{
         show: boolean;
-        type: 'weekday' | 'targetgroups' | 'agegroups' | 'groupcategory' | 'campus';
+        type:
+            | "weekday"
+            | "targetgroups"
+            | "agegroups"
+            | "groupcategory"
+            | "campus";
     }>;
     /**
      * Array of groups to be displayed on the group homepage.
@@ -3161,11 +3149,11 @@ export type GroupHomepage = {
     /**
      * Group field to sort groups by.
      */
-    orderBy?: 'name' | 'dateOfFoundation';
+    orderBy?: "name" | "dateOfFoundation";
     /**
      * Direction if groups are sorted ascending or descending.
      */
-    orderDirection?: 'ASC' | 'DESC';
+    orderDirection?: "ASC" | "DESC";
     /**
      * ID of the parent group of all groups that should be displayed in the group homepage
      */
@@ -3240,18 +3228,13 @@ export type GroupMeeting = {
     startDate: ZuluDate;
     statistics: {
         absent?: number;
-        'not-in-group'?: number;
+        "not-in-group"?: number;
         present?: number;
         unsure?: number;
     };
 };
 
-export enum GroupMeetingAttendance {
-    ABSENT = 'absent',
-    NOT_IN_GROUP = 'not-in-group',
-    PRESENT = 'present',
-    UNSURE = 'unsure',
-}
+export type GroupMeetingAttendance = 'absent' | 'not-in-group' | 'present' | 'unsure';
 
 export type GroupMeetingMember = {
     isCheckedIn: boolean;
@@ -3321,11 +3304,11 @@ export type GroupMemberExportConfig = {
 export type GroupMemberField =
     | {
           field: GroupMemberFieldPerson;
-          type: 'person';
+          type: "person";
       }
     | {
           field: GroupMemberFieldGroup;
-          type: 'group';
+          type: "group";
       };
 
 export type GroupMemberFieldGroup = GroupMemberFieldGroupCreate & {
@@ -3387,19 +3370,19 @@ export type GroupMemberHistoryEntry = {
     memberId: number;
     meta: MetaDataCreatedId;
     origin?:
-        | 'automatic'
-        | 'bulk-job'
-        | 'check-in'
-        | 'cron'
-        | 'default'
-        | 'duplicate-group'
-        | 'follow-up'
-        | 'group-creation'
-        | 'person-deletion'
-        | 'routine'
-        | 'self-registration'
-        | 'sign-up'
-        | 'waitinglist';
+        | "automatic"
+        | "bulk-job"
+        | "check-in"
+        | "cron"
+        | "default"
+        | "duplicate-group"
+        | "follow-up"
+        | "group-creation"
+        | "person-deletion"
+        | "routine"
+        | "self-registration"
+        | "sign-up"
+        | "waitinglist";
     previous: {
         comment?: string;
         endDate?: DateString;
@@ -3435,7 +3418,7 @@ export type GroupPostStatistics = {
 
 export type GroupQrCodeCheckin = {
     domainId: number;
-    domainType: 'group';
+    domainType: "group";
     downloadedDate: ZuluDateNullable;
     expiryDate: ZuluDateNullable;
     isQueued: boolean;
@@ -3506,7 +3489,7 @@ export type GroupStatistics = {
 
 export type GroupStatus = {
     id: number;
-    name: 'active' | 'pending' | 'archived' | 'finished';
+    name: "active" | "pending" | "archived" | "finished";
     nameTranslated: string;
     sortKey: number;
 };
@@ -3536,23 +3519,18 @@ export type GroupTypeUpdate = GroupTypeCreate & {
 /**
  * The visibility of a group.
  */
-export enum GroupVisibility {
-    HIDDEN = 'hidden',
-    INTERN = 'intern',
-    RESTRICTED = 'restricted',
-    PUBLIC = 'public',
-}
+export type GroupVisibility = 'hidden' | 'intern' | 'restricted' | 'public';
 
 export type GroupedGroups = {
     groupedBy:
-        | 'campus'
-        | 'groupCategory'
-        | 'groupType'
-        | 'groupStatus'
-        | 'targetGroup'
-        | 'ageGroup'
-        | 'visibility'
-        | 'isOpenForMembers';
+        | "campus"
+        | "groupCategory"
+        | "groupType"
+        | "groupStatus"
+        | "targetGroup"
+        | "ageGroup"
+        | "visibility"
+        | "isOpenForMembers";
     groupedGroups: {
         [key: string]: {
             all: number;
@@ -3581,13 +3559,12 @@ export type HtmlTemplate = {
     usedByAutomaticEmails: boolean;
 };
 
-export enum HtmlTemplateDomainType {
-    EMAIL = 'email',
-    BULKLETTER = 'bulkletter',
-    GROUPMEMBER_DOCUMENT = 'groupmember-document',
-    DONATION_RECEIPT_LETTER = 'donation-receipt-letter',
-    DONATION_RECEIPT_ATTACHMENT = 'donation-receipt-attachment',
-}
+export type HtmlTemplateDomainType =
+    | 'email'
+    | 'bulkletter'
+    | 'groupmember-document'
+    | 'donation-receipt-letter'
+    | 'donation-receipt-attachment';
 
 export type HtmlTemplateInfo = {
     id?: number;
@@ -3628,10 +3605,10 @@ export type InternalGroupPermissions = {
      * Group Internal Permission, which Affect a Person
      */
     churchdb: {
-        '+add person'?: boolean;
-        '+admin automatic emails'?: boolean;
-        '+admin followup'?: boolean;
-        '+admin group chat'?: boolean;
+        "+add person"?: boolean;
+        "+admin automatic emails"?: boolean;
+        "+admin followup"?: boolean;
+        "+admin group chat"?: boolean;
         /**
          * @deprecated
          */
@@ -3639,7 +3616,6 @@ export type InternalGroupPermissions = {
         '+admin group member fields'?: boolean;
         '+admin meetings'?: boolean;
         '+admin posts'?: boolean;
-        '+admin routines'?: boolean;
         '+create group'?: boolean;
         '+create notes'?: boolean;
         '+create post group intern'?: boolean;
@@ -3654,56 +3630,38 @@ export type InternalGroupPermissions = {
         /**
          * @deprecated
          */
-        '+edit group memberships'?: boolean;
-        '+edit own group member fields'?: number;
+        "+edit group memberships"?: boolean;
+        "+edit own group member fields"?: number;
         /**
          * @deprecated
          */
-        '+edit own groupmemberfields'?: boolean;
-        '+edit person fields of group members'?: number;
+        "+edit own groupmemberfields"?: boolean;
+        "+edit person fields of group members"?: number;
         /**
          * @deprecated
          */
-        '+edit persons'?: boolean;
-        '+export group members'?: boolean;
-        '+get emails'?: boolean;
-        '+invite person'?: boolean;
-        '+mail group members'?: boolean;
-        '+remove from group'?: boolean;
-        '+see group'?: number;
-        '+see group member fields'?: number;
-        '+see group tags'?: boolean;
+        "+edit persons"?: boolean;
+        "+export group members"?: boolean;
+        "+get emails"?: boolean;
+        "+invite person"?: boolean;
+        "+mail group members"?: boolean;
+        "+remove from group"?: boolean;
+        "+see group"?: number;
+        "+see group member fields"?: number;
+        "+see group tags"?: boolean;
         /**
          * @deprecated
          */
-        '+see groupmemberfields'?: number;
-        '+see hidden group'?: boolean;
-        '+see own group member fields'?: number;
-        '+see persons'?: number;
-        '+see tags'?: boolean;
-        '+view history'?: boolean;
+        "+see groupmemberfields"?: number;
+        "+see hidden group"?: boolean;
+        "+see own group member fields"?: number;
+        "+see persons"?: number;
+        "+see tags"?: boolean;
+        "+view history"?: boolean;
     };
 };
 
-export type InternalPersonPermissions = {
-    churchdb: {
-        '+do followup'?: boolean;
-        '+edit person field of group members'?: number;
-        '+edit persons'?: boolean;
-        '+invite person'?: boolean;
-        '+see persons'?: number;
-        '+see tags'?: boolean;
-    };
-    churchservice: {
-        '+see workload'?: boolean;
-    };
-};
-
-export enum InvitationStatus {
-    NOT_INVITED = 'not_invited',
-    ACCEPTED = 'accepted',
-    PENDING = 'pending',
-}
+export type InvitationStatus = 'not_invited' | 'accepted' | 'pending';
 
 /**
  * Job
@@ -3800,26 +3758,12 @@ export type Language = {
 /**
  * The language code is a two-letter code that represents the language. For example, "en" for English, "de" for German, and "fr" for French.
  */
-export enum LanguageCode {
-    DE = 'de',
-    EN = 'en',
-    FR = 'fr',
-    ES = 'es',
-    CN = 'cn',
-    TW = 'tw',
-    FA = 'fa',
-    PT = 'pt',
-    RU = 'ru',
-    NL = 'nl',
-    PL = 'pl',
-    IT = 'it',
-    FI = 'fi',
-}
+export type LanguageCode = 'de' | 'en' | 'fr' | 'es' | 'cn' | 'tw' | 'fa' | 'pt' | 'ru' | 'nl' | 'pl' | 'it' | 'fi';
 
 export type Linking = LinkingOpenGraph;
 
 export type LinkingBase = {
-    fetchStatus: 'timeout-short' | 'http-error' | 'success';
+    fetchStatus: "timeout-short" | "http-error" | "success";
     url: string;
 };
 
@@ -3865,7 +3809,7 @@ export type LinkingOpenGraph = LinkingBase & {
         url?: string;
         videos?: Array<OpenGraphVideo>;
     } | null;
-    linkingType: 'opengraph';
+    linkingType: "opengraph";
 };
 
 /**
@@ -3971,7 +3915,7 @@ export type MeetingTemplateCreate = {
 export type MeetingTemplateField = {
     label: string;
     options?: string | Array<string> | null;
-    type: 'color' | 'textarea' | 'caption' | 'input' | 'checkbox' | 'select';
+    type: "color" | "textarea" | "caption" | "input" | "checkbox" | "select";
     value?: string | null;
 };
 
@@ -3995,12 +3939,7 @@ export type MemberPreview = {
     role: Role;
 };
 
-export enum MemberStatus {
-    ACTIVE = 'active',
-    REQUESTED = 'requested',
-    TO_DELETE = 'to_delete',
-    WAITING = 'waiting',
-}
+export type MemberStatus = 'active' | 'requested' | 'to_delete' | 'waiting';
 
 export type MembershipNew = {
     comment?: string | null;
@@ -4010,7 +3949,7 @@ export type MembershipNew = {
     fields?: {
         [key: string]: unknown;
     } | null;
-    groupMemberStatus?: 'active' | 'requested' | 'to_delete' | 'waiting';
+    groupMemberStatus?: "active" | "requested" | "to_delete" | "waiting";
     groupTypeRoleId?: number | null;
     ignoreGroupFull?: boolean | null;
     informLeader?: boolean | null;
@@ -4031,7 +3970,7 @@ export type MembershipUpdate = {
     fields?: {
         [key: string]: unknown;
     } | null;
-    groupMemberStatus?: 'active' | 'requested' | 'to_delete' | 'waiting';
+    groupMemberStatus?: "active" | "requested" | "to_delete" | "waiting";
     groupTypeRoleId?: number;
     informLeader?: boolean;
     memberEndDate?: DateStringNullable;
@@ -4105,11 +4044,7 @@ export type MetaPagination = {
     };
 };
 
-export enum MovementState {
-    OPEN = 'open',
-    BOOKED = 'booked',
-    IGNORED = 'ignored',
-}
+export type MovementState = 'open' | 'booked' | 'ignored';
 
 export type MovementSuggestion = {
     bills: Array<{
@@ -4152,12 +4087,7 @@ export type NoteDomainObjectLink = {
 /**
  * Domain types that notes can be used with
  */
-export enum NoteDomainType {
-    FOLLOW_UP = 'follow_up',
-    GROUP = 'group',
-    PERSON = 'person',
-    SONG_ARRANGEMENT = 'song_arrangement',
-}
+export type NoteDomainType = 'follow_up' | 'group' | 'person' | 'song_arrangement';
 
 export type OAuthClient = OAuthClientNew & {
     identifier: string;
@@ -4368,29 +4298,28 @@ export type OpenGraphVideo = {
     writers?: Array<string>;
 };
 
-export enum OrderStatus {
-    AUFTRAG = 'Auftrag',
-    FINDER = 'Finder',
-    FINDER_COMBO = 'FinderCombo',
-    WEBSITE_COMBO = 'WebsiteCombo',
-    TESTPHASE = 'Testphase',
-    ENTSCHEIDUNG = 'Entscheidung',
-    BEDENKZEIT = 'Bedenkzeit',
-    MITARBEITER = 'Mitarbeiter',
-    ZU_LÖSCHEN = 'zu löschen',
-    VORLAGE_SCHULUNG_TEST = 'Vorlage/Schulung/Test',
-    UNBEKANNT = 'Unbekannt',
-}
+export type OrderStatus =
+    | 'Auftrag'
+    | 'Finder'
+    | 'FinderCombo'
+    | 'WebsiteCombo'
+    | 'Testphase'
+    | 'Entscheidung'
+    | 'Bedenkzeit'
+    | 'Mitarbeiter'
+    | 'zu löschen'
+    | 'Vorlage/Schulung/Test'
+    | 'Unbekannt';
 
 export type Permission = {
     authId?: number;
     dataId?: number | null;
     domainId?: number;
-    domainType?: 'status' | 'group_type_role' | 'group_role' | 'person';
+    domainType?: "status" | "group_type_role" | "group_role" | "person";
     isInherited?: boolean;
     meta?: MetaDataModifiedId;
     reason?: string | null;
-    type?: 'grant' | 'revoke';
+    type?: "grant" | "revoke";
 };
 
 /**
@@ -4550,13 +4479,12 @@ export type PersonPostStatistics = {
     total?: number;
 };
 
-export enum PersonPostsFilterParam {
-    PUBLICATION_FUTURE = 'publication_future',
-    EXPIRATION_FUTURE = 'expiration_future',
-    EXPIRATION_PAST = 'expiration_past',
-    PUBLISHED = 'published',
-    BANNED = 'banned',
-}
+export type PersonPostsFilterParam =
+    | 'publication_future'
+    | 'expiration_future'
+    | 'expiration_past'
+    | 'published'
+    | 'banned';
 
 export type PersonPrivacyPolicy = {
     owner: {
@@ -4640,19 +4568,19 @@ export type PersonRelationship = {
 export type PersonSetting = {
     attribute?: string;
     module?:
-        | 'churchcore'
-        | 'churchdb'
-        | 'finance'
-        | 'global'
-        | 'churchservice'
-        | 'churchreport'
-        | 'churchresource'
-        | 'churchhome'
-        | 'churchcheckin'
-        | 'churchcal'
-        | 'churchauth'
-        | 'churchfinance'
-        | 'post';
+        | "churchcore"
+        | "churchdb"
+        | "finance"
+        | "global"
+        | "churchservice"
+        | "churchreport"
+        | "churchresource"
+        | "churchhome"
+        | "churchcheckin"
+        | "churchcal"
+        | "churchauth"
+        | "churchfinance"
+        | "post";
     /**
      * Mixed content. Each setting has its own type.
      */
@@ -4751,7 +4679,7 @@ export type PlaceCreate = {
      * Longitude
      */
     geoLng?: string | null;
-    markerColor?: CtColor | 'parent' | 'default';
+    markerColor?: CtColor | "parent" | "default";
     markerIcon?: string;
     /**
      * url for the marker icon
@@ -4817,7 +4745,7 @@ export type PossiblePostGroup = {
     featuredGroup: boolean;
     group: DomainObjectGroup;
     roleName: string;
-    type: 'postPossible' | 'signupAndPostPossible';
+    type: "postPossible" | "signupAndPostPossible";
 };
 
 export type Post = PostBase & {
@@ -4879,7 +4807,7 @@ export type PostLinking = {
 /**
  * Default value for post notification scope.
  */
-export type PostNotificationScope = 'group_visible' | 'group_intern' | null;
+export type PostNotificationScope = "group_visible" | "group_intern" | null;
 
 export type PostReaction = {
     emoji: string;
@@ -4898,10 +4826,7 @@ export type PostUpdate = {
     visibility?: PostVisibility;
 };
 
-export enum PostVisibility {
-    GROUP_VISIBLE = 'group_visible',
-    GROUP_INTERN = 'group_intern',
-}
+export type PostVisibility = 'group_visible' | 'group_intern';
 
 /**
  * Printer
@@ -4993,7 +4918,7 @@ export type Profile = {
     /**
      * church: Church profile for this installation; campus: one specific campus profile
      */
-    profileType: 'church' | 'campus';
+    profileType: "church" | "campus";
     serviceBanner_new: DomainObjectFile | null;
     services: Array<{
         day: number;
@@ -5035,12 +4960,12 @@ export type ProfileUpdate = {
      * Either exact string or denomination object with name property
      */
     denomination:
-        | 'denomination.none'
-        | 'denomination.protestant'
-        | 'denomination.free.evangelical'
-        | 'denomination.catholic'
-        | 'denomination.ecumenical'
-        | 'denomination.orthodox';
+        | "denomination.none"
+        | "denomination.protestant"
+        | "denomination.free.evangelical"
+        | "denomination.catholic"
+        | "denomination.ecumenical"
+        | "denomination.orthodox";
     description: string;
     email: string;
     /**
@@ -5281,7 +5206,7 @@ export type PublicGroup = {
         /**
          * Specifies whether this person is already in the group (IN_GROUP), in pending state for the group (REQUESTED), or selected by the user to be added into the group (CLICKED). Otherwise NOT_CLICKED.
          */
-        status?: 'IN_GROUP' | 'REQUESTED' | 'NOT_CLICKED';
+        status?: "IN_GROUP" | "REQUESTED" | "NOT_CLICKED";
     }>;
     /**
      * Maximum number of persons on the waiting list.
@@ -5468,7 +5393,7 @@ export type RelationshipType = {
     degreeNameA: string;
     degreeNameB: string;
     exportTitle?: string;
-    functionKeys?: Array<'noduplicate' | 'nodelete' | 'openduplicate'>;
+    functionKeys?: Array<"noduplicate" | "nodelete" | "openduplicate">;
     id: number;
     includeInExport: boolean;
     name: string;
@@ -5486,15 +5411,15 @@ export type Report = {
 
 export type ReportAnswer = {
     domainId: number;
-    domainType: 'post' | 'post_comment';
-    response: 'accept' | 'decline';
+    domainType: "post" | "post_comment";
+    response: "accept" | "decline";
 };
 
 export type ReportCreate = {
     captcha?: string;
     comment?: string;
     domainId: number;
-    domainType: 'post' | 'post_comment';
+    domainType: "post" | "post_comment";
     reporter?: {
         email: string;
         firstName: string;
@@ -5515,26 +5440,17 @@ export type ReportObjectBase = {
 
 export type ReportObjectPost = ReportObjectBase & {
     domainObject: Post;
-    domainType: 'post';
+    domainType: "post";
 };
 
 export type ReportObjectPostComment = ReportObjectBase & {
     domainObject: PostComment;
-    domainType: 'post_comment';
+    domainType: "post_comment";
 };
 
-export enum ReportObjectStatus {
-    PENDING = 'pending',
-    PENDING_AGAIN = 'pending-again',
-    ACCEPTED = 'accepted',
-    DECLINED = 'declined',
-}
+export type ReportObjectStatus = 'pending' | 'pending-again' | 'accepted' | 'declined';
 
-export enum ReportStatus {
-    PENDING = 'pending',
-    ACCEPTED = 'accepted',
-    DECLINED = 'declined',
-}
+export type ReportStatus = 'pending' | 'accepted' | 'declined';
 
 export type Resource = ResourceTypeCreate & {
     /**
@@ -5602,10 +5518,7 @@ export type RoleCreate = {
     type: RoleType;
 };
 
-export enum RoleType {
-    PARTICIPANT = 'participant',
-    LEADER = 'leader',
-}
+export type RoleType = 'participant' | 'leader';
 
 export type RoleUpdate = RoleCreate & {
     id: number;
@@ -5613,7 +5526,7 @@ export type RoleUpdate = RoleCreate & {
 
 export type Routine = {
     description: string | null;
-    domainType: 'group_membership';
+    domainType: "group_membership";
     id: number;
     isEnabled: boolean;
     name: string;
@@ -5631,7 +5544,7 @@ export type RoutineCreate = {
         groupMemberStatus?: MemberStatus;
         groupTypeRoleId: number;
     };
-    domainType: 'group_membership';
+    domainType: "group_membership";
     isEnabled?: boolean;
     name: string;
     priority?: number;
@@ -5646,12 +5559,20 @@ export type RoutineRun = {
     meta: MetaDataEntityId;
     routineId: number;
     routineStepId: number | null;
-    status: 'failed' | 'finished' | 'not-started' | 'paused' | 'started' | 'waiting';
+    status:
+        | "failed"
+        | "finished"
+        | "not-started"
+        | "paused"
+        | "started"
+        | "waiting";
 };
 
 export type RoutineStep = RoutineStepWithoutRepeat | RoutineStepRepeat;
 
-export type RoutineStepCreate = RoutineStepCreateWithoutRepeat | RoutineStepCreateRepeat;
+export type RoutineStepCreate =
+    | RoutineStepCreateWithoutRepeat
+    | RoutineStepCreateRepeat;
 
 export type RoutineStepCreateAddMemberToGroup = {
     /**
@@ -5664,20 +5585,20 @@ export type RoutineStepCreateAddMemberToGroup = {
         status?: MemberStatus;
         [key: string]: unknown | string | number | MemberStatus | undefined;
     };
-    actionKey: 'add-member-to-group';
+    actionKey: "add-member-to-group";
     isEnabled: boolean;
 };
 
 export type RoutineStepCreateArchiveMember = {
     actionData: null;
-    actionKey: 'archive-member';
+    actionKey: 'archive-group-member';
     isEnabled: boolean;
 };
 
 export type RoutineStepCreateCreateFollowUp = {
     actionData: {
         color?: CtColor;
-        continuationType: 'immediately' | 'when-completed';
+        continuationType: "immediately" | "when-completed";
         description: string | null;
         dueDate?: DateStringNullable;
         icon?: string;
@@ -5692,7 +5613,7 @@ export type RoutineStepCreateCreateFollowUp = {
         successRoleId?: number | null;
         title: string;
     };
-    actionKey: 'create-follow-up';
+    actionKey: "create-follow-up";
     isEnabled: boolean;
 };
 
@@ -5704,9 +5625,9 @@ export type RoutineStepCreateEditGroupMembership = {
         memberStartDate?: DateStringNullable;
         roleId?: number;
         waitinglistPosition?: number;
-        [key: string]: unknown | string | boolean | DateStringNullable | number | undefined;
+        [key: string]: unknown | string | number | boolean | DateStringNullable | undefined;
     };
-    actionKey: 'edit-group-membership';
+    actionKey: "edit-group-membership";
     isEnabled: boolean;
 };
 
@@ -5726,7 +5647,7 @@ export type RoutineStepCreateRepeat = {
     actionData: {
         count?: number | null;
     };
-    actionKey: 'special:repeat';
+    actionKey: "special:repeat";
     children: Array<RoutineStepCreateWithoutRepeat | RoutineStepWithoutRepeat>;
     isEnabled: boolean;
 };
@@ -5738,24 +5659,24 @@ export type RoutineStepCreateSendMemberMail = {
         subject: string;
         templateId?: number;
     };
-    actionKey: 'send-member-email';
+    actionKey: "send-member-email";
     isEnabled: boolean;
 };
 
 export type RoutineStepCreateStatus = {
     actionData: null;
     actionKey:
-        | 'change-member-status-requested-waiting'
-        | 'change-member-status-requested-active'
-        | 'change-member-status-requested-to_delete'
-        | 'change-member-status-active-requested'
-        | 'change-member-status-active-waiting'
-        | 'change-member-status-active-to_delete'
-        | 'change-member-status-to_delete-requested'
-        | 'change-member-status-to_delete-waiting'
-        | 'change-member-status-to_delete-active'
-        | 'change-member-status-waiting-active'
-        | 'change-member-status-waiting-to_delete';
+        | "change-member-status-requested-waiting"
+        | "change-member-status-requested-active"
+        | "change-member-status-requested-to_delete"
+        | "change-member-status-active-requested"
+        | "change-member-status-active-waiting"
+        | "change-member-status-active-to_delete"
+        | "change-member-status-to_delete-requested"
+        | "change-member-status-to_delete-waiting"
+        | "change-member-status-to_delete-active"
+        | "change-member-status-waiting-active"
+        | "change-member-status-waiting-to_delete";
     isEnabled: boolean;
 };
 
@@ -5764,7 +5685,7 @@ export type RoutineStepCreateWait = {
         numDays?: number;
         untilDate?: DateString;
     };
-    actionKey: 'special:wait';
+    actionKey: "special:wait";
     isEnabled: boolean;
 };
 
@@ -5786,35 +5707,38 @@ export type RoutineStepPersisted = {
 
 export type RoutineStepRepeat = RoutineStepPersisted & RoutineStepCreateRepeat;
 
-export type RoutineStepUpdate = RoutineStepUpdateWithoutRepeat | RoutineStepUpdateRepeat;
+export type RoutineStepUpdate =
+    | RoutineStepUpdateWithoutRepeat
+    | RoutineStepUpdateRepeat;
 
 export type RoutineStepUpdateRepeat = {
     actionData: {
         count?: number | null;
     };
-    actionKey: 'special:repeat';
+    actionKey: "special:repeat";
     children: Array<RoutineStepUpdateWithoutRepeat>;
-    finish?: Array<number | 'finished' | 'not-started' | 'started'>;
+    finish?: Array<number | "finished" | "not-started" | "started">;
     id?: number;
     isEnabled: boolean;
-    reposition?: Array<number | 'not-started' | 'started' | 'finished'>;
-    restart?: Array<number | 'finished' | 'not-started' | 'started'>;
+    reposition?: Array<number | "not-started" | "started" | "finished">;
+    restart?: Array<number | "finished" | "not-started" | "started">;
 };
 
 export type RoutineStepUpdateWithoutRepeat = RoutineStepCreateWithoutRepeat & {
     id?: number;
-    reposition?: Array<number | 'not-started' | 'started' | 'finished'>;
+    reposition?: Array<number | "not-started" | "started" | "finished">;
 };
 
-export type RoutineStepWithoutRepeat = RoutineStepPersisted & RoutineStepCreateWithoutRepeat;
+export type RoutineStepWithoutRepeat = RoutineStepPersisted &
+    RoutineStepCreateWithoutRepeat;
 
 export type RoutineUpdate = {
     description?: string | null;
-    finish?: Array<number | 'finished' | 'not-started' | 'started'>;
+    finish?: Array<number | "finished" | "not-started" | "started">;
     isEnabled?: boolean;
     name?: string;
     priority?: number;
-    restart?: Array<number | 'finished' | 'not-started' | 'started'>;
+    restart?: Array<number | "finished" | "not-started" | "started">;
     steps?: Array<RoutineStepUpdate>;
 };
 
@@ -6192,19 +6116,13 @@ export type StatusUpdate = {
     sortKey: number;
 };
 
-export type Subscription =
-    | SubscriptionGroup
-    | SubscriptionPost
-    | SubscriptionPostSummary
-    | SubscriptionPublicChannel
-    | SubscriptionMeetingRequests
-    | SubscriptionServiceRequests;
+export type Subscription = SubscriptionGroup | SubscriptionPost | SubscriptionPostSummary | SubscriptionPublicChannel;
 
 export type SubscriptionBase = {
     isActive: boolean;
     isExplicit: boolean;
     meta: MetaDataEntityIdNullable;
-    origin: 'default' | 'group-settings';
+    origin: "default" | "group-settings";
     /**
      * Translation key addressed to end user
      */
@@ -6214,7 +6132,7 @@ export type SubscriptionBase = {
 };
 
 export type SubscriptionGroup = SubscriptionBase & {
-    subject: 'group';
+    subject: "group";
 };
 
 export type SubscriptionMeetingRequests = SubscriptionBase & {
@@ -6222,19 +6140,19 @@ export type SubscriptionMeetingRequests = SubscriptionBase & {
 };
 
 export type SubscriptionPost = SubscriptionBase & {
-    subject: 'post';
+    subject: "post";
 };
 
 export type SubscriptionPostSummary = SubscriptionBase & {
     options: {
-        filter: 'all' | 'my_campus' | 'my_groups' | 'featured_groups';
+        filter: "all" | "my_campus" | "my_groups" | "featured_groups";
         weekdays: Array<number>;
     };
-    subject: 'post_summary';
+    subject: "post_summary";
 };
 
 export type SubscriptionPublicChannel = SubscriptionBase & {
-    subject: 'public_channel';
+    subject: "public_channel";
 };
 
 export type SubscriptionServiceRequests = SubscriptionBase & {
@@ -6281,7 +6199,13 @@ export type SyncConflicts = {
     /**
      * Conflict Type
      */
-    type?: 'duplicate in CT' | 'duplicate in source' | 'link and update' | 'update' | 'delete or create' | 'create';
+    type?:
+        | "duplicate in CT"
+        | "duplicate in source"
+        | "link and update"
+        | "update"
+        | "delete or create"
+        | "create";
 };
 
 /**
@@ -6322,7 +6246,7 @@ export type SyncEntityMapping = {
     /**
      * Status of Relationship
      */
-    status?: 'synced' | 'conflict' | 'deleted in CT';
+    status?: "synced" | "conflict" | "deleted in CT";
 };
 
 /**
@@ -6564,7 +6488,7 @@ export type TransactionSummaryCostCenter = TransactionSummaryBase & {
             thisYear: number;
         };
     };
-    type: 'costcenter-sum';
+    type: "costcenter-sum";
 };
 
 export type TransactionSummaryCreditDebit = TransactionSummaryBase & {
@@ -6599,7 +6523,7 @@ export type TransactionSummaryCreditDebit = TransactionSummaryBase & {
             thisYear: number;
         };
     };
-    type: 'credit-debit';
+    type: "credit-debit";
 };
 
 export type TransactionSummaryDonation = TransactionSummaryBase & {
@@ -6616,7 +6540,7 @@ export type TransactionSummaryDonation = TransactionSummaryBase & {
             thisYear: number;
         };
     };
-    type: 'donation-sum';
+    type: "donation-sum";
 };
 
 export type TransactionUpdate = {
@@ -6684,28 +6608,13 @@ export type TranslationKey = {
     updated?: string | null;
 };
 
-export type UserRule = {
-    accountIds: Array<number>;
-    accountingPeriodId: number;
-    allAccounts: boolean;
-    id?: number;
-    isIncome: boolean;
-    operator: 'contains' | 'equals' | 'regex';
-    searchString: string;
-    searchType: 'purpose';
-    sortKey: number;
-    suggestionType: 'contraAccountId' | 'costCenterId';
-    suggestionValue: string;
-};
+export type VerificationStatus = 'in_progress' | 'verified' | 'not_verified' | 'failed';
 
-export enum VerificationStatus {
-    IN_PROGRESS = 'in_progress',
-    VERIFIED = 'verified',
-    NOT_VERIFIED = 'not_verified',
-    FAILED = 'failed',
-}
-
-export type WebsiteData = WebsiteDataStaff | WebsiteDataCalendar | WebsiteDataPerson | WebsiteDataPostsInGroup;
+export type WebsiteData =
+    | WebsiteDataStaff
+    | WebsiteDataCalendar
+    | WebsiteDataPerson
+    | WebsiteDataPostsInGroup;
 
 export type WebsiteDataBase = {
     domainId: number;
@@ -6715,13 +6624,13 @@ export type WebsiteDataBase = {
 export type WebsiteDataCalendar = WebsiteDataBase & {
     additionalId: number;
     domainData?: Calendar;
-    domainType: 'calendar';
+    domainType: "calendar";
 };
 
 export type WebsiteDataCreate = {
     additionalId?: number;
     domainId: number;
-    domainType: 'person' | 'staff' | 'calendar' | 'posts-in-group';
+    domainType: "person" | "staff" | "calendar" | "posts-in-group";
 };
 
 export type WebsiteDataPerson = WebsiteDataBase & {
@@ -6734,7 +6643,7 @@ export type WebsiteDataPerson = WebsiteDataBase & {
         members: Array<DomainObjectPerson>;
         role: Role;
     };
-    domainType: 'person';
+    domainType: "person";
 };
 
 export type WebsiteDataPostsInGroup = WebsiteDataBase & {
@@ -6743,18 +6652,18 @@ export type WebsiteDataPostsInGroup = WebsiteDataBase & {
         group: DomainObjectGroup;
         groupVisiblePostCount: number;
     };
-    domainType: 'posts-in-group';
+    domainType: "posts-in-group";
 };
 
 export type WebsiteDataStaff = WebsiteDataBase & {
     additionalId: number;
     domainData?: DomainObjectPerson;
-    domainType: 'staff';
+    domainType: "staff";
 };
 
 export type WebsiteDataWithoutInclude = WebsiteDataBase & {
     additionalId: number | null;
-    domainType: 'person' | 'staff' | 'calendar' | 'posts-in-group';
+    domainType: "person" | "staff" | "calendar" | "posts-in-group";
 };
 
 export type Weekday = {
@@ -6767,7 +6676,12 @@ export type Weekday = {
 /**
  * Container for the widget-system
  */
-export type Widget = WidgetDate | WidgetDetail | WidgetDomainObject | WidgetPost | WidgetCommon;
+export type Widget =
+    | WidgetDate
+    | WidgetDetail
+    | WidgetDomainObject
+    | WidgetPost
+    | WidgetCommon;
 
 export type WidgetAction =
     | WidgetActionAppointmentsAll
@@ -6855,63 +6769,25 @@ export type WidgetActionFavoriteGroupsAll = WidgetActionBase & {
 /**
  * Flavor of widget action
  */
-export enum WidgetActionFlavor {
-    ACCENT = 'accent',
-    BASIC = 'basic',
-    CONSTRUCTIVE = 'constructive',
-    DESTRUCTIVE = 'destructive',
-    MAGIC = 'magic',
-}
+export type WidgetActionFlavor = 'accent' | 'basic' | 'constructive' | 'destructive' | 'magic';
 
-export type WidgetActionGeneralUrl = WidgetActionBase & {
-    actionData?: WidgetActionDataUrl;
-    key?: 'action.general.url';
-};
-
-export type WidgetActionGroupMeetingAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.groupmeeting.all';
-};
-
-export type WidgetActionMyGroupsAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.my-groups.all';
-};
-
-export type WidgetActionMyResourcesAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.my-resources.all';
-};
-
-export type WidgetActionPostsAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.posts.all';
-};
-
-export type WidgetActionServiceRequestsAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.service-requests.all';
-};
-
-export type WidgetActionSongsToLearnAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.songsToLearn.all';
-};
+export type WidgetActionKey =
+    | 'action.groupmeeting.all'
+    | 'action.songsToLearn.all'
+    | 'action.allBirthdays.all'
+    | 'action.service-requests.all'
+    | 'action.upcoming-services.all'
+    | 'action.exchange-requests.all'
+    | 'action.general.url'
+    | 'action.posts.all'
+    | 'action.appointments.all'
+    | 'action.my-groups.all'
+    | 'action.favorite-groups.all';
 
 /**
  * Type of widget action
  */
-export enum WidgetActionType {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    DETAILS = 'details',
-    OTHER = 'other',
-}
-
-export type WidgetActionUpcomingServicesAll = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.upcoming-services.all';
-};
+export type WidgetActionType = 'primary' | 'secondary' | 'details' | 'other';
 
 /**
  * Avatar for widget items
@@ -6934,7 +6810,7 @@ export type WidgetBase = {
     helpLink?: string;
     isMandatory?: boolean;
     key: string;
-    orientation?: 'horizontal' | 'vertical';
+    orientation?: "horizontal" | "vertical";
     replacement?: string;
     title: string;
     widgetSettings:
@@ -6947,7 +6823,7 @@ export type WidgetBase = {
 export type WidgetCommon = WidgetBase & {
     groupings: WidgetGroupings;
     items: Array<WidgetCommonItem>;
-    widgetType: 'common';
+    widgetType: "common";
 };
 
 /**
@@ -6997,7 +6873,7 @@ export type WidgetCount = {
 
 export type WidgetDate = WidgetBase & {
     items: Array<WidgetDateItem>;
-    widgetType: 'date';
+    widgetType: "date";
 };
 
 /**
@@ -7022,15 +6898,11 @@ export type WidgetDateItem = {
 /**
  * Density options for common widgets
  */
-export enum WidgetDensity {
-    DEFAULT = 'default',
-    DIVIDED = 'divided',
-    COMPACT = 'compact',
-}
+export type WidgetDensity = 'default' | 'divided' | 'compact';
 
 export type WidgetDetail = WidgetBase & {
     items: Array<WidgetDetailItem>;
-    widgetType: 'detail';
+    widgetType: "detail";
 };
 
 /**
@@ -7067,7 +6939,7 @@ export type WidgetDetailItemRowEntry = {
     color: Color;
     icon: string;
     text: string;
-    type: 'entry';
+    type: "entry";
 };
 
 /**
@@ -7076,14 +6948,16 @@ export type WidgetDetailItemRowEntry = {
 export type WidgetDetailRowDomainObjects = {
     domainObjects: Array<WidgetSupportedDomainObjects>;
     text: string;
-    type: 'domainObjects';
+    type: "domainObjects";
 };
 
 /**
  * Info line row type for widget detail items
  */
 export type WidgetDetailRowInfoLine = {
-    infos: Array<string>;
+    infos: Array<{
+        text: string;
+    }>;
     type: 'info-line';
 };
 
@@ -7092,7 +6966,7 @@ export type WidgetDetailRowInfoLine = {
  */
 export type WidgetDetailRowPrimary = {
     text: string;
-    type: 'primary';
+    type: "primary";
 };
 
 /**
@@ -7103,7 +6977,7 @@ export type WidgetDetailRowProperties = {
         label: string;
         property: Array<string>;
     }>;
-    type: 'properties';
+    type: "properties";
 };
 
 /**
@@ -7116,7 +6990,7 @@ export type WidgetDetailRowStatus = {
         infos: Array<string>;
         status: string;
     }>;
-    type: 'status';
+    type: "status";
 };
 
 /**
@@ -7124,13 +6998,15 @@ export type WidgetDetailRowStatus = {
  */
 export type WidgetDetailRowTopLine = {
     color: Color;
-    infos: Array<string>;
+    infos: Array<{
+        text: string;
+    }>;
     type: 'top-line';
 };
 
 export type WidgetDomainObject = WidgetBase & {
     items: Array<WidgetDomainObjectItem>;
-    widgetType: 'domainObject';
+    widgetType: "domainObject";
 };
 
 /**
@@ -7153,10 +7029,7 @@ export type WidgetDomainObjectItem = {
 /**
  * Strategy for handling empty widget content
  */
-export enum WidgetEmptyStrategy {
-    SHOW = 'SHOW',
-    HIDE = 'HIDE',
-}
+export type WidgetEmptyStrategy = 'SHOW' | 'HIDE';
 
 /**
  * Individual grouping option configuration
@@ -7207,19 +7080,12 @@ export type WidgetInfoList = {
 /**
  * Direction for widget info lists
  */
-export enum WidgetInfoListDirection {
-    HORIZONTAL = 'horizontal',
-    VERTICAL = 'vertical',
-    WRAPPED = 'wrapped',
-}
+export type WidgetInfoListDirection = 'horizontal' | 'vertical' | 'wrapped';
 
 /**
  * Size options for widget info lists
  */
-export enum WidgetInfoListSize {
-    SMALL = 'small',
-    MEDIUM = 'medium',
-}
+export type WidgetInfoListSize = 'small' | 'medium';
 
 /**
  * Sub-item for widget information items
@@ -7246,70 +7112,25 @@ export type WidgetItemAction =
     | WidgetItemActionServiceRequests
     | WidgetItemActionExchangeRequests;
 
-export type WidgetItemActionAppointmentDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataAppointment;
-    key?: 'action.appointment.details';
-};
-
-export type WidgetItemActionBirthdayDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataPerson;
-    key?: 'action.birthday.details';
-};
-
-export type WidgetItemActionEventDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataEvent;
-    key?: 'action.event.details';
-};
-
-export type WidgetItemActionEventfactDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataEvent;
-    key?: 'action.eventfact.details';
-};
-
-export type WidgetItemActionExchangeRequests = WidgetActionBase & {
-    actionData?: {};
-    key?:
-        | 'action.exchangeRequests.request'
-        | 'action.exchangeRequests.cancel'
-        | 'action.exchangeRequests.accept'
-        | 'action.exchangeRequests.decline';
-};
-
-export type WidgetItemActionGeneralUrl = WidgetActionBase & {
-    actionData?: WidgetActionDataUrl;
-    key?: 'action.general.url';
-};
-
-export type WidgetItemActionGroupDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataGroup;
-    key?: 'action.group.details';
-};
-
-export type WidgetItemActionMyResourcesDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataResource;
-    key?: 'action.my-resources.details';
-};
-
-export type WidgetItemActionPostDetails = WidgetActionBase & {
-    actionData?: WidgetActionDataPostInternal | WidgetActionDataPostExternal;
-    key?: 'action.post.details';
-};
-
-export type WidgetItemActionServiceRequests = WidgetActionBase & {
-    actionData?: {};
-    key?:
-        | 'action.serviceRequests.accept'
-        | 'action.serviceRequests.comment'
-        | 'action.serviceRequests.undo'
-        | 'action.serviceRequests.decline'
-        | 'action.serviceRequests.exchange'
-        | 'action.serviceRequests.absence';
-};
-
-export type WidgetItemActionSongsToLearnDetails = WidgetActionBase & {
-    actionData?: {};
-    key?: 'action.songsToLearn.details';
-};
+export type WidgetItemActionKey =
+    | 'action.songsToLearn.details'
+    | 'action.birthday.details'
+    | 'action.event.details'
+    | 'action.appointment.details'
+    | 'action.general.url'
+    | 'action.post.details'
+    | 'action.serviceRequests.accept'
+    | 'action.serviceRequests.comment'
+    | 'action.serviceRequests.undo'
+    | 'action.serviceRequests.decline'
+    | 'action.serviceRequests.exchange'
+    | 'action.serviceRequests.absence'
+    | 'action.exchangeRequests.request'
+    | 'action.exchangeRequests.cancel'
+    | 'action.exchangeRequests.accept'
+    | 'action.exchangeRequests.decline'
+    | 'action.group.details'
+    | 'action.eventfact.details';
 
 export type WidgetItemType =
     | WidgetCommonItem
@@ -7320,7 +7141,7 @@ export type WidgetItemType =
 
 export type WidgetPost = WidgetBase & {
     items: Array<WidgetPostItem>;
-    widgetType: 'post';
+    widgetType: "post";
 };
 
 /**
@@ -7397,7 +7218,8 @@ export type WikiPage = {
 /**
  * A timestamp in Zulu time format, e.g. '2022-10-19T12:00:00Z'
  */
-export type ZuluDate = `${number}-${number}-${number}T${number}:${number}:${number}Z`;
+export type ZuluDate =
+    `${number}-${number}-${number}T${number}:${number}:${number}Z`;
 
 /**
  * A timestamp in Zulu time format, e.g. '2022-10-19T12:00:00Z'
@@ -7409,7 +7231,9 @@ export type ZuluDateDeprecated = string;
 /**
  * A timestamp in Zulu time format, e.g. '2022-10-19T12:00:00Z'
  */
-export type ZuluDateNullable = `${number}-${number}-${number}T${number}:${number}:${number}Z` | null;
+export type ZuluDateNullable =
+    | `${number}-${number}-${number}T${number}:${number}:${number}Z`
+    | null;
 
 /**
  * ID of accounting period to get master data for
@@ -7449,10 +7273,7 @@ export type DeleteDryRun = boolean;
 /**
  * The direction of the result set
  */
-export enum DirectionParameter {
-    FORWARD = 'forward',
-    BACKWARD = 'backward',
-}
+export type DirectionParameter = 'forward' | 'backward';
 
 /**
  * the domain id
@@ -7576,12 +7397,7 @@ export type GroupFilterTargetGroupIds = Array<number>;
 /**
  * Group visibility
  */
-export enum GroupFilterVisibility {
-    HIDDEN = 'hidden',
-    PUBLIC = 'public',
-    RESTRICTED = 'restricted',
-    INTERN = 'intern',
-}
+export type GroupFilterVisibility = 'hidden' | 'public' | 'restricted' | 'intern';
 
 /**
  * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
@@ -7607,13 +7423,19 @@ export type GroupIdOrGuid = number;
  * Include additional information (currently, 'roles' are included by default but this behaviour is now deprecated)
  */
 export type GroupInclude = Array<
-    'hasPermissions' | 'roles' | 'tags' | 'memberStatistics' | 'places' | 'publicPostsStatistic' | 'signupConditions'
+    | "hasPermissions"
+    | "roles"
+    | "tags"
+    | "memberStatistics"
+    | "places"
+    | "publicPostsStatistic"
+    | "signupConditions"
 >;
 
 /**
  * Include additional information
  */
-export type GroupMeetingInclude = Array<'attendances'>;
+export type GroupMeetingInclude = Array<"attendances">;
 
 /**
  * If true, return only group members, that are allowed to chat in this group
@@ -7648,7 +7470,7 @@ export type GroupMemberFilterMemberStartDateBefore = DateString;
 /**
  * The order directions for the fields. Must be the same length as orderFields. Default is ASC. Possible values are ASC and DESC.
  */
-export type GroupMemberFilterOrderDirections = Array<'ASC' | 'DESC'>;
+export type GroupMemberFilterOrderDirections = Array<"ASC" | "DESC">;
 
 /**
  * The fields to order by. Person fields look like this: person_firstName. Group member fields look like this: member_groupTypeRoleId.
@@ -7678,17 +7500,12 @@ export type GroupMemberFilterRoleIds = Array<number>;
 /**
  * Include additional information
  */
-export type GroupMemberInclude = Array<'tags' | 'aggregations'>;
+export type GroupMemberInclude = Array<"tags" | "aggregations">;
 
 /**
  * Status of a group membership
  */
-export enum GroupMemberStatus {
-    ACTIVE = 'active',
-    REQUESTED = 'requested',
-    WAITING = 'waiting',
-    TO_DELETE = 'to_delete',
-}
+export type GroupMemberStatus = 'active' | 'requested' | 'waiting' | 'to_delete';
 
 /**
  * ID of group role. This is not the group type role. The group role has a reference to the group type role and sets specific settings for the role in this group.
@@ -7730,12 +7547,7 @@ export type NoteId = number;
  */
 export type PageParameter = number;
 
-export enum PermissionDomainType {
-    STATUS = 'status',
-    GROUP_TYPE_ROLE = 'group_type_role',
-    GROUP_ROLE = 'group_role',
-    PERSON = 'person',
-}
+export type PermissionDomainType = 'status' | 'group_type_role' | 'group_role' | 'person';
 
 /**
  * ID of person
@@ -7745,7 +7557,7 @@ export type PersonId = number;
 /**
  * Include additional information
  */
-export type PersonInclude = Array<'tags'>;
+export type PersonInclude = Array<"tags">;
 
 /**
  * ID of post
@@ -7767,7 +7579,7 @@ export type RoutineRunId = number;
 /**
  * Include additional information
  */
-export type RoutineRunInclude = Array<'domainObject'>;
+export type RoutineRunInclude = Array<"domainObject">;
 
 /**
  * Comment
@@ -7792,25 +7604,14 @@ export type SongId = number;
 /**
  * Include additional information
  */
-export type SongInclude = Array<'arrangements' | 'tags'>;
+export type SongInclude = Array<"arrangements" | "tags">;
 
-export enum SubscriptionSubject {
-    POST = 'post',
-    POST_SUMMARY = 'post_summary',
-    GROUP = 'group',
-    PUBLIC_CHANNEL = 'public_channel',
-    MEETINGREQUESTS = 'meetingrequests',
-    SERVICEREQUESTS = 'servicerequests',
-}
+export type SubscriptionSubject = 'post' | 'post_summary' | 'group' | 'public_channel';
 
 /**
  * Domain types that tags can be used with
  */
-export enum TagDomainType {
-    PERSON = 'person',
-    GROUP = 'group',
-    SONG = 'song',
-}
+export type TagDomainType = 'person' | 'group' | 'song';
 
 /**
  * ID of tag
@@ -7845,7 +7646,12 @@ export type PostActionsData = {
         };
     };
     path?: never;
-    query?: never;
+    query: {
+        /**
+         * Types of domain objects to retrieve
+         */
+        'domain_type[]': Array<string>;
+    };
     url: '/actions';
 };
 
@@ -7876,7 +7682,8 @@ export type PostActionsResponses = {
     };
 };
 
-export type PostActionsResponse = PostActionsResponses[keyof PostActionsResponses];
+export type PostActionsResponse =
+    PostActionsResponses[keyof PostActionsResponses];
 
 export type GetAddressesSearchData = {
     body?: never;
@@ -7884,7 +7691,7 @@ export type GetAddressesSearchData = {
     query: {
         query: string;
     };
-    url: '/addresses/search';
+    url: "/addresses/search";
 };
 
 export type GetAddressesSearchErrors = {
@@ -7902,7 +7709,8 @@ export type GetAddressesSearchErrors = {
     404: unknown;
 };
 
-export type GetAddressesSearchError = GetAddressesSearchErrors[keyof GetAddressesSearchErrors];
+export type GetAddressesSearchError =
+    GetAddressesSearchErrors[keyof GetAddressesSearchErrors];
 
 export type GetAddressesSearchResponses = {
     /**
@@ -7914,7 +7722,8 @@ export type GetAddressesSearchResponses = {
     };
 };
 
-export type GetAddressesSearchResponse = GetAddressesSearchResponses[keyof GetAddressesSearchResponses];
+export type GetAddressesSearchResponse =
+    GetAddressesSearchResponses[keyof GetAddressesSearchResponses];
 
 export type GetAddressesDomainTypeDomainIdentifierData = {
     body?: never;
@@ -7923,7 +7732,7 @@ export type GetAddressesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/addresses/{domainType}/{domainIdentifier}';
+    url: "/addresses/{domainType}/{domainIdentifier}";
 };
 
 export type GetAddressesDomainTypeDomainIdentifierErrors = {
@@ -7964,7 +7773,7 @@ export type PostAddressesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/addresses/{domainType}/{domainIdentifier}';
+    url: "/addresses/{domainType}/{domainIdentifier}";
 };
 
 export type PostAddressesDomainTypeDomainIdentifierErrors = {
@@ -8006,7 +7815,7 @@ export type DeleteAddressesDomainTypeDomainIdentifierAddressIdData = {
         addressId: number;
     };
     query?: never;
-    url: '/addresses/{domainType}/{domainIdentifier}/{addressId}';
+    url: "/addresses/{domainType}/{domainIdentifier}/{addressId}";
 };
 
 export type DeleteAddressesDomainTypeDomainIdentifierAddressIdErrors = {
@@ -8045,7 +7854,7 @@ export type PutAddressesDomainTypeDomainIdentifierAddressIdData = {
         addressId: number;
     };
     query?: never;
-    url: '/addresses/{domainType}/{domainIdentifier}/{addressId}';
+    url: "/addresses/{domainType}/{domainIdentifier}/{addressId}";
 };
 
 export type PutAddressesDomainTypeDomainIdentifierAddressIdErrors = {
@@ -8107,7 +7916,7 @@ export type PostAgendasSendData = {
     };
     path?: never;
     query?: never;
-    url: '/agendas/send';
+    url: "/agendas/send";
 };
 
 export type PostAgendasSendErrors = {
@@ -8129,7 +7938,7 @@ export type PostAgendasSendErrors = {
     404: unknown;
 };
 
-export type PostAgendasSendError = PostAgendasSendErrors[keyof PostAgendasSendErrors];
+export type SendAgendaEmailError = SendAgendaEmailErrors[keyof SendAgendaEmailErrors];
 
 export type PostAgendasSendResponses = {
     /**
@@ -8155,7 +7964,7 @@ export type PostAgendasSendResponses = {
     204: void;
 };
 
-export type PostAgendasSendResponse = PostAgendasSendResponses[keyof PostAgendasSendResponses];
+export type SendAgendaEmailResponse = SendAgendaEmailResponses[keyof SendAgendaEmailResponses];
 
 export type PostAgendasIdExportData = {
     body?: {
@@ -8167,9 +7976,9 @@ export type PostAgendasIdExportData = {
         agendaId: string;
     };
     query: {
-        target: 'SONG_BEAMER' | 'PRO_PRESENTER_6' | 'PRO_PRESENTER_7';
+        target: "SONG_BEAMER" | "PRO_PRESENTER_6" | "PRO_PRESENTER_7";
     };
-    url: '/agendas/{agendaId}/export';
+    url: "/agendas/{agendaId}/export";
 };
 
 export type PostAgendasIdExportErrors = {
@@ -8201,14 +8010,14 @@ export type PostAgendasIdExportResponses = {
     };
 };
 
-export type PostAgendasIdExportResponse = PostAgendasIdExportResponses[keyof PostAgendasIdExportResponses];
+export type AgendaExportResponse = AgendaExportResponses[keyof AgendaExportResponses];
 
 export type GetBookingsData = {
     body?: never;
     path?: never;
     query: {
-        'include[]'?: Array<'conflicts' | 'involvedPersonsDomainObjects'>;
-        'resource_ids[]': Array<number>;
+        "include[]"?: Array<"conflicts" | "involvedPersonsDomainObjects">;
+        "resource_ids[]": Array<number>;
         query?: string;
         /**
          * Filters all bookings created by this person or has this person set as onBehalfOfPid
@@ -8217,7 +8026,7 @@ export type GetBookingsData = {
         /**
          * The status id can be one or more of the following values: 1 (pending), 2 (approved), 3 (canceled), 99 (deleted) -- default: 1, 2
          */
-        'status_ids[]'?: Array<number>;
+        "status_ids[]"?: Array<number>;
         /**
          * Return entities starting from this date.
          */
@@ -8227,7 +8036,7 @@ export type GetBookingsData = {
          */
         to?: DateString;
     };
-    url: '/bookings';
+    url: "/bookings";
 };
 
 export type GetBookingsErrors = {
@@ -8253,7 +8062,8 @@ export type GetBookingsResponses = {
     };
 };
 
-export type GetBookingsResponse = GetBookingsResponses[keyof GetBookingsResponses];
+export type GetBookingsResponse =
+    GetBookingsResponses[keyof GetBookingsResponses];
 
 export type PostBookingsData = {
     /**
@@ -8262,7 +8072,7 @@ export type PostBookingsData = {
     body: BookingCreate;
     path?: never;
     query?: never;
-    url: '/bookings';
+    url: "/bookings";
 };
 
 export type PostBookingsErrors = {
@@ -8291,13 +8101,14 @@ export type PostBookingsResponses = {
     };
 };
 
-export type PostBookingsResponse = PostBookingsResponses[keyof PostBookingsResponses];
+export type PostBookingsResponse =
+    PostBookingsResponses[keyof PostBookingsResponses];
 
 export type PostBookingsConflictsData = {
     body: BookingConflictRequestBody;
     path?: never;
     query?: never;
-    url: '/bookings/conflicts';
+    url: "/bookings/conflicts";
 };
 
 export type PostBookingsConflictsErrors = {
@@ -8311,7 +8122,7 @@ export type PostBookingsConflictsErrors = {
     403: unknown;
 };
 
-export type PostBookingsConflictsError = PostBookingsConflictsErrors[keyof PostBookingsConflictsErrors];
+export type CalculateBookingConflictsError = CalculateBookingConflictsErrors[keyof CalculateBookingConflictsErrors];
 
 export type PostBookingsConflictsResponses = {
     /**
@@ -8334,7 +8145,7 @@ export type DeleteBookingsData = {
         bookingId: number;
     };
     query?: never;
-    url: '/bookings/{bookingId}';
+    url: "/bookings/{bookingId}";
 };
 
 export type DeleteBookingsErrors = {
@@ -8352,7 +8163,8 @@ export type DeleteBookingsErrors = {
     404: unknown;
 };
 
-export type DeleteBookingsError = DeleteBookingsErrors[keyof DeleteBookingsErrors];
+export type DeleteBookingsError =
+    DeleteBookingsErrors[keyof DeleteBookingsErrors];
 
 export type DeleteBookingsResponses = {
     /**
@@ -8361,7 +8173,8 @@ export type DeleteBookingsResponses = {
     204: void;
 };
 
-export type DeleteBookingsResponse = DeleteBookingsResponses[keyof DeleteBookingsResponses];
+export type DeleteBookingsResponse =
+    DeleteBookingsResponses[keyof DeleteBookingsResponses];
 
 export type GetBookingsIdData = {
     body?: never;
@@ -8372,7 +8185,7 @@ export type GetBookingsIdData = {
         bookingId: number;
     };
     query?: never;
-    url: '/bookings/{bookingId}';
+    url: "/bookings/{bookingId}";
 };
 
 export type GetBookingsIdErrors = {
@@ -8390,7 +8203,7 @@ export type GetBookingsIdErrors = {
     404: unknown;
 };
 
-export type GetBookingsIdError = GetBookingsIdErrors[keyof GetBookingsIdErrors];
+export type GetBookingBookingIdError = GetBookingBookingIdErrors[keyof GetBookingBookingIdErrors];
 
 export type GetBookingsIdResponses = {
     /**
@@ -8413,7 +8226,7 @@ export type GetBookingsIdResponses = {
     };
 };
 
-export type GetBookingsIdResponse = GetBookingsIdResponses[keyof GetBookingsIdResponses];
+export type GetBookingBookingIdResponse = GetBookingBookingIdResponses[keyof GetBookingBookingIdResponses];
 
 export type PostBookingsIdData = {
     body: BookingCreate & {
@@ -8428,7 +8241,7 @@ export type PostBookingsIdData = {
         bookingId: number;
     };
     query?: never;
-    url: '/bookings/{bookingId}';
+    url: "/bookings/{bookingId}";
 };
 
 export type PostBookingsIdErrors = {
@@ -8446,7 +8259,7 @@ export type PostBookingsIdErrors = {
     404: unknown;
 };
 
-export type PostBookingsIdError = PostBookingsIdErrors[keyof PostBookingsIdErrors];
+export type SplitAndUpdateBookingError = SplitAndUpdateBookingErrors[keyof SplitAndUpdateBookingErrors];
 
 export type PutBookingsIdData = {
     body: BookingCreate & {
@@ -8459,7 +8272,7 @@ export type PutBookingsIdData = {
         bookingId: number;
     };
     query?: never;
-    url: '/bookings/{bookingId}';
+    url: "/bookings/{bookingId}";
 };
 
 export type PutBookingsIdErrors = {
@@ -8488,7 +8301,7 @@ export type PutBookingsIdResponses = {
     };
 };
 
-export type PutBookingsIdResponse = PutBookingsIdResponses[keyof PutBookingsIdResponses];
+export type UpdateBookingResponse = UpdateBookingResponses[keyof UpdateBookingResponses];
 
 export type PostBookingsIdConflictsData = {
     body: BookingConflictRequestBody;
@@ -8499,7 +8312,7 @@ export type PostBookingsIdConflictsData = {
         bookingId: number;
     };
     query?: never;
-    url: '/bookings/{bookingId}/conflicts';
+    url: "/bookings/{bookingId}/conflicts";
 };
 
 export type PostBookingsIdConflictsErrors = {
@@ -8537,10 +8350,10 @@ export type PutBookingsBookingIdAnswerData = {
         /**
          * Answer given to booking request
          */
-        answer: 'approve' | 'reject' | 'reset';
+        answer: "approve" | "reject" | "reset";
     };
     query?: never;
-    url: '/bookings/{bookingId}/{answer}';
+    url: "/bookings/{bookingId}/{answer}";
 };
 
 export type PutBookingsBookingIdAnswerErrors = {
@@ -8558,7 +8371,8 @@ export type PutBookingsBookingIdAnswerErrors = {
     404: unknown;
 };
 
-export type PutBookingsBookingIdAnswerError = PutBookingsBookingIdAnswerErrors[keyof PutBookingsBookingIdAnswerErrors];
+export type PutBookingsBookingIdAnswerError =
+    PutBookingsBookingIdAnswerErrors[keyof PutBookingsBookingIdAnswerErrors];
 
 export type PutBookingsBookingIdAnswerResponses = {
     /**
@@ -8585,7 +8399,7 @@ export type PostBulkjobsData = {
         jobKey: string;
     };
     query?: never;
-    url: '/bulkjobs/{domainType}/{jobKey}/enqueue';
+    url: "/bulkjobs/{domainType}/{jobKey}/enqueue";
 };
 
 export type PostBulkjobsErrors = {
@@ -8610,7 +8424,8 @@ export type PostBulkjobsResponses = {
     };
 };
 
-export type PostBulkjobsResponse = PostBulkjobsResponses[keyof PostBulkjobsResponses];
+export type PostBulkjobsResponse =
+    PostBulkjobsResponses[keyof PostBulkjobsResponses];
 
 export type PostBulkjobsInfosData = {
     body: BulkJobRequestBody;
@@ -8625,7 +8440,7 @@ export type PostBulkjobsInfosData = {
         jobKey: string;
     };
     query?: never;
-    url: '/bulkjobs/{domainType}/{jobKey}/infos';
+    url: "/bulkjobs/{domainType}/{jobKey}/infos";
 };
 
 export type PostBulkjobsInfosErrors = {
@@ -8639,7 +8454,8 @@ export type PostBulkjobsInfosErrors = {
     403: unknown;
 };
 
-export type PostBulkjobsInfosError = PostBulkjobsInfosErrors[keyof PostBulkjobsInfosErrors];
+export type PostBulkjobsInfosError =
+    PostBulkjobsInfosErrors[keyof PostBulkjobsInfosErrors];
 
 export type PostBulkjobsInfosResponses = {
     /**
@@ -8650,13 +8466,14 @@ export type PostBulkjobsInfosResponses = {
     };
 };
 
-export type PostBulkjobsInfosResponse = PostBulkjobsInfosResponses[keyof PostBulkjobsInfosResponses];
+export type PostBulkjobsInfosResponse =
+    PostBulkjobsInfosResponses[keyof PostBulkjobsInfosResponses];
 
 export type GetCalendarsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/calendars';
+    url: "/calendars";
 };
 
 export type GetCalendarsErrors = {
@@ -8682,13 +8499,14 @@ export type GetCalendarsResponses = {
     };
 };
 
-export type GetCalendarsResponse = GetCalendarsResponses[keyof GetCalendarsResponses];
+export type GetCalendarsResponse =
+    GetCalendarsResponses[keyof GetCalendarsResponses];
 
 export type PostCalendarsData = {
     body: CalendarCreate;
     path?: never;
     query?: never;
-    url: '/calendars';
+    url: "/calendars";
 };
 
 export type PostCalendarsErrors = {
@@ -8717,14 +8535,15 @@ export type PostCalendarsResponses = {
     };
 };
 
-export type PostCalendarsResponse = PostCalendarsResponses[keyof PostCalendarsResponses];
+export type PostCalendarsResponse =
+    PostCalendarsResponses[keyof PostCalendarsResponses];
 
 export type GetCalendarsAppointmentsData = {
     body?: never;
     path?: never;
     query: {
         'calendar_ids[]': Array<number>;
-        'include[]'?: Array<'titleSuffix' | 'event' | 'group' | 'meetingRequests' | 'bookings' | 'tags'>;
+        'include[]'?: Array<'titleSuffix' | 'event' | 'group' | 'meetingRequests' | 'bookings'>;
         /**
          * Return entities starting from this date.
          */
@@ -8735,7 +8554,7 @@ export type GetCalendarsAppointmentsData = {
         to?: DateString;
         query?: string;
     };
-    url: '/calendars/appointments';
+    url: "/calendars/appointments";
 };
 
 export type GetCalendarsAppointmentsErrors = {
@@ -8749,7 +8568,8 @@ export type GetCalendarsAppointmentsErrors = {
     403: unknown;
 };
 
-export type GetCalendarsAppointmentsError = GetCalendarsAppointmentsErrors[keyof GetCalendarsAppointmentsErrors];
+export type GetCalendarsAppointmentsError =
+    GetCalendarsAppointmentsErrors[keyof GetCalendarsAppointmentsErrors];
 
 export type GetCalendarsAppointmentsResponses = {
     /**
@@ -8768,7 +8588,7 @@ export type GetCalendarsAppointmentsTemplatesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/calendars/appointments/templates';
+    url: "/calendars/appointments/templates";
 };
 
 export type GetCalendarsAppointmentsTemplatesErrors = {
@@ -8782,8 +8602,7 @@ export type GetCalendarsAppointmentsTemplatesErrors = {
     403: unknown;
 };
 
-export type GetCalendarsAppointmentsTemplatesError =
-    GetCalendarsAppointmentsTemplatesErrors[keyof GetCalendarsAppointmentsTemplatesErrors];
+export type GetAllTemplatesError = GetAllTemplatesErrors[keyof GetAllTemplatesErrors];
 
 export type GetCalendarsAppointmentsTemplatesResponses = {
     /**
@@ -8794,8 +8613,7 @@ export type GetCalendarsAppointmentsTemplatesResponses = {
     };
 };
 
-export type GetCalendarsAppointmentsTemplatesResponse =
-    GetCalendarsAppointmentsTemplatesResponses[keyof GetCalendarsAppointmentsTemplatesResponses];
+export type GetAllTemplatesResponse = GetAllTemplatesResponses[keyof GetAllTemplatesResponses];
 
 export type PostCalendarsAppointmentsTemplatesData = {
     /**
@@ -8804,7 +8622,7 @@ export type PostCalendarsAppointmentsTemplatesData = {
     body: AppointmentTemplatePost;
     path?: never;
     query?: never;
-    url: '/calendars/appointments/templates';
+    url: "/calendars/appointments/templates";
 };
 
 export type PostCalendarsAppointmentsTemplatesErrors = {
@@ -8818,8 +8636,7 @@ export type PostCalendarsAppointmentsTemplatesErrors = {
     403: unknown;
 };
 
-export type PostCalendarsAppointmentsTemplatesError =
-    PostCalendarsAppointmentsTemplatesErrors[keyof PostCalendarsAppointmentsTemplatesErrors];
+export type CreateTemplateError = CreateTemplateErrors[keyof CreateTemplateErrors];
 
 export type PostCalendarsAppointmentsTemplatesResponses = {
     /**
@@ -8830,8 +8647,7 @@ export type PostCalendarsAppointmentsTemplatesResponses = {
     };
 };
 
-export type PostCalendarsAppointmentsTemplatesResponse =
-    PostCalendarsAppointmentsTemplatesResponses[keyof PostCalendarsAppointmentsTemplatesResponses];
+export type CreateTemplateResponse = CreateTemplateResponses[keyof CreateTemplateResponses];
 
 export type DeleteCalendarsAppointmentsTemplatesIdData = {
     body?: never;
@@ -8842,7 +8658,7 @@ export type DeleteCalendarsAppointmentsTemplatesIdData = {
         templateId: number;
     };
     query?: never;
-    url: '/calendars/appointments/templates/{templateId}';
+    url: "/calendars/appointments/templates/{templateId}";
 };
 
 export type DeleteCalendarsAppointmentsTemplatesIdErrors = {
@@ -8860,8 +8676,7 @@ export type DeleteCalendarsAppointmentsTemplatesIdErrors = {
     404: unknown;
 };
 
-export type DeleteCalendarsAppointmentsTemplatesIdError =
-    DeleteCalendarsAppointmentsTemplatesIdErrors[keyof DeleteCalendarsAppointmentsTemplatesIdErrors];
+export type DeleteTemplateError = DeleteTemplateErrors[keyof DeleteTemplateErrors];
 
 export type DeleteCalendarsAppointmentsTemplatesIdResponses = {
     /**
@@ -8870,8 +8685,7 @@ export type DeleteCalendarsAppointmentsTemplatesIdResponses = {
     204: void;
 };
 
-export type DeleteCalendarsAppointmentsTemplatesIdResponse =
-    DeleteCalendarsAppointmentsTemplatesIdResponses[keyof DeleteCalendarsAppointmentsTemplatesIdResponses];
+export type DeleteTemplateResponse = DeleteTemplateResponses[keyof DeleteTemplateResponses];
 
 export type GetCalendarsAppointmentsTemplatesIdData = {
     body?: never;
@@ -8882,7 +8696,7 @@ export type GetCalendarsAppointmentsTemplatesIdData = {
         templateId: number;
     };
     query?: never;
-    url: '/calendars/appointments/templates/{templateId}';
+    url: "/calendars/appointments/templates/{templateId}";
 };
 
 export type GetCalendarsAppointmentsTemplatesIdErrors = {
@@ -8900,8 +8714,7 @@ export type GetCalendarsAppointmentsTemplatesIdErrors = {
     404: unknown;
 };
 
-export type GetCalendarsAppointmentsTemplatesIdError =
-    GetCalendarsAppointmentsTemplatesIdErrors[keyof GetCalendarsAppointmentsTemplatesIdErrors];
+export type GetTemplateByIdError = GetTemplateByIdErrors[keyof GetTemplateByIdErrors];
 
 export type GetCalendarsAppointmentsTemplatesIdResponses = {
     /**
@@ -8912,8 +8725,7 @@ export type GetCalendarsAppointmentsTemplatesIdResponses = {
     };
 };
 
-export type GetCalendarsAppointmentsTemplatesIdResponse =
-    GetCalendarsAppointmentsTemplatesIdResponses[keyof GetCalendarsAppointmentsTemplatesIdResponses];
+export type GetTemplateByIdResponse = GetTemplateByIdResponses[keyof GetTemplateByIdResponses];
 
 export type PutCalendarsAppointmentsTemplatesIdData = {
     /**
@@ -8927,7 +8739,7 @@ export type PutCalendarsAppointmentsTemplatesIdData = {
         templateId: number;
     };
     query?: never;
-    url: '/calendars/appointments/templates/{templateId}';
+    url: "/calendars/appointments/templates/{templateId}";
 };
 
 export type PutCalendarsAppointmentsTemplatesIdErrors = {
@@ -8945,8 +8757,7 @@ export type PutCalendarsAppointmentsTemplatesIdErrors = {
     404: unknown;
 };
 
-export type PutCalendarsAppointmentsTemplatesIdError =
-    PutCalendarsAppointmentsTemplatesIdErrors[keyof PutCalendarsAppointmentsTemplatesIdErrors];
+export type UpdateTemplateError = UpdateTemplateErrors[keyof UpdateTemplateErrors];
 
 export type PutCalendarsAppointmentsTemplatesIdResponses = {
     /**
@@ -8957,8 +8768,7 @@ export type PutCalendarsAppointmentsTemplatesIdResponses = {
     };
 };
 
-export type PutCalendarsAppointmentsTemplatesIdResponse =
-    PutCalendarsAppointmentsTemplatesIdResponses[keyof PutCalendarsAppointmentsTemplatesIdResponses];
+export type UpdateTemplateResponse = UpdateTemplateResponses[keyof UpdateTemplateResponses];
 
 export type GetCalendarsAppointmentsAppointmentIdStartDateData = {
     body?: never;
@@ -8970,7 +8780,7 @@ export type GetCalendarsAppointmentsAppointmentIdStartDateData = {
         startDate: string;
     };
     query?: never;
-    url: '/calendars/appointments/{appointmentId}/{startDate}';
+    url: "/calendars/appointments/{appointmentId}/{startDate}";
 };
 
 export type GetCalendarsAppointmentsAppointmentIdStartDateErrors = {
@@ -9018,7 +8828,7 @@ export type DeleteCalendarsCalendarIdData = {
         calendarId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}';
+    url: "/calendars/{calendarId}";
 };
 
 export type DeleteCalendarsCalendarIdErrors = {
@@ -9036,7 +8846,8 @@ export type DeleteCalendarsCalendarIdErrors = {
     404: unknown;
 };
 
-export type DeleteCalendarsCalendarIdError = DeleteCalendarsCalendarIdErrors[keyof DeleteCalendarsCalendarIdErrors];
+export type DeleteCalendarsCalendarIdError =
+    DeleteCalendarsCalendarIdErrors[keyof DeleteCalendarsCalendarIdErrors];
 
 export type DeleteCalendarsCalendarIdResponses = {
     /**
@@ -9057,7 +8868,7 @@ export type GetCalendarsCalendarIdData = {
         calendarId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}';
+    url: "/calendars/{calendarId}";
 };
 
 export type GetCalendarsCalendarIdErrors = {
@@ -9075,7 +8886,8 @@ export type GetCalendarsCalendarIdErrors = {
     404: unknown;
 };
 
-export type GetCalendarsCalendarIdError = GetCalendarsCalendarIdErrors[keyof GetCalendarsCalendarIdErrors];
+export type GetCalendarsCalendarIdError =
+    GetCalendarsCalendarIdErrors[keyof GetCalendarsCalendarIdErrors];
 
 export type GetCalendarsCalendarIdResponses = {
     /**
@@ -9086,7 +8898,8 @@ export type GetCalendarsCalendarIdResponses = {
     };
 };
 
-export type GetCalendarsCalendarIdResponse = GetCalendarsCalendarIdResponses[keyof GetCalendarsCalendarIdResponses];
+export type GetCalendarsCalendarIdResponse =
+    GetCalendarsCalendarIdResponses[keyof GetCalendarsCalendarIdResponses];
 
 export type PutCalendarsCalendarIdData = {
     body: CalendarUpdate;
@@ -9097,7 +8910,7 @@ export type PutCalendarsCalendarIdData = {
         calendarId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}';
+    url: "/calendars/{calendarId}";
 };
 
 export type PutCalendarsCalendarIdErrors = {
@@ -9115,7 +8928,8 @@ export type PutCalendarsCalendarIdErrors = {
     404: unknown;
 };
 
-export type PutCalendarsCalendarIdError = PutCalendarsCalendarIdErrors[keyof PutCalendarsCalendarIdErrors];
+export type PutCalendarsCalendarIdError =
+    PutCalendarsCalendarIdErrors[keyof PutCalendarsCalendarIdErrors];
 
 export type PutCalendarsCalendarIdResponses = {
     /**
@@ -9126,7 +8940,8 @@ export type PutCalendarsCalendarIdResponses = {
     };
 };
 
-export type PutCalendarsCalendarIdResponse = PutCalendarsCalendarIdResponses[keyof PutCalendarsCalendarIdResponses];
+export type PutCalendarsCalendarIdResponse =
+    PutCalendarsCalendarIdResponses[keyof PutCalendarsCalendarIdResponses];
 
 export type GetCalendarsCalendarIdAppointmentsData = {
     body?: never;
@@ -9146,9 +8961,9 @@ export type GetCalendarsCalendarIdAppointmentsData = {
          */
         to?: DateString;
         query?: string;
-        'include[]'?: Array<'titleSuffix' | 'event' | 'group' | 'meetingRequests' | 'bookings' | 'tags'>;
+        'include[]'?: Array<'titleSuffix' | 'event' | 'group' | 'meetingRequests' | 'bookings'>;
     };
-    url: '/calendars/{calendarId}/appointments';
+    url: "/calendars/{calendarId}/appointments";
 };
 
 export type GetCalendarsCalendarIdAppointmentsErrors = {
@@ -9190,7 +9005,7 @@ export type PostCalendarsCalendarIdAppointmentsData = {
         calendarId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}/appointments';
+    url: "/calendars/{calendarId}/appointments";
 };
 
 export type PostCalendarsCalendarIdAppointmentsErrors = {
@@ -9227,7 +9042,7 @@ export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdData = {
         appointmentId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}';
+    url: "/calendars/{calendarId}/appointments/{appointmentId}";
 };
 
 export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdErrors = {
@@ -9271,7 +9086,7 @@ export type GetCalendarsCalendarIdAppointmentsAppointmentIdData = {
         appointmentId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}';
+    url: "/calendars/{calendarId}/appointments/{appointmentId}";
 };
 
 export type GetCalendarsCalendarIdAppointmentsAppointmentIdErrors = {
@@ -9319,7 +9134,7 @@ export type PutCalendarsCalendarIdAppointmentsAppointmentIdData = {
         appointmentId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}';
+    url: "/calendars/{calendarId}/appointments/{appointmentId}";
 };
 
 export type PutCalendarsCalendarIdAppointmentsAppointmentIdErrors = {
@@ -9375,7 +9190,7 @@ export type PostCalendarsIdAppointmentsIdChangeimpactData = {
         repeatUntil?: string;
         startDate?: string;
     };
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/changeimpact';
+    url: "/calendars/{calendarId}/appointments/{appointmentId}/changeimpact";
 };
 
 export type PostCalendarsIdAppointmentsIdChangeimpactErrors = {
@@ -9411,39 +9226,40 @@ export type PostCalendarsIdAppointmentsIdChangeimpactResponses = {
     };
 };
 
-export type PostCalendarsIdAppointmentsIdChangeimpactResponse =
-    PostCalendarsIdAppointmentsIdChangeimpactResponses[keyof PostCalendarsIdAppointmentsIdChangeimpactResponses];
+export type ChangeImpactResponse = ChangeImpactResponses[keyof ChangeImpactResponses];
 
-export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsData = {
-    body?: never;
-    path: {
-        /**
-         * ID of Calendar
-         */
-        calendarId: number;
-        /**
-         * ID of appointment
-         */
-        appointmentId: number;
+export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsData =
+    {
+        body?: never;
+        path: {
+            /**
+             * ID of Calendar
+             */
+            calendarId: number;
+            /**
+             * ID of appointment
+             */
+            appointmentId: number;
+        };
+        query?: never;
+        url: "/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests";
     };
-    query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests';
-};
 
-export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors = {
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-    /**
-     * Resource not found
-     */
-    404: unknown;
-};
+export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors =
+    {
+        /**
+         * Unauthorized
+         */
+        401: string;
+        /**
+         * Forbidden to see, create, update, or delete resource
+         */
+        403: unknown;
+        /**
+         * Resource not found
+         */
+        404: unknown;
+    };
 
 export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsError =
     GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors[keyof GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors];
@@ -9453,152 +9269,163 @@ export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsRespon
      * OK
      */
     200: {
-        data: MeetingRequest;
-        meta: MetaCount;
+        data?: MeetingRequest;
+        meta?: {
+            count?: number;
+        };
     };
 };
 
 export type GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponse =
     GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses[keyof GetCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses];
 
-export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsData = {
-    body?: never;
-    path: {
-        /**
-         * ID of Calendar
-         */
-        calendarId: number;
-        /**
-         * ID of appointment
-         */
-        appointmentId: number;
+export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsData =
+    {
+        body?: never;
+        path: {
+            /**
+             * ID of Calendar
+             */
+            calendarId: number;
+            /**
+             * ID of appointment
+             */
+            appointmentId: number;
+        };
+        query: {
+            personId: number;
+        };
+        url: "/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests";
     };
-    query: {
-        personId: number;
-    };
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests';
-};
 
-export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors = {
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-    /**
-     * Resource not found
-     */
-    404: unknown;
-};
+export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors =
+    {
+        /**
+         * Unauthorized
+         */
+        401: string;
+        /**
+         * Forbidden to see, create, update, or delete resource
+         */
+        403: unknown;
+        /**
+         * Resource not found
+         */
+        404: unknown;
+    };
 
 export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsError =
     PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors[keyof PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsErrors];
 
-export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses = {
-    /**
-     * OK
-     */
-    201: MeetingRequest;
-};
+export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses =
+    {
+        /**
+         * OK
+         */
+        201: MeetingRequest;
+    };
 
 export type PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponse =
     PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses[keyof PostCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsResponses];
 
-export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdData = {
-    body?: never;
-    path: {
-        /**
-         * ID of Calendar
-         */
-        calendarId: number;
-        /**
-         * ID of appointment
-         */
-        appointmentId: number;
-        /**
-         * ID of meeting request
-         */
-        meetingRequestId: number;
+export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdData =
+    {
+        body?: never;
+        path: {
+            /**
+             * ID of Calendar
+             */
+            calendarId: number;
+            /**
+             * ID of appointment
+             */
+            appointmentId: number;
+            /**
+             * ID of meeting request
+             */
+            meetingRequestId: number;
+        };
+        query?: never;
+        url: "/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests/{meetingRequestId}";
     };
-    query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests/{meetingRequestId}';
-};
 
-export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors = {
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-    /**
-     * Resource not found
-     */
-    404: unknown;
-};
+export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors =
+    {
+        /**
+         * Unauthorized
+         */
+        401: string;
+        /**
+         * Forbidden to see, create, update, or delete resource
+         */
+        403: unknown;
+        /**
+         * Resource not found
+         */
+        404: unknown;
+    };
 
 export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdError =
     DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors[keyof DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors];
 
-export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses = {
-    /**
-     * No Content
-     */
-    204: void;
-};
+export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses =
+    {
+        /**
+         * No Content
+         */
+        204: void;
+    };
 
 export type DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponse =
     DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses[keyof DeleteCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses];
 
-export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdData = {
-    body?: never;
-    path: {
-        /**
-         * ID of Calendar
-         */
-        calendarId: number;
-        /**
-         * ID of appointment
-         */
-        appointmentId: number;
-        /**
-         * ID of meeting request
-         */
-        meetingRequestId: number;
+export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdData =
+    {
+        body?: never;
+        path: {
+            /**
+             * ID of Calendar
+             */
+            calendarId: number;
+            /**
+             * ID of appointment
+             */
+            appointmentId: number;
+            /**
+             * ID of meeting request
+             */
+            meetingRequestId: number;
+        };
+        query?: never;
+        url: "/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests/{meetingRequestId}";
     };
-    query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests/{meetingRequestId}';
-};
 
-export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors = {
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-    /**
-     * Resource not found
-     */
-    404: unknown;
-};
+export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors =
+    {
+        /**
+         * Unauthorized
+         */
+        401: string;
+        /**
+         * Forbidden to see, create, update, or delete resource
+         */
+        403: unknown;
+        /**
+         * Resource not found
+         */
+        404: unknown;
+    };
 
 export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdError =
     PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors[keyof PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdErrors];
 
-export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses = {
-    /**
-     * OK
-     */
-    200: MeetingRequest;
-};
+export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses =
+    {
+        /**
+         * OK
+         */
+        200: MeetingRequest;
+    };
 
 export type PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponse =
     PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses[keyof PutCalendarsCalendarIdAppointmentsAppointmentIdMeetingrequestsMeetingRequestIdResponses];
@@ -9617,7 +9444,7 @@ export type GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateData = {
         startDate: string;
     };
     query?: never;
-    url: '/calendars/{calendarId}/appointments/{appointmentId}/{startDate}';
+    url: "/calendars/{calendarId}/appointments/{appointmentId}/{startDate}";
 };
 
 export type GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateErrors = {
@@ -9639,9 +9466,6 @@ export type GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateError =
     GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateErrors[keyof GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateErrors];
 
 export type GetCalendarsCalendarIdAppointmentsAppointmentIdStartDateResponses = {
-    /**
-     * OK
-     */
     200: {
         data: {
             appointment: AppointmentCalculated;
@@ -9665,7 +9489,7 @@ export type GetCalendarsCalendarIdMeetingrequestpersonsData = {
         calendarId: number;
     };
     query?: never;
-    url: '/calendars/{calendarId}/meetingrequestpersons';
+    url: "/calendars/{calendarId}/meetingrequestpersons";
 };
 
 export type GetCalendarsCalendarIdMeetingrequestpersonsErrors = {
@@ -9708,7 +9532,7 @@ export type GetCampusesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/campuses';
+    url: "/campuses";
 };
 
 export type GetCampusesErrors = {
@@ -9722,7 +9546,7 @@ export type GetCampusesErrors = {
     403: unknown;
 };
 
-export type GetCampusesError = GetCampusesErrors[keyof GetCampusesErrors];
+export type GetAllCampusesError = GetAllCampusesErrors[keyof GetAllCampusesErrors];
 
 export type GetCampusesResponses = {
     /**
@@ -9734,7 +9558,7 @@ export type GetCampusesResponses = {
     };
 };
 
-export type GetCampusesResponse = GetCampusesResponses[keyof GetCampusesResponses];
+export type GetAllCampusesResponse = GetAllCampusesResponses[keyof GetAllCampusesResponses];
 
 export type PostCampusesData = {
     body: {
@@ -9744,7 +9568,7 @@ export type PostCampusesData = {
     };
     path?: never;
     query?: never;
-    url: '/campuses';
+    url: "/campuses";
 };
 
 export type PostCampusesErrors = {
@@ -9766,7 +9590,7 @@ export type PostCampusesErrors = {
     403: unknown;
 };
 
-export type PostCampusesError = PostCampusesErrors[keyof PostCampusesErrors];
+export type CreateNewCampusError = CreateNewCampusErrors[keyof CreateNewCampusErrors];
 
 export type PostCampusesResponses = {
     /**
@@ -9778,7 +9602,7 @@ export type PostCampusesResponses = {
     };
 };
 
-export type PostCampusesResponse = PostCampusesResponses[keyof PostCampusesResponses];
+export type CreateNewCampusResponse = CreateNewCampusResponses[keyof CreateNewCampusResponses];
 
 export type DeleteCampusesIdData = {
     body?: never;
@@ -9789,7 +9613,7 @@ export type DeleteCampusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/campuses/{id}';
+    url: "/campuses/{id}";
 };
 
 export type DeleteCampusesIdErrors = {
@@ -9816,7 +9640,7 @@ export type DeleteCampusesIdResponses = {
     204: void;
 };
 
-export type DeleteCampusesIdResponse = DeleteCampusesIdResponses[keyof DeleteCampusesIdResponses];
+export type DeleteCampusResponse = DeleteCampusResponses[keyof DeleteCampusResponses];
 
 export type GetCampusesIdData = {
     body?: never;
@@ -9827,7 +9651,7 @@ export type GetCampusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/campuses/{id}';
+    url: "/campuses/{id}";
 };
 
 export type GetCampusesIdErrors = {
@@ -9870,7 +9694,7 @@ export type PutCampusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/campuses/{id}';
+    url: "/campuses/{id}";
 };
 
 export type PutCampusesIdErrors = {
@@ -9899,13 +9723,13 @@ export type PutCampusesIdResponses = {
     };
 };
 
-export type PutCampusesIdResponse = PutCampusesIdResponses[keyof PutCampusesIdResponses];
+export type UpdateCampusResponse = UpdateCampusResponses[keyof UpdateCampusResponses];
 
 export type GetCaptchaData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/captcha';
+    url: "/captcha";
 };
 
 export type GetCaptchaErrors = {
@@ -9946,7 +9770,7 @@ export type PostCaptchaData = {
     };
     path?: never;
     query?: never;
-    url: '/captcha';
+    url: "/captcha";
 };
 
 export type PostCaptchaErrors = {
@@ -9975,13 +9799,14 @@ export type PostCaptchaResponses = {
     };
 };
 
-export type PostCaptchaResponse = PostCaptchaResponses[keyof PostCaptchaResponses];
+export type PostCaptchaResponse =
+    PostCaptchaResponses[keyof PostCaptchaResponses];
 
 export type GetChatData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/chat';
+    url: "/chat";
 };
 
 export type GetChatErrors = {
@@ -10010,7 +9835,7 @@ export type GetChatResponses = {
     };
 };
 
-export type GetChatResponse = GetChatResponses[keyof GetChatResponses];
+export type GetAllChatsResponse = GetAllChatsResponses[keyof GetAllChatsResponses];
 
 export type PostChatData = {
     /**
@@ -10019,7 +9844,7 @@ export type PostChatData = {
     body: ChatNew;
     path?: never;
     query?: never;
-    url: '/chat';
+    url: "/chat";
 };
 
 export type PostChatErrors = {
@@ -10048,7 +9873,7 @@ export type PostChatResponses = {
     };
 };
 
-export type PostChatResponse = PostChatResponses[keyof PostChatResponses];
+export type CreateNewChatResponse = CreateNewChatResponses[keyof CreateNewChatResponses];
 
 export type DeleteChatGuidData = {
     body?: never;
@@ -10059,7 +9884,7 @@ export type DeleteChatGuidData = {
         guid: string;
     };
     query?: never;
-    url: '/chat/{guid}';
+    url: "/chat/{guid}";
 };
 
 export type DeleteChatGuidErrors = {
@@ -10100,7 +9925,7 @@ export type PatchChatGuidData = {
         guid: string;
     };
     query?: never;
-    url: '/chat/{guid}';
+    url: "/chat/{guid}";
 };
 
 export type PatchChatGuidErrors = {
@@ -10166,7 +9991,7 @@ export type PostCheckinPersonsData = {
     };
     path?: never;
     query?: never;
-    url: '/checkin/persons';
+    url: "/checkin/persons";
 };
 
 export type PostCheckinPersonsErrors = {
@@ -10204,7 +10029,8 @@ export type PostCheckinPersonsErrors = {
     };
 };
 
-export type PostCheckinPersonsError = PostCheckinPersonsErrors[keyof PostCheckinPersonsErrors];
+export type PostCheckinPersonsError =
+    PostCheckinPersonsErrors[keyof PostCheckinPersonsErrors];
 
 export type PostCheckinPersonsResponses = {
     /**
@@ -10215,7 +10041,8 @@ export type PostCheckinPersonsResponses = {
     };
 };
 
-export type PostCheckinPersonsResponse = PostCheckinPersonsResponses[keyof PostCheckinPersonsResponses];
+export type PostCheckinPersonsResponse =
+    PostCheckinPersonsResponses[keyof PostCheckinPersonsResponses];
 
 export type PutCheckinPersonsData = {
     body: {
@@ -10243,7 +10070,7 @@ export type PutCheckinPersonsData = {
     };
     path?: never;
     query?: never;
-    url: '/checkin/persons';
+    url: "/checkin/persons";
 };
 
 export type PutCheckinPersonsErrors = {
@@ -10281,7 +10108,8 @@ export type PutCheckinPersonsErrors = {
     };
 };
 
-export type PutCheckinPersonsError = PutCheckinPersonsErrors[keyof PutCheckinPersonsErrors];
+export type PutCheckinPersonsError =
+    PutCheckinPersonsErrors[keyof PutCheckinPersonsErrors];
 
 export type PutCheckinPersonsResponses = {
     /**
@@ -10292,7 +10120,8 @@ export type PutCheckinPersonsResponses = {
     };
 };
 
-export type PutCheckinPersonsResponse = PutCheckinPersonsResponses[keyof PutCheckinPersonsResponses];
+export type PutCheckinPersonsResponse =
+    PutCheckinPersonsResponses[keyof PutCheckinPersonsResponses];
 
 export type PostChurchqueryDebugExportData = {
     body: string;
@@ -10303,7 +10132,7 @@ export type PostChurchqueryDebugExportData = {
          */
         type?: string;
     };
-    url: '/churchquery/debug/export';
+    url: "/churchquery/debug/export";
 };
 
 export type PostChurchqueryDebugExportErrors = {
@@ -10321,13 +10150,14 @@ export type PostChurchqueryDebugExportErrors = {
     404: unknown;
 };
 
-export type PostChurchqueryDebugExportError = PostChurchqueryDebugExportErrors[keyof PostChurchqueryDebugExportErrors];
+export type PostChurchqueryDebugExportError =
+    PostChurchqueryDebugExportErrors[keyof PostChurchqueryDebugExportErrors];
 
 export type GetChurchqueryMetadataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/churchquery/metadata';
+    url: "/churchquery/metadata";
 };
 
 export type GetChurchqueryMetadataErrors = {
@@ -10345,7 +10175,7 @@ export type GetChurchqueryMetadataErrors = {
     404: unknown;
 };
 
-export type GetChurchqueryMetadataError = GetChurchqueryMetadataErrors[keyof GetChurchqueryMetadataErrors];
+export type GetChurchqueryMasterdataError = GetChurchqueryMasterdataErrors[keyof GetChurchqueryMasterdataErrors];
 
 export type GetConfigData = {
     body?: never;
@@ -10356,7 +10186,7 @@ export type GetConfigData = {
          */
         extended?: boolean;
     };
-    url: '/config';
+    url: "/config";
 };
 
 export type GetConfigErrors = {
@@ -10389,7 +10219,7 @@ export type PutConfigData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/config';
+    url: "/config";
 };
 
 export type PutConfigErrors = {
@@ -10422,7 +10252,7 @@ export type GetContactlabelsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/contactlabels';
+    url: "/contactlabels";
 };
 
 export type GetContactlabelsErrors = {
@@ -10440,7 +10270,8 @@ export type GetContactlabelsErrors = {
     403: unknown;
 };
 
-export type GetContactlabelsError = GetContactlabelsErrors[keyof GetContactlabelsErrors];
+export type GetContactlabelsError =
+    GetContactlabelsErrors[keyof GetContactlabelsErrors];
 
 export type GetContactlabelsResponses = {
     /**
@@ -10452,7 +10283,8 @@ export type GetContactlabelsResponses = {
     };
 };
 
-export type GetContactlabelsResponse = GetContactlabelsResponses[keyof GetContactlabelsResponses];
+export type GetContactlabelsResponse =
+    GetContactlabelsResponses[keyof GetContactlabelsResponses];
 
 export type PostContactlabelsData = {
     body: {
@@ -10471,7 +10303,7 @@ export type PostContactlabelsData = {
     };
     path?: never;
     query?: never;
-    url: '/contactlabels';
+    url: "/contactlabels";
 };
 
 export type PostContactlabelsErrors = {
@@ -10485,7 +10317,8 @@ export type PostContactlabelsErrors = {
     403: unknown;
 };
 
-export type PostContactlabelsError = PostContactlabelsErrors[keyof PostContactlabelsErrors];
+export type PostContactlabelsError =
+    PostContactlabelsErrors[keyof PostContactlabelsErrors];
 
 export type PostContactlabelsResponses = {
     /**
@@ -10497,7 +10330,8 @@ export type PostContactlabelsResponses = {
     };
 };
 
-export type PostContactlabelsResponse = PostContactlabelsResponses[keyof PostContactlabelsResponses];
+export type PostContactlabelsResponse =
+    PostContactlabelsResponses[keyof PostContactlabelsResponses];
 
 export type DeleteContactlabelsIdData = {
     body?: never;
@@ -10508,7 +10342,7 @@ export type DeleteContactlabelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/contactlabels/{id}';
+    url: "/contactlabels/{id}";
 };
 
 export type DeleteContactlabelsIdErrors = {
@@ -10530,7 +10364,7 @@ export type DeleteContactlabelsIdErrors = {
     404: unknown;
 };
 
-export type DeleteContactlabelsIdError = DeleteContactlabelsIdErrors[keyof DeleteContactlabelsIdErrors];
+export type DeleteContactlabelError = DeleteContactlabelErrors[keyof DeleteContactlabelErrors];
 
 export type DeleteContactlabelsIdResponses = {
     /**
@@ -10539,7 +10373,7 @@ export type DeleteContactlabelsIdResponses = {
     204: void;
 };
 
-export type DeleteContactlabelsIdResponse = DeleteContactlabelsIdResponses[keyof DeleteContactlabelsIdResponses];
+export type DeleteContactlabelResponse = DeleteContactlabelResponses[keyof DeleteContactlabelResponses];
 
 export type GetContactlabelsIdData = {
     body?: never;
@@ -10550,7 +10384,7 @@ export type GetContactlabelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/contactlabels/{id}';
+    url: "/contactlabels/{id}";
 };
 
 export type GetContactlabelsIdErrors = {
@@ -10568,7 +10402,7 @@ export type GetContactlabelsIdErrors = {
     404: unknown;
 };
 
-export type GetContactlabelsIdError = GetContactlabelsIdErrors[keyof GetContactlabelsIdErrors];
+export type GetContactlabelError = GetContactlabelErrors[keyof GetContactlabelErrors];
 
 export type GetContactlabelsIdResponses = {
     /**
@@ -10579,7 +10413,7 @@ export type GetContactlabelsIdResponses = {
     };
 };
 
-export type GetContactlabelsIdResponse = GetContactlabelsIdResponses[keyof GetContactlabelsIdResponses];
+export type GetContactlabelResponse = GetContactlabelResponses[keyof GetContactlabelResponses];
 
 export type PutContactlabelsIdData = {
     body: {
@@ -10603,7 +10437,7 @@ export type PutContactlabelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/contactlabels/{id}';
+    url: "/contactlabels/{id}";
 };
 
 export type PutContactlabelsIdErrors = {
@@ -10625,7 +10459,7 @@ export type PutContactlabelsIdErrors = {
     404: unknown;
 };
 
-export type PutContactlabelsIdError = PutContactlabelsIdErrors[keyof PutContactlabelsIdErrors];
+export type PutContactlabelError = PutContactlabelErrors[keyof PutContactlabelErrors];
 
 export type PutContactlabelsIdResponses = {
     /**
@@ -10636,13 +10470,13 @@ export type PutContactlabelsIdResponses = {
     };
 };
 
-export type PutContactlabelsIdResponse = PutContactlabelsIdResponses[keyof PutContactlabelsIdResponses];
+export type PutContactlabelResponse = PutContactlabelResponses[keyof PutContactlabelResponses];
 
 export type GetCsrftokenData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/csrftoken';
+    url: "/csrftoken";
 };
 
 export type GetCsrftokenErrors = {
@@ -10667,7 +10501,8 @@ export type GetCsrftokenResponses = {
     };
 };
 
-export type GetCsrftokenResponse = GetCsrftokenResponses[keyof GetCsrftokenResponses];
+export type GetCsrftokenResponse =
+    GetCsrftokenResponses[keyof GetCsrftokenResponses];
 
 export type GetDbfieldsData = {
     body?: never;
@@ -10676,9 +10511,9 @@ export type GetDbfieldsData = {
         /**
          * Includes additional data in the response
          */
-        'include[]'?: Array<'options'>;
+        "include[]"?: Array<"options">;
     };
-    url: '/dbfields';
+    url: "/dbfields";
 };
 
 export type GetDbfieldsErrors = {
@@ -10706,13 +10541,14 @@ export type GetDbfieldsResponses = {
     };
 };
 
-export type GetDbfieldsResponse = GetDbfieldsResponses[keyof GetDbfieldsResponses];
+export type GetDbfieldsResponse =
+    GetDbfieldsResponses[keyof GetDbfieldsResponses];
 
 export type PostDbfieldsData = {
     body: DbFieldCreate;
     path?: never;
     query?: never;
-    url: '/dbfields';
+    url: "/dbfields";
 };
 
 export type PostDbfieldsErrors = {
@@ -10741,7 +10577,8 @@ export type PostDbfieldsResponses = {
     };
 };
 
-export type PostDbfieldsResponse = PostDbfieldsResponses[keyof PostDbfieldsResponses];
+export type PostDbfieldsResponse =
+    PostDbfieldsResponses[keyof PostDbfieldsResponses];
 
 export type DeleteDbfieldsFieldIdData = {
     body?: never;
@@ -10749,7 +10586,7 @@ export type DeleteDbfieldsFieldIdData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}';
+    url: "/dbfields/{fieldId}";
 };
 
 export type DeleteDbfieldsFieldIdErrors = {
@@ -10771,7 +10608,8 @@ export type DeleteDbfieldsFieldIdErrors = {
     404: unknown;
 };
 
-export type DeleteDbfieldsFieldIdError = DeleteDbfieldsFieldIdErrors[keyof DeleteDbfieldsFieldIdErrors];
+export type DeleteDbfieldsFieldIdError =
+    DeleteDbfieldsFieldIdErrors[keyof DeleteDbfieldsFieldIdErrors];
 
 export type DeleteDbfieldsFieldIdResponses = {
     /**
@@ -10780,7 +10618,8 @@ export type DeleteDbfieldsFieldIdResponses = {
     204: void;
 };
 
-export type DeleteDbfieldsFieldIdResponse = DeleteDbfieldsFieldIdResponses[keyof DeleteDbfieldsFieldIdResponses];
+export type DeleteDbfieldsFieldIdResponse =
+    DeleteDbfieldsFieldIdResponses[keyof DeleteDbfieldsFieldIdResponses];
 
 export type GetDbfieldsFieldIdData = {
     body?: never;
@@ -10788,7 +10627,7 @@ export type GetDbfieldsFieldIdData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}';
+    url: "/dbfields/{fieldId}";
 };
 
 export type GetDbfieldsFieldIdErrors = {
@@ -10810,7 +10649,8 @@ export type GetDbfieldsFieldIdErrors = {
     404: unknown;
 };
 
-export type GetDbfieldsFieldIdError = GetDbfieldsFieldIdErrors[keyof GetDbfieldsFieldIdErrors];
+export type GetDbfieldsFieldIdError =
+    GetDbfieldsFieldIdErrors[keyof GetDbfieldsFieldIdErrors];
 
 export type GetDbfieldsFieldIdResponses = {
     /**
@@ -10821,7 +10661,8 @@ export type GetDbfieldsFieldIdResponses = {
     };
 };
 
-export type GetDbfieldsFieldIdResponse = GetDbfieldsFieldIdResponses[keyof GetDbfieldsFieldIdResponses];
+export type GetDbfieldsFieldIdResponse =
+    GetDbfieldsFieldIdResponses[keyof GetDbfieldsFieldIdResponses];
 
 export type PutDbfieldsFieldIdData = {
     body: DbFieldUpdate;
@@ -10829,7 +10670,7 @@ export type PutDbfieldsFieldIdData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}';
+    url: "/dbfields/{fieldId}";
 };
 
 export type PutDbfieldsFieldIdErrors = {
@@ -10851,7 +10692,8 @@ export type PutDbfieldsFieldIdErrors = {
     404: unknown;
 };
 
-export type PutDbfieldsFieldIdError = PutDbfieldsFieldIdErrors[keyof PutDbfieldsFieldIdErrors];
+export type PutDbfieldsFieldIdError =
+    PutDbfieldsFieldIdErrors[keyof PutDbfieldsFieldIdErrors];
 
 export type PutDbfieldsFieldIdResponses = {
     /**
@@ -10862,7 +10704,8 @@ export type PutDbfieldsFieldIdResponses = {
     };
 };
 
-export type PutDbfieldsFieldIdResponse = PutDbfieldsFieldIdResponses[keyof PutDbfieldsFieldIdResponses];
+export type PutDbfieldsFieldIdResponse =
+    PutDbfieldsFieldIdResponses[keyof PutDbfieldsFieldIdResponses];
 
 export type GetDbfieldsFieldIdOptionsData = {
     body?: never;
@@ -10870,7 +10713,7 @@ export type GetDbfieldsFieldIdOptionsData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}/options';
+    url: "/dbfields/{fieldId}/options";
 };
 
 export type GetDbfieldsFieldIdOptionsErrors = {
@@ -10892,7 +10735,8 @@ export type GetDbfieldsFieldIdOptionsErrors = {
     404: unknown;
 };
 
-export type GetDbfieldsFieldIdOptionsError = GetDbfieldsFieldIdOptionsErrors[keyof GetDbfieldsFieldIdOptionsErrors];
+export type GetDbfieldsFieldIdOptionsError =
+    GetDbfieldsFieldIdOptionsErrors[keyof GetDbfieldsFieldIdOptionsErrors];
 
 export type GetDbfieldsFieldIdOptionsResponses = {
     /**
@@ -10913,7 +10757,7 @@ export type PostDbfieldsIdOptionsData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}/options';
+    url: "/dbfields/{fieldId}/options";
 };
 
 export type PostDbfieldsIdOptionsErrors = {
@@ -10935,7 +10779,7 @@ export type PostDbfieldsIdOptionsErrors = {
     404: unknown;
 };
 
-export type PostDbfieldsIdOptionsError = PostDbfieldsIdOptionsErrors[keyof PostDbfieldsIdOptionsErrors];
+export type PostDbfieldsFieldIdOptionsError = PostDbfieldsFieldIdOptionsErrors[keyof PostDbfieldsFieldIdOptionsErrors];
 
 export type PostDbfieldsIdOptionsResponses = {
     /**
@@ -10954,7 +10798,7 @@ export type GetDbfieldsFieldIdOptionsMetadataData = {
         fieldId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}/options/metadata';
+    url: "/dbfields/{fieldId}/options/metadata";
 };
 
 export type GetDbfieldsFieldIdOptionsMetadataErrors = {
@@ -11004,7 +10848,7 @@ export type DeleteDbfieldsFieldIdOptionsOptionIdData = {
         optionId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}/options/{optionId}';
+    url: "/dbfields/{fieldId}/options/{optionId}";
 };
 
 export type DeleteDbfieldsFieldIdOptionsOptionIdErrors = {
@@ -11046,7 +10890,7 @@ export type PutDbfieldsFieldIdOptionsOptionIdData = {
         optionId: string;
     };
     query?: never;
-    url: '/dbfields/{fieldId}/options/{optionId}';
+    url: "/dbfields/{fieldId}/options/{optionId}";
 };
 
 export type PutDbfieldsFieldIdOptionsOptionIdErrors = {
@@ -11087,7 +10931,7 @@ export type GetDbfieldtypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/dbfieldtypes';
+    url: "/dbfieldtypes";
 };
 
 export type GetDbfieldtypesErrors = {
@@ -11105,7 +10949,8 @@ export type GetDbfieldtypesErrors = {
     404: unknown;
 };
 
-export type GetDbfieldtypesError = GetDbfieldtypesErrors[keyof GetDbfieldtypesErrors];
+export type GetDbfieldtypesError =
+    GetDbfieldtypesErrors[keyof GetDbfieldtypesErrors];
 
 export type GetDbfieldtypesResponses = {
     /**
@@ -11122,13 +10967,14 @@ export type GetDbfieldtypesResponses = {
     };
 };
 
-export type GetDbfieldtypesResponse = GetDbfieldtypesResponses[keyof GetDbfieldtypesResponses];
+export type GetDbfieldtypesResponse =
+    GetDbfieldtypesResponses[keyof GetDbfieldtypesResponses];
 
 export type GetDepartmentsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/departments';
+    url: "/departments";
 };
 
 export type GetDepartmentsErrors = {
@@ -11142,7 +10988,8 @@ export type GetDepartmentsErrors = {
     403: unknown;
 };
 
-export type GetDepartmentsError = GetDepartmentsErrors[keyof GetDepartmentsErrors];
+export type GetDepartmentsError =
+    GetDepartmentsErrors[keyof GetDepartmentsErrors];
 
 export type GetDepartmentsResponses = {
     /**
@@ -11154,7 +11001,8 @@ export type GetDepartmentsResponses = {
     };
 };
 
-export type GetDepartmentsResponse = GetDepartmentsResponses[keyof GetDepartmentsResponses];
+export type GetDepartmentsResponse =
+    GetDepartmentsResponses[keyof GetDepartmentsResponses];
 
 export type GetDomainobjectsData = {
     body?: never;
@@ -11163,13 +11011,13 @@ export type GetDomainobjectsData = {
         /**
          * Types of domain objects to retrieve
          */
-        'domain_types[]': Array<string>;
+        "domain_types[]": Array<string>;
         /**
          * Identifiers of domain objects to retrieve
          */
-        'domain_identifiers[]': Array<string>;
+        "domain_identifiers[]": Array<string>;
     };
-    url: '/domainobjects';
+    url: "/domainobjects";
 };
 
 export type GetDomainobjectsErrors = {
@@ -11187,7 +11035,8 @@ export type GetDomainobjectsErrors = {
     404: unknown;
 };
 
-export type GetDomainobjectsError = GetDomainobjectsErrors[keyof GetDomainobjectsErrors];
+export type GetDomainobjectsError =
+    GetDomainobjectsErrors[keyof GetDomainobjectsErrors];
 
 export type GetDomainobjectsResponses = {
     /**
@@ -11198,13 +11047,14 @@ export type GetDomainobjectsResponses = {
     };
 };
 
-export type GetDomainobjectsResponse = GetDomainobjectsResponses[keyof GetDomainobjectsResponses];
+export type GetDomainobjectsResponse =
+    GetDomainobjectsResponses[keyof GetDomainobjectsResponses];
 
 export type PostDomainobjectsData = {
     body: DomainObjectPayload;
     path?: never;
     query?: never;
-    url: '/domainobjects';
+    url: "/domainobjects";
 };
 
 export type PostDomainobjectsErrors = {
@@ -11222,7 +11072,8 @@ export type PostDomainobjectsErrors = {
     404: unknown;
 };
 
-export type PostDomainobjectsError = PostDomainobjectsErrors[keyof PostDomainobjectsErrors];
+export type PostDomainobjectsError =
+    PostDomainobjectsErrors[keyof PostDomainobjectsErrors];
 
 export type PostDomainobjectsResponses = {
     /**
@@ -11233,13 +11084,14 @@ export type PostDomainobjectsResponses = {
     };
 };
 
-export type PostDomainobjectsResponse = PostDomainobjectsResponses[keyof PostDomainobjectsResponses];
+export type PostDomainobjectsResponse =
+    PostDomainobjectsResponses[keyof PostDomainobjectsResponses];
 
 export type GetDynamicgroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/dynamicgroups';
+    url: "/dynamicgroups";
 };
 
 export type GetDynamicgroupsErrors = {
@@ -11253,7 +11105,8 @@ export type GetDynamicgroupsErrors = {
     403: unknown;
 };
 
-export type GetDynamicgroupsError = GetDynamicgroupsErrors[keyof GetDynamicgroupsErrors];
+export type GetDynamicgroupsError =
+    GetDynamicgroupsErrors[keyof GetDynamicgroupsErrors];
 
 export type GetDynamicgroupsResponses = {
     /**
@@ -11265,13 +11118,14 @@ export type GetDynamicgroupsResponses = {
     };
 };
 
-export type GetDynamicgroupsResponse = GetDynamicgroupsResponses[keyof GetDynamicgroupsResponses];
+export type GetDynamicgroupsResponse =
+    GetDynamicgroupsResponses[keyof GetDynamicgroupsResponses];
 
 export type PostDynamicgroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/dynamicgroups/refresh';
+    url: "/dynamicgroups/refresh";
 };
 
 export type PostDynamicgroupsErrors = {
@@ -11285,7 +11139,8 @@ export type PostDynamicgroupsErrors = {
     403: unknown;
 };
 
-export type PostDynamicgroupsError = PostDynamicgroupsErrors[keyof PostDynamicgroupsErrors];
+export type PostDynamicgroupsError =
+    PostDynamicgroupsErrors[keyof PostDynamicgroupsErrors];
 
 export type PostDynamicgroupsResponses = {
     /**
@@ -11302,7 +11157,8 @@ export type PostDynamicgroupsResponses = {
     };
 };
 
-export type PostDynamicgroupsResponse = PostDynamicgroupsResponses[keyof PostDynamicgroupsResponses];
+export type PostDynamicgroupsResponse =
+    PostDynamicgroupsResponses[keyof PostDynamicgroupsResponses];
 
 export type PostDynamicgroupsIdRefreshData = {
     body?: never;
@@ -11310,7 +11166,7 @@ export type PostDynamicgroupsIdRefreshData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/refresh';
+    url: "/dynamicgroups/{groupId}/refresh";
 };
 
 export type PostDynamicgroupsIdRefreshErrors = {
@@ -11332,7 +11188,7 @@ export type PostDynamicgroupsIdRefreshErrors = {
     404: unknown;
 };
 
-export type PostDynamicgroupsIdRefreshError = PostDynamicgroupsIdRefreshErrors[keyof PostDynamicgroupsIdRefreshErrors];
+export type RefreshDynamicgroupsError = RefreshDynamicgroupsErrors[keyof RefreshDynamicgroupsErrors];
 
 export type PostDynamicgroupsIdRefreshResponses = {
     /**
@@ -11349,8 +11205,7 @@ export type PostDynamicgroupsIdRefreshResponses = {
     };
 };
 
-export type PostDynamicgroupsIdRefreshResponse =
-    PostDynamicgroupsIdRefreshResponses[keyof PostDynamicgroupsIdRefreshResponses];
+export type RefreshDynamicgroupsResponse = RefreshDynamicgroupsResponses[keyof RefreshDynamicgroupsResponses];
 
 export type DeleteDynamicgroupsIdRulesetData = {
     body?: never;
@@ -11361,7 +11216,7 @@ export type DeleteDynamicgroupsIdRulesetData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/ruleset';
+    url: "/dynamicgroups/{groupId}/ruleset";
 };
 
 export type DeleteDynamicgroupsIdRulesetErrors = {
@@ -11393,8 +11248,7 @@ export type DeleteDynamicgroupsIdRulesetResponses = {
     204: void;
 };
 
-export type DeleteDynamicgroupsIdRulesetResponse =
-    DeleteDynamicgroupsIdRulesetResponses[keyof DeleteDynamicgroupsIdRulesetResponses];
+export type DeleteRulesetResponse = DeleteRulesetResponses[keyof DeleteRulesetResponses];
 
 export type GetDynamicgroupsIdRulesetData = {
     body?: never;
@@ -11405,7 +11259,7 @@ export type GetDynamicgroupsIdRulesetData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/ruleset';
+    url: "/dynamicgroups/{groupId}/ruleset";
 };
 
 export type GetDynamicgroupsIdRulesetErrors = {
@@ -11423,7 +11277,7 @@ export type GetDynamicgroupsIdRulesetErrors = {
     404: unknown;
 };
 
-export type GetDynamicgroupsIdRulesetError = GetDynamicgroupsIdRulesetErrors[keyof GetDynamicgroupsIdRulesetErrors];
+export type GetDynamicgroupRulesetError = GetDynamicgroupRulesetErrors[keyof GetDynamicgroupRulesetErrors];
 
 export type GetDynamicgroupsIdRulesetResponses = {
     /**
@@ -11434,8 +11288,7 @@ export type GetDynamicgroupsIdRulesetResponses = {
     };
 };
 
-export type GetDynamicgroupsIdRulesetResponse =
-    GetDynamicgroupsIdRulesetResponses[keyof GetDynamicgroupsIdRulesetResponses];
+export type GetDynamicgroupRulesetResponse = GetDynamicgroupRulesetResponses[keyof GetDynamicgroupRulesetResponses];
 
 export type PutDynamicgroupsIdRulesetData = {
     body: {
@@ -11448,7 +11301,7 @@ export type PutDynamicgroupsIdRulesetData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/ruleset';
+    url: "/dynamicgroups/{groupId}/ruleset";
 };
 
 export type PutDynamicgroupsIdRulesetErrors = {
@@ -11481,8 +11334,7 @@ export type PutDynamicgroupsIdRulesetResponses = {
     };
 };
 
-export type PutDynamicgroupsIdRulesetResponse =
-    PutDynamicgroupsIdRulesetResponses[keyof PutDynamicgroupsIdRulesetResponses];
+export type EditRulesetResponse = EditRulesetResponses[keyof EditRulesetResponses];
 
 export type GetDynamicgroupsIdStatusData = {
     body?: never;
@@ -11493,7 +11345,7 @@ export type GetDynamicgroupsIdStatusData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/status';
+    url: "/dynamicgroups/{groupId}/status";
 };
 
 export type GetDynamicgroupsIdStatusErrors = {
@@ -11511,19 +11363,18 @@ export type GetDynamicgroupsIdStatusErrors = {
     404: unknown;
 };
 
-export type GetDynamicgroupsIdStatusError = GetDynamicgroupsIdStatusErrors[keyof GetDynamicgroupsIdStatusErrors];
+export type GetDynamicgroupStatusError = GetDynamicgroupStatusErrors[keyof GetDynamicgroupStatusErrors];
 
 export type GetDynamicgroupsIdStatusResponses = {
     /**
      * OK
      */
     200: {
-        dynamicGroupStatus?: 'manual' | 'active' | 'inactive' | 'none';
+        dynamicGroupStatus?: "manual" | "active" | "inactive" | "none";
     };
 };
 
-export type GetDynamicgroupsIdStatusResponse =
-    GetDynamicgroupsIdStatusResponses[keyof GetDynamicgroupsIdStatusResponses];
+export type GetDynamicgroupStatusResponse = GetDynamicgroupStatusResponses[keyof GetDynamicgroupStatusResponses];
 
 export type PutDynamicgroupsIdStatusData = {
     body: {
@@ -11536,7 +11387,7 @@ export type PutDynamicgroupsIdStatusData = {
         groupId: number;
     };
     query?: never;
-    url: '/dynamicgroups/{groupId}/status';
+    url: "/dynamicgroups/{groupId}/status";
 };
 
 export type PutDynamicgroupsIdStatusErrors = {
@@ -11558,7 +11409,7 @@ export type PutDynamicgroupsIdStatusErrors = {
     404: unknown;
 };
 
-export type PutDynamicgroupsIdStatusError = PutDynamicgroupsIdStatusErrors[keyof PutDynamicgroupsIdStatusErrors];
+export type PutDynamicgrouopStatusError = PutDynamicgrouopStatusErrors[keyof PutDynamicgrouopStatusErrors];
 
 export type PutDynamicgroupsIdStatusResponses = {
     /**
@@ -11569,14 +11420,13 @@ export type PutDynamicgroupsIdStatusResponses = {
     };
 };
 
-export type PutDynamicgroupsIdStatusResponse =
-    PutDynamicgroupsIdStatusResponses[keyof PutDynamicgroupsIdStatusResponses];
+export type PutDynamicgrouopStatusResponse = PutDynamicgrouopStatusResponses[keyof PutDynamicgrouopStatusResponses];
 
 export type DeleteEvangelischetermineData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/evangelischetermine';
+    url: "/evangelischetermine";
 };
 
 export type DeleteEvangelischetermineErrors = {
@@ -11604,7 +11454,7 @@ export type GetEvangelischetermineEventtypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/evangelischetermine/eventtypes';
+    url: "/evangelischetermine/eventtypes";
 };
 
 export type GetEvangelischetermineEventtypesResponses = {
@@ -11630,7 +11480,7 @@ export type PostEvangelischetermineValidatesettingsData = {
     };
     path?: never;
     query?: never;
-    url: '/evangelischetermine/validatesettings';
+    url: "/evangelischetermine/validatesettings";
 };
 
 export type PostEvangelischetermineValidatesettingsErrors = {
@@ -11651,7 +11501,7 @@ export type GetEventMasterdataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/event/masterdata';
+    url: "/event/masterdata";
 };
 
 export type GetEventMasterdataErrors = {
@@ -11665,7 +11515,8 @@ export type GetEventMasterdataErrors = {
     403: unknown;
 };
 
-export type GetEventMasterdataError = GetEventMasterdataErrors[keyof GetEventMasterdataErrors];
+export type GetEventMasterdataError =
+    GetEventMasterdataErrors[keyof GetEventMasterdataErrors];
 
 export type GetEventMasterdataResponses = {
     /**
@@ -11684,7 +11535,8 @@ export type GetEventMasterdataResponses = {
     };
 };
 
-export type GetEventMasterdataResponse = GetEventMasterdataResponses[keyof GetEventMasterdataResponses];
+export type GetEventMasterdataResponse =
+    GetEventMasterdataResponses[keyof GetEventMasterdataResponses];
 
 export type GetEventsData = {
     body?: never;
@@ -11697,7 +11549,7 @@ export type GetEventsData = {
         /**
          * The direction of the result set
          */
-        direction?: 'forward' | 'backward';
+        direction?: "forward" | "backward";
         /**
          * Number of results per page.
          */
@@ -11719,7 +11571,7 @@ export type GetEventsData = {
          */
         page?: number;
     };
-    url: '/events';
+    url: "/events";
 };
 
 export type GetEventsErrors = {
@@ -11749,7 +11601,7 @@ export type GetEventsResponses = {
     };
 };
 
-export type GetEventsResponse = GetEventsResponses[keyof GetEventsResponses];
+export type GetAllEventsResponse = GetAllEventsResponses[keyof GetAllEventsResponses];
 
 export type GetEventsIcalData = {
     body?: never;
@@ -11757,7 +11609,7 @@ export type GetEventsIcalData = {
     query: {
         personId: number;
     };
-    url: '/events/ical';
+    url: "/events/ical";
 };
 
 export type GetEventsIcalErrors = {
@@ -11789,13 +11641,14 @@ export type GetEventsIcalResponses = {
     };
 };
 
-export type GetEventsIcalResponse = GetEventsIcalResponses[keyof GetEventsIcalResponses];
+export type GetEventsIcalResponse =
+    GetEventsIcalResponses[keyof GetEventsIcalResponses];
 
 export type PostEventsIcalData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/events/ical';
+    url: "/events/ical";
 };
 
 export type PostEventsIcalErrors = {
@@ -11831,7 +11684,7 @@ export type PostEventsIcalResponses = {
     };
 };
 
-export type PostEventsIcalResponse = PostEventsIcalResponses[keyof PostEventsIcalResponses];
+export type PostEventIcalResponse = PostEventIcalResponses[keyof PostEventIcalResponses];
 
 export type PostEventsSendData = {
     /**
@@ -11869,7 +11722,7 @@ export type PostEventsSendData = {
     };
     path?: never;
     query?: never;
-    url: '/events/send';
+    url: "/events/send";
 };
 
 export type PostEventsSendErrors = {
@@ -11887,7 +11740,7 @@ export type PostEventsSendErrors = {
     403: unknown;
 };
 
-export type PostEventsSendError = PostEventsSendErrors[keyof PostEventsSendErrors];
+export type SendEventEmailError = SendEventEmailErrors[keyof SendEventEmailErrors];
 
 export type PostEventsSendResponses = {
     /**
@@ -11911,44 +11764,7 @@ export type PostEventsSendResponses = {
     204: void;
 };
 
-export type PostEventsSendResponse = PostEventsSendResponses[keyof PostEventsSendResponses];
-
-export type DeleteEventsIdData = {
-    body: {
-        dryRun?: boolean;
-        sendMail?: boolean;
-    };
-    path: {
-        /**
-         * ID of Event
-         */
-        eventId: number;
-    };
-    query?: never;
-    url: '/events/{eventId}';
-};
-
-export type DeleteEventsIdErrors = {
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-};
-
-export type DeleteEventsIdError = DeleteEventsIdErrors[keyof DeleteEventsIdErrors];
-
-export type DeleteEventsIdResponses = {
-    /**
-     * No Content
-     */
-    204: void;
-};
-
-export type DeleteEventsIdResponse = DeleteEventsIdResponses[keyof DeleteEventsIdResponses];
+export type SendEventEmailResponse = SendEventEmailResponses[keyof SendEventEmailResponses];
 
 export type GetEventsIdData = {
     body?: never;
@@ -11959,7 +11775,7 @@ export type GetEventsIdData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}';
+    url: "/events/{eventId}";
 };
 
 export type GetEventsIdErrors = {
@@ -12000,7 +11816,7 @@ export type PutEventsIdData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}';
+    url: "/events/{eventId}";
 };
 
 export type PutEventsIdErrors = {
@@ -12036,7 +11852,7 @@ export type GetEventsIdAgendaData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/agenda';
+    url: "/events/{eventId}/agenda";
 };
 
 export type GetEventsIdAgendaErrors = {
@@ -12054,7 +11870,7 @@ export type GetEventsIdAgendaErrors = {
     404: unknown;
 };
 
-export type GetEventsIdAgendaError = GetEventsIdAgendaErrors[keyof GetEventsIdAgendaErrors];
+export type GetAgendaForEventError = GetAgendaForEventErrors[keyof GetAgendaForEventErrors];
 
 export type GetEventsIdAgendaResponses = {
     /**
@@ -12065,7 +11881,7 @@ export type GetEventsIdAgendaResponses = {
     };
 };
 
-export type GetEventsIdAgendaResponse = GetEventsIdAgendaResponses[keyof GetEventsIdAgendaResponses];
+export type GetAgendaForEventResponse = GetAgendaForEventResponses[keyof GetAgendaForEventResponses];
 
 export type GetEventsIdAgendaSongsData = {
     body?: never;
@@ -12076,7 +11892,7 @@ export type GetEventsIdAgendaSongsData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/agenda/songs';
+    url: "/events/{eventId}/agenda/songs";
 };
 
 export type GetEventsIdAgendaSongsErrors = {
@@ -12098,7 +11914,7 @@ export type GetEventsIdAgendaSongsErrors = {
     404: unknown;
 };
 
-export type GetEventsIdAgendaSongsError = GetEventsIdAgendaSongsErrors[keyof GetEventsIdAgendaSongsErrors];
+export type GetSongsOfAgendaError = GetSongsOfAgendaErrors[keyof GetSongsOfAgendaErrors];
 
 export type GetEventsIdAgendaSongsResponses = {
     /**
@@ -12109,7 +11925,7 @@ export type GetEventsIdAgendaSongsResponses = {
     };
 };
 
-export type GetEventsIdAgendaSongsResponse = GetEventsIdAgendaSongsResponses[keyof GetEventsIdAgendaSongsResponses];
+export type GetSongsOfAgendaResponse = GetSongsOfAgendaResponses[keyof GetSongsOfAgendaResponses];
 
 export type PostEventsIdChatData = {
     body: StartStopChat;
@@ -12120,7 +11936,7 @@ export type PostEventsIdChatData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/chat';
+    url: "/events/{eventId}/chat";
 };
 
 export type PostEventsIdChatErrors = {
@@ -12134,7 +11950,7 @@ export type PostEventsIdChatErrors = {
     403: unknown;
 };
 
-export type PostEventsIdChatError = PostEventsIdChatErrors[keyof PostEventsIdChatErrors];
+export type StartStopEventChatError = StartStopEventChatErrors[keyof StartStopEventChatErrors];
 
 export type PostEventsIdChatResponses = {
     /**
@@ -12158,7 +11974,7 @@ export type PutEventsIdEventservicesData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/eventservices';
+    url: "/events/{eventId}/eventservices";
 };
 
 export type PutEventsIdEventservicesErrors = {
@@ -12176,7 +11992,7 @@ export type PutEventsIdEventservicesErrors = {
     403: unknown;
 };
 
-export type PutEventsIdEventservicesError = PutEventsIdEventservicesErrors[keyof PutEventsIdEventservicesErrors];
+export type PutEventEventservicesError = PutEventEventservicesErrors[keyof PutEventEventservicesErrors];
 
 export type PutEventsIdEventservicesResponses = {
     /**
@@ -12185,8 +12001,7 @@ export type PutEventsIdEventservicesResponses = {
     204: void;
 };
 
-export type PutEventsIdEventservicesResponse =
-    PutEventsIdEventservicesResponses[keyof PutEventsIdEventservicesResponses];
+export type PutEventEventservicesResponse = PutEventEventservicesResponses[keyof PutEventEventservicesResponses];
 
 export type DeleteEventsIdEventservicesIdData = {
     body: {
@@ -12202,7 +12017,7 @@ export type DeleteEventsIdEventservicesIdData = {
         serviceId: number;
     };
     query?: never;
-    url: '/events/{eventId}/eventservices/{serviceId}';
+    url: "/events/{eventId}/eventservices/{serviceId}";
 };
 
 export type DeleteEventsIdEventservicesIdErrors = {
@@ -12220,8 +12035,7 @@ export type DeleteEventsIdEventservicesIdErrors = {
     403: unknown;
 };
 
-export type DeleteEventsIdEventservicesIdError =
-    DeleteEventsIdEventservicesIdErrors[keyof DeleteEventsIdEventservicesIdErrors];
+export type DeleteEventEventserviceError = DeleteEventEventserviceErrors[keyof DeleteEventEventserviceErrors];
 
 export type DeleteEventsIdEventservicesIdResponses = {
     /**
@@ -12230,8 +12044,7 @@ export type DeleteEventsIdEventservicesIdResponses = {
     204: void;
 };
 
-export type DeleteEventsIdEventservicesIdResponse =
-    DeleteEventsIdEventservicesIdResponses[keyof DeleteEventsIdEventservicesIdResponses];
+export type DeleteEventEventserviceResponse = DeleteEventEventserviceResponses[keyof DeleteEventEventserviceResponses];
 
 export type PutEventsIdEventservicesIdData = {
     body: {
@@ -12249,7 +12062,7 @@ export type PutEventsIdEventservicesIdData = {
         serviceId: number;
     };
     query?: never;
-    url: '/events/{eventId}/eventservices/{serviceId}';
+    url: "/events/{eventId}/eventservices/{serviceId}";
 };
 
 export type PutEventsIdEventservicesIdErrors = {
@@ -12267,7 +12080,7 @@ export type PutEventsIdEventservicesIdErrors = {
     403: unknown;
 };
 
-export type PutEventsIdEventservicesIdError = PutEventsIdEventservicesIdErrors[keyof PutEventsIdEventservicesIdErrors];
+export type PutEventEventserviceError = PutEventEventserviceErrors[keyof PutEventEventserviceErrors];
 
 export type PutEventsIdEventservicesIdResponses = {
     /**
@@ -12276,8 +12089,7 @@ export type PutEventsIdEventservicesIdResponses = {
     204: void;
 };
 
-export type PutEventsIdEventservicesIdResponse =
-    PutEventsIdEventservicesIdResponses[keyof PutEventsIdEventservicesIdResponses];
+export type PutEventEventserviceResponse = PutEventEventserviceResponses[keyof PutEventEventserviceResponses];
 
 export type GetEventsEventIdFactsData = {
     body?: never;
@@ -12288,7 +12100,7 @@ export type GetEventsEventIdFactsData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/facts';
+    url: "/events/{eventId}/facts";
 };
 
 export type GetEventsEventIdFactsErrors = {
@@ -12316,7 +12128,8 @@ export type GetEventsEventIdFactsResponses = {
     };
 };
 
-export type GetEventsEventIdFactsResponse = GetEventsEventIdFactsResponses[keyof GetEventsEventIdFactsResponses];
+export type GetEventsEventIdFactsResponse =
+    GetEventsEventIdFactsResponses[keyof GetEventsEventIdFactsResponses];
 
 export type DeleteEventsEventIdFactsFactIdData = {
     body?: never;
@@ -12330,7 +12143,7 @@ export type DeleteEventsEventIdFactsFactIdData = {
     query?: {
         dry_run?: boolean;
     };
-    url: '/events/{eventId}/facts/{factId}';
+    url: "/events/{eventId}/facts/{factId}";
 };
 
 export type DeleteEventsEventIdFactsFactIdErrors = {
@@ -12375,7 +12188,7 @@ export type GetEventsEventIdFactsFactIdData = {
         factId: string;
     };
     query?: never;
-    url: '/events/{eventId}/facts/{factId}';
+    url: "/events/{eventId}/facts/{factId}";
 };
 
 export type GetEventsEventIdFactsFactIdErrors = {
@@ -12424,7 +12237,7 @@ export type PutEventsEventIdFactsFactIdData = {
         factId: string;
     };
     query?: never;
-    url: '/events/{eventId}/facts/{factId}';
+    url: "/events/{eventId}/facts/{factId}";
 };
 
 export type PutEventsEventIdFactsFactIdErrors = {
@@ -12493,7 +12306,7 @@ export type PutEventsServicerequestsData = {
         eventId: number;
     };
     query?: never;
-    url: '/events/{eventId}/servicerequests';
+    url: "/events/{eventId}/servicerequests";
 };
 
 export type PutEventsServicerequestsErrors = {
@@ -12511,7 +12324,7 @@ export type PutEventsServicerequestsErrors = {
     403: unknown;
 };
 
-export type PutEventsServicerequestsError = PutEventsServicerequestsErrors[keyof PutEventsServicerequestsErrors];
+export type PutEventEventservices2Error = PutEventEventservices2Errors[keyof PutEventEventservices2Errors];
 
 export type PutEventsServicerequestsResponses = {
     /**
@@ -12520,8 +12333,7 @@ export type PutEventsServicerequestsResponses = {
     204: void;
 };
 
-export type PutEventsServicerequestsResponse =
-    PutEventsServicerequestsResponses[keyof PutEventsServicerequestsResponses];
+export type PutEventEventservices2Response = PutEventEventservices2Responses[keyof PutEventEventservices2Responses];
 
 export type PutEventsEventIdServicerequestsRequestIdData = {
     body: {
@@ -12547,7 +12359,7 @@ export type PutEventsEventIdServicerequestsRequestIdData = {
         requestId: number;
     };
     query?: never;
-    url: '/events/{eventId}/servicerequests/{requestId}';
+    url: "/events/{eventId}/servicerequests/{requestId}";
 };
 
 export type PutEventsEventIdServicerequestsRequestIdErrors = {
@@ -12593,7 +12405,7 @@ export type PostEventsIdServicerequestsIdAcceptData = {
         requestId: number;
     };
     query?: never;
-    url: '/events/{eventId}/servicerequests/{requestId}/accept';
+    url: "/events/{eventId}/servicerequests/{requestId}/accept";
 };
 
 export type PostEventsIdServicerequestsIdAcceptErrors = {
@@ -12639,7 +12451,7 @@ export type PostEventsIdServicerequestsIdDeclineData = {
         requestId: number;
     };
     query?: never;
-    url: '/events/{eventId}/servicerequests/{requestId}/decline';
+    url: "/events/{eventId}/servicerequests/{requestId}/decline";
 };
 
 export type PostEventsIdServicerequestsIdDeclineErrors = {
@@ -12685,7 +12497,7 @@ export type PostEventsIdServicerequestsIdUndoData = {
         requestId: number;
     };
     query?: never;
-    url: '/events/{eventId}/servicerequests/{requestId}/undo';
+    url: "/events/{eventId}/servicerequests/{requestId}/undo";
 };
 
 export type PostEventsIdServicerequestsIdUndoErrors = {
@@ -12726,7 +12538,7 @@ export type GetEventsEventIdServicesServiceIdPossiblepersonsData = {
         serviceId: string;
     };
     query?: never;
-    url: '/events/{eventId}/services/{serviceId}/possiblepersons';
+    url: "/events/{eventId}/services/{serviceId}/possiblepersons";
 };
 
 export type GetEventsEventIdServicesServiceIdPossiblepersonsErrors = {
@@ -12766,7 +12578,7 @@ export type GetEventsIdPossiblepersonsforserviceData = {
         serviceId: string;
     };
     query?: never;
-    url: '/events/{serviceId}/possiblepersonsforservice';
+    url: "/events/{serviceId}/possiblepersonsforservice";
 };
 
 export type GetEventsIdPossiblepersonsforserviceErrors = {
@@ -12803,7 +12615,7 @@ export type GetExternalloginsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/externallogins';
+    url: "/externallogins";
 };
 
 export type GetExternalloginsErrors = {
@@ -12817,7 +12629,8 @@ export type GetExternalloginsErrors = {
     403: unknown;
 };
 
-export type GetExternalloginsError = GetExternalloginsErrors[keyof GetExternalloginsErrors];
+export type GetExternalloginsError =
+    GetExternalloginsErrors[keyof GetExternalloginsErrors];
 
 export type GetExternalloginsResponses = {
     /**
@@ -12829,13 +12642,14 @@ export type GetExternalloginsResponses = {
     };
 };
 
-export type GetExternalloginsResponse = GetExternalloginsResponses[keyof GetExternalloginsResponses];
+export type GetExternalloginsResponse =
+    GetExternalloginsResponses[keyof GetExternalloginsResponses];
 
 export type PostExternalloginsData = {
     body: ExternalLoginCreate;
     path?: never;
     query?: never;
-    url: '/externallogins';
+    url: "/externallogins";
 };
 
 export type PostExternalloginsErrors = {
@@ -12853,7 +12667,7 @@ export type PostExternalloginsErrors = {
     404: unknown;
 };
 
-export type PostExternalloginsError = PostExternalloginsErrors[keyof PostExternalloginsErrors];
+export type PostExternalsystemError = PostExternalsystemErrors[keyof PostExternalsystemErrors];
 
 export type PostExternalloginsResponses = {
     /**
@@ -12864,7 +12678,7 @@ export type PostExternalloginsResponses = {
     };
 };
 
-export type PostExternalloginsResponse = PostExternalloginsResponses[keyof PostExternalloginsResponses];
+export type PostExternalsystemResponse = PostExternalsystemResponses[keyof PostExternalsystemResponses];
 
 export type DeleteExternalloginsExternalloginidData = {
     body?: never;
@@ -12872,7 +12686,7 @@ export type DeleteExternalloginsExternalloginidData = {
         externalLoginId: number;
     };
     query?: never;
-    url: '/externallogins/{externalLoginId}';
+    url: "/externallogins/{externalLoginId}";
 };
 
 export type DeleteExternalloginsExternalloginidErrors = {
@@ -12920,8 +12734,7 @@ export type DeleteExternalloginsExternalloginidErrors = {
     };
 };
 
-export type DeleteExternalloginsExternalloginidError =
-    DeleteExternalloginsExternalloginidErrors[keyof DeleteExternalloginsExternalloginidErrors];
+export type DeleteResourcesResourceIdError = DeleteResourcesResourceIdErrors[keyof DeleteResourcesResourceIdErrors];
 
 export type DeleteExternalloginsExternalloginidResponses = {
     /**
@@ -12939,7 +12752,7 @@ export type GetExternalloginsIdData = {
         externalLoginId: number;
     };
     query?: never;
-    url: '/externallogins/{externalLoginId}';
+    url: "/externallogins/{externalLoginId}";
 };
 
 export type GetExternalloginsIdErrors = {
@@ -12976,7 +12789,7 @@ export type PutExternalloginsIdData = {
         externalLoginId: number;
     };
     query?: never;
-    url: '/externallogins/{externalLoginId}';
+    url: "/externallogins/{externalLoginId}";
 };
 
 export type PutExternalloginsIdErrors = {
@@ -13026,21 +12839,21 @@ export type GetExternalpostsData = {
         /**
          * If set posts of these groups are returned.
          */
-        'external_group_guid[]'?: Array<string>;
+        "external_group_guid[]"?: Array<string>;
         /**
          * If set posts of these instances are returned.
          */
-        'external_instance_guid[]'?: Array<string>;
+        "external_instance_guid[]"?: Array<string>;
         /**
          * If set, the response will include the specified data.
          */
-        'include[]'?: Array<'linkings'>;
+        "include[]"?: Array<"linkings">;
         /**
          * Number of results per page.
          */
         limit?: number;
     };
-    url: '/externalposts';
+    url: "/externalposts";
 };
 
 export type GetExternalpostsErrors = {
@@ -13058,7 +12871,7 @@ export type GetExternalpostsErrors = {
     404: unknown;
 };
 
-export type GetExternalpostsError = GetExternalpostsErrors[keyof GetExternalpostsErrors];
+export type GetExternalPostsError = GetExternalPostsErrors[keyof GetExternalPostsErrors];
 
 export type GetExternalpostsResponses = {
     /**
@@ -13070,7 +12883,7 @@ export type GetExternalpostsResponses = {
     };
 };
 
-export type GetExternalpostsResponse = GetExternalpostsResponses[keyof GetExternalpostsResponses];
+export type GetExternalPostsResponse = GetExternalPostsResponses[keyof GetExternalPostsResponses];
 
 export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidData = {
     body?: never;
@@ -13089,7 +12902,7 @@ export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidData = {
         postGuid: string;
     };
     query?: never;
-    url: '/externalposts/instances/{instanceGuid}/channels/{channelGuid}/posts/{postGuid}';
+    url: "/externalposts/instances/{instanceGuid}/channels/{channelGuid}/posts/{postGuid}";
 };
 
 export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidErrors = {
@@ -13107,8 +12920,7 @@ export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidErrors = {
     404: unknown;
 };
 
-export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidError =
-    GetExternalpostsInstancesGuidChannelsGuidPostsGuidErrors[keyof GetExternalpostsInstancesGuidChannelsGuidPostsGuidErrors];
+export type GetExternalPostError = GetExternalPostErrors[keyof GetExternalPostErrors];
 
 export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidResponses = {
     /**
@@ -13119,14 +12931,13 @@ export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidResponses = {
     };
 };
 
-export type GetExternalpostsInstancesGuidChannelsGuidPostsGuidResponse =
-    GetExternalpostsInstancesGuidChannelsGuidPostsGuidResponses[keyof GetExternalpostsInstancesGuidChannelsGuidPostsGuidResponses];
+export type GetExternalPostResponse = GetExternalPostResponses[keyof GetExternalPostResponses];
 
 export type GetFactsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/facts';
+    url: "/facts";
 };
 
 export type GetFactsErrors = {
@@ -13153,7 +12964,7 @@ export type GetFactsResponses = {
 export type GetFactsResponse = GetFactsResponses[keyof GetFactsResponses];
 
 export type PostFactsData = {
-    body: {
+    body?: {
         fieldType?: 'number' | 'select';
         name?: string;
         /**
@@ -13164,7 +12975,7 @@ export type PostFactsData = {
     };
     path?: never;
     query?: never;
-    url: '/facts';
+    url: "/facts";
 };
 
 export type PostFactsErrors = {
@@ -13199,7 +13010,7 @@ export type DeleteFactsIdData = {
         id: string;
     };
     query?: never;
-    url: '/facts/{id}';
+    url: "/facts/{id}";
 };
 
 export type DeleteFactsIdErrors = {
@@ -13220,7 +13031,8 @@ export type DeleteFactsIdResponses = {
     204: void;
 };
 
-export type DeleteFactsIdResponse = DeleteFactsIdResponses[keyof DeleteFactsIdResponses];
+export type DeleteFactsIdResponse =
+    DeleteFactsIdResponses[keyof DeleteFactsIdResponses];
 
 export type GetFactsIdData = {
     body?: never;
@@ -13228,7 +13040,7 @@ export type GetFactsIdData = {
         id: string;
     };
     query?: never;
-    url: '/facts/{id}';
+    url: "/facts/{id}";
 };
 
 export type GetFactsIdErrors = {
@@ -13258,7 +13070,7 @@ export type GetFactsIdResponses = {
 export type GetFactsIdResponse = GetFactsIdResponses[keyof GetFactsIdResponses];
 
 export type PutFactsIdData = {
-    body: {
+    body?: {
         fieldType?: 'select' | 'number';
         name?: string;
         options?: Array<string>;
@@ -13268,7 +13080,7 @@ export type PutFactsIdData = {
         id: string;
     };
     query?: never;
-    url: '/facts/{id}';
+    url: "/facts/{id}";
 };
 
 export type PutFactsIdErrors = {
@@ -13303,7 +13115,7 @@ export type PostFeatureusageData = {
     };
     path?: never;
     query?: never;
-    url: '/featureusage';
+    url: "/featureusage";
 };
 
 export type PostFeatureusageErrors = {
@@ -13328,13 +13140,13 @@ export type PostFeatureusageResponses = {
     204: void;
 };
 
-export type PostFeatureusageResponse = PostFeatureusageResponses[keyof PostFeatureusageResponses];
+export type PostFeatureUsageResponse = PostFeatureUsageResponses[keyof PostFeatureUsageResponses];
 
 export type GetFieldsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/fields';
+    url: "/fields";
 };
 
 export type GetFieldsErrors = {
@@ -13360,7 +13172,7 @@ export type GetFieldsResponses = {
     };
 };
 
-export type GetFieldsResponse = GetFieldsResponses[keyof GetFieldsResponses];
+export type GetAllFieldsResponse = GetAllFieldsResponses[keyof GetAllFieldsResponses];
 
 export type DeleteFilesDomainTypeDomainIdentifierData = {
     body?: never;
@@ -13375,7 +13187,7 @@ export type DeleteFilesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/files/{domainType}/{domainIdentifier}';
+    url: "/files/{domainType}/{domainIdentifier}";
 };
 
 export type DeleteFilesDomainTypeDomainIdentifierErrors = {
@@ -13399,8 +13211,7 @@ export type DeleteFilesDomainTypeDomainIdentifierResponses = {
     204: void;
 };
 
-export type DeleteFilesDomainTypeDomainIdentifierResponse =
-    DeleteFilesDomainTypeDomainIdentifierResponses[keyof DeleteFilesDomainTypeDomainIdentifierResponses];
+export type DeleteFilesResponse = DeleteFilesResponses[keyof DeleteFilesResponses];
 
 export type GetFilesDomainTypeDomainIdentifierData = {
     body?: never;
@@ -13415,7 +13226,7 @@ export type GetFilesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/files/{domainType}/{domainIdentifier}';
+    url: "/files/{domainType}/{domainIdentifier}";
 };
 
 export type GetFilesDomainTypeDomainIdentifierErrors = {
@@ -13461,7 +13272,7 @@ export type PatchFilesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/files/{domainType}/{domainIdentifier}';
+    url: "/files/{domainType}/{domainIdentifier}";
 };
 
 export type PatchFilesDomainTypeDomainIdentifierErrors = {
@@ -13479,8 +13290,7 @@ export type PatchFilesDomainTypeDomainIdentifierErrors = {
     404: unknown;
 };
 
-export type PatchFilesDomainTypeDomainIdentifierError =
-    PatchFilesDomainTypeDomainIdentifierErrors[keyof PatchFilesDomainTypeDomainIdentifierErrors];
+export type PatchFileWithDomainTypeError = PatchFileWithDomainTypeErrors[keyof PatchFileWithDomainTypeErrors];
 
 export type PatchFilesDomainTypeDomainIdentifierResponses = {
     /**
@@ -13489,11 +13299,10 @@ export type PatchFilesDomainTypeDomainIdentifierResponses = {
     204: void;
 };
 
-export type PatchFilesDomainTypeDomainIdentifierResponse =
-    PatchFilesDomainTypeDomainIdentifierResponses[keyof PatchFilesDomainTypeDomainIdentifierResponses];
+export type PatchFileWithDomainTypeResponse = PatchFileWithDomainTypeResponses[keyof PatchFileWithDomainTypeResponses];
 
-export type PostFilesDomainTypeDomainIdentifierData = {
-    body: {
+export type UploadFilesData = {
+    body?: {
         'files[]'?: Array<Blob | File>;
         image_options?: {
             [key: string]: unknown;
@@ -13512,7 +13321,7 @@ export type PostFilesDomainTypeDomainIdentifierData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/files/{domainType}/{domainIdentifier}';
+    url: "/files/{domainType}/{domainIdentifier}";
 };
 
 export type PostFilesDomainTypeDomainIdentifierErrors = {
@@ -13543,8 +13352,7 @@ export type PostFilesDomainTypeDomainIdentifierResponses = {
     };
 };
 
-export type PostFilesDomainTypeDomainIdentifierResponse =
-    PostFilesDomainTypeDomainIdentifierResponses[keyof PostFilesDomainTypeDomainIdentifierResponses];
+export type UploadFilesResponse = UploadFilesResponses[keyof UploadFilesResponses];
 
 export type PostFilesDomainTypeDomainIdentifierLinkData = {
     /**
@@ -13566,7 +13374,7 @@ export type PostFilesDomainTypeDomainIdentifierLinkData = {
         domainIdentifier: string;
     };
     query?: never;
-    url: '/files/{domainType}/{domainIdentifier}/link';
+    url: "/files/{domainType}/{domainIdentifier}/link";
 };
 
 export type PostFilesDomainTypeDomainIdentifierLinkErrors = {
@@ -13604,7 +13412,7 @@ export type GetFilesIdData = {
         fileId: number;
     };
     query?: never;
-    url: '/files/{fileId}/meta';
+    url: "/files/{fileId}/meta";
 };
 
 export type GetFilesIdErrors = {
@@ -13641,7 +13449,7 @@ export type GetFilesIdMetadataData = {
         fileId: string;
     };
     query?: never;
-    url: '/files/{fileId}/metadata';
+    url: "/files/{fileId}/metadata";
 };
 
 export type GetFilesIdMetadataErrors = {
@@ -13659,7 +13467,7 @@ export type GetFilesIdMetadataErrors = {
     404: unknown;
 };
 
-export type GetFilesIdMetadataError = GetFilesIdMetadataErrors[keyof GetFilesIdMetadataErrors];
+export type GetFilesMetadataError = GetFilesMetadataErrors[keyof GetFilesMetadataErrors];
 
 export type GetFilesIdMetadataResponses = {
     /**
@@ -13682,7 +13490,7 @@ export type GetFilesIdMetadataResponses = {
     };
 };
 
-export type GetFilesIdMetadataResponse = GetFilesIdMetadataResponses[keyof GetFilesIdMetadataResponses];
+export type GetFilesMetadataResponse = GetFilesMetadataResponses[keyof GetFilesMetadataResponses];
 
 export type DeleteFilesIdData = {
     body?: never;
@@ -13693,7 +13501,7 @@ export type DeleteFilesIdData = {
         id: number;
     };
     query?: never;
-    url: '/files/{id}';
+    url: "/files/{id}";
 };
 
 export type DeleteFilesIdResponses = {
@@ -13703,7 +13511,8 @@ export type DeleteFilesIdResponses = {
     204: void;
 };
 
-export type DeleteFilesIdResponse = DeleteFilesIdResponses[keyof DeleteFilesIdResponses];
+export type DeleteFilesIdResponse =
+    DeleteFilesIdResponses[keyof DeleteFilesIdResponses];
 
 export type PatchFilesIdData = {
     body?: never;
@@ -13714,7 +13523,7 @@ export type PatchFilesIdData = {
         id: number;
     };
     query?: never;
-    url: '/files/{id}';
+    url: "/files/{id}";
 };
 
 export type PatchFilesIdErrors = {
@@ -13743,13 +13552,14 @@ export type PatchFilesIdResponses = {
     };
 };
 
-export type PatchFilesIdResponse = PatchFilesIdResponses[keyof PatchFilesIdResponses];
+export type PatchFilesIdResponse =
+    PatchFilesIdResponses[keyof PatchFilesIdResponses];
 
 export type GetFinanceAccountclassesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accountclasses';
+    url: "/finance/accountclasses";
 };
 
 export type GetFinanceAccountclassesErrors = {
@@ -13763,7 +13573,7 @@ export type GetFinanceAccountclassesErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountclassesError = GetFinanceAccountclassesErrors[keyof GetFinanceAccountclassesErrors];
+export type GetAllAccountClassesError = GetAllAccountClassesErrors[keyof GetAllAccountClassesErrors];
 
 export type GetFinanceAccountclassesResponses = {
     /**
@@ -13774,8 +13584,7 @@ export type GetFinanceAccountclassesResponses = {
     };
 };
 
-export type GetFinanceAccountclassesResponse =
-    GetFinanceAccountclassesResponses[keyof GetFinanceAccountclassesResponses];
+export type GetAllAccountClassesResponse = GetAllAccountClassesResponses[keyof GetAllAccountClassesResponses];
 
 export type PostFinanceAccountclassesData = {
     /**
@@ -13784,7 +13593,7 @@ export type PostFinanceAccountclassesData = {
     body: AccountClassNew;
     path?: never;
     query?: never;
-    url: '/finance/accountclasses';
+    url: "/finance/accountclasses";
 };
 
 export type PostFinanceAccountclassesErrors = {
@@ -13798,7 +13607,7 @@ export type PostFinanceAccountclassesErrors = {
     404: unknown;
 };
 
-export type PostFinanceAccountclassesError = PostFinanceAccountclassesErrors[keyof PostFinanceAccountclassesErrors];
+export type CreateNewAccountClassError = CreateNewAccountClassErrors[keyof CreateNewAccountClassErrors];
 
 export type PostFinanceAccountclassesResponses = {
     /**
@@ -13809,8 +13618,7 @@ export type PostFinanceAccountclassesResponses = {
     };
 };
 
-export type PostFinanceAccountclassesResponse =
-    PostFinanceAccountclassesResponses[keyof PostFinanceAccountclassesResponses];
+export type CreateNewAccountClassResponse = CreateNewAccountClassResponses[keyof CreateNewAccountClassResponses];
 
 export type DeleteFinanceAccountclassesIdData = {
     body?: never;
@@ -13821,7 +13629,7 @@ export type DeleteFinanceAccountclassesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountclasses/{id}';
+    url: "/finance/accountclasses/{id}";
 };
 
 export type DeleteFinanceAccountclassesIdErrors = {
@@ -13869,8 +13677,7 @@ export type DeleteFinanceAccountclassesIdErrors = {
     };
 };
 
-export type DeleteFinanceAccountclassesIdError =
-    DeleteFinanceAccountclassesIdErrors[keyof DeleteFinanceAccountclassesIdErrors];
+export type DeleteAccountClassError = DeleteAccountClassErrors[keyof DeleteAccountClassErrors];
 
 export type DeleteFinanceAccountclassesIdResponses = {
     /**
@@ -13879,8 +13686,7 @@ export type DeleteFinanceAccountclassesIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccountclassesIdResponse =
-    DeleteFinanceAccountclassesIdResponses[keyof DeleteFinanceAccountclassesIdResponses];
+export type DeleteAccountClassResponse = DeleteAccountClassResponses[keyof DeleteAccountClassResponses];
 
 export type GetFinanceAccountclassesIdData = {
     body?: never;
@@ -13891,7 +13697,7 @@ export type GetFinanceAccountclassesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountclasses/{id}';
+    url: "/finance/accountclasses/{id}";
 };
 
 export type GetFinanceAccountclassesIdErrors = {
@@ -13909,7 +13715,7 @@ export type GetFinanceAccountclassesIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountclassesIdError = GetFinanceAccountclassesIdErrors[keyof GetFinanceAccountclassesIdErrors];
+export type GetAccountClassByIdError = GetAccountClassByIdErrors[keyof GetAccountClassByIdErrors];
 
 export type GetFinanceAccountclassesIdResponses = {
     /**
@@ -13920,8 +13726,7 @@ export type GetFinanceAccountclassesIdResponses = {
     };
 };
 
-export type GetFinanceAccountclassesIdResponse =
-    GetFinanceAccountclassesIdResponses[keyof GetFinanceAccountclassesIdResponses];
+export type GetAccountClassByIdResponse = GetAccountClassByIdResponses[keyof GetAccountClassByIdResponses];
 
 export type PutFinanceAccountclassesIdData = {
     /**
@@ -13935,7 +13740,7 @@ export type PutFinanceAccountclassesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountclasses/{id}';
+    url: "/finance/accountclasses/{id}";
 };
 
 export type PutFinanceAccountclassesIdErrors = {
@@ -13953,7 +13758,7 @@ export type PutFinanceAccountclassesIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceAccountclassesIdError = PutFinanceAccountclassesIdErrors[keyof PutFinanceAccountclassesIdErrors];
+export type UpdateAccountClassError = UpdateAccountClassErrors[keyof UpdateAccountClassErrors];
 
 export type PutFinanceAccountclassesIdResponses = {
     /**
@@ -13964,14 +13769,13 @@ export type PutFinanceAccountclassesIdResponses = {
     };
 };
 
-export type PutFinanceAccountclassesIdResponse =
-    PutFinanceAccountclassesIdResponses[keyof PutFinanceAccountclassesIdResponses];
+export type UpdateAccountClassResponse = UpdateAccountClassResponses[keyof UpdateAccountClassResponses];
 
 export type GetFinanceAccountgroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accountgroups';
+    url: "/finance/accountgroups";
 };
 
 export type GetFinanceAccountgroupsErrors = {
@@ -13985,7 +13789,7 @@ export type GetFinanceAccountgroupsErrors = {
     403: unknown;
 };
 
-export type GetFinanceAccountgroupsError = GetFinanceAccountgroupsErrors[keyof GetFinanceAccountgroupsErrors];
+export type GetAllAccountGroupsError = GetAllAccountGroupsErrors[keyof GetAllAccountGroupsErrors];
 
 export type GetFinanceAccountgroupsResponses = {
     /**
@@ -13996,7 +13800,7 @@ export type GetFinanceAccountgroupsResponses = {
     };
 };
 
-export type GetFinanceAccountgroupsResponse = GetFinanceAccountgroupsResponses[keyof GetFinanceAccountgroupsResponses];
+export type GetAllAccountGroupsResponse = GetAllAccountGroupsResponses[keyof GetAllAccountGroupsResponses];
 
 export type PostFinanceAccountgroupsData = {
     /**
@@ -14005,7 +13809,7 @@ export type PostFinanceAccountgroupsData = {
     body: AccountGroupNew;
     path?: never;
     query?: never;
-    url: '/finance/accountgroups';
+    url: "/finance/accountgroups";
 };
 
 export type PostFinanceAccountgroupsErrors = {
@@ -14019,7 +13823,7 @@ export type PostFinanceAccountgroupsErrors = {
     403: unknown;
 };
 
-export type PostFinanceAccountgroupsError = PostFinanceAccountgroupsErrors[keyof PostFinanceAccountgroupsErrors];
+export type CreateNewAccountGroupError = CreateNewAccountGroupErrors[keyof CreateNewAccountGroupErrors];
 
 export type PostFinanceAccountgroupsResponses = {
     /**
@@ -14030,8 +13834,7 @@ export type PostFinanceAccountgroupsResponses = {
     };
 };
 
-export type PostFinanceAccountgroupsResponse =
-    PostFinanceAccountgroupsResponses[keyof PostFinanceAccountgroupsResponses];
+export type CreateNewAccountGroupResponse = CreateNewAccountGroupResponses[keyof CreateNewAccountGroupResponses];
 
 export type DeleteFinanceAccountgroupsIdData = {
     body?: never;
@@ -14042,7 +13845,7 @@ export type DeleteFinanceAccountgroupsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountgroups/{id}';
+    url: "/finance/accountgroups/{id}";
 };
 
 export type DeleteFinanceAccountgroupsIdErrors = {
@@ -14090,8 +13893,7 @@ export type DeleteFinanceAccountgroupsIdErrors = {
     };
 };
 
-export type DeleteFinanceAccountgroupsIdError =
-    DeleteFinanceAccountgroupsIdErrors[keyof DeleteFinanceAccountgroupsIdErrors];
+export type DeleteAccountGroupError = DeleteAccountGroupErrors[keyof DeleteAccountGroupErrors];
 
 export type DeleteFinanceAccountgroupsIdResponses = {
     /**
@@ -14100,8 +13902,7 @@ export type DeleteFinanceAccountgroupsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccountgroupsIdResponse =
-    DeleteFinanceAccountgroupsIdResponses[keyof DeleteFinanceAccountgroupsIdResponses];
+export type DeleteAccountGroupResponse = DeleteAccountGroupResponses[keyof DeleteAccountGroupResponses];
 
 export type GetFinanceAccountgroupsIdData = {
     body?: never;
@@ -14112,7 +13913,7 @@ export type GetFinanceAccountgroupsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountgroups/{id}';
+    url: "/finance/accountgroups/{id}";
 };
 
 export type GetFinanceAccountgroupsIdErrors = {
@@ -14130,7 +13931,7 @@ export type GetFinanceAccountgroupsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountgroupsIdError = GetFinanceAccountgroupsIdErrors[keyof GetFinanceAccountgroupsIdErrors];
+export type GetAccountGroupByIdError = GetAccountGroupByIdErrors[keyof GetAccountGroupByIdErrors];
 
 export type GetFinanceAccountgroupsIdResponses = {
     /**
@@ -14141,8 +13942,7 @@ export type GetFinanceAccountgroupsIdResponses = {
     };
 };
 
-export type GetFinanceAccountgroupsIdResponse =
-    GetFinanceAccountgroupsIdResponses[keyof GetFinanceAccountgroupsIdResponses];
+export type GetAccountGroupByIdResponse = GetAccountGroupByIdResponses[keyof GetAccountGroupByIdResponses];
 
 export type PutFinanceAccountgroupsIdData = {
     /**
@@ -14156,7 +13956,7 @@ export type PutFinanceAccountgroupsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountgroups/{id}';
+    url: "/finance/accountgroups/{id}";
 };
 
 export type PutFinanceAccountgroupsIdErrors = {
@@ -14174,7 +13974,7 @@ export type PutFinanceAccountgroupsIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceAccountgroupsIdError = PutFinanceAccountgroupsIdErrors[keyof PutFinanceAccountgroupsIdErrors];
+export type UpdateAccountGroupError = UpdateAccountGroupErrors[keyof UpdateAccountGroupErrors];
 
 export type PutFinanceAccountgroupsIdResponses = {
     /**
@@ -14185,14 +13985,13 @@ export type PutFinanceAccountgroupsIdResponses = {
     };
 };
 
-export type PutFinanceAccountgroupsIdResponse =
-    PutFinanceAccountgroupsIdResponses[keyof PutFinanceAccountgroupsIdResponses];
+export type UpdateAccountGroupResponse = UpdateAccountGroupResponses[keyof UpdateAccountGroupResponses];
 
 export type GetFinanceAccountingperiodsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accountingperiods';
+    url: "/finance/accountingperiods";
 };
 
 export type GetFinanceAccountingperiodsErrors = {
@@ -14206,8 +14005,7 @@ export type GetFinanceAccountingperiodsErrors = {
     403: unknown;
 };
 
-export type GetFinanceAccountingperiodsError =
-    GetFinanceAccountingperiodsErrors[keyof GetFinanceAccountingperiodsErrors];
+export type GetAllAccountingPeriodsError = GetAllAccountingPeriodsErrors[keyof GetAllAccountingPeriodsErrors];
 
 export type GetFinanceAccountingperiodsResponses = {
     /**
@@ -14218,8 +14016,7 @@ export type GetFinanceAccountingperiodsResponses = {
     };
 };
 
-export type GetFinanceAccountingperiodsResponse =
-    GetFinanceAccountingperiodsResponses[keyof GetFinanceAccountingperiodsResponses];
+export type GetAllAccountingPeriodsResponse = GetAllAccountingPeriodsResponses[keyof GetAllAccountingPeriodsResponses];
 
 export type PostFinanceAccountingperiodsData = {
     /**
@@ -14228,7 +14025,7 @@ export type PostFinanceAccountingperiodsData = {
     body: AccountingPeriodCreate;
     path?: never;
     query?: never;
-    url: '/finance/accountingperiods';
+    url: "/finance/accountingperiods";
 };
 
 export type PostFinanceAccountingperiodsErrors = {
@@ -14242,8 +14039,7 @@ export type PostFinanceAccountingperiodsErrors = {
     403: unknown;
 };
 
-export type PostFinanceAccountingperiodsError =
-    PostFinanceAccountingperiodsErrors[keyof PostFinanceAccountingperiodsErrors];
+export type CreateNewAccountingPeriodError = CreateNewAccountingPeriodErrors[keyof CreateNewAccountingPeriodErrors];
 
 export type PostFinanceAccountingperiodsResponses = {
     /**
@@ -14271,7 +14067,7 @@ export type DeleteFinanceAccountingperiodsIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/accountingperiods/{id}';
+    url: "/finance/accountingperiods/{id}";
 };
 
 export type DeleteFinanceAccountingperiodsIdErrors = {
@@ -14319,8 +14115,7 @@ export type DeleteFinanceAccountingperiodsIdErrors = {
     };
 };
 
-export type DeleteFinanceAccountingperiodsIdError =
-    DeleteFinanceAccountingperiodsIdErrors[keyof DeleteFinanceAccountingperiodsIdErrors];
+export type DeleteAccountingPeriodError = DeleteAccountingPeriodErrors[keyof DeleteAccountingPeriodErrors];
 
 export type DeleteFinanceAccountingperiodsIdResponses = {
     /**
@@ -14329,8 +14124,7 @@ export type DeleteFinanceAccountingperiodsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccountingperiodsIdResponse =
-    DeleteFinanceAccountingperiodsIdResponses[keyof DeleteFinanceAccountingperiodsIdResponses];
+export type DeleteAccountingPeriodResponse = DeleteAccountingPeriodResponses[keyof DeleteAccountingPeriodResponses];
 
 export type GetFinanceAccountingperiodsIdData = {
     body?: never;
@@ -14341,7 +14135,7 @@ export type GetFinanceAccountingperiodsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}';
+    url: "/finance/accountingperiods/{id}";
 };
 
 export type GetFinanceAccountingperiodsIdErrors = {
@@ -14359,8 +14153,7 @@ export type GetFinanceAccountingperiodsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountingperiodsIdError =
-    GetFinanceAccountingperiodsIdErrors[keyof GetFinanceAccountingperiodsIdErrors];
+export type GetAccountingPeriodByIdError = GetAccountingPeriodByIdErrors[keyof GetAccountingPeriodByIdErrors];
 
 export type GetFinanceAccountingperiodsIdResponses = {
     /**
@@ -14371,8 +14164,7 @@ export type GetFinanceAccountingperiodsIdResponses = {
     };
 };
 
-export type GetFinanceAccountingperiodsIdResponse =
-    GetFinanceAccountingperiodsIdResponses[keyof GetFinanceAccountingperiodsIdResponses];
+export type GetAccountingPeriodByIdResponse = GetAccountingPeriodByIdResponses[keyof GetAccountingPeriodByIdResponses];
 
 export type PutFinanceAccountingperiodsIdData = {
     /**
@@ -14395,7 +14187,7 @@ export type PutFinanceAccountingperiodsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}';
+    url: "/finance/accountingperiods/{id}";
 };
 
 export type PutFinanceAccountingperiodsIdErrors = {
@@ -14413,8 +14205,7 @@ export type PutFinanceAccountingperiodsIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceAccountingperiodsIdError =
-    PutFinanceAccountingperiodsIdErrors[keyof PutFinanceAccountingperiodsIdErrors];
+export type UpdateAccountingPeriodError = UpdateAccountingPeriodErrors[keyof UpdateAccountingPeriodErrors];
 
 export type PutFinanceAccountingperiodsIdResponses = {
     /**
@@ -14425,8 +14216,7 @@ export type PutFinanceAccountingperiodsIdResponses = {
     };
 };
 
-export type PutFinanceAccountingperiodsIdResponse =
-    PutFinanceAccountingperiodsIdResponses[keyof PutFinanceAccountingperiodsIdResponses];
+export type UpdateAccountingPeriodResponse = UpdateAccountingPeriodResponses[keyof UpdateAccountingPeriodResponses];
 
 export type DeleteFinanceAccountingperiodsIdAccountsData = {
     body?: never;
@@ -14437,7 +14227,7 @@ export type DeleteFinanceAccountingperiodsIdAccountsData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/accounts';
+    url: "/finance/accountingperiods/{id}/accounts";
 };
 
 export type DeleteFinanceAccountingperiodsIdAccountsErrors = {
@@ -14487,7 +14277,7 @@ export type GetFinanceAccountingperiodsIdAccountsStatementsData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/accounts/statements';
+    url: "/finance/accountingperiods/{id}/accounts/statements";
 };
 
 export type GetFinanceAccountingperiodsIdAccountsStatementsErrors = {
@@ -14505,8 +14295,7 @@ export type GetFinanceAccountingperiodsIdAccountsStatementsErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountingperiodsIdAccountsStatementsError =
-    GetFinanceAccountingperiodsIdAccountsStatementsErrors[keyof GetFinanceAccountingperiodsIdAccountsStatementsErrors];
+export type GetAccountsStatementsError = GetAccountsStatementsErrors[keyof GetAccountsStatementsErrors];
 
 export type GetFinanceAccountingperiodsIdAccountsStatementsResponses = {
     /**
@@ -14522,8 +14311,7 @@ export type GetFinanceAccountingperiodsIdAccountsStatementsResponses = {
     };
 };
 
-export type GetFinanceAccountingperiodsIdAccountsStatementsResponse =
-    GetFinanceAccountingperiodsIdAccountsStatementsResponses[keyof GetFinanceAccountingperiodsIdAccountsStatementsResponses];
+export type GetAccountsStatementsResponse = GetAccountsStatementsResponses[keyof GetAccountsStatementsResponses];
 
 export type GetFinanceAccountingperiodsIdAccountsIdMovementsData = {
     body?: never;
@@ -14543,14 +14331,14 @@ export type GetFinanceAccountingperiodsIdAccountsIdMovementsData = {
          * Number of results per page.
          */
         limit?: number;
-        state?: 'open' | 'booked' | 'ignored';
+        state?: "open" | "booked" | "ignored";
         query?: string;
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/accountingperiods/{id}/accounts/{accountId}/movements';
+    url: "/finance/accountingperiods/{id}/accounts/{accountId}/movements";
 };
 
 export type GetFinanceAccountingperiodsIdAccountsIdMovementsErrors = {
@@ -14568,8 +14356,7 @@ export type GetFinanceAccountingperiodsIdAccountsIdMovementsErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountingperiodsIdAccountsIdMovementsError =
-    GetFinanceAccountingperiodsIdAccountsIdMovementsErrors[keyof GetFinanceAccountingperiodsIdAccountsIdMovementsErrors];
+export type GetAccountMovementsError = GetAccountMovementsErrors[keyof GetAccountMovementsErrors];
 
 export type GetFinanceAccountingperiodsIdAccountsIdMovementsResponses = {
     /**
@@ -14581,8 +14368,7 @@ export type GetFinanceAccountingperiodsIdAccountsIdMovementsResponses = {
     };
 };
 
-export type GetFinanceAccountingperiodsIdAccountsIdMovementsResponse =
-    GetFinanceAccountingperiodsIdAccountsIdMovementsResponses[keyof GetFinanceAccountingperiodsIdAccountsIdMovementsResponses];
+export type GetAccountMovementsResponse = GetAccountMovementsResponses[keyof GetAccountMovementsResponses];
 
 export type GetFinanceAccountingperiodsIdAccountsIdStatementsData = {
     body?: never;
@@ -14594,7 +14380,7 @@ export type GetFinanceAccountingperiodsIdAccountsIdStatementsData = {
         accountId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/accounts/{accountId}/statements';
+    url: "/finance/accountingperiods/{id}/accounts/{accountId}/statements";
 };
 
 export type GetFinanceAccountingperiodsIdAccountsIdStatementsErrors = {
@@ -14612,8 +14398,7 @@ export type GetFinanceAccountingperiodsIdAccountsIdStatementsErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountingperiodsIdAccountsIdStatementsError =
-    GetFinanceAccountingperiodsIdAccountsIdStatementsErrors[keyof GetFinanceAccountingperiodsIdAccountsIdStatementsErrors];
+export type GetAccountStatementsError = GetAccountStatementsErrors[keyof GetAccountStatementsErrors];
 
 export type GetFinanceAccountingperiodsIdAccountsIdStatementsResponses = {
     /**
@@ -14625,8 +14410,7 @@ export type GetFinanceAccountingperiodsIdAccountsIdStatementsResponses = {
     };
 };
 
-export type GetFinanceAccountingperiodsIdAccountsIdStatementsResponse =
-    GetFinanceAccountingperiodsIdAccountsIdStatementsResponses[keyof GetFinanceAccountingperiodsIdAccountsIdStatementsResponses];
+export type GetAccountStatementsResponse = GetAccountStatementsResponses[keyof GetAccountStatementsResponses];
 
 export type GetFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsData = {
     body?: never;
@@ -14645,17 +14429,13 @@ export type GetFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsData = {
         statementId: string;
     };
     query?: {
-        /**
-         * Number of results per page.
-         */
-        limit?: number;
         state?: 'open' | 'booked' | 'ignored';
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements';
+    url: "/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements";
 };
 
 export type GetFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsErrors = {
@@ -14694,7 +14474,7 @@ export type PostFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsIdData 
      * Account statement movement data
      */
     body: {
-        state: 'open' | 'booked' | 'ignored';
+        state: "open" | "booked" | "ignored";
     };
     path: {
         /**
@@ -14706,7 +14486,7 @@ export type PostFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsIdData 
         movementId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements/{movementId}';
+    url: "/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements/{movementId}";
 };
 
 export type PostFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsIdErrors = {
@@ -14753,7 +14533,7 @@ export type PatchFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsIdSugg
         movementId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements/{movementId}/suggestions';
+    url: "/finance/accountingperiods/{id}/accounts/{accountId}/statements/{statementId}/movements/{movementId}/suggestions";
 };
 
 export type PatchFinanceAccountingperiodsIdAccountsIdStatementsIdMovementsIdSuggestionsErrors = {
@@ -14783,7 +14563,7 @@ export type GetFinanceAccountingperiodsIdBillsData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/bills';
+    url: "/finance/accountingperiods/{id}/bills";
 };
 
 export type GetFinanceAccountingperiodsIdBillsErrors = {
@@ -14826,7 +14606,7 @@ export type PostFinanceAccountingperiodsIdStatementsData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/statements';
+    url: "/finance/accountingperiods/{id}/statements";
 };
 
 export type PostFinanceAccountingperiodsIdStatementsErrors = {
@@ -14844,8 +14624,7 @@ export type PostFinanceAccountingperiodsIdStatementsErrors = {
     404: unknown;
 };
 
-export type PostFinanceAccountingperiodsIdStatementsError =
-    PostFinanceAccountingperiodsIdStatementsErrors[keyof PostFinanceAccountingperiodsIdStatementsErrors];
+export type PostStatementsError = PostStatementsErrors[keyof PostStatementsErrors];
 
 export type PostFinanceAccountingperiodsIdStatementsResponses = {
     /**
@@ -14872,8 +14651,7 @@ export type PostFinanceAccountingperiodsIdStatementsResponses = {
     };
 };
 
-export type PostFinanceAccountingperiodsIdStatementsResponse =
-    PostFinanceAccountingperiodsIdStatementsResponses[keyof PostFinanceAccountingperiodsIdStatementsResponses];
+export type PostStatementsResponse = PostStatementsResponses[keyof PostStatementsResponses];
 
 export type DeleteFinanceAccountingperiodsIdStatementsIdData = {
     body?: never;
@@ -14885,7 +14663,7 @@ export type DeleteFinanceAccountingperiodsIdStatementsIdData = {
         statementId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/statements/{statementId}';
+    url: "/finance/accountingperiods/{id}/statements/{statementId}";
 };
 
 export type DeleteFinanceAccountingperiodsIdStatementsIdErrors = {
@@ -14903,8 +14681,7 @@ export type DeleteFinanceAccountingperiodsIdStatementsIdErrors = {
     404: unknown;
 };
 
-export type DeleteFinanceAccountingperiodsIdStatementsIdError =
-    DeleteFinanceAccountingperiodsIdStatementsIdErrors[keyof DeleteFinanceAccountingperiodsIdStatementsIdErrors];
+export type DeleteStatementError = DeleteStatementErrors[keyof DeleteStatementErrors];
 
 export type DeleteFinanceAccountingperiodsIdStatementsIdResponses = {
     /**
@@ -14913,8 +14690,7 @@ export type DeleteFinanceAccountingperiodsIdStatementsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccountingperiodsIdStatementsIdResponse =
-    DeleteFinanceAccountingperiodsIdStatementsIdResponses[keyof DeleteFinanceAccountingperiodsIdStatementsIdResponses];
+export type DeleteStatementResponse = DeleteStatementResponses[keyof DeleteStatementResponses];
 
 export type PutFinanceAccountingperiodsIdStatementsIdData = {
     /**
@@ -14932,7 +14708,7 @@ export type PutFinanceAccountingperiodsIdStatementsIdData = {
         statementId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/statements/{statementId}';
+    url: "/finance/accountingperiods/{id}/statements/{statementId}";
 };
 
 export type PutFinanceAccountingperiodsIdStatementsIdErrors = {
@@ -14963,7 +14739,7 @@ export type PostFinanceAccountingperiodsIdStatementsIdSuggestionsData = {
         statementId: string;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/statements/{statementId}/suggestions';
+    url: "/finance/accountingperiods/{id}/statements/{statementId}/suggestions";
 };
 
 export type PostFinanceAccountingperiodsIdStatementsIdSuggestionsResponses = {
@@ -14973,8 +14749,7 @@ export type PostFinanceAccountingperiodsIdStatementsIdSuggestionsResponses = {
     204: void;
 };
 
-export type PostFinanceAccountingperiodsIdStatementsIdSuggestionsResponse =
-    PostFinanceAccountingperiodsIdStatementsIdSuggestionsResponses[keyof PostFinanceAccountingperiodsIdStatementsIdSuggestionsResponses];
+export type GenerateSuggestionsResponse = GenerateSuggestionsResponses[keyof GenerateSuggestionsResponses];
 
 export type GetFinanceAccountingperiodsIdUserrulesData = {
     body?: never;
@@ -14985,7 +14760,7 @@ export type GetFinanceAccountingperiodsIdUserrulesData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/userrules';
+    url: "/finance/accountingperiods/{id}/userrules";
 };
 
 export type GetFinanceAccountingperiodsIdUserrulesErrors = {
@@ -15011,13 +14786,24 @@ export type GetFinanceAccountingperiodsIdUserrulesResponses = {
      * OK
      */
     200: {
-        data: Array<UserRule>;
-        meta: MetaCount;
+        data?: Array<{
+            accountIds?: Array<number>;
+            accountingPeriodId?: number;
+            allAccounts?: boolean;
+            id?: number;
+            isIncome?: boolean;
+            operator?: 'contains' | 'equals' | 'regex';
+            searchString?: string;
+            searchType?: string;
+            sortKey?: number;
+            suggestionType?: string;
+            suggestionValue?: string;
+        }>;
+        meta?: MetaCount;
     };
 };
 
-export type GetFinanceAccountingperiodsIdUserrulesResponse =
-    GetFinanceAccountingperiodsIdUserrulesResponses[keyof GetFinanceAccountingperiodsIdUserrulesResponses];
+export type GetUserRulesResponse = GetUserRulesResponses[keyof GetUserRulesResponses];
 
 export type PutFinanceAccountingperiodsIdUserrulesData = {
     body?: never;
@@ -15028,7 +14814,7 @@ export type PutFinanceAccountingperiodsIdUserrulesData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accountingperiods/{id}/userrules';
+    url: "/finance/accountingperiods/{id}/userrules";
 };
 
 export type PutFinanceAccountingperiodsIdUserrulesErrors = {
@@ -15062,7 +14848,7 @@ export type GetFinanceAccountsData = {
          */
         calculate_balance?: boolean;
     };
-    url: '/finance/accounts';
+    url: "/finance/accounts";
 };
 
 export type GetFinanceAccountsErrors = {
@@ -15076,7 +14862,7 @@ export type GetFinanceAccountsErrors = {
     403: unknown;
 };
 
-export type GetFinanceAccountsError = GetFinanceAccountsErrors[keyof GetFinanceAccountsErrors];
+export type GetAllAccountsError = GetAllAccountsErrors[keyof GetAllAccountsErrors];
 
 export type GetFinanceAccountsResponses = {
     /**
@@ -15087,7 +14873,7 @@ export type GetFinanceAccountsResponses = {
     };
 };
 
-export type GetFinanceAccountsResponse = GetFinanceAccountsResponses[keyof GetFinanceAccountsResponses];
+export type GetAllAccountsResponse = GetAllAccountsResponses[keyof GetAllAccountsResponses];
 
 export type PostFinanceAccountsData = {
     /**
@@ -15096,7 +14882,7 @@ export type PostFinanceAccountsData = {
     body: AccountNew;
     path?: never;
     query?: never;
-    url: '/finance/accounts';
+    url: "/finance/accounts";
 };
 
 export type PostFinanceAccountsErrors = {
@@ -15110,7 +14896,7 @@ export type PostFinanceAccountsErrors = {
     403: unknown;
 };
 
-export type PostFinanceAccountsError = PostFinanceAccountsErrors[keyof PostFinanceAccountsErrors];
+export type CreateNewAccountError = CreateNewAccountErrors[keyof CreateNewAccountErrors];
 
 export type PostFinanceAccountsResponses = {
     /**
@@ -15121,13 +14907,13 @@ export type PostFinanceAccountsResponses = {
     };
 };
 
-export type PostFinanceAccountsResponse = PostFinanceAccountsResponses[keyof PostFinanceAccountsResponses];
+export type CreateNewAccountResponse = CreateNewAccountResponses[keyof CreateNewAccountResponses];
 
 export type PostFinanceAccountsBulkcreateData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accounts/bulkcreate';
+    url: "/finance/accounts/bulkcreate";
 };
 
 export type PostFinanceAccountsBulkcreateErrors = {
@@ -15145,8 +14931,7 @@ export type PostFinanceAccountsBulkcreateErrors = {
     404: unknown;
 };
 
-export type PostFinanceAccountsBulkcreateError =
-    PostFinanceAccountsBulkcreateErrors[keyof PostFinanceAccountsBulkcreateErrors];
+export type PostBulkAccountsError = PostBulkAccountsErrors[keyof PostBulkAccountsErrors];
 
 export type GetFinanceAccountsCsvData = {
     body?: never;
@@ -15157,7 +14942,7 @@ export type GetFinanceAccountsCsvData = {
          */
         accounting_period_id?: number;
     };
-    url: '/finance/accounts/csv';
+    url: "/finance/accounts/csv";
 };
 
 export type GetFinanceAccountsCsvResponses = {
@@ -15171,7 +14956,7 @@ export type GetFinanceAccountsExportData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accounts/export';
+    url: "/finance/accounts/export";
 };
 
 export type GetFinanceAccountsExportErrors = {
@@ -15189,7 +14974,7 @@ export type GetFinanceAccountsExportErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountsExportError = GetFinanceAccountsExportErrors[keyof GetFinanceAccountsExportErrors];
+export type GetAccountsExportError = GetAccountsExportErrors[keyof GetAccountsExportErrors];
 
 export type PostFinanceAccountsExporttemplateData = {
     body: {
@@ -15203,7 +14988,7 @@ export type PostFinanceAccountsExporttemplateData = {
     };
     path?: never;
     query?: never;
-    url: '/finance/accounts/exporttemplate';
+    url: "/finance/accounts/exporttemplate";
 };
 
 export type PostFinanceAccountsExporttemplateErrors = {
@@ -15221,8 +15006,7 @@ export type PostFinanceAccountsExporttemplateErrors = {
     404: unknown;
 };
 
-export type PostFinanceAccountsExporttemplateError =
-    PostFinanceAccountsExporttemplateErrors[keyof PostFinanceAccountsExporttemplateErrors];
+export type GetAccountsImportTemplateError = GetAccountsImportTemplateErrors[keyof GetAccountsImportTemplateErrors];
 
 export type DeleteFinanceAccountsIdData = {
     body?: never;
@@ -15238,7 +15022,7 @@ export type DeleteFinanceAccountsIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/accounts/{id}';
+    url: "/finance/accounts/{id}";
 };
 
 export type DeleteFinanceAccountsIdErrors = {
@@ -15295,7 +15079,7 @@ export type DeleteFinanceAccountsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccountsIdResponse = DeleteFinanceAccountsIdResponses[keyof DeleteFinanceAccountsIdResponses];
+export type DeleteAccountResponse = DeleteAccountResponses[keyof DeleteAccountResponses];
 
 export type GetFinanceAccountsIdData = {
     body?: never;
@@ -15306,7 +15090,7 @@ export type GetFinanceAccountsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accounts/{id}';
+    url: "/finance/accounts/{id}";
 };
 
 export type GetFinanceAccountsIdErrors = {
@@ -15324,7 +15108,7 @@ export type GetFinanceAccountsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccountsIdError = GetFinanceAccountsIdErrors[keyof GetFinanceAccountsIdErrors];
+export type GetAccountByIdError = GetAccountByIdErrors[keyof GetAccountByIdErrors];
 
 export type GetFinanceAccountsIdResponses = {
     /**
@@ -15335,7 +15119,7 @@ export type GetFinanceAccountsIdResponses = {
     };
 };
 
-export type GetFinanceAccountsIdResponse = GetFinanceAccountsIdResponses[keyof GetFinanceAccountsIdResponses];
+export type GetAccountByIdResponse = GetAccountByIdResponses[keyof GetAccountByIdResponses];
 
 export type PutFinanceAccountsIdData = {
     /**
@@ -15349,7 +15133,7 @@ export type PutFinanceAccountsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accounts/{id}';
+    url: "/finance/accounts/{id}";
 };
 
 export type PutFinanceAccountsIdErrors = {
@@ -15378,13 +15162,13 @@ export type PutFinanceAccountsIdResponses = {
     };
 };
 
-export type PutFinanceAccountsIdResponse = PutFinanceAccountsIdResponses[keyof PutFinanceAccountsIdResponses];
+export type UpdateAccountResponse = UpdateAccountResponses[keyof UpdateAccountResponses];
 
 export type GetFinanceAccounttypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/accounttypes';
+    url: "/finance/accounttypes";
 };
 
 export type GetFinanceAccounttypesErrors = {
@@ -15398,7 +15182,7 @@ export type GetFinanceAccounttypesErrors = {
     403: unknown;
 };
 
-export type GetFinanceAccounttypesError = GetFinanceAccounttypesErrors[keyof GetFinanceAccounttypesErrors];
+export type GetAllAccountTypesError = GetAllAccountTypesErrors[keyof GetAllAccountTypesErrors];
 
 export type GetFinanceAccounttypesResponses = {
     /**
@@ -15409,7 +15193,7 @@ export type GetFinanceAccounttypesResponses = {
     };
 };
 
-export type GetFinanceAccounttypesResponse = GetFinanceAccounttypesResponses[keyof GetFinanceAccounttypesResponses];
+export type GetAllAccountTypesResponse = GetAllAccountTypesResponses[keyof GetAllAccountTypesResponses];
 
 export type PostFinanceAccounttypesData = {
     /**
@@ -15418,7 +15202,7 @@ export type PostFinanceAccounttypesData = {
     body: AccountTypeNew;
     path?: never;
     query?: never;
-    url: '/finance/accounttypes';
+    url: "/finance/accounttypes";
 };
 
 export type PostFinanceAccounttypesErrors = {
@@ -15432,7 +15216,7 @@ export type PostFinanceAccounttypesErrors = {
     403: unknown;
 };
 
-export type PostFinanceAccounttypesError = PostFinanceAccounttypesErrors[keyof PostFinanceAccounttypesErrors];
+export type CreateNewAccountTypeError = CreateNewAccountTypeErrors[keyof CreateNewAccountTypeErrors];
 
 export type PostFinanceAccounttypesResponses = {
     /**
@@ -15443,7 +15227,7 @@ export type PostFinanceAccounttypesResponses = {
     };
 };
 
-export type PostFinanceAccounttypesResponse = PostFinanceAccounttypesResponses[keyof PostFinanceAccounttypesResponses];
+export type CreateNewAccountTypeResponse = CreateNewAccountTypeResponses[keyof CreateNewAccountTypeResponses];
 
 export type DeleteFinanceAccounttypesIdData = {
     body?: never;
@@ -15459,7 +15243,7 @@ export type DeleteFinanceAccounttypesIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/accounttypes/{id}';
+    url: "/finance/accounttypes/{id}";
 };
 
 export type DeleteFinanceAccounttypesIdErrors = {
@@ -15507,8 +15291,7 @@ export type DeleteFinanceAccounttypesIdErrors = {
     };
 };
 
-export type DeleteFinanceAccounttypesIdError =
-    DeleteFinanceAccounttypesIdErrors[keyof DeleteFinanceAccounttypesIdErrors];
+export type DeleteAccountTypeError = DeleteAccountTypeErrors[keyof DeleteAccountTypeErrors];
 
 export type DeleteFinanceAccounttypesIdResponses = {
     /**
@@ -15517,8 +15300,7 @@ export type DeleteFinanceAccounttypesIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceAccounttypesIdResponse =
-    DeleteFinanceAccounttypesIdResponses[keyof DeleteFinanceAccounttypesIdResponses];
+export type DeleteAccountTypeResponse = DeleteAccountTypeResponses[keyof DeleteAccountTypeResponses];
 
 export type GetFinanceAccounttypesIdData = {
     body?: never;
@@ -15529,7 +15311,7 @@ export type GetFinanceAccounttypesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accounttypes/{id}';
+    url: "/finance/accounttypes/{id}";
 };
 
 export type GetFinanceAccounttypesIdErrors = {
@@ -15547,7 +15329,7 @@ export type GetFinanceAccounttypesIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceAccounttypesIdError = GetFinanceAccounttypesIdErrors[keyof GetFinanceAccounttypesIdErrors];
+export type GetAccountTypeByIdError = GetAccountTypeByIdErrors[keyof GetAccountTypeByIdErrors];
 
 export type GetFinanceAccounttypesIdResponses = {
     /**
@@ -15558,8 +15340,7 @@ export type GetFinanceAccounttypesIdResponses = {
     };
 };
 
-export type GetFinanceAccounttypesIdResponse =
-    GetFinanceAccounttypesIdResponses[keyof GetFinanceAccounttypesIdResponses];
+export type GetAccountTypeByIdResponse = GetAccountTypeByIdResponses[keyof GetAccountTypeByIdResponses];
 
 export type PutFinanceAccounttypesIdData = {
     /**
@@ -15573,7 +15354,7 @@ export type PutFinanceAccounttypesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/accounttypes/{id}';
+    url: "/finance/accounttypes/{id}";
 };
 
 export type PutFinanceAccounttypesIdErrors = {
@@ -15591,7 +15372,7 @@ export type PutFinanceAccounttypesIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceAccounttypesIdError = PutFinanceAccounttypesIdErrors[keyof PutFinanceAccounttypesIdErrors];
+export type UpdateAccountTypeError = UpdateAccountTypeErrors[keyof UpdateAccountTypeErrors];
 
 export type PutFinanceAccounttypesIdResponses = {
     /**
@@ -15602,8 +15383,7 @@ export type PutFinanceAccounttypesIdResponses = {
     };
 };
 
-export type PutFinanceAccounttypesIdResponse =
-    PutFinanceAccounttypesIdResponses[keyof PutFinanceAccounttypesIdResponses];
+export type UpdateAccountTypeResponse = UpdateAccountTypeResponses[keyof UpdateAccountTypeResponses];
 
 export type PostFinanceBillsData = {
     /**
@@ -15612,7 +15392,7 @@ export type PostFinanceBillsData = {
     body: BillNew;
     path?: never;
     query?: never;
-    url: '/finance/bills';
+    url: "/finance/bills";
 };
 
 export type PostFinanceBillsErrors = {
@@ -15637,7 +15417,7 @@ export type PostFinanceBillsResponses = {
     };
 };
 
-export type PostFinanceBillsResponse = PostFinanceBillsResponses[keyof PostFinanceBillsResponses];
+export type CreateNewBillResponse = CreateNewBillResponses[keyof CreateNewBillResponses];
 
 export type DeleteFinanceBillsIdData = {
     body?: never;
@@ -15653,7 +15433,7 @@ export type DeleteFinanceBillsIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/bills/{id}';
+    url: "/finance/bills/{id}";
 };
 
 export type DeleteFinanceBillsIdErrors = {
@@ -15721,7 +15501,7 @@ export type GetFinanceBillsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/bills/{id}';
+    url: "/finance/bills/{id}";
 };
 
 export type GetFinanceBillsIdErrors = {
@@ -15750,7 +15530,7 @@ export type GetFinanceBillsIdResponses = {
     };
 };
 
-export type GetFinanceBillsIdResponse = GetFinanceBillsIdResponses[keyof GetFinanceBillsIdResponses];
+export type GetBillByIdResponse = GetBillByIdResponses[keyof GetBillByIdResponses];
 
 export type PutFinanceBillsIdData = {
     /**
@@ -15764,7 +15544,7 @@ export type PutFinanceBillsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/bills/{id}';
+    url: "/finance/bills/{id}";
 };
 
 export type PutFinanceBillsIdErrors = {
@@ -15799,7 +15579,7 @@ export type GetFinanceCashdiscountsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/cashdiscounts';
+    url: "/finance/cashdiscounts";
 };
 
 export type GetFinanceCashdiscountsErrors = {
@@ -15813,7 +15593,7 @@ export type GetFinanceCashdiscountsErrors = {
     403: unknown;
 };
 
-export type GetFinanceCashdiscountsError = GetFinanceCashdiscountsErrors[keyof GetFinanceCashdiscountsErrors];
+export type GetAllCashDiscountsError = GetAllCashDiscountsErrors[keyof GetAllCashDiscountsErrors];
 
 export type GetFinanceCashdiscountsResponses = {
     /**
@@ -15824,7 +15604,7 @@ export type GetFinanceCashdiscountsResponses = {
     };
 };
 
-export type GetFinanceCashdiscountsResponse = GetFinanceCashdiscountsResponses[keyof GetFinanceCashdiscountsResponses];
+export type GetAllCashDiscountsResponse = GetAllCashDiscountsResponses[keyof GetAllCashDiscountsResponses];
 
 export type PostFinanceCashdiscountsData = {
     /**
@@ -15833,7 +15613,7 @@ export type PostFinanceCashdiscountsData = {
     body: CashDiscountNew;
     path?: never;
     query?: never;
-    url: '/finance/cashdiscounts';
+    url: "/finance/cashdiscounts";
 };
 
 export type PostFinanceCashdiscountsErrors = {
@@ -15847,7 +15627,7 @@ export type PostFinanceCashdiscountsErrors = {
     403: unknown;
 };
 
-export type PostFinanceCashdiscountsError = PostFinanceCashdiscountsErrors[keyof PostFinanceCashdiscountsErrors];
+export type CreateCashDiscountError = CreateCashDiscountErrors[keyof CreateCashDiscountErrors];
 
 export type PostFinanceCashdiscountsResponses = {
     /**
@@ -15858,8 +15638,7 @@ export type PostFinanceCashdiscountsResponses = {
     };
 };
 
-export type PostFinanceCashdiscountsResponse =
-    PostFinanceCashdiscountsResponses[keyof PostFinanceCashdiscountsResponses];
+export type CreateCashDiscountResponse = CreateCashDiscountResponses[keyof CreateCashDiscountResponses];
 
 export type DeleteFinanceCashdiscountsIdData = {
     body?: never;
@@ -15875,7 +15654,7 @@ export type DeleteFinanceCashdiscountsIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/cashdiscounts/{id}';
+    url: "/finance/cashdiscounts/{id}";
 };
 
 export type DeleteFinanceCashdiscountsIdErrors = {
@@ -15923,8 +15702,7 @@ export type DeleteFinanceCashdiscountsIdErrors = {
     };
 };
 
-export type DeleteFinanceCashdiscountsIdError =
-    DeleteFinanceCashdiscountsIdErrors[keyof DeleteFinanceCashdiscountsIdErrors];
+export type DeleteCashDiscountError = DeleteCashDiscountErrors[keyof DeleteCashDiscountErrors];
 
 export type DeleteFinanceCashdiscountsIdResponses = {
     /**
@@ -15933,8 +15711,7 @@ export type DeleteFinanceCashdiscountsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceCashdiscountsIdResponse =
-    DeleteFinanceCashdiscountsIdResponses[keyof DeleteFinanceCashdiscountsIdResponses];
+export type DeleteCashDiscountResponse = DeleteCashDiscountResponses[keyof DeleteCashDiscountResponses];
 
 export type GetFinanceCashdiscountsIdData = {
     body?: never;
@@ -15945,7 +15722,7 @@ export type GetFinanceCashdiscountsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/cashdiscounts/{id}';
+    url: "/finance/cashdiscounts/{id}";
 };
 
 export type GetFinanceCashdiscountsIdErrors = {
@@ -15963,7 +15740,7 @@ export type GetFinanceCashdiscountsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceCashdiscountsIdError = GetFinanceCashdiscountsIdErrors[keyof GetFinanceCashdiscountsIdErrors];
+export type GetCashDiscountError = GetCashDiscountErrors[keyof GetCashDiscountErrors];
 
 export type GetFinanceCashdiscountsIdResponses = {
     /**
@@ -15974,8 +15751,7 @@ export type GetFinanceCashdiscountsIdResponses = {
     };
 };
 
-export type GetFinanceCashdiscountsIdResponse =
-    GetFinanceCashdiscountsIdResponses[keyof GetFinanceCashdiscountsIdResponses];
+export type GetCashDiscountResponse = GetCashDiscountResponses[keyof GetCashDiscountResponses];
 
 export type PutFinanceCashdiscountsIdData = {
     /**
@@ -15989,7 +15765,7 @@ export type PutFinanceCashdiscountsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/cashdiscounts/{id}';
+    url: "/finance/cashdiscounts/{id}";
 };
 
 export type PutFinanceCashdiscountsIdErrors = {
@@ -16007,7 +15783,7 @@ export type PutFinanceCashdiscountsIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceCashdiscountsIdError = PutFinanceCashdiscountsIdErrors[keyof PutFinanceCashdiscountsIdErrors];
+export type UpdateCashDiscountError = UpdateCashDiscountErrors[keyof UpdateCashDiscountErrors];
 
 export type PutFinanceCashdiscountsIdResponses = {
     /**
@@ -16018,14 +15794,13 @@ export type PutFinanceCashdiscountsIdResponses = {
     };
 };
 
-export type PutFinanceCashdiscountsIdResponse =
-    PutFinanceCashdiscountsIdResponses[keyof PutFinanceCashdiscountsIdResponses];
+export type UpdateCashDiscountResponse = UpdateCashDiscountResponses[keyof UpdateCashDiscountResponses];
 
 export type GetFinanceClientsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/clients';
+    url: "/finance/clients";
 };
 
 export type GetFinanceClientsErrors = {
@@ -16050,7 +15825,7 @@ export type GetFinanceClientsResponses = {
     };
 };
 
-export type GetFinanceClientsResponse = GetFinanceClientsResponses[keyof GetFinanceClientsResponses];
+export type GetAllClientsResponse = GetAllClientsResponses[keyof GetAllClientsResponses];
 
 export type PostFinanceClientsData = {
     /**
@@ -16059,7 +15834,7 @@ export type PostFinanceClientsData = {
     body: ClientNew;
     path?: never;
     query?: never;
-    url: '/finance/clients';
+    url: "/finance/clients";
 };
 
 export type PostFinanceClientsResponses = {
@@ -16071,7 +15846,7 @@ export type PostFinanceClientsResponses = {
     };
 };
 
-export type PostFinanceClientsResponse = PostFinanceClientsResponses[keyof PostFinanceClientsResponses];
+export type CreateNewClientResponse = CreateNewClientResponses[keyof CreateNewClientResponses];
 
 export type DeleteFinanceClientsIdData = {
     body?: never;
@@ -16087,7 +15862,7 @@ export type DeleteFinanceClientsIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/clients/{id}';
+    url: "/finance/clients/{id}";
 };
 
 export type DeleteFinanceClientsIdErrors = {
@@ -16144,7 +15919,7 @@ export type DeleteFinanceClientsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceClientsIdResponse = DeleteFinanceClientsIdResponses[keyof DeleteFinanceClientsIdResponses];
+export type DeleteClientResponse = DeleteClientResponses[keyof DeleteClientResponses];
 
 export type GetFinanceClientsIdData = {
     body?: never;
@@ -16155,7 +15930,7 @@ export type GetFinanceClientsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/clients/{id}';
+    url: "/finance/clients/{id}";
 };
 
 export type GetFinanceClientsIdErrors = {
@@ -16184,7 +15959,7 @@ export type GetFinanceClientsIdResponses = {
     };
 };
 
-export type GetFinanceClientsIdResponse = GetFinanceClientsIdResponses[keyof GetFinanceClientsIdResponses];
+export type GetClientByIdResponse = GetClientByIdResponses[keyof GetClientByIdResponses];
 
 export type PutFinanceClientsIdData = {
     /**
@@ -16198,7 +15973,7 @@ export type PutFinanceClientsIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/clients/{id}';
+    url: "/finance/clients/{id}";
 };
 
 export type PutFinanceClientsIdErrors = {
@@ -16227,7 +16002,7 @@ export type PutFinanceClientsIdResponses = {
     };
 };
 
-export type PutFinanceClientsIdResponse = PutFinanceClientsIdResponses[keyof PutFinanceClientsIdResponses];
+export type UpdateClientResponse = UpdateClientResponses[keyof UpdateClientResponses];
 
 export type GetFinanceCostcentersData = {
     body?: never;
@@ -16238,7 +16013,7 @@ export type GetFinanceCostcentersData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/costcenters';
+    url: "/finance/costcenters";
 };
 
 export type GetFinanceCostcentersErrors = {
@@ -16252,7 +16027,7 @@ export type GetFinanceCostcentersErrors = {
     403: unknown;
 };
 
-export type GetFinanceCostcentersError = GetFinanceCostcentersErrors[keyof GetFinanceCostcentersErrors];
+export type GetAllCostCentersError = GetAllCostCentersErrors[keyof GetAllCostCentersErrors];
 
 export type GetFinanceCostcentersResponses = {
     /**
@@ -16263,7 +16038,7 @@ export type GetFinanceCostcentersResponses = {
     };
 };
 
-export type GetFinanceCostcentersResponse = GetFinanceCostcentersResponses[keyof GetFinanceCostcentersResponses];
+export type GetAllCostCentersResponse = GetAllCostCentersResponses[keyof GetAllCostCentersResponses];
 
 export type PostFinanceCostcentersData = {
     /**
@@ -16281,7 +16056,7 @@ export type PostFinanceCostcentersData = {
     };
     path?: never;
     query?: never;
-    url: '/finance/costcenters';
+    url: "/finance/costcenters";
 };
 
 export type PostFinanceCostcentersErrors = {
@@ -16295,7 +16070,7 @@ export type PostFinanceCostcentersErrors = {
     403: unknown;
 };
 
-export type PostFinanceCostcentersError = PostFinanceCostcentersErrors[keyof PostFinanceCostcentersErrors];
+export type CreateCostCenterError = CreateCostCenterErrors[keyof CreateCostCenterErrors];
 
 export type PostFinanceCostcentersResponses = {
     /**
@@ -16306,7 +16081,7 @@ export type PostFinanceCostcentersResponses = {
     };
 };
 
-export type PostFinanceCostcentersResponse = PostFinanceCostcentersResponses[keyof PostFinanceCostcentersResponses];
+export type CreateCostCenterResponse = CreateCostCenterResponses[keyof CreateCostCenterResponses];
 
 export type PostFinanceCostcentersBulkcreateData = {
     body: {
@@ -16320,7 +16095,7 @@ export type PostFinanceCostcentersBulkcreateData = {
     };
     path?: never;
     query?: never;
-    url: '/finance/costcenters/bulkcreate';
+    url: "/finance/costcenters/bulkcreate";
 };
 
 export type PostFinanceCostcentersBulkcreateErrors = {
@@ -16354,7 +16129,7 @@ export type GetFinanceCostcentersExportData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/costcenters/export';
+    url: "/finance/costcenters/export";
 };
 
 export type GetFinanceCostcentersExportErrors = {
@@ -16372,8 +16147,7 @@ export type GetFinanceCostcentersExportErrors = {
     404: unknown;
 };
 
-export type GetFinanceCostcentersExportError =
-    GetFinanceCostcentersExportErrors[keyof GetFinanceCostcentersExportErrors];
+export type PostCostCenterExportError = PostCostCenterExportErrors[keyof PostCostCenterExportErrors];
 
 export type DeleteFinanceCostcentersIdData = {
     body?: never;
@@ -16389,7 +16163,7 @@ export type DeleteFinanceCostcentersIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/costcenters/{id}';
+    url: "/finance/costcenters/{id}";
 };
 
 export type DeleteFinanceCostcentersIdErrors = {
@@ -16437,7 +16211,7 @@ export type DeleteFinanceCostcentersIdErrors = {
     };
 };
 
-export type DeleteFinanceCostcentersIdError = DeleteFinanceCostcentersIdErrors[keyof DeleteFinanceCostcentersIdErrors];
+export type DeleteCostCenterError = DeleteCostCenterErrors[keyof DeleteCostCenterErrors];
 
 export type DeleteFinanceCostcentersIdResponses = {
     /**
@@ -16446,8 +16220,7 @@ export type DeleteFinanceCostcentersIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceCostcentersIdResponse =
-    DeleteFinanceCostcentersIdResponses[keyof DeleteFinanceCostcentersIdResponses];
+export type DeleteCostCenterResponse = DeleteCostCenterResponses[keyof DeleteCostCenterResponses];
 
 export type GetFinanceCostcentersIdData = {
     body?: never;
@@ -16458,7 +16231,7 @@ export type GetFinanceCostcentersIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/costcenters/{id}';
+    url: "/finance/costcenters/{id}";
 };
 
 export type GetFinanceCostcentersIdErrors = {
@@ -16487,7 +16260,7 @@ export type GetFinanceCostcentersIdResponses = {
     };
 };
 
-export type GetFinanceCostcentersIdResponse = GetFinanceCostcentersIdResponses[keyof GetFinanceCostcentersIdResponses];
+export type GetCostCenterResponse = GetCostCenterResponses[keyof GetCostCenterResponses];
 
 export type PutFinanceCostcentersIdData = {
     /**
@@ -16510,7 +16283,7 @@ export type PutFinanceCostcentersIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/costcenters/{id}';
+    url: "/finance/costcenters/{id}";
 };
 
 export type PutFinanceCostcentersIdErrors = {
@@ -16528,7 +16301,7 @@ export type PutFinanceCostcentersIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceCostcentersIdError = PutFinanceCostcentersIdErrors[keyof PutFinanceCostcentersIdErrors];
+export type UpdateCostCenterError = UpdateCostCenterErrors[keyof UpdateCostCenterErrors];
 
 export type PutFinanceCostcentersIdResponses = {
     /**
@@ -16539,7 +16312,7 @@ export type PutFinanceCostcentersIdResponses = {
     };
 };
 
-export type PutFinanceCostcentersIdResponse = PutFinanceCostcentersIdResponses[keyof PutFinanceCostcentersIdResponses];
+export type UpdateCostCenterResponse = UpdateCostCenterResponses[keyof UpdateCostCenterResponses];
 
 export type GetFinanceDonatorsData = {
     body?: never;
@@ -16552,11 +16325,11 @@ export type GetFinanceDonatorsData = {
         /**
          * Default is `name`.
          */
-        order_by?: 'name' | 'count' | 'last' | 'sum';
+        order_by?: "name" | "count" | "last" | "sum";
         /**
          * Way of direction: ascending or descending
          */
-        order_direction?: 'ASC' | 'DESC';
+        order_direction?: "ASC" | "DESC";
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
@@ -16570,7 +16343,7 @@ export type GetFinanceDonatorsData = {
          */
         query?: string;
     };
-    url: '/finance/donators';
+    url: "/finance/donators";
 };
 
 export type GetFinanceDonatorsErrors = {
@@ -16584,7 +16357,7 @@ export type GetFinanceDonatorsErrors = {
     403: unknown;
 };
 
-export type GetFinanceDonatorsError = GetFinanceDonatorsErrors[keyof GetFinanceDonatorsErrors];
+export type GetAllDonatorsError = GetAllDonatorsErrors[keyof GetAllDonatorsErrors];
 
 export type GetFinanceDonatorsResponses = {
     /**
@@ -16596,7 +16369,7 @@ export type GetFinanceDonatorsResponses = {
     };
 };
 
-export type GetFinanceDonatorsResponse = GetFinanceDonatorsResponses[keyof GetFinanceDonatorsResponses];
+export type GetAllDonatorsResponse = GetAllDonatorsResponses[keyof GetAllDonatorsResponses];
 
 export type DeleteFinanceDonatorsReceiptsData = {
     body?: never;
@@ -16607,7 +16380,7 @@ export type DeleteFinanceDonatorsReceiptsData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/donators/receipts';
+    url: "/finance/donators/receipts";
 };
 
 export type DeleteFinanceDonatorsReceiptsErrors = {
@@ -16639,13 +16412,17 @@ export type GetFinanceDonatorsReceiptsData = {
         /**
          * mode: seperate letter and attachtment in two files
          */
-        mode?: 'onefile' | 'twofiles';
+        mode?: "onefile" | "twofiles";
         /**
          * add empty pages to clear double page for  'all', 'letter', 'attachment'
          */
-        cleardoublepage?: 'none' | 'all' | 'donation_cover_letter' | 'donation_attachment';
+        cleardoublepage?:
+            | "none"
+            | "all"
+            | "donation_cover_letter"
+            | "donation_attachment";
     };
-    url: '/finance/donators/receipts';
+    url: "/finance/donators/receipts";
 };
 
 export type GetFinanceDonatorsReceiptsErrors = {
@@ -16659,7 +16436,7 @@ export type GetFinanceDonatorsReceiptsErrors = {
     403: unknown;
 };
 
-export type GetFinanceDonatorsReceiptsError = GetFinanceDonatorsReceiptsErrors[keyof GetFinanceDonatorsReceiptsErrors];
+export type GetAllDonationReceiptsError = GetAllDonationReceiptsErrors[keyof GetAllDonationReceiptsErrors];
 
 export type GetFinanceDonatorsReceiptsResponses = {
     /**
@@ -16671,8 +16448,7 @@ export type GetFinanceDonatorsReceiptsResponses = {
     };
 };
 
-export type GetFinanceDonatorsReceiptsResponse =
-    GetFinanceDonatorsReceiptsResponses[keyof GetFinanceDonatorsReceiptsResponses];
+export type GetAllDonationReceiptsResponse = GetAllDonationReceiptsResponses[keyof GetAllDonationReceiptsResponses];
 
 export type PostFinanceDonatorsReceiptsData = {
     body?: never;
@@ -16683,7 +16459,7 @@ export type PostFinanceDonatorsReceiptsData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/donators/receipts';
+    url: "/finance/donators/receipts";
 };
 
 export type PostFinanceDonatorsReceiptsErrors = {
@@ -16714,7 +16490,7 @@ export type DeleteFinanceDonatorsDonatorCoupleIdData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/donators/{donatorCoupleId}/receipts';
+    url: "/finance/donators/{donatorCoupleId}/receipts";
 };
 
 export type DeleteFinanceDonatorsDonatorCoupleIdResponses = {
@@ -16741,7 +16517,7 @@ export type GetFinanceDonatorsDonatorCoupleIdData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/donators/{donatorCoupleId}/receipts';
+    url: "/finance/donators/{donatorCoupleId}/receipts";
 };
 
 export type GetFinanceDonatorsDonatorCoupleIdErrors = {
@@ -16788,7 +16564,7 @@ export type GetFinanceMasterdataData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/masterdata';
+    url: "/finance/masterdata";
 };
 
 export type GetFinanceMasterdataErrors = {
@@ -16843,7 +16619,7 @@ export type PostFinanceReportsTurnoverData = {
         /**
          * Select monthly oder quarterly report
          */
-        period: 'monthly' | 'quarterly';
+        period: "monthly" | "quarterly";
         /**
          * Show Accounts With No Transactions
          */
@@ -16851,7 +16627,7 @@ export type PostFinanceReportsTurnoverData = {
     };
     path?: never;
     query?: never;
-    url: '/finance/reports/turnover';
+    url: "/finance/reports/turnover";
 };
 
 export type PostFinanceReportsTurnoverResponses = {
@@ -16876,7 +16652,7 @@ export type PostFinanceSplittransactionsData = {
     body: SplitTransaction;
     path?: never;
     query?: never;
-    url: '/finance/splittransactions';
+    url: "/finance/splittransactions";
 };
 
 export type PostFinanceSplittransactionsResponses = {
@@ -16907,13 +16683,13 @@ export type DeleteFinanceSplittransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
         /**
          * If set to true, the deletion is simulated but nothing will be deleted.
          */
         dry_run?: boolean;
     };
-    url: '/finance/splittransactions/{id}';
+    url: "/finance/splittransactions/{id}";
 };
 
 export type DeleteFinanceSplittransactionsIdErrors = {
@@ -16931,8 +16707,7 @@ export type DeleteFinanceSplittransactionsIdErrors = {
     404: unknown;
 };
 
-export type DeleteFinanceSplittransactionsIdError =
-    DeleteFinanceSplittransactionsIdErrors[keyof DeleteFinanceSplittransactionsIdErrors];
+export type DeleteSplitTransactionError = DeleteSplitTransactionErrors[keyof DeleteSplitTransactionErrors];
 
 export type DeleteFinanceSplittransactionsIdResponses = {
     /**
@@ -16941,8 +16716,7 @@ export type DeleteFinanceSplittransactionsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceSplittransactionsIdResponse =
-    DeleteFinanceSplittransactionsIdResponses[keyof DeleteFinanceSplittransactionsIdResponses];
+export type DeleteSplitTransactionResponse = DeleteSplitTransactionResponses[keyof DeleteSplitTransactionResponses];
 
 export type GetFinanceSplittransactionsIdData = {
     body?: never;
@@ -16956,9 +16730,9 @@ export type GetFinanceSplittransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/splittransactions/{id}';
+    url: "/finance/splittransactions/{id}";
 };
 
 export type GetFinanceSplittransactionsIdErrors = {
@@ -16976,8 +16750,7 @@ export type GetFinanceSplittransactionsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceSplittransactionsIdError =
-    GetFinanceSplittransactionsIdErrors[keyof GetFinanceSplittransactionsIdErrors];
+export type GetSplitTransactionByIdError = GetSplitTransactionByIdErrors[keyof GetSplitTransactionByIdErrors];
 
 export type GetFinanceSplittransactionsIdResponses = {
     /**
@@ -16988,8 +16761,7 @@ export type GetFinanceSplittransactionsIdResponses = {
     };
 };
 
-export type GetFinanceSplittransactionsIdResponse =
-    GetFinanceSplittransactionsIdResponses[keyof GetFinanceSplittransactionsIdResponses];
+export type GetSplitTransactionByIdResponse = GetSplitTransactionByIdResponses[keyof GetSplitTransactionByIdResponses];
 
 export type PutFinanceSplittransactionsIdData = {
     /**
@@ -17006,9 +16778,9 @@ export type PutFinanceSplittransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/splittransactions/{id}';
+    url: "/finance/splittransactions/{id}";
 };
 
 export type PutFinanceSplittransactionsIdErrors = {
@@ -17026,8 +16798,7 @@ export type PutFinanceSplittransactionsIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceSplittransactionsIdError =
-    PutFinanceSplittransactionsIdErrors[keyof PutFinanceSplittransactionsIdErrors];
+export type UpdateSplitTransactionError = UpdateSplitTransactionErrors[keyof UpdateSplitTransactionErrors];
 
 export type PutFinanceSplittransactionsIdResponses = {
     /**
@@ -17042,8 +16813,7 @@ export type PutFinanceSplittransactionsIdResponses = {
     204: void;
 };
 
-export type PutFinanceSplittransactionsIdResponse =
-    PutFinanceSplittransactionsIdResponses[keyof PutFinanceSplittransactionsIdResponses];
+export type UpdateSplitTransactionResponse = UpdateSplitTransactionResponses[keyof UpdateSplitTransactionResponses];
 
 export type PutFinanceSplittransactionsIdStornoData = {
     /**
@@ -17057,7 +16827,7 @@ export type PutFinanceSplittransactionsIdStornoData = {
         id: number;
     };
     query?: never;
-    url: '/finance/splittransactions/{id}/storno';
+    url: "/finance/splittransactions/{id}/storno";
 };
 
 export type PutFinanceSplittransactionsIdStornoErrors = {
@@ -17075,8 +16845,7 @@ export type PutFinanceSplittransactionsIdStornoErrors = {
     404: unknown;
 };
 
-export type PutFinanceSplittransactionsIdStornoError =
-    PutFinanceSplittransactionsIdStornoErrors[keyof PutFinanceSplittransactionsIdStornoErrors];
+export type CancelSplitTransactionError = CancelSplitTransactionErrors[keyof CancelSplitTransactionErrors];
 
 export type PutFinanceSplittransactionsIdStornoResponses = {
     /**
@@ -17087,8 +16856,7 @@ export type PutFinanceSplittransactionsIdStornoResponses = {
     };
 };
 
-export type PutFinanceSplittransactionsIdStornoResponse =
-    PutFinanceSplittransactionsIdStornoResponses[keyof PutFinanceSplittransactionsIdStornoResponses];
+export type CancelSplitTransactionResponse = CancelSplitTransactionResponses[keyof CancelSplitTransactionResponses];
 
 export type GetFinanceTaxratesData = {
     body?: never;
@@ -17099,7 +16867,7 @@ export type GetFinanceTaxratesData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/taxrates';
+    url: "/finance/taxrates";
 };
 
 export type GetFinanceTaxratesErrors = {
@@ -17113,7 +16881,7 @@ export type GetFinanceTaxratesErrors = {
     403: unknown;
 };
 
-export type GetFinanceTaxratesError = GetFinanceTaxratesErrors[keyof GetFinanceTaxratesErrors];
+export type GetAllTaxRatesError = GetAllTaxRatesErrors[keyof GetAllTaxRatesErrors];
 
 export type GetFinanceTaxratesResponses = {
     /**
@@ -17124,7 +16892,7 @@ export type GetFinanceTaxratesResponses = {
     };
 };
 
-export type GetFinanceTaxratesResponse = GetFinanceTaxratesResponses[keyof GetFinanceTaxratesResponses];
+export type GetAllTaxRatesResponse = GetAllTaxRatesResponses[keyof GetAllTaxRatesResponses];
 
 export type PostFinanceTaxratesData = {
     /**
@@ -17133,7 +16901,7 @@ export type PostFinanceTaxratesData = {
     body: TaxRateNew;
     path?: never;
     query?: never;
-    url: '/finance/taxrates';
+    url: "/finance/taxrates";
 };
 
 export type PostFinanceTaxratesErrors = {
@@ -17158,7 +16926,7 @@ export type PostFinanceTaxratesResponses = {
     };
 };
 
-export type PostFinanceTaxratesResponse = PostFinanceTaxratesResponses[keyof PostFinanceTaxratesResponses];
+export type CreateTaxRateResponse = CreateTaxRateResponses[keyof CreateTaxRateResponses];
 
 export type DeleteFinanceTaxratesIdData = {
     body?: never;
@@ -17174,7 +16942,7 @@ export type DeleteFinanceTaxratesIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/taxrates/{id}';
+    url: "/finance/taxrates/{id}";
 };
 
 export type DeleteFinanceTaxratesIdErrors = {
@@ -17231,7 +16999,7 @@ export type DeleteFinanceTaxratesIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceTaxratesIdResponse = DeleteFinanceTaxratesIdResponses[keyof DeleteFinanceTaxratesIdResponses];
+export type DeleteTaxRateResponse = DeleteTaxRateResponses[keyof DeleteTaxRateResponses];
 
 export type GetFinanceTaxratesIdData = {
     body?: never;
@@ -17242,7 +17010,7 @@ export type GetFinanceTaxratesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/taxrates/{id}';
+    url: "/finance/taxrates/{id}";
 };
 
 export type GetFinanceTaxratesIdErrors = {
@@ -17285,7 +17053,7 @@ export type PutFinanceTaxratesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/taxrates/{id}';
+    url: "/finance/taxrates/{id}";
 };
 
 export type PutFinanceTaxratesIdErrors = {
@@ -17314,13 +17082,13 @@ export type PutFinanceTaxratesIdResponses = {
     };
 };
 
-export type PutFinanceTaxratesIdResponse = PutFinanceTaxratesIdResponses[keyof PutFinanceTaxratesIdResponses];
+export type UpdateTaxRateResponse = UpdateTaxRateResponses[keyof UpdateTaxRateResponses];
 
 export type GetFinanceTaxtypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/taxtypes';
+    url: "/finance/taxtypes";
 };
 
 export type GetFinanceTaxtypesErrors = {
@@ -17334,7 +17102,7 @@ export type GetFinanceTaxtypesErrors = {
     403: unknown;
 };
 
-export type GetFinanceTaxtypesError = GetFinanceTaxtypesErrors[keyof GetFinanceTaxtypesErrors];
+export type GetAllTaxTypesError = GetAllTaxTypesErrors[keyof GetAllTaxTypesErrors];
 
 export type GetFinanceTaxtypesResponses = {
     /**
@@ -17345,7 +17113,7 @@ export type GetFinanceTaxtypesResponses = {
     };
 };
 
-export type GetFinanceTaxtypesResponse = GetFinanceTaxtypesResponses[keyof GetFinanceTaxtypesResponses];
+export type GetAllTaxTypesResponse = GetAllTaxTypesResponses[keyof GetAllTaxTypesResponses];
 
 export type PostFinanceTaxtypesData = {
     /**
@@ -17354,7 +17122,7 @@ export type PostFinanceTaxtypesData = {
     body: TaxTypeNew;
     path?: never;
     query?: never;
-    url: '/finance/taxtypes';
+    url: "/finance/taxtypes";
 };
 
 export type PostFinanceTaxtypesErrors = {
@@ -17379,7 +17147,7 @@ export type PostFinanceTaxtypesResponses = {
     };
 };
 
-export type PostFinanceTaxtypesResponse = PostFinanceTaxtypesResponses[keyof PostFinanceTaxtypesResponses];
+export type CreateTaxTypeResponse = CreateTaxTypeResponses[keyof CreateTaxTypeResponses];
 
 export type DeleteFinanceTaxtypesIdData = {
     body?: never;
@@ -17395,7 +17163,7 @@ export type DeleteFinanceTaxtypesIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/taxtypes/{id}';
+    url: "/finance/taxtypes/{id}";
 };
 
 export type DeleteFinanceTaxtypesIdErrors = {
@@ -17452,7 +17220,7 @@ export type DeleteFinanceTaxtypesIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceTaxtypesIdResponse = DeleteFinanceTaxtypesIdResponses[keyof DeleteFinanceTaxtypesIdResponses];
+export type DeleteTaxTypeResponse = DeleteTaxTypeResponses[keyof DeleteTaxTypeResponses];
 
 export type GetFinanceTaxtypesIdData = {
     body?: never;
@@ -17463,7 +17231,7 @@ export type GetFinanceTaxtypesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/taxtypes/{id}';
+    url: "/finance/taxtypes/{id}";
 };
 
 export type GetFinanceTaxtypesIdErrors = {
@@ -17506,7 +17274,7 @@ export type PutFinanceTaxtypesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/taxtypes/{id}';
+    url: "/finance/taxtypes/{id}";
 };
 
 export type PutFinanceTaxtypesIdErrors = {
@@ -17535,13 +17303,13 @@ export type PutFinanceTaxtypesIdResponses = {
     };
 };
 
-export type PutFinanceTaxtypesIdResponse = PutFinanceTaxtypesIdResponses[keyof PutFinanceTaxtypesIdResponses];
+export type UpdateTaxTypeResponse = UpdateTaxTypeResponses[keyof UpdateTaxTypeResponses];
 
 export type GetFinanceTemplatesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/templates';
+    url: "/finance/templates";
 };
 
 export type GetFinanceTemplatesErrors = {
@@ -17559,7 +17327,7 @@ export type GetFinanceTemplatesErrors = {
     404: unknown;
 };
 
-export type GetFinanceTemplatesError = GetFinanceTemplatesErrors[keyof GetFinanceTemplatesErrors];
+export type GetAllFinanceTemplatesError = GetAllFinanceTemplatesErrors[keyof GetAllFinanceTemplatesErrors];
 
 export type GetFinanceTemplatesResponses = {
     /**
@@ -17571,7 +17339,7 @@ export type GetFinanceTemplatesResponses = {
     };
 };
 
-export type GetFinanceTemplatesResponse = GetFinanceTemplatesResponses[keyof GetFinanceTemplatesResponses];
+export type GetAllFinanceTemplatesResponse = GetAllFinanceTemplatesResponses[keyof GetAllFinanceTemplatesResponses];
 
 export type GetFinanceTemplatesExportData = {
     body?: never;
@@ -17582,7 +17350,7 @@ export type GetFinanceTemplatesExportData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/templates/export';
+    url: "/finance/templates/export";
 };
 
 export type GetFinanceTemplatesExportErrors = {
@@ -17600,7 +17368,7 @@ export type GetFinanceTemplatesExportErrors = {
     404: unknown;
 };
 
-export type GetFinanceTemplatesExportError = GetFinanceTemplatesExportErrors[keyof GetFinanceTemplatesExportErrors];
+export type ExportFinanceTemplateError = ExportFinanceTemplateErrors[keyof ExportFinanceTemplateErrors];
 
 export type GetFinanceTemplatesExportResponses = {
     /**
@@ -17623,7 +17391,7 @@ export type PostFinanceTemplatesIdData = {
          */
         accounting_period_id: number;
     };
-    url: '/finance/templates/{id}';
+    url: "/finance/templates/{id}";
 };
 
 export type PostFinanceTemplatesIdErrors = {
@@ -17641,7 +17409,7 @@ export type PostFinanceTemplatesIdErrors = {
     404: unknown;
 };
 
-export type PostFinanceTemplatesIdError = PostFinanceTemplatesIdErrors[keyof PostFinanceTemplatesIdErrors];
+export type ApplyFinanceTemplateError = ApplyFinanceTemplateErrors[keyof ApplyFinanceTemplateErrors];
 
 export type PostFinanceTemplatesIdResponses = {
     /**
@@ -17650,13 +17418,13 @@ export type PostFinanceTemplatesIdResponses = {
     204: void;
 };
 
-export type PostFinanceTemplatesIdResponse = PostFinanceTemplatesIdResponses[keyof PostFinanceTemplatesIdResponses];
+export type ApplyFinanceTemplateResponse = ApplyFinanceTemplateResponses[keyof ApplyFinanceTemplateResponses];
 
 export type GetFinanceTransactionpurposesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/transactionpurposes';
+    url: "/finance/transactionpurposes";
 };
 
 export type GetFinanceTransactionpurposesErrors = {
@@ -17670,8 +17438,7 @@ export type GetFinanceTransactionpurposesErrors = {
     403: unknown;
 };
 
-export type GetFinanceTransactionpurposesError =
-    GetFinanceTransactionpurposesErrors[keyof GetFinanceTransactionpurposesErrors];
+export type GetAllTransactionPurposesError = GetAllTransactionPurposesErrors[keyof GetAllTransactionPurposesErrors];
 
 export type GetFinanceTransactionpurposesResponses = {
     /**
@@ -17692,7 +17459,7 @@ export type PostFinanceTransactionpurposesData = {
     body: TransactionPurposeNew;
     path?: never;
     query?: never;
-    url: '/finance/transactionpurposes';
+    url: "/finance/transactionpurposes";
 };
 
 export type PostFinanceTransactionpurposesResponses = {
@@ -17721,7 +17488,7 @@ export type DeleteFinanceTransactionpurposesIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/finance/transactionpurposes/{id}';
+    url: "/finance/transactionpurposes/{id}";
 };
 
 export type DeleteFinanceTransactionpurposesIdErrors = {
@@ -17769,8 +17536,7 @@ export type DeleteFinanceTransactionpurposesIdErrors = {
     };
 };
 
-export type DeleteFinanceTransactionpurposesIdError =
-    DeleteFinanceTransactionpurposesIdErrors[keyof DeleteFinanceTransactionpurposesIdErrors];
+export type DeleteTransactionPurposeError = DeleteTransactionPurposeErrors[keyof DeleteTransactionPurposeErrors];
 
 export type DeleteFinanceTransactionpurposesIdResponses = {
     /**
@@ -17791,7 +17557,7 @@ export type GetFinanceTransactionpurposesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/transactionpurposes/{id}';
+    url: "/finance/transactionpurposes/{id}";
 };
 
 export type GetFinanceTransactionpurposesIdErrors = {
@@ -17809,8 +17575,7 @@ export type GetFinanceTransactionpurposesIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceTransactionpurposesIdError =
-    GetFinanceTransactionpurposesIdErrors[keyof GetFinanceTransactionpurposesIdErrors];
+export type GetTransactionPurposeByIdError = GetTransactionPurposeByIdErrors[keyof GetTransactionPurposeByIdErrors];
 
 export type GetFinanceTransactionpurposesIdResponses = {
     /**
@@ -17836,7 +17601,7 @@ export type PutFinanceTransactionpurposesIdData = {
         id: number;
     };
     query?: never;
-    url: '/finance/transactionpurposes/{id}';
+    url: "/finance/transactionpurposes/{id}";
 };
 
 export type PutFinanceTransactionpurposesIdErrors = {
@@ -17854,8 +17619,7 @@ export type PutFinanceTransactionpurposesIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceTransactionpurposesIdError =
-    PutFinanceTransactionpurposesIdErrors[keyof PutFinanceTransactionpurposesIdErrors];
+export type UpdateTransactionPurposeError = UpdateTransactionPurposeErrors[keyof UpdateTransactionPurposeErrors];
 
 export type PutFinanceTransactionpurposesIdResponses = {
     /**
@@ -17924,11 +17688,11 @@ export type GetFinanceTransactionsData = {
         /**
          * Default is `date`. Order transactions either by document date, amount, or modified date. For `date` and `amount` a second sorting happens by modified. The order direction for modified date is the same as for date and amount.
          */
-        order_by?: 'date' | 'amount' | 'modified';
+        order_by?: "date" | "amount" | "modified";
         /**
          * Way of direction: ascending or descending
          */
-        order_direction?: 'ASC' | 'DESC';
+        order_direction?: "ASC" | "DESC";
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
@@ -17940,9 +17704,9 @@ export type GetFinanceTransactionsData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/transactions';
+    url: "/finance/transactions";
 };
 
 export type GetFinanceTransactionsErrors = {
@@ -17956,7 +17720,7 @@ export type GetFinanceTransactionsErrors = {
     403: unknown;
 };
 
-export type GetFinanceTransactionsError = GetFinanceTransactionsErrors[keyof GetFinanceTransactionsErrors];
+export type GetAllTransactionsError = GetAllTransactionsErrors[keyof GetAllTransactionsErrors];
 
 export type GetFinanceTransactionsResponses = {
     /**
@@ -17968,7 +17732,7 @@ export type GetFinanceTransactionsResponses = {
     };
 };
 
-export type GetFinanceTransactionsResponse = GetFinanceTransactionsResponses[keyof GetFinanceTransactionsResponses];
+export type GetAllTransactionsResponse = GetAllTransactionsResponses[keyof GetAllTransactionsResponses];
 
 export type PatchFinanceTransactionsData = {
     /**
@@ -18065,7 +17829,7 @@ export type PatchFinanceTransactionsData = {
     };
     path?: never;
     query?: never;
-    url: '/finance/transactions';
+    url: "/finance/transactions";
 };
 
 export type PatchFinanceTransactionsResponses = {
@@ -18086,8 +17850,7 @@ export type PatchFinanceTransactionsResponses = {
     };
 };
 
-export type PatchFinanceTransactionsResponse =
-    PatchFinanceTransactionsResponses[keyof PatchFinanceTransactionsResponses];
+export type BatchTransactionResponse = BatchTransactionResponses[keyof BatchTransactionResponses];
 
 export type PostFinanceTransactionsData = {
     /**
@@ -18096,7 +17859,7 @@ export type PostFinanceTransactionsData = {
     body: TransactionNew;
     path?: never;
     query?: never;
-    url: '/finance/transactions';
+    url: "/finance/transactions";
 };
 
 export type PostFinanceTransactionsResponses = {
@@ -18108,13 +17871,13 @@ export type PostFinanceTransactionsResponses = {
     };
 };
 
-export type PostFinanceTransactionsResponse = PostFinanceTransactionsResponses[keyof PostFinanceTransactionsResponses];
+export type CreateNewTransactionResponse = CreateNewTransactionResponses[keyof CreateNewTransactionResponses];
 
 export type PostFinanceTransactionsBulkcreateData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/transactions/bulkcreate';
+    url: "/finance/transactions/bulkcreate";
 };
 
 export type PostFinanceTransactionsBulkcreateErrors = {
@@ -18132,8 +17895,7 @@ export type PostFinanceTransactionsBulkcreateErrors = {
     404: unknown;
 };
 
-export type PostFinanceTransactionsBulkcreateError =
-    PostFinanceTransactionsBulkcreateErrors[keyof PostFinanceTransactionsBulkcreateErrors];
+export type PostBulkTransactionsError = PostBulkTransactionsErrors[keyof PostBulkTransactionsErrors];
 
 export type GetFinanceTransactionsCsvData = {
     body?: never;
@@ -18149,13 +17911,13 @@ export type GetFinanceTransactionsCsvData = {
         /**
          * select special Columns for particular target
          */
-        target?: 'default' | 'sage100';
+        target?: "default" | "sage100";
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
         page?: number;
     };
-    url: '/finance/transactions/csv';
+    url: "/finance/transactions/csv";
 };
 
 export type GetFinanceTransactionsCsvResponses = {
@@ -18169,7 +17931,7 @@ export type GetFinanceTransactionsDatevexportData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/transactions/datevexport';
+    url: "/finance/transactions/datevexport";
 };
 
 export type GetFinanceTransactionsDatevexportErrors = {
@@ -18204,13 +17966,13 @@ export type GetFinanceTransactionsExportData = {
         /**
          * select special Columns for particular target
          */
-        target?: 'default' | 'sage100';
+        target?: "default" | "sage100";
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
         page?: number;
     };
-    url: '/finance/transactions/export';
+    url: "/finance/transactions/export";
 };
 
 export type GetFinanceTransactionsExportErrors = {
@@ -18228,8 +17990,7 @@ export type GetFinanceTransactionsExportErrors = {
     404: unknown;
 };
 
-export type GetFinanceTransactionsExportError =
-    GetFinanceTransactionsExportErrors[keyof GetFinanceTransactionsExportErrors];
+export type GetTransactionsExportError = GetTransactionsExportErrors[keyof GetTransactionsExportErrors];
 
 export type GetFinanceTransactionsNextdocumentnumberData = {
     body?: never;
@@ -18237,7 +17998,7 @@ export type GetFinanceTransactionsNextdocumentnumberData = {
     query?: {
         accounting_period_id?: string;
     };
-    url: '/finance/transactions/nextdocumentnumber';
+    url: "/finance/transactions/nextdocumentnumber";
 };
 
 export type GetFinanceTransactionsNextdocumentnumberErrors = {
@@ -18255,14 +18016,13 @@ export type GetFinanceTransactionsNextdocumentnumberErrors = {
     404: unknown;
 };
 
-export type GetFinanceTransactionsNextdocumentnumberError =
-    GetFinanceTransactionsNextdocumentnumberErrors[keyof GetFinanceTransactionsNextdocumentnumberErrors];
+export type GetNextDocumentNumberError = GetNextDocumentNumberErrors[keyof GetNextDocumentNumberErrors];
 
 export type GetFinanceTransactionsSummaryData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/finance/transactions/summary';
+    url: "/finance/transactions/summary";
 };
 
 export type GetFinanceTransactionsSummaryErrors = {
@@ -18280,8 +18040,7 @@ export type GetFinanceTransactionsSummaryErrors = {
     404: unknown;
 };
 
-export type GetFinanceTransactionsSummaryError =
-    GetFinanceTransactionsSummaryErrors[keyof GetFinanceTransactionsSummaryErrors];
+export type GetTransactionsSummaryError = GetTransactionsSummaryErrors[keyof GetTransactionsSummaryErrors];
 
 export type GetFinanceTransactionsSummaryResponses = {
     /**
@@ -18292,8 +18051,7 @@ export type GetFinanceTransactionsSummaryResponses = {
     };
 };
 
-export type GetFinanceTransactionsSummaryResponse =
-    GetFinanceTransactionsSummaryResponses[keyof GetFinanceTransactionsSummaryResponses];
+export type GetTransactionsSummaryResponse = GetTransactionsSummaryResponses[keyof GetTransactionsSummaryResponses];
 
 export type DeleteFinanceTransactionsIdData = {
     body?: never;
@@ -18307,13 +18065,13 @@ export type DeleteFinanceTransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
         /**
          * If set to true, the deletion is simulated but nothing will be deleted.
          */
         dry_run?: boolean;
     };
-    url: '/finance/transactions/{id}';
+    url: "/finance/transactions/{id}";
 };
 
 export type DeleteFinanceTransactionsIdErrors = {
@@ -18331,8 +18089,7 @@ export type DeleteFinanceTransactionsIdErrors = {
     404: unknown;
 };
 
-export type DeleteFinanceTransactionsIdError =
-    DeleteFinanceTransactionsIdErrors[keyof DeleteFinanceTransactionsIdErrors];
+export type DeleteTransactionError = DeleteTransactionErrors[keyof DeleteTransactionErrors];
 
 export type DeleteFinanceTransactionsIdResponses = {
     /**
@@ -18341,8 +18098,7 @@ export type DeleteFinanceTransactionsIdResponses = {
     204: void;
 };
 
-export type DeleteFinanceTransactionsIdResponse =
-    DeleteFinanceTransactionsIdResponses[keyof DeleteFinanceTransactionsIdResponses];
+export type DeleteTransactionResponse = DeleteTransactionResponses[keyof DeleteTransactionResponses];
 
 export type GetFinanceTransactionsIdData = {
     body?: never;
@@ -18356,9 +18112,9 @@ export type GetFinanceTransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/transactions/{id}';
+    url: "/finance/transactions/{id}";
 };
 
 export type GetFinanceTransactionsIdErrors = {
@@ -18376,7 +18132,7 @@ export type GetFinanceTransactionsIdErrors = {
     404: unknown;
 };
 
-export type GetFinanceTransactionsIdError = GetFinanceTransactionsIdErrors[keyof GetFinanceTransactionsIdErrors];
+export type GetTransactionByIdError = GetTransactionByIdErrors[keyof GetTransactionByIdErrors];
 
 export type GetFinanceTransactionsIdResponses = {
     /**
@@ -18387,8 +18143,7 @@ export type GetFinanceTransactionsIdResponses = {
     };
 };
 
-export type GetFinanceTransactionsIdResponse =
-    GetFinanceTransactionsIdResponses[keyof GetFinanceTransactionsIdResponses];
+export type GetTransactionByIdResponse = GetTransactionByIdResponses[keyof GetTransactionByIdResponses];
 
 export type PutFinanceTransactionsIdData = {
     /**
@@ -18405,9 +18160,9 @@ export type PutFinanceTransactionsIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'bills'>;
+        include?: Array<"bills">;
     };
-    url: '/finance/transactions/{id}';
+    url: "/finance/transactions/{id}";
 };
 
 export type PutFinanceTransactionsIdErrors = {
@@ -18425,7 +18180,7 @@ export type PutFinanceTransactionsIdErrors = {
     404: unknown;
 };
 
-export type PutFinanceTransactionsIdError = PutFinanceTransactionsIdErrors[keyof PutFinanceTransactionsIdErrors];
+export type UpdateTransactionError = UpdateTransactionErrors[keyof UpdateTransactionErrors];
 
 export type PutFinanceTransactionsIdResponses = {
     /**
@@ -18436,8 +18191,7 @@ export type PutFinanceTransactionsIdResponses = {
     };
 };
 
-export type PutFinanceTransactionsIdResponse =
-    PutFinanceTransactionsIdResponses[keyof PutFinanceTransactionsIdResponses];
+export type UpdateTransactionResponse = UpdateTransactionResponses[keyof UpdateTransactionResponses];
 
 export type PutFinanceTransactionsIdStornoData = {
     /**
@@ -18451,7 +18205,7 @@ export type PutFinanceTransactionsIdStornoData = {
         id: number;
     };
     query?: never;
-    url: '/finance/transactions/{id}/storno';
+    url: "/finance/transactions/{id}/storno";
 };
 
 export type PutFinanceTransactionsIdStornoErrors = {
@@ -18469,8 +18223,7 @@ export type PutFinanceTransactionsIdStornoErrors = {
     404: unknown;
 };
 
-export type PutFinanceTransactionsIdStornoError =
-    PutFinanceTransactionsIdStornoErrors[keyof PutFinanceTransactionsIdStornoErrors];
+export type CancelTransactionError = CancelTransactionErrors[keyof CancelTransactionErrors];
 
 export type PutFinanceTransactionsIdStornoResponses = {
     /**
@@ -18481,8 +18234,7 @@ export type PutFinanceTransactionsIdStornoResponses = {
     };
 };
 
-export type PutFinanceTransactionsIdStornoResponse =
-    PutFinanceTransactionsIdStornoResponses[keyof PutFinanceTransactionsIdStornoResponses];
+export type CancelTransactionResponse = CancelTransactionResponses[keyof CancelTransactionResponses];
 
 export type GetFollowupsData = {
     body?: never;
@@ -18501,7 +18253,7 @@ export type GetFollowupsData = {
          */
         limit?: number;
     };
-    url: '/followups';
+    url: "/followups";
 };
 
 export type GetFollowupsErrors = {
@@ -18527,7 +18279,8 @@ export type GetFollowupsResponses = {
     };
 };
 
-export type GetFollowupsResponse = GetFollowupsResponses[keyof GetFollowupsResponses];
+export type GetFollowupsResponse =
+    GetFollowupsResponses[keyof GetFollowupsResponses];
 
 export type DeleteFollowupsFollowUpIdData = {
     body?: never;
@@ -18538,7 +18291,7 @@ export type DeleteFollowupsFollowUpIdData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}';
+    url: "/followups/{followUpId}";
 };
 
 export type DeleteFollowupsFollowUpIdErrors = {
@@ -18556,7 +18309,8 @@ export type DeleteFollowupsFollowUpIdErrors = {
     404: unknown;
 };
 
-export type DeleteFollowupsFollowUpIdError = DeleteFollowupsFollowUpIdErrors[keyof DeleteFollowupsFollowUpIdErrors];
+export type DeleteFollowupsFollowUpIdError =
+    DeleteFollowupsFollowUpIdErrors[keyof DeleteFollowupsFollowUpIdErrors];
 
 export type DeleteFollowupsFollowUpIdResponses = {
     /**
@@ -18577,7 +18331,7 @@ export type GetFollowupsFollowUpIdData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}';
+    url: "/followups/{followUpId}";
 };
 
 export type GetFollowupsFollowUpIdErrors = {
@@ -18595,7 +18349,8 @@ export type GetFollowupsFollowUpIdErrors = {
     404: unknown;
 };
 
-export type GetFollowupsFollowUpIdError = GetFollowupsFollowUpIdErrors[keyof GetFollowupsFollowUpIdErrors];
+export type GetFollowupsFollowUpIdError =
+    GetFollowupsFollowUpIdErrors[keyof GetFollowupsFollowUpIdErrors];
 
 export type GetFollowupsFollowUpIdResponses = {
     /**
@@ -18606,7 +18361,8 @@ export type GetFollowupsFollowUpIdResponses = {
     };
 };
 
-export type GetFollowupsFollowUpIdResponse = GetFollowupsFollowUpIdResponses[keyof GetFollowupsFollowUpIdResponses];
+export type GetFollowupsFollowUpIdResponse =
+    GetFollowupsFollowUpIdResponses[keyof GetFollowupsFollowUpIdResponses];
 
 export type PutFollowupsFollowUpIdData = {
     body: FollowUpCreate;
@@ -18617,7 +18373,7 @@ export type PutFollowupsFollowUpIdData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}';
+    url: "/followups/{followUpId}";
 };
 
 export type PutFollowupsFollowUpIdErrors = {
@@ -18635,7 +18391,8 @@ export type PutFollowupsFollowUpIdErrors = {
     404: unknown;
 };
 
-export type PutFollowupsFollowUpIdError = PutFollowupsFollowUpIdErrors[keyof PutFollowupsFollowUpIdErrors];
+export type PutFollowupsFollowUpIdError =
+    PutFollowupsFollowUpIdErrors[keyof PutFollowupsFollowUpIdErrors];
 
 export type PutFollowupsFollowUpIdResponses = {
     /**
@@ -18646,7 +18403,8 @@ export type PutFollowupsFollowUpIdResponses = {
     };
 };
 
-export type PutFollowupsFollowUpIdResponse = PutFollowupsFollowUpIdResponses[keyof PutFollowupsFollowUpIdResponses];
+export type PutFollowupsFollowUpIdResponse =
+    PutFollowupsFollowUpIdResponses[keyof PutFollowupsFollowUpIdResponses];
 
 export type PostFollowupsFollowUpIdCompleteData = {
     body?: {
@@ -18659,7 +18417,7 @@ export type PostFollowupsFollowUpIdCompleteData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}/complete';
+    url: "/followups/{followUpId}/complete";
 };
 
 export type PostFollowupsFollowUpIdCompleteErrors = {
@@ -18748,7 +18506,7 @@ export type PostFollowupsFollowUpIdNotesData = {
     query?: {
         also_apply_to_person?: boolean;
     };
-    url: '/followups/{followUpId}/notes';
+    url: "/followups/{followUpId}/notes";
 };
 
 export type PostFollowupsFollowUpIdNotesErrors = {
@@ -18790,7 +18548,7 @@ export type PostFollowupsFollowUpIdPostponeData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}/postpone';
+    url: "/followups/{followUpId}/postpone";
 };
 
 export type PostFollowupsFollowUpIdPostponeErrors = {
@@ -18834,7 +18592,7 @@ export type PostFollowupsFollowUpIdResetData = {
         followUpId: number;
     };
     query?: never;
-    url: '/followups/{followUpId}/reset';
+    url: "/followups/{followUpId}/reset";
 };
 
 export type PostFollowupsFollowUpIdResetErrors = {
@@ -18871,7 +18629,7 @@ export type GetFurtherlinksData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/furtherlinks';
+    url: "/furtherlinks";
 };
 
 export type GetFurtherlinksErrors = {
@@ -18881,7 +18639,8 @@ export type GetFurtherlinksErrors = {
     401: string;
 };
 
-export type GetFurtherlinksError = GetFurtherlinksErrors[keyof GetFurtherlinksErrors];
+export type GetFurtherlinksError =
+    GetFurtherlinksErrors[keyof GetFurtherlinksErrors];
 
 export type GetFurtherlinksResponses = {
     /**
@@ -18893,13 +18652,14 @@ export type GetFurtherlinksResponses = {
     };
 };
 
-export type GetFurtherlinksResponse = GetFurtherlinksResponses[keyof GetFurtherlinksResponses];
+export type GetFurtherlinksResponse =
+    GetFurtherlinksResponses[keyof GetFurtherlinksResponses];
 
 export type PostFurtherlinksData = {
     body: FurtherLinkCreate;
     path?: never;
     query?: never;
-    url: '/furtherlinks';
+    url: "/furtherlinks";
 };
 
 export type PostFurtherlinksErrors = {
@@ -18917,7 +18677,8 @@ export type PostFurtherlinksErrors = {
     404: unknown;
 };
 
-export type PostFurtherlinksError = PostFurtherlinksErrors[keyof PostFurtherlinksErrors];
+export type PostFurtherlinksError =
+    PostFurtherlinksErrors[keyof PostFurtherlinksErrors];
 
 export type PostFurtherlinksResponses = {
     /**
@@ -18928,7 +18689,8 @@ export type PostFurtherlinksResponses = {
     };
 };
 
-export type PostFurtherlinksResponse = PostFurtherlinksResponses[keyof PostFurtherlinksResponses];
+export type PostFurtherlinksResponse =
+    PostFurtherlinksResponses[keyof PostFurtherlinksResponses];
 
 export type DeleteFurtherlinksFurtherLinkIdData = {
     body?: never;
@@ -18936,7 +18698,7 @@ export type DeleteFurtherlinksFurtherLinkIdData = {
         furtherLinkId: number;
     };
     query?: never;
-    url: '/furtherlinks/{furtherLinkId}';
+    url: "/furtherlinks/{furtherLinkId}";
 };
 
 export type DeleteFurtherlinksFurtherLinkIdErrors = {
@@ -19003,7 +18765,7 @@ export type GetFurtherlinksFurtherLinkIdData = {
         furtherLinkId: number;
     };
     query?: never;
-    url: '/furtherlinks/{furtherLinkId}';
+    url: "/furtherlinks/{furtherLinkId}";
 };
 
 export type GetFurtherlinksFurtherLinkIdErrors = {
@@ -19042,7 +18804,7 @@ export type PutFurtherlinksFurtherLinkIdData = {
         furtherLinkId: number;
     };
     query?: never;
-    url: '/furtherlinks/{furtherLinkId}';
+    url: "/furtherlinks/{furtherLinkId}";
 };
 
 export type PutFurtherlinksFurtherLinkIdErrors = {
@@ -19079,7 +18841,7 @@ export type GetGroupAgegroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/agegroups';
+    url: "/group/agegroups";
 };
 
 export type GetGroupAgegroupsErrors = {
@@ -19093,7 +18855,8 @@ export type GetGroupAgegroupsErrors = {
     403: unknown;
 };
 
-export type GetGroupAgegroupsError = GetGroupAgegroupsErrors[keyof GetGroupAgegroupsErrors];
+export type GetGroupAgegroupsError =
+    GetGroupAgegroupsErrors[keyof GetGroupAgegroupsErrors];
 
 export type GetGroupAgegroupsResponses = {
     /**
@@ -19105,13 +18868,14 @@ export type GetGroupAgegroupsResponses = {
     };
 };
 
-export type GetGroupAgegroupsResponse = GetGroupAgegroupsResponses[keyof GetGroupAgegroupsResponses];
+export type GetGroupAgegroupsResponse =
+    GetGroupAgegroupsResponses[keyof GetGroupAgegroupsResponses];
 
 export type PostGroupAgegroupsData = {
     body: AgeGroupCreate;
     path?: never;
     query?: never;
-    url: '/group/agegroups';
+    url: "/group/agegroups";
 };
 
 export type PostGroupAgegroupsErrors = {
@@ -19125,7 +18889,8 @@ export type PostGroupAgegroupsErrors = {
     403: unknown;
 };
 
-export type PostGroupAgegroupsError = PostGroupAgegroupsErrors[keyof PostGroupAgegroupsErrors];
+export type PostGroupAgegroupsError =
+    PostGroupAgegroupsErrors[keyof PostGroupAgegroupsErrors];
 
 export type PostGroupAgegroupsResponses = {
     /**
@@ -19136,7 +18901,8 @@ export type PostGroupAgegroupsResponses = {
     };
 };
 
-export type PostGroupAgegroupsResponse = PostGroupAgegroupsResponses[keyof PostGroupAgegroupsResponses];
+export type PostGroupAgegroupsResponse =
+    PostGroupAgegroupsResponses[keyof PostGroupAgegroupsResponses];
 
 export type DeleteGroupAgegroupsAgeGroupIdData = {
     body?: never;
@@ -19146,7 +18912,7 @@ export type DeleteGroupAgegroupsAgeGroupIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/agegroups/{ageGroupId}';
+    url: "/group/agegroups/{ageGroupId}";
 };
 
 export type DeleteGroupAgegroupsAgeGroupIdErrors = {
@@ -19213,7 +18979,7 @@ export type GetGroupAgegroupsAgeGroupIdData = {
         ageGroupId: string;
     };
     query?: never;
-    url: '/group/agegroups/{ageGroupId}';
+    url: "/group/agegroups/{ageGroupId}";
 };
 
 export type GetGroupAgegroupsAgeGroupIdErrors = {
@@ -19252,7 +19018,7 @@ export type PutGroupAgegroupsAgeGroupIdData = {
         ageGroupId: string;
     };
     query?: never;
-    url: '/group/agegroups/{ageGroupId}';
+    url: "/group/agegroups/{ageGroupId}";
 };
 
 export type PutGroupAgegroupsAgeGroupIdErrors = {
@@ -19287,7 +19053,7 @@ export type GetGroupGroupcategoriesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/groupcategories';
+    url: "/group/groupcategories";
 };
 
 export type GetGroupGroupcategoriesErrors = {
@@ -19301,7 +19067,8 @@ export type GetGroupGroupcategoriesErrors = {
     403: unknown;
 };
 
-export type GetGroupGroupcategoriesError = GetGroupGroupcategoriesErrors[keyof GetGroupGroupcategoriesErrors];
+export type GetGroupGroupcategoriesError =
+    GetGroupGroupcategoriesErrors[keyof GetGroupGroupcategoriesErrors];
 
 export type GetGroupGroupcategoriesResponses = {
     /**
@@ -19313,13 +19080,14 @@ export type GetGroupGroupcategoriesResponses = {
     };
 };
 
-export type GetGroupGroupcategoriesResponse = GetGroupGroupcategoriesResponses[keyof GetGroupGroupcategoriesResponses];
+export type GetGroupGroupcategoriesResponse =
+    GetGroupGroupcategoriesResponses[keyof GetGroupGroupcategoriesResponses];
 
 export type PostGroupGroupcategoriesData = {
     body: GroupCategoryCreate;
     path?: never;
     query?: never;
-    url: '/group/groupcategories';
+    url: "/group/groupcategories";
 };
 
 export type PostGroupGroupcategoriesErrors = {
@@ -19333,7 +19101,8 @@ export type PostGroupGroupcategoriesErrors = {
     403: unknown;
 };
 
-export type PostGroupGroupcategoriesError = PostGroupGroupcategoriesErrors[keyof PostGroupGroupcategoriesErrors];
+export type PostGroupGroupcategoriesError =
+    PostGroupGroupcategoriesErrors[keyof PostGroupGroupcategoriesErrors];
 
 export type PostGroupGroupcategoriesResponses = {
     /**
@@ -19355,7 +19124,7 @@ export type DeleteGroupGroupcategoriesGroupCategoryIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/groupcategories/{groupCategoryId}';
+    url: "/group/groupcategories/{groupCategoryId}";
 };
 
 export type DeleteGroupGroupcategoriesGroupCategoryIdErrors = {
@@ -19422,7 +19191,7 @@ export type GetGroupGroupcategoriesGroupCategoryIdData = {
         groupCategoryId: string;
     };
     query?: never;
-    url: '/group/groupcategories/{groupCategoryId}';
+    url: "/group/groupcategories/{groupCategoryId}";
 };
 
 export type GetGroupGroupcategoriesGroupCategoryIdErrors = {
@@ -19461,7 +19230,7 @@ export type PutGroupGroupcategoriesGroupCategoryIdData = {
         groupCategoryId: string;
     };
     query?: never;
-    url: '/group/groupcategories/{groupCategoryId}';
+    url: "/group/groupcategories/{groupCategoryId}";
 };
 
 export type PutGroupGroupcategoriesGroupCategoryIdErrors = {
@@ -19496,7 +19265,7 @@ export type GetGroupGrouptypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/grouptypes';
+    url: "/group/grouptypes";
 };
 
 export type GetGroupGrouptypesErrors = {
@@ -19510,7 +19279,8 @@ export type GetGroupGrouptypesErrors = {
     403: unknown;
 };
 
-export type GetGroupGrouptypesError = GetGroupGrouptypesErrors[keyof GetGroupGrouptypesErrors];
+export type GetGroupGrouptypesError =
+    GetGroupGrouptypesErrors[keyof GetGroupGrouptypesErrors];
 
 export type GetGroupGrouptypesResponses = {
     /**
@@ -19522,13 +19292,14 @@ export type GetGroupGrouptypesResponses = {
     };
 };
 
-export type GetGroupGrouptypesResponse = GetGroupGrouptypesResponses[keyof GetGroupGrouptypesResponses];
+export type GetGroupGrouptypesResponse =
+    GetGroupGrouptypesResponses[keyof GetGroupGrouptypesResponses];
 
 export type PostGroupGrouptypesData = {
     body: GroupTypeCreate;
     path?: never;
     query?: never;
-    url: '/group/grouptypes';
+    url: "/group/grouptypes";
 };
 
 export type PostGroupGrouptypesErrors = {
@@ -19542,7 +19313,8 @@ export type PostGroupGrouptypesErrors = {
     403: unknown;
 };
 
-export type PostGroupGrouptypesError = PostGroupGrouptypesErrors[keyof PostGroupGrouptypesErrors];
+export type PostGroupGrouptypesError =
+    PostGroupGrouptypesErrors[keyof PostGroupGrouptypesErrors];
 
 export type PostGroupGrouptypesResponses = {
     /**
@@ -19553,7 +19325,8 @@ export type PostGroupGrouptypesResponses = {
     };
 };
 
-export type PostGroupGrouptypesResponse = PostGroupGrouptypesResponses[keyof PostGroupGrouptypesResponses];
+export type PostGroupGrouptypesResponse =
+    PostGroupGrouptypesResponses[keyof PostGroupGrouptypesResponses];
 
 export type DeleteGroupGrouptypesGroupTypeIdData = {
     body?: never;
@@ -19563,7 +19336,7 @@ export type DeleteGroupGrouptypesGroupTypeIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/grouptypes/{groupTypeId}';
+    url: "/group/grouptypes/{groupTypeId}";
 };
 
 export type DeleteGroupGrouptypesGroupTypeIdErrors = {
@@ -19630,7 +19403,7 @@ export type GetGroupGrouptypesGroupTypeIdData = {
         groupTypeId: string;
     };
     query?: never;
-    url: '/group/grouptypes/{groupTypeId}';
+    url: "/group/grouptypes/{groupTypeId}";
 };
 
 export type GetGroupGrouptypesGroupTypeIdErrors = {
@@ -19669,7 +19442,7 @@ export type PutGroupGrouptypesGroupTypeIdData = {
         groupTypeId: string;
     };
     query?: never;
-    url: '/group/grouptypes/{groupTypeId}';
+    url: "/group/grouptypes/{groupTypeId}";
 };
 
 export type PutGroupGrouptypesGroupTypeIdErrors = {
@@ -19706,7 +19479,7 @@ export type GetGroupMeetingtemplatesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/meetingtemplates';
+    url: "/group/meetingtemplates";
 };
 
 export type GetGroupMeetingtemplatesErrors = {
@@ -19720,7 +19493,8 @@ export type GetGroupMeetingtemplatesErrors = {
     403: unknown;
 };
 
-export type GetGroupMeetingtemplatesError = GetGroupMeetingtemplatesErrors[keyof GetGroupMeetingtemplatesErrors];
+export type GetGroupMeetingtemplatesError =
+    GetGroupMeetingtemplatesErrors[keyof GetGroupMeetingtemplatesErrors];
 
 export type GetGroupMeetingtemplatesResponses = {
     /**
@@ -19739,7 +19513,7 @@ export type PostGroupMeetingtemplatesData = {
     body: MeetingTemplateCreate;
     path?: never;
     query?: never;
-    url: '/group/meetingtemplates';
+    url: "/group/meetingtemplates";
 };
 
 export type PostGroupMeetingtemplatesErrors = {
@@ -19753,7 +19527,8 @@ export type PostGroupMeetingtemplatesErrors = {
     403: unknown;
 };
 
-export type PostGroupMeetingtemplatesError = PostGroupMeetingtemplatesErrors[keyof PostGroupMeetingtemplatesErrors];
+export type PostGroupMeetingtemplatesError =
+    PostGroupMeetingtemplatesErrors[keyof PostGroupMeetingtemplatesErrors];
 
 export type PostGroupMeetingtemplatesResponses = {
     /**
@@ -19775,7 +19550,7 @@ export type DeleteGroupMeetingtemplatesMeetingTemplateIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/meetingtemplates/{meetingTemplateId}';
+    url: "/group/meetingtemplates/{meetingTemplateId}";
 };
 
 export type DeleteGroupMeetingtemplatesMeetingTemplateIdErrors = {
@@ -19842,7 +19617,7 @@ export type GetGroupMeetingtemplatesMeetingTemplateIdData = {
         meetingTemplateId: string;
     };
     query?: never;
-    url: '/group/meetingtemplates/{meetingTemplateId}';
+    url: "/group/meetingtemplates/{meetingTemplateId}";
 };
 
 export type GetGroupMeetingtemplatesMeetingTemplateIdErrors = {
@@ -19881,7 +19656,7 @@ export type PutGroupMeetingtemplatesMeetingTemplateIdData = {
         meetingTemplateId: string;
     };
     query?: never;
-    url: '/group/meetingtemplates/{meetingTemplateId}';
+    url: "/group/meetingtemplates/{meetingTemplateId}";
 };
 
 export type PutGroupMeetingtemplatesMeetingTemplateIdErrors = {
@@ -19916,7 +19691,7 @@ export type GetGroupMemberstatusData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/memberstatus';
+    url: "/group/memberstatus";
 };
 
 export type GetGroupMemberstatusErrors = {
@@ -19930,7 +19705,8 @@ export type GetGroupMemberstatusErrors = {
     403: unknown;
 };
 
-export type GetGroupMemberstatusError = GetGroupMemberstatusErrors[keyof GetGroupMemberstatusErrors];
+export type GetGroupMemberstatusError =
+    GetGroupMemberstatusErrors[keyof GetGroupMemberstatusErrors];
 
 export type GetGroupMemberstatusResponses = {
     /**
@@ -19944,7 +19720,8 @@ export type GetGroupMemberstatusResponses = {
     };
 };
 
-export type GetGroupMemberstatusResponse = GetGroupMemberstatusResponses[keyof GetGroupMemberstatusResponses];
+export type GetGroupMemberstatusResponse =
+    GetGroupMemberstatusResponses[keyof GetGroupMemberstatusResponses];
 
 export type GetGroupRolesData = {
     body?: never;
@@ -19953,9 +19730,9 @@ export type GetGroupRolesData = {
         /**
          * The format of the response. Default is `standard`.
          */
-        responseFormat?: 'standard' | 'domainObject';
+        responseFormat?: "standard" | "domainObject";
     };
-    url: '/group/roles';
+    url: "/group/roles";
 };
 
 export type GetGroupRolesErrors = {
@@ -19981,13 +19758,14 @@ export type GetGroupRolesResponses = {
     };
 };
 
-export type GetGroupRolesResponse = GetGroupRolesResponses[keyof GetGroupRolesResponses];
+export type GetGroupRolesResponse =
+    GetGroupRolesResponses[keyof GetGroupRolesResponses];
 
 export type PostGroupRolesData = {
     body: RoleCreate;
     path?: never;
     query?: never;
-    url: '/group/roles';
+    url: "/group/roles";
 };
 
 export type PostGroupRolesErrors = {
@@ -20001,7 +19779,8 @@ export type PostGroupRolesErrors = {
     403: unknown;
 };
 
-export type PostGroupRolesError = PostGroupRolesErrors[keyof PostGroupRolesErrors];
+export type PostGroupRolesError =
+    PostGroupRolesErrors[keyof PostGroupRolesErrors];
 
 export type PostGroupRolesResponses = {
     /**
@@ -20012,7 +19791,8 @@ export type PostGroupRolesResponses = {
     };
 };
 
-export type PostGroupRolesResponse = PostGroupRolesResponses[keyof PostGroupRolesResponses];
+export type PostGroupRolesResponse =
+    PostGroupRolesResponses[keyof PostGroupRolesResponses];
 
 export type DeleteGroupRolesRoleIdData = {
     body?: never;
@@ -20022,7 +19802,7 @@ export type DeleteGroupRolesRoleIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/roles/{roleId}';
+    url: "/group/roles/{roleId}";
 };
 
 export type DeleteGroupRolesRoleIdErrors = {
@@ -20070,7 +19850,8 @@ export type DeleteGroupRolesRoleIdErrors = {
     };
 };
 
-export type DeleteGroupRolesRoleIdError = DeleteGroupRolesRoleIdErrors[keyof DeleteGroupRolesRoleIdErrors];
+export type DeleteGroupRolesRoleIdError =
+    DeleteGroupRolesRoleIdErrors[keyof DeleteGroupRolesRoleIdErrors];
 
 export type DeleteGroupRolesRoleIdResponses = {
     /**
@@ -20079,7 +19860,8 @@ export type DeleteGroupRolesRoleIdResponses = {
     204: void;
 };
 
-export type DeleteGroupRolesRoleIdResponse = DeleteGroupRolesRoleIdResponses[keyof DeleteGroupRolesRoleIdResponses];
+export type DeleteGroupRolesRoleIdResponse =
+    DeleteGroupRolesRoleIdResponses[keyof DeleteGroupRolesRoleIdResponses];
 
 export type GetGroupRolesRoleIdData = {
     body?: never;
@@ -20087,7 +19869,7 @@ export type GetGroupRolesRoleIdData = {
         roleId: string;
     };
     query?: never;
-    url: '/group/roles/{roleId}';
+    url: "/group/roles/{roleId}";
 };
 
 export type GetGroupRolesRoleIdErrors = {
@@ -20105,7 +19887,8 @@ export type GetGroupRolesRoleIdErrors = {
     404: unknown;
 };
 
-export type GetGroupRolesRoleIdError = GetGroupRolesRoleIdErrors[keyof GetGroupRolesRoleIdErrors];
+export type GetGroupRolesRoleIdError =
+    GetGroupRolesRoleIdErrors[keyof GetGroupRolesRoleIdErrors];
 
 export type GetGroupRolesRoleIdResponses = {
     /**
@@ -20116,7 +19899,8 @@ export type GetGroupRolesRoleIdResponses = {
     };
 };
 
-export type GetGroupRolesRoleIdResponse = GetGroupRolesRoleIdResponses[keyof GetGroupRolesRoleIdResponses];
+export type GetGroupRolesRoleIdResponse =
+    GetGroupRolesRoleIdResponses[keyof GetGroupRolesRoleIdResponses];
 
 export type PutGroupRolesRoleIdData = {
     body: RoleUpdate;
@@ -20124,7 +19908,7 @@ export type PutGroupRolesRoleIdData = {
         roleId: string;
     };
     query?: never;
-    url: '/group/roles/{roleId}';
+    url: "/group/roles/{roleId}";
 };
 
 export type PutGroupRolesRoleIdErrors = {
@@ -20142,7 +19926,8 @@ export type PutGroupRolesRoleIdErrors = {
     404: unknown;
 };
 
-export type PutGroupRolesRoleIdError = PutGroupRolesRoleIdErrors[keyof PutGroupRolesRoleIdErrors];
+export type PutGroupRolesRoleIdError =
+    PutGroupRolesRoleIdErrors[keyof PutGroupRolesRoleIdErrors];
 
 export type PutGroupRolesRoleIdResponses = {
     /**
@@ -20151,13 +19936,14 @@ export type PutGroupRolesRoleIdResponses = {
     204: void;
 };
 
-export type PutGroupRolesRoleIdResponse = PutGroupRolesRoleIdResponses[keyof PutGroupRolesRoleIdResponses];
+export type PutGroupRolesRoleIdResponse =
+    PutGroupRolesRoleIdResponses[keyof PutGroupRolesRoleIdResponses];
 
 export type GetGroupTargetgroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/group/targetgroups';
+    url: "/group/targetgroups";
 };
 
 export type GetGroupTargetgroupsErrors = {
@@ -20171,7 +19957,8 @@ export type GetGroupTargetgroupsErrors = {
     403: unknown;
 };
 
-export type GetGroupTargetgroupsError = GetGroupTargetgroupsErrors[keyof GetGroupTargetgroupsErrors];
+export type GetGroupTargetgroupsError =
+    GetGroupTargetgroupsErrors[keyof GetGroupTargetgroupsErrors];
 
 export type GetGroupTargetgroupsResponses = {
     /**
@@ -20183,13 +19970,14 @@ export type GetGroupTargetgroupsResponses = {
     };
 };
 
-export type GetGroupTargetgroupsResponse = GetGroupTargetgroupsResponses[keyof GetGroupTargetgroupsResponses];
+export type GetGroupTargetgroupsResponse =
+    GetGroupTargetgroupsResponses[keyof GetGroupTargetgroupsResponses];
 
 export type PostGroupTargetgroupsData = {
     body: TargetGroupCreate;
     path?: never;
     query?: never;
-    url: '/group/targetgroups';
+    url: "/group/targetgroups";
 };
 
 export type PostGroupTargetgroupsErrors = {
@@ -20203,7 +19991,8 @@ export type PostGroupTargetgroupsErrors = {
     403: unknown;
 };
 
-export type PostGroupTargetgroupsError = PostGroupTargetgroupsErrors[keyof PostGroupTargetgroupsErrors];
+export type PostGroupTargetgroupsError =
+    PostGroupTargetgroupsErrors[keyof PostGroupTargetgroupsErrors];
 
 export type PostGroupTargetgroupsResponses = {
     /**
@@ -20214,7 +20003,8 @@ export type PostGroupTargetgroupsResponses = {
     };
 };
 
-export type PostGroupTargetgroupsResponse = PostGroupTargetgroupsResponses[keyof PostGroupTargetgroupsResponses];
+export type PostGroupTargetgroupsResponse =
+    PostGroupTargetgroupsResponses[keyof PostGroupTargetgroupsResponses];
 
 export type DeleteGroupTargetgroupsTargetGroupIdData = {
     body?: never;
@@ -20224,7 +20014,7 @@ export type DeleteGroupTargetgroupsTargetGroupIdData = {
     query?: {
         dryRun?: boolean;
     };
-    url: '/group/targetgroups/{targetGroupId}';
+    url: "/group/targetgroups/{targetGroupId}";
 };
 
 export type DeleteGroupTargetgroupsTargetGroupIdErrors = {
@@ -20291,7 +20081,7 @@ export type GetGroupTargetgroupsTargetGroupIdData = {
         targetGroupId: string;
     };
     query?: never;
-    url: '/group/targetgroups/{targetGroupId}';
+    url: "/group/targetgroups/{targetGroupId}";
 };
 
 export type GetGroupTargetgroupsTargetGroupIdErrors = {
@@ -20330,7 +20120,7 @@ export type PutGroupTargetgroupsTargetGroupIdData = {
         targetGroupId: string;
     };
     query?: never;
-    url: '/group/targetgroups/{targetGroupId}';
+    url: "/group/targetgroups/{targetGroupId}";
 };
 
 export type PutGroupTargetgroupsTargetGroupIdErrors = {
@@ -20365,7 +20155,7 @@ export type GetGrouphomepagesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/grouphomepages';
+    url: "/grouphomepages";
 };
 
 export type GetGrouphomepagesResponses = {
@@ -20378,7 +20168,7 @@ export type GetGrouphomepagesResponses = {
     };
 };
 
-export type GetGrouphomepagesResponse = GetGrouphomepagesResponses[keyof GetGrouphomepagesResponses];
+export type GetGroupHomepagesResponse = GetGroupHomepagesResponses[keyof GetGroupHomepagesResponses];
 
 export type GetGrouphomepagesHashData = {
     body?: never;
@@ -20389,7 +20179,7 @@ export type GetGrouphomepagesHashData = {
         hash: string;
     };
     query?: never;
-    url: '/grouphomepages/{hash}';
+    url: "/grouphomepages/{hash}";
 };
 
 export type GetGrouphomepagesHashErrors = {
@@ -20412,7 +20202,7 @@ export type GetGrouphomepagesHashResponses = {
     };
 };
 
-export type GetGrouphomepagesHashResponse = GetGrouphomepagesHashResponses[keyof GetGrouphomepagesHashResponses];
+export type GetGroupHomepageResponse = GetGroupHomepageResponses[keyof GetGroupHomepageResponses];
 
 export type GetGroupsData = {
     body?: never;
@@ -20429,39 +20219,39 @@ export type GetGroupsData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Array of campus ids to filter the groups
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Array of age group ids to filter the groups
          */
-        'agegroup_ids[]'?: Array<number>;
+        "agegroup_ids[]"?: Array<number>;
         /**
          * Array of group status ids to filter the groups
          */
-        'group_status_ids[]'?: Array<number>;
+        "group_status_ids[]"?: Array<number>;
         /**
          * Array of group category ids to filter the groups
          */
-        'group_category_ids[]'?: Array<number>;
+        "group_category_ids[]"?: Array<number>;
         /**
          * Array of target group ids to filter the groups
          */
-        'target_group_ids[]'?: Array<number>;
+        "target_group_ids[]"?: Array<number>;
         /**
          * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
          */
-        'weekdays[]'?: Array<number>;
+        "weekdays[]"?: Array<number>;
         /**
          * Array of group type ids to filter the groups
          */
-        'group_type_ids[]'?: Array<number>;
+        "group_type_ids[]"?: Array<number>;
         /**
          * Array of group tag ids to filter the groups
          */
-        'tag_ids[]'?: Array<number>;
+        "tag_ids[]"?: Array<number>;
         /**
          * Filters groups by its open status
          */
@@ -20490,7 +20280,7 @@ export type GetGroupsData = {
         /**
          * Group visibility
          */
-        visibility?: 'hidden' | 'public' | 'restricted' | 'intern';
+        visibility?: "hidden" | "public" | "restricted" | "intern";
         /**
          * The fields to order by
          */
@@ -20498,21 +20288,21 @@ export type GetGroupsData = {
         /**
          * The order direction ASC or DESC for the order_fields
          */
-        order_directions?: Array<'ASC' | 'DESC'>;
+        order_directions?: Array<"ASC" | "DESC">;
         /**
          * Include additional information (currently, 'roles' are included by default but this behaviour is now deprecated)
          */
-        'include[]'?: Array<
-            | 'hasPermissions'
-            | 'roles'
-            | 'tags'
-            | 'memberStatistics'
-            | 'places'
-            | 'publicPostsStatistic'
-            | 'signupConditions'
+        "include[]"?: Array<
+            | "hasPermissions"
+            | "roles"
+            | "tags"
+            | "memberStatistics"
+            | "places"
+            | "publicPostsStatistic"
+            | "signupConditions"
         >;
     };
-    url: '/groups';
+    url: "/groups";
 };
 
 export type GetGroupsErrors = {
@@ -20578,7 +20368,7 @@ export type PostGroupsData = {
     };
     path?: never;
     query?: never;
-    url: '/groups';
+    url: "/groups";
 };
 
 export type PostGroupsErrors = {
@@ -20615,9 +20405,9 @@ export type PostGroupsExportData = {
     }>;
     path?: never;
     query?: {
-        type?: 'csv' | 'xlsx';
+        type?: "csv" | "xlsx";
     };
-    url: '/groups/export';
+    url: "/groups/export";
 };
 
 export type PostGroupsExportErrors = {
@@ -20631,7 +20421,8 @@ export type PostGroupsExportErrors = {
     403: unknown;
 };
 
-export type PostGroupsExportError = PostGroupsExportErrors[keyof PostGroupsExportErrors];
+export type PostGroupsExportError =
+    PostGroupsExportErrors[keyof PostGroupsExportErrors];
 
 export type PostGroupsExportResponses = {
     /**
@@ -20640,27 +20431,28 @@ export type PostGroupsExportResponses = {
     200: string;
 };
 
-export type PostGroupsExportResponse = PostGroupsExportResponses[keyof PostGroupsExportResponses];
+export type PostGroupsExportResponse =
+    PostGroupsExportResponses[keyof PostGroupsExportResponses];
 
 export type GetGroupsGroupedData = {
     body?: never;
     path?: never;
     query?: {
         group_by?:
-            | 'campus'
-            | 'ageGroup'
-            | 'groupStatus'
-            | 'groupCategory'
-            | 'targetGroup'
-            | 'groupType'
-            | 'visibility'
-            | 'isOpenForMembers';
+            | "campus"
+            | "ageGroup"
+            | "groupStatus"
+            | "groupCategory"
+            | "targetGroup"
+            | "groupType"
+            | "visibility"
+            | "isOpenForMembers";
         /**
          * Number of results per page.
          */
         limit?: number;
     };
-    url: '/groups/grouped';
+    url: "/groups/grouped";
 };
 
 export type GetGroupsGroupedErrors = {
@@ -20674,7 +20466,8 @@ export type GetGroupsGroupedErrors = {
     403: unknown;
 };
 
-export type GetGroupsGroupedError = GetGroupsGroupedErrors[keyof GetGroupsGroupedErrors];
+export type GetGroupsGroupedError =
+    GetGroupsGroupedErrors[keyof GetGroupsGroupedErrors];
 
 export type GetGroupsGroupedResponses = {
     /**
@@ -20685,7 +20478,8 @@ export type GetGroupsGroupedResponses = {
     };
 };
 
-export type GetGroupsGroupedResponse = GetGroupsGroupedResponses[keyof GetGroupsGroupedResponses];
+export type GetGroupsGroupedResponse =
+    GetGroupsGroupedResponses[keyof GetGroupsGroupedResponses];
 
 export type GetGroupsHierarchiesData = {
     body?: never;
@@ -20702,39 +20496,39 @@ export type GetGroupsHierarchiesData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Array of campus ids to filter the groups
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Array of age group ids to filter the groups
          */
-        'agegroup_ids[]'?: Array<number>;
+        "agegroup_ids[]"?: Array<number>;
         /**
          * Array of group status ids to filter the groups
          */
-        'group_status_ids[]'?: Array<number>;
+        "group_status_ids[]"?: Array<number>;
         /**
          * Array of group category ids to filter the groups
          */
-        'group_category_ids[]'?: Array<number>;
+        "group_category_ids[]"?: Array<number>;
         /**
          * Array of target group ids to filter the groups
          */
-        'target_group_ids[]'?: Array<number>;
+        "target_group_ids[]"?: Array<number>;
         /**
          * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
          */
-        'weekdays[]'?: Array<number>;
+        "weekdays[]"?: Array<number>;
         /**
          * Array of group type ids to filter the groups
          */
-        'group_type_ids[]'?: Array<number>;
+        "group_type_ids[]"?: Array<number>;
         /**
          * Array of group tag ids to filter the groups
          */
-        'tag_ids[]'?: Array<number>;
+        "tag_ids[]"?: Array<number>;
         /**
          * Filters groups by its open status
          */
@@ -20763,9 +20557,9 @@ export type GetGroupsHierarchiesData = {
         /**
          * Group visibility
          */
-        visibility?: 'hidden' | 'public' | 'restricted' | 'intern';
+        visibility?: "hidden" | "public" | "restricted" | "intern";
     };
-    url: '/groups/hierarchies';
+    url: "/groups/hierarchies";
 };
 
 export type GetGroupsHierarchiesErrors = {
@@ -20779,7 +20573,8 @@ export type GetGroupsHierarchiesErrors = {
     403: unknown;
 };
 
-export type GetGroupsHierarchiesError = GetGroupsHierarchiesErrors[keyof GetGroupsHierarchiesErrors];
+export type GetGroupsHierarchiesError =
+    GetGroupsHierarchiesErrors[keyof GetGroupsHierarchiesErrors];
 
 export type GetGroupsHierarchiesResponses = {
     /**
@@ -20790,7 +20585,8 @@ export type GetGroupsHierarchiesResponses = {
     };
 };
 
-export type GetGroupsHierarchiesResponse = GetGroupsHierarchiesResponses[keyof GetGroupsHierarchiesResponses];
+export type GetGroupsHierarchiesResponse =
+    GetGroupsHierarchiesResponses[keyof GetGroupsHierarchiesResponses];
 
 export type GetGroupsIdsData = {
     body?: never;
@@ -20807,39 +20603,39 @@ export type GetGroupsIdsData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Array of campus ids to filter the groups
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Array of age group ids to filter the groups
          */
-        'agegroup_ids[]'?: Array<number>;
+        "agegroup_ids[]"?: Array<number>;
         /**
          * Array of group status ids to filter the groups
          */
-        'group_status_ids[]'?: Array<number>;
+        "group_status_ids[]"?: Array<number>;
         /**
          * Array of group category ids to filter the groups
          */
-        'group_category_ids[]'?: Array<number>;
+        "group_category_ids[]"?: Array<number>;
         /**
          * Array of target group ids to filter the groups
          */
-        'target_group_ids[]'?: Array<number>;
+        "target_group_ids[]"?: Array<number>;
         /**
          * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
          */
-        'weekdays[]'?: Array<number>;
+        "weekdays[]"?: Array<number>;
         /**
          * Array of group type ids to filter the groups
          */
-        'group_type_ids[]'?: Array<number>;
+        "group_type_ids[]"?: Array<number>;
         /**
          * Array of group tag ids to filter the groups
          */
-        'tag_ids[]'?: Array<number>;
+        "tag_ids[]"?: Array<number>;
         /**
          * Filters groups by its open status
          */
@@ -20868,9 +20664,9 @@ export type GetGroupsIdsData = {
         /**
          * Group visibility
          */
-        visibility?: 'hidden' | 'public' | 'restricted' | 'intern';
+        visibility?: "hidden" | "public" | "restricted" | "intern";
     };
-    url: '/groups/ids';
+    url: "/groups/ids";
 };
 
 export type GetGroupsIdsErrors = {
@@ -20895,7 +20691,8 @@ export type GetGroupsIdsResponses = {
     };
 };
 
-export type GetGroupsIdsResponse = GetGroupsIdsResponses[keyof GetGroupsIdsResponses];
+export type GetGroupsIdsResponse =
+    GetGroupsIdsResponses[keyof GetGroupsIdsResponses];
 
 export type GetGroupsMembersData = {
     body?: never;
@@ -20904,13 +20701,13 @@ export type GetGroupsMembersData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * If true, return also deleted group members
          */
         with_deleted?: boolean;
     };
-    url: '/groups/members';
+    url: "/groups/members";
 };
 
 export type GetGroupsMembersErrors = {
@@ -20924,7 +20721,8 @@ export type GetGroupsMembersErrors = {
     403: unknown;
 };
 
-export type GetGroupsMembersError = GetGroupsMembersErrors[keyof GetGroupsMembersErrors];
+export type GetGroupsMembersError =
+    GetGroupsMembersErrors[keyof GetGroupsMembersErrors];
 
 export type GetGroupsMembersResponses = {
     /**
@@ -20935,7 +20733,8 @@ export type GetGroupsMembersResponses = {
     };
 };
 
-export type GetGroupsMembersResponse = GetGroupsMembersResponses[keyof GetGroupsMembersResponses];
+export type GetGroupsMembersResponse =
+    GetGroupsMembersResponses[keyof GetGroupsMembersResponses];
 
 export type DeleteGroupsGroupIdData = {
     body?: never;
@@ -20951,7 +20750,7 @@ export type DeleteGroupsGroupIdData = {
          */
         dry_run?: boolean;
     };
-    url: '/groups/{groupId}';
+    url: "/groups/{groupId}";
 };
 
 export type DeleteGroupsGroupIdErrors = {
@@ -20999,7 +20798,8 @@ export type DeleteGroupsGroupIdErrors = {
     };
 };
 
-export type DeleteGroupsGroupIdError = DeleteGroupsGroupIdErrors[keyof DeleteGroupsGroupIdErrors];
+export type DeleteGroupsGroupIdError =
+    DeleteGroupsGroupIdErrors[keyof DeleteGroupsGroupIdErrors];
 
 export type DeleteGroupsGroupIdResponses = {
     /**
@@ -21008,7 +20808,8 @@ export type DeleteGroupsGroupIdResponses = {
     204: void;
 };
 
-export type DeleteGroupsGroupIdResponse = DeleteGroupsGroupIdResponses[keyof DeleteGroupsGroupIdResponses];
+export type DeleteGroupsGroupIdResponse =
+    DeleteGroupsGroupIdResponses[keyof DeleteGroupsGroupIdResponses];
 
 export type GetGroupsGroupIdData = {
     body?: never;
@@ -21022,17 +20823,17 @@ export type GetGroupsGroupIdData = {
         /**
          * Include additional information (currently, 'roles' are included by default but this behaviour is now deprecated)
          */
-        'include[]'?: Array<
-            | 'hasPermissions'
-            | 'roles'
-            | 'tags'
-            | 'memberStatistics'
-            | 'places'
-            | 'publicPostsStatistic'
-            | 'signupConditions'
+        "include[]"?: Array<
+            | "hasPermissions"
+            | "roles"
+            | "tags"
+            | "memberStatistics"
+            | "places"
+            | "publicPostsStatistic"
+            | "signupConditions"
         >;
     };
-    url: '/groups/{groupId}';
+    url: "/groups/{groupId}";
 };
 
 export type GetGroupsGroupIdErrors = {
@@ -21050,7 +20851,8 @@ export type GetGroupsGroupIdErrors = {
     404: unknown;
 };
 
-export type GetGroupsGroupIdError = GetGroupsGroupIdErrors[keyof GetGroupsGroupIdErrors];
+export type GetGroupsGroupIdError =
+    GetGroupsGroupIdErrors[keyof GetGroupsGroupIdErrors];
 
 export type GetGroupsGroupIdResponses = {
     /**
@@ -21061,7 +20863,8 @@ export type GetGroupsGroupIdResponses = {
     };
 };
 
-export type GetGroupsGroupIdResponse = GetGroupsGroupIdResponses[keyof GetGroupsGroupIdResponses];
+export type GetGroupsGroupIdResponse =
+    GetGroupsGroupIdResponses[keyof GetGroupsGroupIdResponses];
 
 export type PatchGroupsIdData = {
     body: {
@@ -21079,7 +20882,7 @@ export type PatchGroupsIdData = {
          */
         skip_my_posts_reducing_visibility?: boolean;
     };
-    url: '/groups/{groupId}';
+    url: "/groups/{groupId}";
 };
 
 export type PatchGroupsIdErrors = {
@@ -21127,9 +20930,9 @@ export type GetGroupsAbsencesData = {
          * Return entities up to (but not including) this date.
          */
         to?: DateString;
-        order_direction?: 'ASC' | 'DESC';
+        order_direction?: "ASC" | "DESC";
     };
-    url: '/groups/{groupId}/absences';
+    url: "/groups/{groupId}/absences";
 };
 
 export type GetGroupsAbsencesErrors = {
@@ -21147,7 +20950,8 @@ export type GetGroupsAbsencesErrors = {
     404: unknown;
 };
 
-export type GetGroupsAbsencesError = GetGroupsAbsencesErrors[keyof GetGroupsAbsencesErrors];
+export type GetGroupsAbsencesError =
+    GetGroupsAbsencesErrors[keyof GetGroupsAbsencesErrors];
 
 export type GetGroupsAbsencesResponses = {
     /**
@@ -21159,7 +20963,8 @@ export type GetGroupsAbsencesResponses = {
     };
 };
 
-export type GetGroupsAbsencesResponse = GetGroupsAbsencesResponses[keyof GetGroupsAbsencesResponses];
+export type GetGroupsAbsencesResponse =
+    GetGroupsAbsencesResponses[keyof GetGroupsAbsencesResponses];
 
 export type PostGroupsIdChatData = {
     body: StartStopChat;
@@ -21170,7 +20975,7 @@ export type PostGroupsIdChatData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/chat';
+    url: "/groups/{groupId}/chat";
 };
 
 export type PostGroupsIdChatErrors = {
@@ -21188,7 +20993,7 @@ export type PostGroupsIdChatErrors = {
     404: unknown;
 };
 
-export type PostGroupsIdChatError = PostGroupsIdChatErrors[keyof PostGroupsIdChatErrors];
+export type StartStopGroupChatError = StartStopGroupChatErrors[keyof StartStopGroupChatErrors];
 
 export type PostGroupsIdChatResponses = {
     /**
@@ -21197,7 +21002,7 @@ export type PostGroupsIdChatResponses = {
     204: void;
 };
 
-export type PostGroupsIdChatResponse = PostGroupsIdChatResponses[keyof PostGroupsIdChatResponses];
+export type StartStopGroupChatResponse = StartStopGroupChatResponses[keyof StartStopGroupChatResponses];
 
 export type PostGroupsIdCheckinPersonidData = {
     body: CheckinCreate;
@@ -21212,7 +21017,7 @@ export type PostGroupsIdCheckinPersonidData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/checkin/{personId}';
+    url: "/groups/{groupId}/checkin/{personId}";
 };
 
 export type PostGroupsIdCheckinPersonidErrors = {
@@ -21267,39 +21072,39 @@ export type GetGroupsGroupIdChildrenData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Array of campus ids to filter the groups
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Array of age group ids to filter the groups
          */
-        'agegroup_ids[]'?: Array<number>;
+        "agegroup_ids[]"?: Array<number>;
         /**
          * Array of group status ids to filter the groups
          */
-        'group_status_ids[]'?: Array<number>;
+        "group_status_ids[]"?: Array<number>;
         /**
          * Array of group category ids to filter the groups
          */
-        'group_category_ids[]'?: Array<number>;
+        "group_category_ids[]"?: Array<number>;
         /**
          * Array of target group ids to filter the groups
          */
-        'target_group_ids[]'?: Array<number>;
+        "target_group_ids[]"?: Array<number>;
         /**
          * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
          */
-        'weekdays[]'?: Array<number>;
+        "weekdays[]"?: Array<number>;
         /**
          * Array of group type ids to filter the groups
          */
-        'group_type_ids[]'?: Array<number>;
+        "group_type_ids[]"?: Array<number>;
         /**
          * Array of group tag ids to filter the groups
          */
-        'tag_ids[]'?: Array<number>;
+        "tag_ids[]"?: Array<number>;
         /**
          * Filters groups by its open status
          */
@@ -21328,9 +21133,9 @@ export type GetGroupsGroupIdChildrenData = {
         /**
          * Group visibility
          */
-        visibility?: 'hidden' | 'public' | 'restricted' | 'intern';
+        visibility?: "hidden" | "public" | "restricted" | "intern";
     };
-    url: '/groups/{groupId}/children';
+    url: "/groups/{groupId}/children";
 };
 
 export type GetGroupsGroupIdChildrenErrors = {
@@ -21348,7 +21153,8 @@ export type GetGroupsGroupIdChildrenErrors = {
     404: unknown;
 };
 
-export type GetGroupsGroupIdChildrenError = GetGroupsGroupIdChildrenErrors[keyof GetGroupsGroupIdChildrenErrors];
+export type GetGroupsGroupIdChildrenError =
+    GetGroupsGroupIdChildrenErrors[keyof GetGroupsGroupIdChildrenErrors];
 
 export type GetGroupsGroupIdChildrenResponses = {
     /**
@@ -21381,7 +21187,7 @@ export type GetGroupsGroupIdDocumentsDocumentIdData = {
         documentId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/documents/{documentId}';
+    url: "/groups/{groupId}/documents/{documentId}";
 };
 
 export type GetGroupsGroupIdDocumentsDocumentIdErrors = {
@@ -21411,7 +21217,7 @@ export type GetGroupsGroupIdDocumenttemplatesData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/documenttemplates';
+    url: "/groups/{groupId}/documenttemplates";
 };
 
 export type GetGroupsGroupIdDocumenttemplatesErrors = {
@@ -21459,7 +21265,7 @@ export type PostGroupsIdDuplicateData = {
         copyPermissions?: boolean;
         copyAutomaticEmails?: boolean;
     };
-    url: '/groups/{groupId}/duplicate';
+    url: "/groups/{groupId}/duplicate";
 };
 
 export type PostGroupsIdDuplicateResponses = {
@@ -21471,7 +21277,7 @@ export type PostGroupsIdDuplicateResponses = {
     };
 };
 
-export type PostGroupsIdDuplicateResponse = PostGroupsIdDuplicateResponses[keyof PostGroupsIdDuplicateResponses];
+export type DuplicateGroupResponse = DuplicateGroupResponses[keyof DuplicateGroupResponses];
 
 export type GetGroupsIdEmailsData = {
     body?: never;
@@ -21482,7 +21288,7 @@ export type GetGroupsIdEmailsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/emails';
+    url: "/groups/{groupId}/emails";
 };
 
 export type GetGroupsIdEmailsErrors = {
@@ -21514,7 +21320,7 @@ export type GetGroupsIdEmailsResponses = {
     };
 };
 
-export type GetGroupsIdEmailsResponse = GetGroupsIdEmailsResponses[keyof GetGroupsIdEmailsResponses];
+export type GetAutomaticEmailsResponse = GetAutomaticEmailsResponses[keyof GetAutomaticEmailsResponses];
 
 export type PostGroupsIdEmailsData = {
     body: {
@@ -21541,7 +21347,7 @@ export type PostGroupsIdEmailsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/emails';
+    url: "/groups/{groupId}/emails";
 };
 
 export type PostGroupsIdEmailsErrors = {
@@ -21572,7 +21378,7 @@ export type PostGroupsIdEmailsResponses = {
     };
 };
 
-export type PostGroupsIdEmailsResponse = PostGroupsIdEmailsResponses[keyof PostGroupsIdEmailsResponses];
+export type PostAutomaticEmailResponse = PostAutomaticEmailResponses[keyof PostAutomaticEmailResponses];
 
 export type DeleteGroupsIdEmailsIdData = {
     body?: never;
@@ -21584,7 +21390,7 @@ export type DeleteGroupsIdEmailsIdData = {
         emailId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/emails/{emailId}';
+    url: "/groups/{groupId}/emails/{emailId}";
 };
 
 export type DeleteGroupsIdEmailsIdErrors = {
@@ -21613,7 +21419,7 @@ export type DeleteGroupsIdEmailsIdResponses = {
     204: void;
 };
 
-export type DeleteGroupsIdEmailsIdResponse = DeleteGroupsIdEmailsIdResponses[keyof DeleteGroupsIdEmailsIdResponses];
+export type DeleteAutomaticEmailResponse = DeleteAutomaticEmailResponses[keyof DeleteAutomaticEmailResponses];
 
 export type GetGroupsIdEmailsIdData = {
     body?: never;
@@ -21625,7 +21431,7 @@ export type GetGroupsIdEmailsIdData = {
         emailId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/emails/{emailId}';
+    url: "/groups/{groupId}/emails/{emailId}";
 };
 
 export type GetGroupsIdEmailsIdErrors = {
@@ -21656,7 +21462,7 @@ export type GetGroupsIdEmailsIdResponses = {
     };
 };
 
-export type GetGroupsIdEmailsIdResponse = GetGroupsIdEmailsIdResponses[keyof GetGroupsIdEmailsIdResponses];
+export type GetAutomaticEmailResponse = GetAutomaticEmailResponses[keyof GetAutomaticEmailResponses];
 
 export type PutGroupsIdEmailsIdData = {
     body: {
@@ -21676,7 +21482,7 @@ export type PutGroupsIdEmailsIdData = {
         emailId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/emails/{emailId}';
+    url: "/groups/{groupId}/emails/{emailId}";
 };
 
 export type PutGroupsIdEmailsIdErrors = {
@@ -21727,7 +21533,7 @@ export type GetGroupsGroupIdFollowupsData = {
          */
         limit?: number;
     };
-    url: '/groups/{groupId}/followups';
+    url: "/groups/{groupId}/followups";
 };
 
 export type GetGroupsGroupIdFollowupsErrors = {
@@ -21758,7 +21564,7 @@ export type GetGroupsGroupIdFollowupsStatisticsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/followups/statistics';
+    url: "/groups/{groupId}/followups/statistics";
 };
 
 export type GetGroupsGroupIdFollowupsStatisticsErrors = {
@@ -21796,7 +21602,7 @@ export type DeleteGroupsGroupIdGrouphomepageData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/grouphomepage';
+    url: "/groups/{groupId}/grouphomepage";
 };
 
 export type DeleteGroupsGroupIdGrouphomepageResponses = {
@@ -21818,7 +21624,7 @@ export type GetGroupsGroupIdGrouphomepageData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/grouphomepage';
+    url: "/groups/{groupId}/grouphomepage";
 };
 
 export type GetGroupsGroupIdGrouphomepageErrors = {
@@ -21849,7 +21655,7 @@ export type PutGroupsGroupIdGrouphomepageData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/grouphomepage';
+    url: "/groups/{groupId}/grouphomepage";
 };
 
 export type PutGroupsGroupIdGrouphomepageResponses = {
@@ -21878,7 +21684,7 @@ export type PostGroupsIdGrouptypeData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/grouptype';
+    url: "/groups/{groupId}/grouptype";
 };
 
 export type PostGroupsIdGrouptypeResponses = {
@@ -21905,7 +21711,7 @@ export type GetGroupsIdMeetingsData = {
          * Whether to show done group meetings
          */
         is_completed?: boolean;
-        direction?: 'forward' | 'backward';
+        direction?: "forward" | "backward";
         /**
          * Return entities starting from this date.
          */
@@ -21925,9 +21731,9 @@ export type GetGroupsIdMeetingsData = {
         /**
          * Include additional information
          */
-        include?: Array<'attendances'>;
+        include?: Array<"attendances">;
     };
-    url: '/groups/{groupId}/meetings';
+    url: "/groups/{groupId}/meetings";
 };
 
 export type GetGroupsIdMeetingsErrors = {
@@ -21941,7 +21747,7 @@ export type GetGroupsIdMeetingsErrors = {
     403: unknown;
 };
 
-export type GetGroupsIdMeetingsError = GetGroupsIdMeetingsErrors[keyof GetGroupsIdMeetingsErrors];
+export type GetAllMeetingsError = GetAllMeetingsErrors[keyof GetAllMeetingsErrors];
 
 export type GetGroupsIdMeetingsResponses = {
     /**
@@ -21955,7 +21761,7 @@ export type GetGroupsIdMeetingsResponses = {
     };
 };
 
-export type GetGroupsIdMeetingsResponse = GetGroupsIdMeetingsResponses[keyof GetGroupsIdMeetingsResponses];
+export type GetAllMeetingsResponse = GetAllMeetingsResponses[keyof GetAllMeetingsResponses];
 
 export type PostGroupsIdMeetingsData = {
     body: {
@@ -21975,7 +21781,7 @@ export type PostGroupsIdMeetingsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings';
+    url: "/groups/{groupId}/meetings";
 };
 
 export type PostGroupsIdMeetingsErrors = {
@@ -22000,7 +21806,7 @@ export type PostGroupsIdMeetingsResponses = {
     };
 };
 
-export type PostGroupsIdMeetingsResponse = PostGroupsIdMeetingsResponses[keyof PostGroupsIdMeetingsResponses];
+export type CreateMeetingResponse = CreateMeetingResponses[keyof CreateMeetingResponses];
 
 export type GetGroupsGroupIdMeetingsExportData = {
     body?: never;
@@ -22011,8 +21817,8 @@ export type GetGroupsGroupIdMeetingsExportData = {
         groupId: number;
     };
     query?: {
-        format?: 'csv' | 'xlsx';
-        type?: 'meetings_members' | 'meetings_overview';
+        format?: "csv" | "xlsx";
+        type?: "meetings_members" | "meetings_overview";
         /**
          * Whether to include canceled group meetings
          */
@@ -22032,7 +21838,7 @@ export type GetGroupsGroupIdMeetingsExportData = {
         /**
          * The direction of the result set
          */
-        direction?: 'forward' | 'backward';
+        direction?: "forward" | "backward";
         /**
          * Number of results per page.
          */
@@ -22042,7 +21848,7 @@ export type GetGroupsGroupIdMeetingsExportData = {
          */
         page?: number;
     };
-    url: '/groups/{groupId}/meetings/export';
+    url: "/groups/{groupId}/meetings/export";
 };
 
 export type GetGroupsGroupIdMeetingsExportErrors = {
@@ -22079,7 +21885,7 @@ export type DeleteGroupsGroupIdMeetingsMeetingIdData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}';
+    url: "/groups/{groupId}/meetings/{meetingId}";
 };
 
 export type DeleteGroupsGroupIdMeetingsMeetingIdResponses = {
@@ -22102,7 +21908,7 @@ export type GetGroupsGroupIdMeetingsMeetingIdData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}';
+    url: "/groups/{groupId}/meetings/{meetingId}";
 };
 
 export type GetGroupsGroupIdMeetingsMeetingIdResponses = {
@@ -22135,7 +21941,7 @@ export type PutGroupsGroupIdMeetingsMeetingIdData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}';
+    url: "/groups/{groupId}/meetings/{meetingId}";
 };
 
 export type PutGroupsGroupIdMeetingsMeetingIdResponses = {
@@ -22155,7 +21961,7 @@ export type GetGroupsGroupIdMeetingsMeetingIdMembersData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}/members';
+    url: "/groups/{groupId}/meetings/{meetingId}/members";
 };
 
 export type GetGroupsGroupIdMeetingsMeetingIdMembersResponses = {
@@ -22175,7 +21981,7 @@ export type GetGroupsGroupIdMeetingsMeetingIdMembersResponse =
     GetGroupsGroupIdMeetingsMeetingIdMembersResponses[keyof GetGroupsGroupIdMeetingsMeetingIdMembersResponses];
 
 export type PostGroupsGroupIdMeetingsMeetingIdMembersMissingData = {
-    body: {
+    body?: {
         status?: 'absent' | 'present';
     };
     path: {
@@ -22186,7 +21992,7 @@ export type PostGroupsGroupIdMeetingsMeetingIdMembersMissingData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}/members/missing';
+    url: "/groups/{groupId}/meetings/{meetingId}/members/missing";
 };
 
 export type PostGroupsGroupIdMeetingsMeetingIdMembersMissingResponses = {
@@ -22206,7 +22012,7 @@ export type PostGroupsGroupIdMeetingsMeetingIdMembersResetData = {
         meetingId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}/members/reset';
+    url: "/groups/{groupId}/meetings/{meetingId}/members/reset";
 };
 
 export type PostGroupsGroupIdMeetingsMeetingIdMembersResetResponses = {
@@ -22217,7 +22023,7 @@ export type PostGroupsGroupIdMeetingsMeetingIdMembersResetResponses = {
 };
 
 export type DeleteGroupsGroupIdMeetingsMeetingIdMembersMemberIdData = {
-    body: {
+    body?: {
         status?: 'absent' | 'unsure';
     };
     path: {
@@ -22229,7 +22035,7 @@ export type DeleteGroupsGroupIdMeetingsMeetingIdMembersMemberIdData = {
         memberId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/meetings/{meetingId}/members/{memberId}';
+    url: "/groups/{groupId}/meetings/{meetingId}/members/{memberId}";
 };
 
 export type DeleteGroupsGroupIdMeetingsMeetingIdMembersMemberIdResponses = {
@@ -22251,7 +22057,7 @@ export type GetGroupsGroupIdMemberfieldsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields';
+    url: "/groups/{groupId}/memberfields";
 };
 
 export type GetGroupsGroupIdMemberfieldsResponses = {
@@ -22275,7 +22081,7 @@ export type PostGroupsGroupIdMemberfieldsGroupData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields/group';
+    url: "/groups/{groupId}/memberfields/group";
 };
 
 export type PostGroupsGroupIdMemberfieldsGroupErrors = {
@@ -22302,7 +22108,7 @@ export type DeleteGroupsGroupIdMemberfieldsGroupGroupMemberFieldIdData = {
         groupMemberFieldId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields/group/{groupMemberFieldId}';
+    url: "/groups/{groupId}/memberfields/group/{groupMemberFieldId}";
 };
 
 export type DeleteGroupsGroupIdMemberfieldsGroupGroupMemberFieldIdErrors = {
@@ -22329,7 +22135,7 @@ export type PutGroupsGroupIdMemberfieldsGroupGroupMemberFieldIdData = {
         groupMemberFieldId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields/group/{groupMemberFieldId}';
+    url: "/groups/{groupId}/memberfields/group/{groupMemberFieldId}";
 };
 
 export type PutGroupsGroupIdMemberfieldsGroupGroupMemberFieldIdErrors = {
@@ -22356,7 +22162,7 @@ export type DeleteGroupsGroupIdMemberfieldsPersonPersonFieldIdData = {
         personFieldId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields/person/{personFieldId}';
+    url: "/groups/{groupId}/memberfields/person/{personFieldId}";
 };
 
 export type DeleteGroupsGroupIdMemberfieldsPersonPersonFieldIdErrors = {
@@ -22383,7 +22189,7 @@ export type PutGroupsGroupIdMemberfieldsPersonPersonFieldIdData = {
         personFieldId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/memberfields/person/{personFieldId}';
+    url: "/groups/{groupId}/memberfields/person/{personFieldId}";
 };
 
 export type PutGroupsGroupIdMemberfieldsPersonPersonFieldIdErrors = {
@@ -22409,7 +22215,7 @@ export type GetGroupsGroupIdMemberpreviewData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/memberpreview';
+    url: "/groups/{groupId}/memberpreview";
 };
 
 export type GetGroupsGroupIdMemberpreviewErrors = {
@@ -22456,15 +22262,15 @@ export type GetGroupsIdMembersData = {
         /**
          * Array of roles to filter the members
          */
-        'role_ids[]'?: Array<number>;
+        "role_ids[]"?: Array<number>;
         /**
          * Array of person ids to filter the members
          */
-        'person_id[]'?: Array<number>;
+        "person_id[]"?: Array<number>;
         /**
          * Array of group member statuses to filter the members
          */
-        'group_member_statuses[]'?: Array<MemberStatus>;
+        "group_member_statuses[]"?: Array<MemberStatus>;
         /**
          * If true, return only group members, that are allowed to chat in this group
          */
@@ -22492,21 +22298,21 @@ export type GetGroupsIdMembersData = {
         /**
          * The fields to order by. Person fields look like this: person_firstName. Group member fields look like this: member_groupTypeRoleId.
          */
-        'orderFields[]'?: Array<string>;
+        "orderFields[]"?: Array<string>;
         /**
          * The order directions for the fields. Must be the same length as orderFields. Default is ASC. Possible values are ASC and DESC.
          */
-        'orderDirections[]'?: Array<'ASC' | 'DESC'>;
+        "orderDirections[]"?: Array<"ASC" | "DESC">;
         /**
          * Additional person fields that should be returned by this endpoint. A person field is defined by its key. For example: firstName
          */
-        'personFields[]'?: Array<string>;
+        "personFields[]"?: Array<string>;
         /**
          * Include additional information
          */
-        include?: Array<'tags' | 'aggregations'>;
+        include?: Array<"tags" | "aggregations">;
     };
-    url: '/groups/{groupId}/members';
+    url: "/groups/{groupId}/members";
 };
 
 export type GetGroupsIdMembersErrors = {
@@ -22530,7 +22336,7 @@ export type GetGroupsIdMembersResponses = {
     };
 };
 
-export type GetGroupsIdMembersResponse = GetGroupsIdMembersResponses[keyof GetGroupsIdMembersResponses];
+export type GetAllGroupMembersResponse = GetAllGroupMembersResponses[keyof GetAllGroupMembersResponses];
 
 export type GetGroupsGroupIdMembersExportData = {
     body?: never;
@@ -22541,9 +22347,9 @@ export type GetGroupsGroupIdMembersExportData = {
         /**
          * Type of export file
          */
-        type?: 'xlsx' | 'csv';
+        type?: "xlsx" | "csv";
     };
-    url: '/groups/{groupId}/members/export';
+    url: "/groups/{groupId}/members/export";
 };
 
 export type GetGroupsGroupIdMembersExportErrors = {
@@ -22575,9 +22381,9 @@ export type PostGroupsIdMembersExportData = {
         /**
          * Type of export file
          */
-        type?: 'xlsx' | 'csv';
+        type?: "xlsx" | "csv";
     };
-    url: '/groups/{groupId}/members/export';
+    url: "/groups/{groupId}/members/export";
 };
 
 export type PostGroupsIdMembersExportErrors = {
@@ -22603,7 +22409,7 @@ export type GetGroupsGroupIdMembersHistoryData = {
         groupId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/members/history';
+    url: "/groups/{groupId}/members/history";
 };
 
 export type GetGroupsGroupIdMembersHistoryErrors = {
@@ -22646,7 +22452,7 @@ export type GetGroupsGroupIdMembersRoutinesData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/routines';
+    url: "/groups/{groupId}/members/routines";
 };
 
 export type GetGroupsGroupIdMembersRoutinesErrors = {
@@ -22686,14 +22492,14 @@ export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusData = {
         /**
          * Status of a group membership
          */
-        groupMemberStatus: 'active' | 'requested' | 'waiting' | 'to_delete';
+        groupMemberStatus: "active" | "requested" | "waiting" | "to_delete";
         /**
          * ID of group role. This is not the group type role. The group role has a reference to the group type role and sets specific settings for the role in this group.
          */
         roleId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/routines/{roleId}/{groupMemberStatus}';
+    url: "/groups/{groupId}/members/routines/{roleId}/{groupMemberStatus}";
 };
 
 export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusErrors = {
@@ -22710,12 +22516,13 @@ export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusErrors = {
 export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusError =
     DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusErrors[keyof DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusErrors];
 
-export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusResponses = {
-    /**
-     * Successfully deleted
-     */
-    204: void;
-};
+export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusResponses =
+    {
+        /**
+         * Successfully deleted
+         */
+        204: void;
+    };
 
 export type DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusResponse =
     DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusResponses[keyof DeleteGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusResponses];
@@ -22732,14 +22539,14 @@ export type PutGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusData = {
         /**
          * Status of a group membership
          */
-        groupMemberStatus: 'active' | 'requested' | 'waiting' | 'to_delete';
+        groupMemberStatus: "active" | "requested" | "waiting" | "to_delete";
         /**
          * ID of group role. This is not the group type role. The group role has a reference to the group type role and sets specific settings for the role in this group.
          */
         roleId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/routines/{roleId}/{groupMemberStatus}';
+    url: "/groups/{groupId}/members/routines/{roleId}/{groupMemberStatus}";
 };
 
 export type PutGroupsGroupIdMembersRoutinesRoleIdGroupMemberStatusErrors = {
@@ -22775,17 +22582,17 @@ export type GetGroupsGroupIdMembersStatisticsData = {
         groupId: number;
     };
     query: {
-        'group_type_role_ids[]': Array<number>;
+        "group_type_role_ids[]": Array<number>;
         /**
          * person field keys
          */
-        'personFields[]'?: Array<string>;
+        "personFields[]"?: Array<string>;
         /**
          * group member field ids
          */
-        'groupMemberFields[]'?: Array<number>;
+        "groupMemberFields[]"?: Array<number>;
     };
-    url: '/groups/{groupId}/members/statistics';
+    url: "/groups/{groupId}/members/statistics";
 };
 
 export type GetGroupsGroupIdMembersStatisticsResponses = {
@@ -22821,7 +22628,7 @@ export type GetGroupsIdMembersIdDocumentsIdData = {
         memberId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{memberId}/documents/{htmlTemplateId}';
+    url: "/groups/{groupId}/members/{memberId}/documents/{htmlTemplateId}";
 };
 
 export type GetGroupsIdMembersIdDocumentsIdErrors = {
@@ -22855,7 +22662,7 @@ export type DeleteGroupsGroupIdMembersPersonIdData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}';
+    url: "/groups/{groupId}/members/{personId}";
 };
 
 export type DeleteGroupsGroupIdMembersPersonIdErrors = {
@@ -22895,7 +22702,7 @@ export type GetGroupsGroupIdMembersPersonIdData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}';
+    url: "/groups/{groupId}/members/{personId}";
 };
 
 export type GetGroupsGroupIdMembersPersonIdErrors = {
@@ -22944,7 +22751,7 @@ export type PatchGroupsGroupIdMembersPersonIdData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}';
+    url: "/groups/{groupId}/members/{personId}";
 };
 
 export type PatchGroupsGroupIdMembersPersonIdErrors = {
@@ -22993,7 +22800,7 @@ export type PutGroupsGroupIdMembersPersonIdData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}';
+    url: "/groups/{groupId}/members/{personId}";
 };
 
 export type PutGroupsGroupIdMembersPersonIdErrors = {
@@ -23040,7 +22847,7 @@ export type DeleteGroupsGroupIdMembersPersonIdFollowupData = {
          */
         comment: string;
     };
-    url: '/groups/{groupId}/members/{personId}/followup';
+    url: "/groups/{groupId}/members/{personId}/followup";
 };
 
 export type DeleteGroupsGroupIdMembersPersonIdFollowupResponses = {
@@ -23072,7 +22879,7 @@ export type PostGroupsGroupIdMembersPersonIdFollowupData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}/followup';
+    url: "/groups/{groupId}/members/{personId}/followup";
 };
 
 export type PostGroupsGroupIdMembersPersonIdFollowupResponses = {
@@ -23111,7 +22918,7 @@ export type GetGroupsGroupIdMembersPersonIdFollowupsData = {
          */
         limit?: number;
     };
-    url: '/groups/{groupId}/members/{personId}/followups';
+    url: "/groups/{groupId}/members/{personId}/followups";
 };
 
 export type GetGroupsGroupIdMembersPersonIdFollowupsErrors = {
@@ -23202,7 +23009,7 @@ export type GetGroupsIdMembersIdFollowupsStatisticsData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/members/{personId}/followups/statistics';
+    url: "/groups/{groupId}/members/{personId}/followups/statistics";
 };
 
 export type GetGroupsIdMembersIdFollowupsStatisticsErrors = {
@@ -23244,7 +23051,7 @@ export type GetGroupsOptinsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/optins';
+    url: "/groups/{groupId}/optins";
 };
 
 export type GetGroupsOptinsErrors = {
@@ -23295,39 +23102,39 @@ export type GetGroupsGroupIdParentsData = {
         /**
          * Array of group ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Array of campus ids to filter the groups
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Array of age group ids to filter the groups
          */
-        'agegroup_ids[]'?: Array<number>;
+        "agegroup_ids[]"?: Array<number>;
         /**
          * Array of group status ids to filter the groups
          */
-        'group_status_ids[]'?: Array<number>;
+        "group_status_ids[]"?: Array<number>;
         /**
          * Array of group category ids to filter the groups
          */
-        'group_category_ids[]'?: Array<number>;
+        "group_category_ids[]"?: Array<number>;
         /**
          * Array of target group ids to filter the groups
          */
-        'target_group_ids[]'?: Array<number>;
+        "target_group_ids[]"?: Array<number>;
         /**
          * Array of weekdays to filter the groups. Sunday = 0, Monday = 1 ...
          */
-        'weekdays[]'?: Array<number>;
+        "weekdays[]"?: Array<number>;
         /**
          * Array of group type ids to filter the groups
          */
-        'group_type_ids[]'?: Array<number>;
+        "group_type_ids[]"?: Array<number>;
         /**
          * Array of group tag ids to filter the groups
          */
-        'tag_ids[]'?: Array<number>;
+        "tag_ids[]"?: Array<number>;
         /**
          * Filters groups by its open status
          */
@@ -23356,9 +23163,9 @@ export type GetGroupsGroupIdParentsData = {
         /**
          * Group visibility
          */
-        visibility?: 'hidden' | 'public' | 'restricted' | 'intern';
+        visibility?: "hidden" | "public" | "restricted" | "intern";
     };
-    url: '/groups/{groupId}/parents';
+    url: "/groups/{groupId}/parents";
 };
 
 export type GetGroupsGroupIdParentsErrors = {
@@ -23376,7 +23183,8 @@ export type GetGroupsGroupIdParentsErrors = {
     404: unknown;
 };
 
-export type GetGroupsGroupIdParentsError = GetGroupsGroupIdParentsErrors[keyof GetGroupsGroupIdParentsErrors];
+export type GetGroupsGroupIdParentsError =
+    GetGroupsGroupIdParentsErrors[keyof GetGroupsGroupIdParentsErrors];
 
 export type GetGroupsGroupIdParentsResponses = {
     /**
@@ -23396,7 +23204,8 @@ export type GetGroupsGroupIdParentsResponses = {
     };
 };
 
-export type GetGroupsGroupIdParentsResponse = GetGroupsGroupIdParentsResponses[keyof GetGroupsGroupIdParentsResponses];
+export type GetGroupsGroupIdParentsResponse =
+    GetGroupsGroupIdParentsResponses[keyof GetGroupsGroupIdParentsResponses];
 
 export type DeleteGroupsGroupIdParentsParentGroupIdData = {
     body?: never;
@@ -23405,7 +23214,7 @@ export type DeleteGroupsGroupIdParentsParentGroupIdData = {
         parentGroupId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/parents/{parentGroupId}';
+    url: "/groups/{groupId}/parents/{parentGroupId}";
 };
 
 export type DeleteGroupsGroupIdParentsParentGroupIdResponses = {
@@ -23425,7 +23234,7 @@ export type PutGroupsGroupIdParentsParentGroupIdData = {
         parentGroupId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/parents/{parentGroupId}';
+    url: "/groups/{groupId}/parents/{parentGroupId}";
 };
 
 export type PutGroupsGroupIdParentsParentGroupIdResponses = {
@@ -23444,7 +23253,7 @@ export type GetGroupsIdPlacesData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/places';
+    url: "/groups/{groupId}/places";
 };
 
 export type GetGroupsIdPlacesErrors = {
@@ -23462,7 +23271,7 @@ export type GetGroupsIdPlacesErrors = {
     404: unknown;
 };
 
-export type GetGroupsIdPlacesError = GetGroupsIdPlacesErrors[keyof GetGroupsIdPlacesErrors];
+export type GetGrupsIdPlacesError = GetGrupsIdPlacesErrors[keyof GetGrupsIdPlacesErrors];
 
 export type GetGroupsIdPlacesResponses = {
     /**
@@ -23474,7 +23283,7 @@ export type GetGroupsIdPlacesResponses = {
     };
 };
 
-export type GetGroupsIdPlacesResponse = GetGroupsIdPlacesResponses[keyof GetGroupsIdPlacesResponses];
+export type GetGrupsIdPlacesResponse = GetGrupsIdPlacesResponses[keyof GetGrupsIdPlacesResponses];
 
 export type PostGroupsGroupIdPlacesData = {
     body: PlaceCreate;
@@ -23485,7 +23294,7 @@ export type PostGroupsGroupIdPlacesData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/places';
+    url: "/groups/{groupId}/places";
 };
 
 export type PostGroupsGroupIdPlacesErrors = {
@@ -23503,7 +23312,8 @@ export type PostGroupsGroupIdPlacesErrors = {
     404: unknown;
 };
 
-export type PostGroupsGroupIdPlacesError = PostGroupsGroupIdPlacesErrors[keyof PostGroupsGroupIdPlacesErrors];
+export type PostGroupsGroupIdPlacesError =
+    PostGroupsGroupIdPlacesErrors[keyof PostGroupsGroupIdPlacesErrors];
 
 export type PostGroupsGroupIdPlacesResponses = {
     /**
@@ -23514,7 +23324,8 @@ export type PostGroupsGroupIdPlacesResponses = {
     };
 };
 
-export type PostGroupsGroupIdPlacesResponse = PostGroupsGroupIdPlacesResponses[keyof PostGroupsGroupIdPlacesResponses];
+export type PostGroupsGroupIdPlacesResponse =
+    PostGroupsGroupIdPlacesResponses[keyof PostGroupsGroupIdPlacesResponses];
 
 export type DeleteGroupsGroupIdPlacesPlaceIdData = {
     body?: never;
@@ -23526,7 +23337,7 @@ export type DeleteGroupsGroupIdPlacesPlaceIdData = {
         placeId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/places/{placeId}';
+    url: "/groups/{groupId}/places/{placeId}";
 };
 
 export type DeleteGroupsGroupIdPlacesPlaceIdErrors = {
@@ -23567,7 +23378,7 @@ export type PutGroupsGroupIdPlacesPlaceIdData = {
         placeId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/places/{placeId}';
+    url: "/groups/{groupId}/places/{placeId}";
 };
 
 export type PutGroupsGroupIdPlacesPlaceIdErrors = {
@@ -23606,7 +23417,7 @@ export type GetGroupsGroupIdPoststatisticsData = {
         groupId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/poststatistics';
+    url: "/groups/{groupId}/poststatistics";
 };
 
 export type GetGroupsGroupIdPoststatisticsErrors = {
@@ -23648,7 +23459,7 @@ export type GetGroupsIdQrcodecheckinData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/qrcodecheckin';
+    url: "/groups/{groupId}/qrcodecheckin";
 };
 
 export type GetGroupsIdQrcodecheckinErrors = {
@@ -23666,7 +23477,7 @@ export type GetGroupsIdQrcodecheckinErrors = {
     404: unknown;
 };
 
-export type GetGroupsIdQrcodecheckinError = GetGroupsIdQrcodecheckinErrors[keyof GetGroupsIdQrcodecheckinErrors];
+export type GetGroupQrCodeCheckinError = GetGroupQrCodeCheckinErrors[keyof GetGroupQrCodeCheckinErrors];
 
 export type GetGroupsIdQrcodecheckinResponses = {
     /**
@@ -23677,8 +23488,7 @@ export type GetGroupsIdQrcodecheckinResponses = {
     };
 };
 
-export type GetGroupsIdQrcodecheckinResponse =
-    GetGroupsIdQrcodecheckinResponses[keyof GetGroupsIdQrcodecheckinResponses];
+export type GetGroupQrCodeCheckinResponse = GetGroupQrCodeCheckinResponses[keyof GetGroupQrCodeCheckinResponses];
 
 export type GetGroupsIdQrcodecheckinPersonIdData = {
     body?: never;
@@ -23690,7 +23500,7 @@ export type GetGroupsIdQrcodecheckinPersonIdData = {
         personId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/qrcodecheckin/{personId}';
+    url: "/groups/{groupId}/qrcodecheckin/{personId}";
 };
 
 export type GetGroupsIdQrcodecheckinPersonIdErrors = {
@@ -23736,7 +23546,7 @@ export type GetGroupsIdQrcodecheckinPersonIdPdfData = {
         personId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/qrcodecheckin/{personId}/pdf';
+    url: "/groups/{groupId}/qrcodecheckin/{personId}/pdf";
 };
 
 export type GetGroupsIdQrcodecheckinPersonIdPdfErrors = {
@@ -23750,8 +23560,7 @@ export type GetGroupsIdQrcodecheckinPersonIdPdfErrors = {
     403: unknown;
 };
 
-export type GetGroupsIdQrcodecheckinPersonIdPdfError =
-    GetGroupsIdQrcodecheckinPersonIdPdfErrors[keyof GetGroupsIdQrcodecheckinPersonIdPdfErrors];
+export type GetQrCodeCheckinError = GetQrCodeCheckinErrors[keyof GetQrCodeCheckinErrors];
 
 export type GetGroupsIdQrcodecheckinPersonIdPdfResponses = {
     /**
@@ -23767,8 +23576,7 @@ export type GetGroupsIdQrcodecheckinPersonIdPdfResponses = {
     };
 };
 
-export type GetGroupsIdQrcodecheckinPersonIdPdfResponse =
-    GetGroupsIdQrcodecheckinPersonIdPdfResponses[keyof GetGroupsIdQrcodecheckinPersonIdPdfResponses];
+export type GetQrCodeCheckinResponse = GetQrCodeCheckinResponses[keyof GetQrCodeCheckinResponses];
 
 export type PostGroupsGroupIdQrcodecheckinPersonIdSendData = {
     body?: never;
@@ -23780,7 +23588,7 @@ export type PostGroupsGroupIdQrcodecheckinPersonIdSendData = {
         personId: string;
     };
     query?: never;
-    url: '/groups/{groupId}/qrcodecheckin/{personId}/send';
+    url: "/groups/{groupId}/qrcodecheckin/{personId}/send";
 };
 
 export type PostGroupsGroupIdQrcodecheckinPersonIdSendErrors = {
@@ -23822,7 +23630,7 @@ export type GetGroupsIdRolesData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/roles';
+    url: "/groups/{groupId}/roles";
 };
 
 export type GetGroupsIdRolesResponses = {
@@ -23835,7 +23643,7 @@ export type GetGroupsIdRolesResponses = {
     };
 };
 
-export type GetGroupsIdRolesResponse = GetGroupsIdRolesResponses[keyof GetGroupsIdRolesResponses];
+export type GetRolesOfGroupResponse = GetRolesOfGroupResponses[keyof GetRolesOfGroupResponses];
 
 export type PatchGroupsGroupIdRolesRoleIdData = {
     body: GroupRoleUpdate;
@@ -23850,7 +23658,7 @@ export type PatchGroupsGroupIdRolesRoleIdData = {
         roleId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/roles/{roleId}';
+    url: "/groups/{groupId}/roles/{roleId}";
 };
 
 export type PatchGroupsGroupIdRolesRoleIdResponses = {
@@ -23869,7 +23677,7 @@ export type GetGroupsIdStatisticsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/statistics';
+    url: "/groups/{groupId}/statistics";
 };
 
 export type GetGroupsIdStatisticsErrors = {
@@ -23887,7 +23695,7 @@ export type GetGroupsIdStatisticsErrors = {
     403: unknown;
 };
 
-export type GetGroupsIdStatisticsError = GetGroupsIdStatisticsErrors[keyof GetGroupsIdStatisticsErrors];
+export type GetGroupStatisticsError = GetGroupStatisticsErrors[keyof GetGroupStatisticsErrors];
 
 export type GetGroupsIdStatisticsResponses = {
     /**
@@ -23898,7 +23706,7 @@ export type GetGroupsIdStatisticsResponses = {
     };
 };
 
-export type GetGroupsIdStatisticsResponse = GetGroupsIdStatisticsResponses[keyof GetGroupsIdStatisticsResponses];
+export type GetGroupStatisticsResponse = GetGroupStatisticsResponses[keyof GetGroupStatisticsResponses];
 
 export type GetGroupsGroupIdTagsData = {
     body?: never;
@@ -23909,7 +23717,7 @@ export type GetGroupsGroupIdTagsData = {
         groupId: number;
     };
     query?: never;
-    url: '/groups/{groupId}/tags';
+    url: "/groups/{groupId}/tags";
 };
 
 export type GetGroupsGroupIdTagsResponses = {
@@ -23927,15 +23735,42 @@ export type GetGroupsGroupIdTagsResponses = {
     };
 };
 
-export type GetGroupsGroupIdTagsResponse = GetGroupsGroupIdTagsResponses[keyof GetGroupsGroupIdTagsResponses];
+export type GetGroupsGroupIdTagsResponse =
+    GetGroupsGroupIdTagsResponses[keyof GetGroupsGroupIdTagsResponses];
 
-export type GetHtmltemplatesData = {
+export type DeleteGroupsGroupIdTagsTagIdData = {
+    body?: never;
+    path: {
+        /**
+         * ID of group
+         */
+        groupId: number;
+        /**
+         * ID of tag
+         */
+        tagId: number;
+    };
+    query?: never;
+    url: '/groups/{groupId}/tags/{tagId}';
+};
+
+export type DeleteGroupsGroupIdTagsTagIdResponses = {
+    /**
+     * Successfully deleted
+     */
+    204: void;
+};
+
+export type DeleteGroupsGroupIdTagsTagIdResponse =
+    DeleteGroupsGroupIdTagsTagIdResponses[keyof DeleteGroupsGroupIdTagsTagIdResponses];
+
+export type GetAllHtmlTemplatesData = {
     body?: never;
     path?: never;
     query: {
-        domain_type: 'email' | 'bulkletter';
+        domain_type: "email" | "bulkletter";
     };
-    url: '/htmltemplates';
+    url: "/htmltemplates";
 };
 
 export type GetHtmltemplatesResponses = {
@@ -23948,10 +23783,10 @@ export type GetHtmltemplatesResponses = {
     };
 };
 
-export type GetHtmltemplatesResponse = GetHtmltemplatesResponses[keyof GetHtmltemplatesResponses];
+export type GetAllHtmlTemplatesResponse = GetAllHtmlTemplatesResponses[keyof GetAllHtmlTemplatesResponses];
 
-export type PostHtmltemplatesData = {
-    body: {
+export type CreateHtmlTemplateData = {
+    body?: {
         domainType?: 'email' | 'bulkletter';
         html?: string;
         /**
@@ -23966,7 +23801,7 @@ export type PostHtmltemplatesData = {
     };
     path?: never;
     query?: never;
-    url: '/htmltemplates';
+    url: "/htmltemplates";
 };
 
 export type PostHtmltemplatesResponses = {
@@ -23979,7 +23814,7 @@ export type PostHtmltemplatesResponses = {
     };
 };
 
-export type PostHtmltemplatesResponse = PostHtmltemplatesResponses[keyof PostHtmltemplatesResponses];
+export type CreateHtmlTemplateResponse = CreateHtmlTemplateResponses[keyof CreateHtmlTemplateResponses];
 
 export type DeleteHtmltemplatesData = {
     body?: never;
@@ -23987,7 +23822,7 @@ export type DeleteHtmltemplatesData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}';
+    url: "/htmltemplates/{id}";
 };
 
 export type DeleteHtmltemplatesErrors = {
@@ -24004,7 +23839,7 @@ export type DeleteHtmltemplatesResponses = {
     204: void;
 };
 
-export type DeleteHtmltemplatesResponse = DeleteHtmltemplatesResponses[keyof DeleteHtmltemplatesResponses];
+export type DeleteHtmlTemplateResponse = DeleteHtmlTemplateResponses[keyof DeleteHtmlTemplateResponses];
 
 export type GetHtmltemplatesIdData = {
     body?: never;
@@ -24012,7 +23847,7 @@ export type GetHtmltemplatesIdData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}';
+    url: "/htmltemplates/{id}";
 };
 
 export type GetHtmltemplatesIdErrors = {
@@ -24031,7 +23866,7 @@ export type GetHtmltemplatesIdResponses = {
     };
 };
 
-export type GetHtmltemplatesIdResponse = GetHtmltemplatesIdResponses[keyof GetHtmltemplatesIdResponses];
+export type GetHtmlTemplateResponse = GetHtmlTemplateResponses[keyof GetHtmlTemplateResponses];
 
 export type PatchHtmltemplatesData = {
     body: {
@@ -24050,7 +23885,7 @@ export type PatchHtmltemplatesData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}';
+    url: "/htmltemplates/{id}";
 };
 
 export type PatchHtmltemplatesResponses = {
@@ -24063,7 +23898,7 @@ export type PatchHtmltemplatesResponses = {
     };
 };
 
-export type PatchHtmltemplatesResponse = PatchHtmltemplatesResponses[keyof PatchHtmltemplatesResponses];
+export type UpdateHtmlTemplateResponse = UpdateHtmlTemplateResponses[keyof UpdateHtmlTemplateResponses];
 
 export type GetHtmltemplatesIdExportData = {
     body?: never;
@@ -24071,7 +23906,7 @@ export type GetHtmltemplatesIdExportData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}/export';
+    url: "/htmltemplates/{id}/export";
 };
 
 export type GetHtmltemplatesIdExportErrors = {
@@ -24090,8 +23925,7 @@ export type GetHtmltemplatesIdExportResponses = {
     };
 };
 
-export type GetHtmltemplatesIdExportResponse =
-    GetHtmltemplatesIdExportResponses[keyof GetHtmltemplatesIdExportResponses];
+export type ExportHtmlTemplateResponse = ExportHtmlTemplateResponses[keyof ExportHtmlTemplateResponses];
 
 export type GetHtmltemplatesIdHtmlData = {
     body?: never;
@@ -24099,7 +23933,7 @@ export type GetHtmltemplatesIdHtmlData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}/html';
+    url: "/htmltemplates/{id}/html";
 };
 
 export type GetHtmltemplatesIdHtmlErrors = {
@@ -24126,7 +23960,7 @@ export type GetHtmltemplatesIdMjmlData = {
         id: number;
     };
     query?: never;
-    url: '/htmltemplates/{id}/mjml';
+    url: "/htmltemplates/{id}/mjml";
 };
 
 export type GetHtmltemplatesIdMjmlErrors = {
@@ -24158,7 +23992,7 @@ export type PutImagesIdOptionsData = {
         id: number;
     };
     query?: never;
-    url: '/images/{id}/options';
+    url: "/images/{id}/options";
 };
 
 export type PutImagesIdOptionsResponses = {
@@ -24179,13 +24013,13 @@ export type PutImagesIdOptionsResponses = {
     };
 };
 
-export type PutImagesIdOptionsResponse = PutImagesIdOptionsResponses[keyof PutImagesIdOptionsResponses];
+export type PutImageOptionsResponse = PutImageOptionsResponses[keyof PutImageOptionsResponses];
 
 export type GetInfoData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/info';
+    url: "/info";
 };
 
 export type GetInfoResponses = {
@@ -24216,13 +24050,13 @@ export type GetJobsData = {
         status?: Array<string>;
         identifier?: string;
         name?: string;
-        'domain_ids[]'?: Array<number>;
+        "domain_ids[]"?: Array<number>;
         created_start_date?: string;
         created_end_date?: string;
         modified_start_date?: string;
         modified_end_date?: string;
     };
-    url: '/jobs';
+    url: "/jobs";
 };
 
 export type GetJobsResponses = {
@@ -24246,7 +24080,7 @@ export type PostJobsIdLogsData = {
         id: number;
     };
     query?: never;
-    url: '/jobs/{id}/logs';
+    url: "/jobs/{id}/logs";
 };
 
 export type PostJobsIdLogsErrors = {
@@ -24275,7 +24109,7 @@ export type PutJobsIdStatusData = {
         id: number;
     };
     query?: never;
-    url: '/jobs/{id}/status';
+    url: "/jobs/{id}/status";
 };
 
 export type PutJobsIdStatusErrors = {
@@ -24299,7 +24133,7 @@ export type PostLabelsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/labels';
+    url: "/labels";
 };
 
 export type PostLabelsErrors = {
@@ -24323,7 +24157,7 @@ export type PostLabelsTotalsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/labels/totals';
+    url: "/labels/totals";
 };
 
 export type PostLabelsTotalsResponses = {
@@ -24344,7 +24178,7 @@ export type PostLabelsTotalsResponses = {
     };
 };
 
-export type PostLabelsTotalsResponse = PostLabelsTotalsResponses[keyof PostLabelsTotalsResponses];
+export type GetLabelsTotalResponse = GetLabelsTotalResponses[keyof GetLabelsTotalResponses];
 
 export type GetLanguagesData = {
     body?: never;
@@ -24355,7 +24189,7 @@ export type GetLanguagesData = {
          */
         only_active?: boolean;
     };
-    url: '/languages';
+    url: "/languages";
 };
 
 export type GetLanguagesErrors = {
@@ -24380,13 +24214,14 @@ export type GetLanguagesResponses = {
     };
 };
 
-export type GetLanguagesResponse = GetLanguagesResponses[keyof GetLanguagesResponses];
+export type GetLanguagesResponse =
+    GetLanguagesResponses[keyof GetLanguagesResponses];
 
 export type GetLicenseFetchData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/license/fetch';
+    url: "/license/fetch";
 };
 
 export type GetLicenseFetchErrors = {
@@ -24417,7 +24252,7 @@ export type PostLoginData = {
     };
     path?: never;
     query?: never;
-    url: '/login';
+    url: "/login";
 };
 
 export type PostLoginResponses = {
@@ -24446,7 +24281,7 @@ export type PostLoginTotpData = {
     };
     path?: never;
     query?: never;
-    url: '/login/totp';
+    url: "/login/totp";
 };
 
 export type PostLoginTotpErrors = {
@@ -24473,18 +24308,19 @@ export type PostLoginTotpResponses = {
     200: {
         data: {
             redirectTo?: string;
-            status: 'success';
+            status: "success";
         };
     };
 };
 
-export type PostLoginTotpResponse = PostLoginTotpResponses[keyof PostLoginTotpResponses];
+export type PostLoginTotpResponse =
+    PostLoginTotpResponses[keyof PostLoginTotpResponses];
 
 export type PostLogoutData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/logout';
+    url: "/logout";
 };
 
 export type PostLogoutResponses = {
@@ -24507,7 +24343,7 @@ export type GetLogsData = {
         /**
          * Filter by log level ID
          */
-        'levels[]'?: Array<string>;
+        "levels[]"?: Array<string>;
         /**
          * Filter log messages before that date. (Use ISO-Format)
          */
@@ -24529,7 +24365,7 @@ export type GetLogsData = {
          */
         limit?: number;
     };
-    url: '/logs';
+    url: "/logs";
 };
 
 export type GetLogsErrors = {
@@ -24572,7 +24408,7 @@ export type GetLogsStatisticsLoginData = {
          */
         limit?: number;
     };
-    url: '/logs/statistics/login';
+    url: "/logs/statistics/login";
 };
 
 export type GetLogsStatisticsLoginErrors = {
@@ -24606,7 +24442,7 @@ export type GetLogsStatisticsLoginResponses = {
     };
 };
 
-export type GetLogsStatisticsLoginResponse = GetLogsStatisticsLoginResponses[keyof GetLogsStatisticsLoginResponses];
+export type GetLoginStatisticsResponse = GetLoginStatisticsResponses[keyof GetLoginStatisticsResponses];
 
 export type GetLogsIdData = {
     body?: never;
@@ -24617,7 +24453,7 @@ export type GetLogsIdData = {
         id: number;
     };
     query?: never;
-    url: '/logs/{id}';
+    url: "/logs/{id}";
 };
 
 export type GetLogsIdErrors = {
@@ -24731,7 +24567,7 @@ export type GetMasterdataPersonData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/masterdata/person';
+    url: "/masterdata/person";
 };
 
 export type GetMasterdataPersonResponses = {
@@ -24745,7 +24581,7 @@ export type GetMenuData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/menu';
+    url: "/menu";
 };
 
 export type GetMenuErrors = {
@@ -24896,7 +24732,7 @@ export type GetNotesData = {
         domainId: number;
     };
     query?: never;
-    url: '/notes/{domainType}/{domainId}';
+    url: "/notes/{domainType}/{domainId}";
 };
 
 export type GetNotesErrors = {
@@ -24937,7 +24773,7 @@ export type PostNotesDomainTypeDomainIdData = {
         domainId: number;
     };
     query?: never;
-    url: '/notes/{domainType}/{domainId}';
+    url: "/notes/{domainType}/{domainId}";
 };
 
 export type PostNotesDomainTypeDomainIdErrors = {
@@ -24983,7 +24819,7 @@ export type DeleteNotesDomainTypeDomainIdIdData = {
         noteId: number;
     };
     query?: never;
-    url: '/notes/{domainType}/{domainId}/{noteId}';
+    url: "/notes/{domainType}/{domainId}/{noteId}";
 };
 
 export type DeleteNotesDomainTypeDomainIdIdErrors = {
@@ -25031,7 +24867,7 @@ export type PutNotesDomainTypeDomainIdIdData = {
         noteId: number;
     };
     query?: never;
-    url: '/notes/{domainType}/{domainId}/{noteId}';
+    url: "/notes/{domainType}/{domainId}/{noteId}";
 };
 
 export type PutNotesDomainTypeDomainIdIdErrors = {
@@ -25073,7 +24909,7 @@ export type DeleteNotesNoteIdData = {
         noteId: number;
     };
     query?: never;
-    url: '/notes/{noteId}';
+    url: "/notes/{noteId}";
 };
 
 export type DeleteNotesNoteIdErrors = {
@@ -25091,7 +24927,8 @@ export type DeleteNotesNoteIdErrors = {
     404: unknown;
 };
 
-export type DeleteNotesNoteIdError = DeleteNotesNoteIdErrors[keyof DeleteNotesNoteIdErrors];
+export type DeleteNotesNoteIdError =
+    DeleteNotesNoteIdErrors[keyof DeleteNotesNoteIdErrors];
 
 export type DeleteNotesNoteIdResponses = {
     /**
@@ -25100,7 +24937,8 @@ export type DeleteNotesNoteIdResponses = {
     204: void;
 };
 
-export type DeleteNotesNoteIdResponse = DeleteNotesNoteIdResponses[keyof DeleteNotesNoteIdResponses];
+export type DeleteNotesNoteIdResponse =
+    DeleteNotesNoteIdResponses[keyof DeleteNotesNoteIdResponses];
 
 export type PostNpsData = {
     /**
@@ -25111,7 +24949,7 @@ export type PostNpsData = {
     };
     path?: never;
     query?: never;
-    url: '/nps';
+    url: "/nps";
 };
 
 export type PostNpsErrors = {
@@ -25148,7 +24986,7 @@ export type GetOauthclientsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/oauthclients';
+    url: "/oauthclients";
 };
 
 export type GetOauthclientsResponses = {
@@ -25161,13 +24999,14 @@ export type GetOauthclientsResponses = {
     };
 };
 
-export type GetOauthclientsResponse = GetOauthclientsResponses[keyof GetOauthclientsResponses];
+export type GetOauthclientsResponse =
+    GetOauthclientsResponses[keyof GetOauthclientsResponses];
 
 export type PostOauthclientsData = {
     body: OAuthClientNew;
     path?: never;
     query?: never;
-    url: '/oauthclients';
+    url: "/oauthclients";
 };
 
 export type PostOauthclientsErrors = {
@@ -25186,7 +25025,8 @@ export type PostOauthclientsResponses = {
     };
 };
 
-export type PostOauthclientsResponse = PostOauthclientsResponses[keyof PostOauthclientsResponses];
+export type PostOauthclientsResponse =
+    PostOauthclientsResponses[keyof PostOauthclientsResponses];
 
 export type DeleteOauthclientsIdentifierData = {
     body?: never;
@@ -25194,7 +25034,7 @@ export type DeleteOauthclientsIdentifierData = {
         identifier: string;
     };
     query?: never;
-    url: '/oauthclients/{identifier}';
+    url: "/oauthclients/{identifier}";
 };
 
 export type DeleteOauthclientsIdentifierErrors = {
@@ -25220,7 +25060,7 @@ export type PutOauthclientsIdentifierData = {
         identifier: string;
     };
     query?: never;
-    url: '/oauthclients/{identifier}';
+    url: "/oauthclients/{identifier}";
 };
 
 export type PutOauthclientsIdentifierErrors = {
@@ -25250,7 +25090,7 @@ export type GetPermissionsGlobalData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/permissions/global';
+    url: "/permissions/global";
 };
 
 export type GetPermissionsGlobalResponses = {
@@ -25262,13 +25102,13 @@ export type GetPermissionsGlobalResponses = {
     };
 };
 
-export type GetPermissionsGlobalResponse = GetPermissionsGlobalResponses[keyof GetPermissionsGlobalResponses];
+export type GetGlobalPermissionsResponse = GetGlobalPermissionsResponses[keyof GetGlobalPermissionsResponses];
 
 export type GetPermissionsInternalGroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/permissions/internal/groups';
+    url: "/permissions/internal/groups";
 };
 
 export type GetPermissionsInternalGroupsResponses = {
@@ -25292,7 +25132,7 @@ export type GetPermissionsInternalGroupsGroupIdData = {
         groupId: number;
     };
     query?: never;
-    url: '/permissions/internal/groups/{groupId}';
+    url: "/permissions/internal/groups/{groupId}";
 };
 
 export type GetPermissionsInternalGroupsGroupIdResponses = {
@@ -25313,7 +25153,7 @@ export type GetPermissionsInternalPersonsIdData = {
         personId: string;
     };
     query?: never;
-    url: '/permissions/internal/persons/{personId}';
+    url: "/permissions/internal/persons/{personId}";
 };
 
 export type GetPermissionsInternalPersonsIdResponses = {
@@ -25331,10 +25171,14 @@ export type GetPermissionsInternalPersonsIdResponse =
 export type GetPermissionsPermissionDomainTypeData = {
     body?: never;
     path: {
-        permissionDomainType: 'status' | 'group_type_role' | 'group_role' | 'person';
+        permissionDomainType:
+            | "status"
+            | "group_type_role"
+            | "group_role"
+            | "person";
     };
     query?: never;
-    url: '/permissions/{permissionDomainType}';
+    url: "/permissions/{permissionDomainType}";
 };
 
 export type GetPermissionsPermissionDomainTypeErrors = {
@@ -25367,11 +25211,15 @@ export type GetPermissionsPermissionDomainTypeResponse =
 export type GetPermissionsPermissionDomainTypePermissionDomainIdData = {
     body?: never;
     path: {
-        permissionDomainType: 'status' | 'group_type_role' | 'group_role' | 'person';
+        permissionDomainType:
+            | "status"
+            | "group_type_role"
+            | "group_role"
+            | "person";
         permissionDomainId: number;
     };
     query?: never;
-    url: '/permissions/{permissionDomainType}/{permissionDomainId}';
+    url: "/permissions/{permissionDomainType}/{permissionDomainId}";
 };
 
 export type GetPermissionsPermissionDomainTypePermissionDomainIdErrors = {
@@ -25405,7 +25253,7 @@ export type GetPersonMasterdataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/person/masterdata';
+    url: "/person/masterdata";
 };
 
 export type GetPersonMasterdataResponses = {
@@ -25434,7 +25282,8 @@ export type GetPersonMasterdataResponses = {
     };
 };
 
-export type GetPersonMasterdataResponse = GetPersonMasterdataResponses[keyof GetPersonMasterdataResponses];
+export type GetPersonMasterdataResponse =
+    GetPersonMasterdataResponses[keyof GetPersonMasterdataResponses];
 
 export type GetPersonsData = {
     body?: never;
@@ -25443,15 +25292,15 @@ export type GetPersonsData = {
         /**
          * Array of person ids
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Filter by status id
          */
-        'status_ids[]'?: Array<number>;
+        "status_ids[]"?: Array<number>;
         /**
          * Filter by campus id
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Filter by birthdays before that date (Format: YYYY-MM-DD)
          */
@@ -25479,9 +25328,9 @@ export type GetPersonsData = {
         /**
          * Include additional information
          */
-        include?: Array<'tags'>;
+        include?: Array<"tags">;
     };
-    url: '/persons';
+    url: "/persons";
 };
 
 export type GetPersonsErrors = {
@@ -25505,7 +25354,7 @@ export type GetPersonsResponses = {
     };
 };
 
-export type GetPersonsResponse = GetPersonsResponses[keyof GetPersonsResponses];
+export type GetAllPersonsResponse = GetAllPersonsResponses[keyof GetAllPersonsResponses];
 
 export type PostPersonsData = {
     /**
@@ -25577,7 +25426,7 @@ export type PostPersonsData = {
          */
         without_privacy_policy_agreement?: boolean;
     };
-    url: '/persons';
+    url: "/persons";
 };
 
 export type PostPersonsErrors = {
@@ -25616,7 +25465,7 @@ export type PostPersonsResponses = {
     };
 };
 
-export type PostPersonsResponse = PostPersonsResponses[keyof PostPersonsResponses];
+export type CreatePersonResponse = CreatePersonResponses[keyof CreatePersonResponses];
 
 export type GetPersonsBirthdaysData = {
     body?: never;
@@ -25633,7 +25482,7 @@ export type GetPersonsBirthdaysData = {
         /**
          * The direction of the result set
          */
-        direction?: 'forward' | 'backward';
+        direction?: "forward" | "backward";
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
@@ -25645,17 +25494,17 @@ export type GetPersonsBirthdaysData = {
         /**
          * Filter by campus ids
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * Filter by group ids
          */
-        'group_ids[]'?: Array<number>;
+        "group_ids[]"?: Array<number>;
         /**
          * Filter by people in my groups
          */
         my_groups?: boolean;
     };
-    url: '/persons/birthdays';
+    url: "/persons/birthdays";
 };
 
 export type GetPersonsBirthdaysErrors = {
@@ -25709,7 +25558,8 @@ export type GetPersonsBirthdaysResponses = {
     };
 };
 
-export type GetPersonsBirthdaysResponse = GetPersonsBirthdaysResponses[keyof GetPersonsBirthdaysResponses];
+export type GetPersonsBirthdaysResponse =
+    GetPersonsBirthdaysResponses[keyof GetPersonsBirthdaysResponses];
 
 export type GetPersonsDuplicatesData = {
     body?: never;
@@ -25717,7 +25567,7 @@ export type GetPersonsDuplicatesData = {
     query?: {
         reset_cache?: boolean;
     };
-    url: '/persons/duplicates';
+    url: "/persons/duplicates";
 };
 
 export type GetPersonsDuplicatesResponses = {
@@ -25738,13 +25588,14 @@ export type GetPersonsDuplicatesResponses = {
     };
 };
 
-export type GetPersonsDuplicatesResponse = GetPersonsDuplicatesResponses[keyof GetPersonsDuplicatesResponses];
+export type GetPersonsDuplicatesResponse =
+    GetPersonsDuplicatesResponses[keyof GetPersonsDuplicatesResponses];
 
 export type PostPersonsExportData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/persons/export';
+    url: "/persons/export";
 };
 
 export type PostPersonsExportErrors = {
@@ -25762,7 +25613,7 @@ export type PostPersonsExportErrors = {
     404: unknown;
 };
 
-export type PostPersonsExportError = PostPersonsExportErrors[keyof PostPersonsExportErrors];
+export type GetPersonsExportError = GetPersonsExportErrors[keyof GetPersonsExportErrors];
 
 export type PostPersonsPropertiesData = {
     /**
@@ -25773,7 +25624,7 @@ export type PostPersonsPropertiesData = {
     };
     path?: never;
     query?: never;
-    url: '/persons/properties';
+    url: "/persons/properties";
 };
 
 export type PostPersonsPropertiesErrors = {
@@ -25794,13 +25645,13 @@ export type PostPersonsPropertiesResponses = {
     };
 };
 
-export type PostPersonsPropertiesResponse = PostPersonsPropertiesResponses[keyof PostPersonsPropertiesResponses];
+export type GetPersonPropertiesResponse = GetPersonPropertiesResponses[keyof GetPersonPropertiesResponses];
 
 export type GetPersonsRelationshipsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/persons/relationships';
+    url: "/persons/relationships";
 };
 
 export type GetPersonsRelationshipsErrors = {
@@ -25810,7 +25661,8 @@ export type GetPersonsRelationshipsErrors = {
     401: string;
 };
 
-export type GetPersonsRelationshipsError = GetPersonsRelationshipsErrors[keyof GetPersonsRelationshipsErrors];
+export type GetPersonsRelationshipsError =
+    GetPersonsRelationshipsErrors[keyof GetPersonsRelationshipsErrors];
 
 export type GetPersonsRelationshipsResponses = {
     /**
@@ -25849,13 +25701,14 @@ export type GetPersonsRelationshipsResponses = {
     };
 };
 
-export type GetPersonsRelationshipsResponse = GetPersonsRelationshipsResponses[keyof GetPersonsRelationshipsResponses];
+export type GetPersonsRelationshipsResponse =
+    GetPersonsRelationshipsResponses[keyof GetPersonsRelationshipsResponses];
 
 export type GetPersonsSearchOldData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/persons/search_old';
+    url: "/persons/search_old";
 };
 
 export type GetPersonsSearchOldErrors = {
@@ -25873,7 +25726,8 @@ export type GetPersonsSearchOldErrors = {
     404: unknown;
 };
 
-export type GetPersonsSearchOldError = GetPersonsSearchOldErrors[keyof GetPersonsSearchOldErrors];
+export type GetPersonsSearchOldError =
+    GetPersonsSearchOldErrors[keyof GetPersonsSearchOldErrors];
 
 export type DeletePersonsIdData = {
     body?: never;
@@ -25884,7 +25738,7 @@ export type DeletePersonsIdData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}';
+    url: "/persons/{personId}";
 };
 
 export type DeletePersonsIdErrors = {
@@ -25905,7 +25759,7 @@ export type DeletePersonsIdResponses = {
     204: void;
 };
 
-export type DeletePersonsIdResponse = DeletePersonsIdResponses[keyof DeletePersonsIdResponses];
+export type DeletePersonResponse = DeletePersonResponses[keyof DeletePersonResponses];
 
 export type GetPersonsIdData = {
     body?: never;
@@ -25916,7 +25770,7 @@ export type GetPersonsIdData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}';
+    url: "/persons/{personId}";
 };
 
 export type GetPersonsIdErrors = {
@@ -25943,7 +25797,7 @@ export type GetPersonsIdResponses = {
     };
 };
 
-export type GetPersonsIdResponse = GetPersonsIdResponses[keyof GetPersonsIdResponses];
+export type GetPersonByIdResponse = GetPersonByIdResponses[keyof GetPersonByIdResponses];
 
 export type PatchPersonsIdData = {
     /**
@@ -26012,7 +25866,7 @@ export type PatchPersonsIdData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}';
+    url: "/persons/{personId}";
 };
 
 export type PatchPersonsIdErrors = {
@@ -26047,7 +25901,7 @@ export type PatchPersonsIdResponses = {
     };
 };
 
-export type PatchPersonsIdResponse = PatchPersonsIdResponses[keyof PatchPersonsIdResponses];
+export type PatchPersonResponse = PatchPersonResponses[keyof PatchPersonResponses];
 
 export type GetPersonsAbsencesData = {
     body?: never;
@@ -26066,9 +25920,9 @@ export type GetPersonsAbsencesData = {
          * Return entities up to (but not including) this date.
          */
         to?: DateString;
-        order_direction?: 'ASC' | 'DESC';
+        order_direction?: "ASC" | "DESC";
     };
-    url: '/persons/{personId}/absences';
+    url: "/persons/{personId}/absences";
 };
 
 export type GetPersonsAbsencesErrors = {
@@ -26092,7 +25946,8 @@ export type GetPersonsAbsencesResponses = {
     };
 };
 
-export type GetPersonsAbsencesResponse = GetPersonsAbsencesResponses[keyof GetPersonsAbsencesResponses];
+export type GetPersonsAbsencesResponse =
+    GetPersonsAbsencesResponses[keyof GetPersonsAbsencesResponses];
 
 export type PostPersonsAbsencesData = {
     /**
@@ -26122,7 +25977,7 @@ export type PostPersonsAbsencesData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/absences';
+    url: "/persons/{personId}/absences";
 };
 
 export type PostPersonsAbsencesResponses = {
@@ -26134,7 +25989,8 @@ export type PostPersonsAbsencesResponses = {
     };
 };
 
-export type PostPersonsAbsencesResponse = PostPersonsAbsencesResponses[keyof PostPersonsAbsencesResponses];
+export type PostPersonsAbsencesResponse =
+    PostPersonsAbsencesResponses[keyof PostPersonsAbsencesResponses];
 
 export type DeletePersonsAbsenceData = {
     body?: never;
@@ -26149,7 +26005,7 @@ export type DeletePersonsAbsenceData = {
         id: number;
     };
     query?: never;
-    url: '/persons/{personId}/absences/{id}';
+    url: "/persons/{personId}/absences/{id}";
 };
 
 export type DeletePersonsAbsenceErrors = {
@@ -26170,7 +26026,8 @@ export type DeletePersonsAbsenceResponses = {
     204: void;
 };
 
-export type DeletePersonsAbsenceResponse = DeletePersonsAbsenceResponses[keyof DeletePersonsAbsenceResponses];
+export type DeletePersonsAbsenceResponse =
+    DeletePersonsAbsenceResponses[keyof DeletePersonsAbsenceResponses];
 
 export type GetPersonsAbsenceData = {
     body?: never;
@@ -26185,7 +26042,7 @@ export type GetPersonsAbsenceData = {
         id: number;
     };
     query?: never;
-    url: '/persons/{personId}/absences/{id}';
+    url: "/persons/{personId}/absences/{id}";
 };
 
 export type GetPersonsAbsenceErrors = {
@@ -26212,7 +26069,8 @@ export type GetPersonsAbsenceResponses = {
     };
 };
 
-export type GetPersonsAbsenceResponse = GetPersonsAbsenceResponses[keyof GetPersonsAbsenceResponses];
+export type GetPersonsAbsenceResponse =
+    GetPersonsAbsenceResponses[keyof GetPersonsAbsenceResponses];
 
 export type PutPersonsAbsenceData = {
     /**
@@ -26243,7 +26101,7 @@ export type PutPersonsAbsenceData = {
         id: number;
     };
     query?: never;
-    url: '/persons/{personId}/absences/{id}';
+    url: "/persons/{personId}/absences/{id}";
 };
 
 export type PutPersonsAbsenceErrors = {
@@ -26274,7 +26132,8 @@ export type PutPersonsAbsenceResponses = {
     };
 };
 
-export type PutPersonsAbsenceResponse = PutPersonsAbsenceResponses[keyof PutPersonsAbsenceResponses];
+export type PutPersonsAbsenceResponse =
+    PutPersonsAbsenceResponses[keyof PutPersonsAbsenceResponses];
 
 export type PostPersonsPersonIdArchiveData = {
     body: {
@@ -26290,7 +26149,7 @@ export type PostPersonsPersonIdArchiveData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/archive';
+    url: "/persons/{personId}/archive";
 };
 
 export type PostPersonsPersonIdArchiveResponses = {
@@ -26312,7 +26171,7 @@ export type GetPersonsPersonIdDevicesData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/devices';
+    url: "/persons/{personId}/devices";
 };
 
 export type GetPersonsPersonIdDevicesErrors = {
@@ -26326,7 +26185,8 @@ export type GetPersonsPersonIdDevicesErrors = {
     403: unknown;
 };
 
-export type GetPersonsPersonIdDevicesError = GetPersonsPersonIdDevicesErrors[keyof GetPersonsPersonIdDevicesErrors];
+export type GetPersonsPersonIdDevicesError =
+    GetPersonsPersonIdDevicesErrors[keyof GetPersonsPersonIdDevicesErrors];
 
 export type GetPersonsPersonIdDevicesResponses = {
     /**
@@ -26350,7 +26210,7 @@ export type DeletePersonsPersonIdDevicesDeviceIdData = {
         deviceId: string;
     };
     query?: never;
-    url: '/persons/{personId}/devices/{deviceId}';
+    url: "/persons/{personId}/devices/{deviceId}";
 };
 
 export type DeletePersonsPersonIdDevicesDeviceIdErrors = {
@@ -26387,7 +26247,7 @@ export type GetPersonsPersonIdDevicesDeviceIdData = {
         deviceId: string;
     };
     query?: never;
-    url: '/persons/{personId}/devices/{deviceId}';
+    url: "/persons/{personId}/devices/{deviceId}";
 };
 
 export type GetPersonsPersonIdDevicesDeviceIdErrors = {
@@ -26414,8 +26274,7 @@ export type GetPersonsPersonIdDevicesDeviceIdResponses = {
     };
 };
 
-export type GetPersonsPersonIdDevicesDeviceIdResponse =
-    GetPersonsPersonIdDevicesDeviceIdResponses[keyof GetPersonsPersonIdDevicesDeviceIdResponses];
+export type GetDeviceForPersonResponse = GetDeviceForPersonResponses[keyof GetDeviceForPersonResponses];
 
 export type PutPersonsPersonIdDevicesDeviceIdData = {
     /**
@@ -26426,7 +26285,7 @@ export type PutPersonsPersonIdDevicesDeviceIdData = {
          * Push ID
          */
         pushId?: string;
-        type: 'APN' | 'FCM';
+        type: "APN" | "FCM";
         /**
          * App Version. (Semantic Versioning)
          */
@@ -26440,7 +26299,7 @@ export type PutPersonsPersonIdDevicesDeviceIdData = {
         deviceId: string;
     };
     query?: never;
-    url: '/persons/{personId}/devices/{deviceId}';
+    url: "/persons/{personId}/devices/{deviceId}";
 };
 
 export type PutPersonsPersonIdDevicesDeviceIdErrors = {
@@ -26483,7 +26342,7 @@ export type GetPersonsIdEventsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/events';
+    url: "/persons/{personId}/events";
 };
 
 export type GetPersonsIdEventsErrors = {
@@ -26497,7 +26356,7 @@ export type GetPersonsIdEventsErrors = {
     403: unknown;
 };
 
-export type GetPersonsIdEventsError = GetPersonsIdEventsErrors[keyof GetPersonsIdEventsErrors];
+export type GetPersonEventsError = GetPersonEventsErrors[keyof GetPersonEventsErrors];
 
 export type GetPersonsIdEventsResponses = {
     /**
@@ -26508,7 +26367,7 @@ export type GetPersonsIdEventsResponses = {
     };
 };
 
-export type GetPersonsIdEventsResponse = GetPersonsIdEventsResponses[keyof GetPersonsIdEventsResponses];
+export type GetPersonEventsResponse = GetPersonEventsResponses[keyof GetPersonEventsResponses];
 
 export type GetPersonsIdEventsIdServicesData = {
     body?: never;
@@ -26523,7 +26382,7 @@ export type GetPersonsIdEventsIdServicesData = {
         eventId: number;
     };
     query?: never;
-    url: '/persons/{personId}/events/{eventId}/services';
+    url: "/persons/{personId}/events/{eventId}/services";
 };
 
 export type GetPersonsIdEventsIdServicesErrors = {
@@ -26541,8 +26400,7 @@ export type GetPersonsIdEventsIdServicesErrors = {
     404: unknown;
 };
 
-export type GetPersonsIdEventsIdServicesError =
-    GetPersonsIdEventsIdServicesErrors[keyof GetPersonsIdEventsIdServicesErrors];
+export type GetPersonsEventServicesError = GetPersonsEventServicesErrors[keyof GetPersonsEventServicesErrors];
 
 export type GetPersonsIdEventsIdServicesIdExchangerequestsData = {
     body?: never;
@@ -26563,7 +26421,7 @@ export type GetPersonsIdEventsIdServicesIdExchangerequestsData = {
          */
         incoming?: boolean;
     };
-    url: '/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests';
+    url: "/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests";
 };
 
 export type GetPersonsIdEventsIdServicesIdExchangerequestsResponses = {
@@ -26573,8 +26431,7 @@ export type GetPersonsIdEventsIdServicesIdExchangerequestsResponses = {
     200: Array<ServiceExchangeRequest>;
 };
 
-export type GetPersonsIdEventsIdServicesIdExchangerequestsResponse =
-    GetPersonsIdEventsIdServicesIdExchangerequestsResponses[keyof GetPersonsIdEventsIdServicesIdExchangerequestsResponses];
+export type GetAllForServiceResponse = GetAllForServiceResponses[keyof GetAllForServiceResponses];
 
 export type PostPersonsIdEventsIdServicesIdExchangerequestsData = {
     body: ServiceExchangeRequest;
@@ -26595,10 +26452,10 @@ export type PostPersonsIdEventsIdServicesIdExchangerequestsData = {
          */
         incoming?: boolean;
     };
-    url: '/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests';
+    url: "/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests";
 };
 
-export type PostPersonsIdEventsIdServicesIdExchangerequestsResponses = {
+export type PostPersonIdEventsEventIdServicesServiceIdExchangerequestsResponses = {
     /**
      * OK
      */
@@ -26619,7 +26476,7 @@ export type GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesData = {
         serviceId: string;
     };
     query?: never;
-    url: '/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests/candidates';
+    url: "/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests/candidates";
 };
 
 export type GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesResponses = {
@@ -26639,10 +26496,9 @@ export type GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesResponses = 
     };
 };
 
-export type GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesResponse =
-    GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesResponses[keyof GetPersonsIdEventsIdServicesIdExchangerequestsCandidatesResponses];
+export type GetCandidatesResponse = GetCandidatesResponses[keyof GetCandidatesResponses];
 
-export type DeletePersonsIdEventsIdServicesIdExchangerequestsIdData = {
+export type DeletePersonIdEventsEventIdServicesServiceIdExchangerequestsCopyData = {
     body?: never;
     path: {
         /**
@@ -26665,7 +26521,7 @@ export type DeletePersonsIdEventsIdServicesIdExchangerequestsIdData = {
     url: '/persons/{personId}/events/{eventId}/services/{serviceId}/exchangerequests/{requestId}';
 };
 
-export type DeletePersonsIdEventsIdServicesIdExchangerequestsIdResponses = {
+export type DeletePersonIdEventsEventIdServicesServiceIdExchangerequestsCopyResponses = {
     /**
      * Successfully deleted
      */
@@ -26689,7 +26545,7 @@ export type GetPersonsIdExchangerequestsData = {
          */
         personIsRequester?: boolean;
     };
-    url: '/persons/{personId}/exchangerequests';
+    url: "/persons/{personId}/exchangerequests";
 };
 
 export type GetPersonsIdExchangerequestsResponses = {
@@ -26702,8 +26558,7 @@ export type GetPersonsIdExchangerequestsResponses = {
     };
 };
 
-export type GetPersonsIdExchangerequestsResponse =
-    GetPersonsIdExchangerequestsResponses[keyof GetPersonsIdExchangerequestsResponses];
+export type GetAllForPersonResponse = GetAllForPersonResponses[keyof GetAllForPersonResponses];
 
 export type DeletePersonsIdExchangerequestsIdData = {
     body?: never;
@@ -26715,7 +26570,7 @@ export type DeletePersonsIdExchangerequestsIdData = {
         requestId: string;
     };
     query?: never;
-    url: '/persons/{personId}/exchangerequests/{requestId}';
+    url: "/persons/{personId}/exchangerequests/{requestId}";
 };
 
 export type DeletePersonsIdExchangerequestsIdResponses = {
@@ -26738,7 +26593,7 @@ export type PutPersonsIdExchangerequestsIdData = {
         requestId: string;
     };
     query?: never;
-    url: '/persons/{personId}/exchangerequests/{requestId}';
+    url: "/persons/{personId}/exchangerequests/{requestId}";
 };
 
 export type PutPersonsIdExchangerequestsIdResponses = {
@@ -26770,7 +26625,7 @@ export type GetPersonsPersonIdFollowupsData = {
          */
         limit?: number;
     };
-    url: '/persons/{personId}/followups';
+    url: "/persons/{personId}/followups";
 };
 
 export type GetPersonsPersonIdFollowupsErrors = {
@@ -26813,7 +26668,7 @@ export type PostPersonsPersonIdFollowupsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/followups';
+    url: "/persons/{personId}/followups";
 };
 
 export type PostPersonsPersonIdFollowupsErrors = {
@@ -26855,7 +26710,7 @@ export type GetPersonsPersonIdFollowupsStatisticsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/followups/statistics';
+    url: "/persons/{personId}/followups/statistics";
 };
 
 export type GetPersonsPersonIdFollowupsStatisticsErrors = {
@@ -26910,7 +26765,7 @@ export type GetPersonsIdGroupsData = {
          */
         show_requested_or_waiting_memberships?: boolean;
     };
-    url: '/persons/{personId}/groups';
+    url: "/persons/{personId}/groups";
 };
 
 export type GetPersonsIdGroupsErrors = {
@@ -26930,7 +26785,7 @@ export type GetPersonsIdGroupsResponses = {
     };
 };
 
-export type GetPersonsIdGroupsResponse = GetPersonsIdGroupsResponses[keyof GetPersonsIdGroupsResponses];
+export type GetAllGroupsForPersonResponse = GetAllGroupsForPersonResponses[keyof GetAllGroupsForPersonResponses];
 
 export type PostPersonsIdInviteData = {
     body?: never;
@@ -26946,7 +26801,7 @@ export type PostPersonsIdInviteData = {
          */
         setPasswordUrlTemplate?: string;
     };
-    url: '/persons/{personId}/invite';
+    url: "/persons/{personId}/invite";
 };
 
 export type PostPersonsIdInviteErrors = {
@@ -26975,7 +26830,7 @@ export type PostPersonsIdInviteResponses = {
     204: void;
 };
 
-export type PostPersonsIdInviteResponse = PostPersonsIdInviteResponses[keyof PostPersonsIdInviteResponses];
+export type InvitePersonResponse = InvitePersonResponses[keyof InvitePersonResponses];
 
 export type GetPersonsIdLoginstringData = {
     body?: never;
@@ -26983,7 +26838,7 @@ export type GetPersonsIdLoginstringData = {
         personId: string;
     };
     query?: never;
-    url: '/persons/{personId}/loginstring';
+    url: "/persons/{personId}/loginstring";
 };
 
 export type GetPersonsIdLoginstringErrors = {
@@ -27001,7 +26856,7 @@ export type GetPersonsIdLoginstringErrors = {
     404: unknown;
 };
 
-export type GetPersonsIdLoginstringError = GetPersonsIdLoginstringErrors[keyof GetPersonsIdLoginstringErrors];
+export type GetPersonLoginstringError = GetPersonLoginstringErrors[keyof GetPersonLoginstringErrors];
 
 export type GetPersonsIdLoginstringResponses = {
     /**
@@ -27013,7 +26868,7 @@ export type GetPersonsIdLoginstringResponses = {
     };
 };
 
-export type GetPersonsIdLoginstringResponse = GetPersonsIdLoginstringResponses[keyof GetPersonsIdLoginstringResponses];
+export type GetPersonLoginstringResponse = GetPersonLoginstringResponses[keyof GetPersonLoginstringResponses];
 
 export type DeletePersonsIdLogintokenData = {
     body?: never;
@@ -27024,7 +26879,7 @@ export type DeletePersonsIdLogintokenData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/logintoken';
+    url: "/persons/{personId}/logintoken";
 };
 
 export type DeletePersonsIdLogintokenErrors = {
@@ -27042,7 +26897,7 @@ export type DeletePersonsIdLogintokenErrors = {
     404: unknown;
 };
 
-export type DeletePersonsIdLogintokenError = DeletePersonsIdLogintokenErrors[keyof DeletePersonsIdLogintokenErrors];
+export type DeletePersonLoginTokenError = DeletePersonLoginTokenErrors[keyof DeletePersonLoginTokenErrors];
 
 export type DeletePersonsIdLogintokenResponses = {
     /**
@@ -27051,8 +26906,7 @@ export type DeletePersonsIdLogintokenResponses = {
     204: void;
 };
 
-export type DeletePersonsIdLogintokenResponse =
-    DeletePersonsIdLogintokenResponses[keyof DeletePersonsIdLogintokenResponses];
+export type DeletePersonLoginTokenResponse = DeletePersonLoginTokenResponses[keyof DeletePersonLoginTokenResponses];
 
 export type GetPersonsIdLogintokenData = {
     body?: never;
@@ -27063,7 +26917,7 @@ export type GetPersonsIdLogintokenData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/logintoken';
+    url: "/persons/{personId}/logintoken";
 };
 
 export type GetPersonsIdLogintokenErrors = {
@@ -27097,7 +26951,8 @@ export type GetPersonsIdLogintokenResponses = {
     };
 };
 
-export type GetPersonsIdLogintokenResponse = GetPersonsIdLogintokenResponses[keyof GetPersonsIdLogintokenResponses];
+export type GetPersonsIdLogintokenResponse =
+    GetPersonsIdLogintokenResponses[keyof GetPersonsIdLogintokenResponses];
 
 export type GetPersonsPersonidMergeDuplicateidData = {
     body?: never;
@@ -27112,7 +26967,7 @@ export type GetPersonsPersonidMergeDuplicateidData = {
         personId: string;
     };
     query?: never;
-    url: '/persons/{personId}/merge/{duplicateId}';
+    url: "/persons/{personId}/merge/{duplicateId}";
 };
 
 export type GetPersonsPersonidMergeDuplicateidErrors = {
@@ -27149,7 +27004,7 @@ export type PatchPersonsPersonidMergeDuplicateidData = {
         personId: string;
     };
     query?: never;
-    url: '/persons/{personId}/merge/{duplicateId}';
+    url: "/persons/{personId}/merge/{duplicateId}";
 };
 
 export type PatchPersonsPersonidMergeDuplicateidResponses = {
@@ -27176,7 +27031,7 @@ export type PutPersonsIdPasswordData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/password';
+    url: "/persons/{personId}/password";
 };
 
 export type PutPersonsIdPasswordErrors = {
@@ -27194,7 +27049,7 @@ export type PutPersonsIdPasswordErrors = {
     404: unknown;
 };
 
-export type PutPersonsIdPasswordError = PutPersonsIdPasswordErrors[keyof PutPersonsIdPasswordErrors];
+export type PutPersonPasswordError = PutPersonPasswordErrors[keyof PutPersonPasswordErrors];
 
 export type GetPersonsPersonIdPostsData = {
     body?: never;
@@ -27205,7 +27060,7 @@ export type GetPersonsPersonIdPostsData = {
         /**
          * Can only be used if the endpoint is called with the personId of the currently logged in user. If a different personId is used in combination with filter[] the result will be empty.
          */
-        'filter[]'?: Array<PersonPostsFilterParam>;
+        "filter[]"?: Array<PersonPostsFilterParam>;
         /**
          * Number of results per page.
          */
@@ -27223,7 +27078,7 @@ export type GetPersonsPersonIdPostsData = {
          */
         after?: ZuluDate;
     };
-    url: '/persons/{personId}/posts';
+    url: "/persons/{personId}/posts";
 };
 
 export type GetPersonsPersonIdPostsErrors = {
@@ -27233,7 +27088,8 @@ export type GetPersonsPersonIdPostsErrors = {
     401: string;
 };
 
-export type GetPersonsPersonIdPostsError = GetPersonsPersonIdPostsErrors[keyof GetPersonsPersonIdPostsErrors];
+export type GetPersonsPersonIdPostsError =
+    GetPersonsPersonIdPostsErrors[keyof GetPersonsPersonIdPostsErrors];
 
 export type GetPersonsPersonIdPostsResponses = {
     /**
@@ -27244,7 +27100,8 @@ export type GetPersonsPersonIdPostsResponses = {
     };
 };
 
-export type GetPersonsPersonIdPostsResponse = GetPersonsPersonIdPostsResponses[keyof GetPersonsPersonIdPostsResponses];
+export type GetPersonsPersonIdPostsResponse =
+    GetPersonsPersonIdPostsResponses[keyof GetPersonsPersonIdPostsResponses];
 
 export type GetPersonsPersonIdPoststatisticsData = {
     body?: never;
@@ -27252,7 +27109,7 @@ export type GetPersonsPersonIdPoststatisticsData = {
         personId: string;
     };
     query?: never;
-    url: '/persons/{personId}/poststatistics';
+    url: "/persons/{personId}/poststatistics";
 };
 
 export type GetPersonsPersonIdPoststatisticsErrors = {
@@ -27286,7 +27143,7 @@ export type DeletePersonsIdPrivacypolicyData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/privacypolicy';
+    url: "/persons/{personId}/privacypolicy";
 };
 
 export type DeletePersonsIdPrivacypolicyErrors = {
@@ -27304,8 +27161,7 @@ export type DeletePersonsIdPrivacypolicyErrors = {
     404: unknown;
 };
 
-export type DeletePersonsIdPrivacypolicyError =
-    DeletePersonsIdPrivacypolicyErrors[keyof DeletePersonsIdPrivacypolicyErrors];
+export type DeletePersonPrivacyPolicyError = DeletePersonPrivacyPolicyErrors[keyof DeletePersonPrivacyPolicyErrors];
 
 export type DeletePersonsIdPrivacypolicyResponses = {
     /**
@@ -27326,7 +27182,7 @@ export type GetPersonsIdPrivacypolicyData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/privacypolicy';
+    url: "/persons/{personId}/privacypolicy";
 };
 
 export type GetPersonsIdPrivacypolicyErrors = {
@@ -27344,7 +27200,7 @@ export type GetPersonsIdPrivacypolicyErrors = {
     404: unknown;
 };
 
-export type GetPersonsIdPrivacypolicyError = GetPersonsIdPrivacypolicyErrors[keyof GetPersonsIdPrivacypolicyErrors];
+export type GetPersonPrivacyPolicyError = GetPersonPrivacyPolicyErrors[keyof GetPersonPrivacyPolicyErrors];
 
 export type GetPersonsIdPrivacypolicyResponses = {
     /**
@@ -27355,8 +27211,7 @@ export type GetPersonsIdPrivacypolicyResponses = {
     };
 };
 
-export type GetPersonsIdPrivacypolicyResponse =
-    GetPersonsIdPrivacypolicyResponses[keyof GetPersonsIdPrivacypolicyResponses];
+export type GetPersonPrivacyPolicyResponse = GetPersonPrivacyPolicyResponses[keyof GetPersonPrivacyPolicyResponses];
 
 export type PutPersonsIdPrivacypolicyData = {
     body?: never;
@@ -27367,7 +27222,7 @@ export type PutPersonsIdPrivacypolicyData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/privacypolicy';
+    url: "/persons/{personId}/privacypolicy";
 };
 
 export type PutPersonsIdPrivacypolicyErrors = {
@@ -27385,7 +27240,7 @@ export type PutPersonsIdPrivacypolicyErrors = {
     404: unknown;
 };
 
-export type PutPersonsIdPrivacypolicyError = PutPersonsIdPrivacypolicyErrors[keyof PutPersonsIdPrivacypolicyErrors];
+export type PutPersonPrivacyPolicyError = PutPersonPrivacyPolicyErrors[keyof PutPersonPrivacyPolicyErrors];
 
 export type GetPersonsIdRelationshipsData = {
     body?: never;
@@ -27396,7 +27251,7 @@ export type GetPersonsIdRelationshipsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/relationships';
+    url: "/persons/{personId}/relationships";
 };
 
 export type GetPersonsIdRelationshipsErrors = {
@@ -27419,8 +27274,7 @@ export type GetPersonsIdRelationshipsResponses = {
     };
 };
 
-export type GetPersonsIdRelationshipsResponse =
-    GetPersonsIdRelationshipsResponses[keyof GetPersonsIdRelationshipsResponses];
+export type GetPersonRelationshipsResponse = GetPersonRelationshipsResponses[keyof GetPersonRelationshipsResponses];
 
 export type GetPersonsIdServicerequestsData = {
     body?: never;
@@ -27436,7 +27290,7 @@ export type GetPersonsIdServicerequestsData = {
          */
         only_future?: boolean;
     };
-    url: '/persons/{personId}/servicerequests';
+    url: "/persons/{personId}/servicerequests";
 };
 
 export type GetPersonsIdServicerequestsErrors = {
@@ -27483,7 +27337,7 @@ export type DeletePersonsIdServicerequestsIdData = {
          */
         comment?: string;
     };
-    url: '/persons/{personId}/servicerequests/{requestId}';
+    url: "/persons/{personId}/servicerequests/{requestId}";
 };
 
 export type DeletePersonsIdServicerequestsIdErrors = {
@@ -27497,8 +27351,7 @@ export type DeletePersonsIdServicerequestsIdErrors = {
     403: unknown;
 };
 
-export type DeletePersonsIdServicerequestsIdError =
-    DeletePersonsIdServicerequestsIdErrors[keyof DeletePersonsIdServicerequestsIdErrors];
+export type DeclineServiceRequestByIdError = DeclineServiceRequestByIdErrors[keyof DeclineServiceRequestByIdErrors];
 
 export type DeletePersonsIdServicerequestsIdResponses = {
     /**
@@ -27523,7 +27376,7 @@ export type GetPersonsIdServicerequestsIdData = {
         requestId: number;
     };
     query?: never;
-    url: '/persons/{personId}/servicerequests/{requestId}';
+    url: "/persons/{personId}/servicerequests/{requestId}";
 };
 
 export type GetPersonsIdServicerequestsIdErrors = {
@@ -27537,8 +27390,7 @@ export type GetPersonsIdServicerequestsIdErrors = {
     403: unknown;
 };
 
-export type GetPersonsIdServicerequestsIdError =
-    GetPersonsIdServicerequestsIdErrors[keyof GetPersonsIdServicerequestsIdErrors];
+export type GetServiceRequestByIdError = GetServiceRequestByIdErrors[keyof GetServiceRequestByIdErrors];
 
 export type GetPersonsIdServicerequestsIdResponses = {
     /**
@@ -27549,8 +27401,7 @@ export type GetPersonsIdServicerequestsIdResponses = {
     };
 };
 
-export type GetPersonsIdServicerequestsIdResponse =
-    GetPersonsIdServicerequestsIdResponses[keyof GetPersonsIdServicerequestsIdResponses];
+export type GetServiceRequestByIdResponse = GetServiceRequestByIdResponses[keyof GetServiceRequestByIdResponses];
 
 export type PutPersonsIdServicerequestsIdData = {
     /**
@@ -27574,7 +27425,7 @@ export type PutPersonsIdServicerequestsIdData = {
         requestId: number;
     };
     query?: never;
-    url: '/persons/{personId}/servicerequests/{requestId}';
+    url: "/persons/{personId}/servicerequests/{requestId}";
 };
 
 export type PutPersonsIdServicerequestsIdErrors = {
@@ -27588,8 +27439,7 @@ export type PutPersonsIdServicerequestsIdErrors = {
     403: unknown;
 };
 
-export type PutPersonsIdServicerequestsIdError =
-    PutPersonsIdServicerequestsIdErrors[keyof PutPersonsIdServicerequestsIdErrors];
+export type UpdateServiceRequestByIdError = UpdateServiceRequestByIdErrors[keyof UpdateServiceRequestByIdErrors];
 
 export type PutPersonsIdServicerequestsIdResponses = {
     /**
@@ -27616,7 +27466,7 @@ export type PostPersonsIdServicerequestsIdUndoData = {
         requestId: number;
     };
     query?: never;
-    url: '/persons/{personId}/servicerequests/{requestId}/undo';
+    url: "/persons/{personId}/servicerequests/{requestId}/undo";
 };
 
 export type PostPersonsIdServicerequestsIdUndoErrors = {
@@ -27630,8 +27480,7 @@ export type PostPersonsIdServicerequestsIdUndoErrors = {
     403: unknown;
 };
 
-export type PostPersonsIdServicerequestsIdUndoError =
-    PostPersonsIdServicerequestsIdUndoErrors[keyof PostPersonsIdServicerequestsIdUndoErrors];
+export type UndoServiceRequestByIdError = UndoServiceRequestByIdErrors[keyof UndoServiceRequestByIdErrors];
 
 export type PostPersonsIdServicerequestsIdUndoResponses = {
     /**
@@ -27642,8 +27491,7 @@ export type PostPersonsIdServicerequestsIdUndoResponses = {
     };
 };
 
-export type PostPersonsIdServicerequestsIdUndoResponse =
-    PostPersonsIdServicerequestsIdUndoResponses[keyof PostPersonsIdServicerequestsIdUndoResponses];
+export type UndoServiceRequestByIdResponse = UndoServiceRequestByIdResponses[keyof UndoServiceRequestByIdResponses];
 
 export type GetPersonsIdSettingsData = {
     body?: never;
@@ -27654,7 +27502,7 @@ export type GetPersonsIdSettingsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings';
+    url: "/persons/{personId}/settings";
 };
 
 export type GetPersonsIdSettingsErrors = {
@@ -27668,7 +27516,7 @@ export type GetPersonsIdSettingsErrors = {
     403: unknown;
 };
 
-export type GetPersonsIdSettingsError = GetPersonsIdSettingsErrors[keyof GetPersonsIdSettingsErrors];
+export type GetAllPersonSettingsError = GetAllPersonSettingsErrors[keyof GetAllPersonSettingsErrors];
 
 export type GetPersonsIdSettingsResponses = {
     /**
@@ -27679,7 +27527,7 @@ export type GetPersonsIdSettingsResponses = {
     };
 };
 
-export type GetPersonsIdSettingsResponse = GetPersonsIdSettingsResponses[keyof GetPersonsIdSettingsResponses];
+export type GetAllPersonSettingsResponse = GetAllPersonSettingsResponses[keyof GetAllPersonSettingsResponses];
 
 export type DeletePersonsIdSettingsTwofactorData = {
     body?: never;
@@ -27690,7 +27538,7 @@ export type DeletePersonsIdSettingsTwofactorData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor';
+    url: "/persons/{personId}/settings/twofactor";
 };
 
 export type DeletePersonsIdSettingsTwofactorErrors = {
@@ -27708,8 +27556,7 @@ export type DeletePersonsIdSettingsTwofactorErrors = {
     404: unknown;
 };
 
-export type DeletePersonsIdSettingsTwofactorError =
-    DeletePersonsIdSettingsTwofactorErrors[keyof DeletePersonsIdSettingsTwofactorErrors];
+export type DeletePersonTwofactorError = DeletePersonTwofactorErrors[keyof DeletePersonTwofactorErrors];
 
 export type DeletePersonsIdSettingsTwofactorResponses = {
     /**
@@ -27718,8 +27565,7 @@ export type DeletePersonsIdSettingsTwofactorResponses = {
     204: void;
 };
 
-export type DeletePersonsIdSettingsTwofactorResponse =
-    DeletePersonsIdSettingsTwofactorResponses[keyof DeletePersonsIdSettingsTwofactorResponses];
+export type DeletePersonTwofactorResponse = DeletePersonTwofactorResponses[keyof DeletePersonTwofactorResponses];
 
 export type GetPersonsIdSettingsTwofactorData = {
     body?: never;
@@ -27730,7 +27576,7 @@ export type GetPersonsIdSettingsTwofactorData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor';
+    url: "/persons/{personId}/settings/twofactor";
 };
 
 export type GetPersonsIdSettingsTwofactorErrors = {
@@ -27748,8 +27594,7 @@ export type GetPersonsIdSettingsTwofactorErrors = {
     404: unknown;
 };
 
-export type GetPersonsIdSettingsTwofactorError =
-    GetPersonsIdSettingsTwofactorErrors[keyof GetPersonsIdSettingsTwofactorErrors];
+export type GetPersonTwofactorError = GetPersonTwofactorErrors[keyof GetPersonTwofactorErrors];
 
 export type PostPersonsIdSettingsTwofactorData = {
     body?: never;
@@ -27760,7 +27605,7 @@ export type PostPersonsIdSettingsTwofactorData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor';
+    url: "/persons/{personId}/settings/twofactor";
 };
 
 export type PostPersonsIdSettingsTwofactorErrors = {
@@ -27778,8 +27623,7 @@ export type PostPersonsIdSettingsTwofactorErrors = {
     404: unknown;
 };
 
-export type PostPersonsIdSettingsTwofactorError =
-    PostPersonsIdSettingsTwofactorErrors[keyof PostPersonsIdSettingsTwofactorErrors];
+export type PostPersonTwofactorError = PostPersonTwofactorErrors[keyof PostPersonTwofactorErrors];
 
 export type PutPersonsIdSettingsTwofactorData = {
     body?: never;
@@ -27790,7 +27634,7 @@ export type PutPersonsIdSettingsTwofactorData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor';
+    url: "/persons/{personId}/settings/twofactor";
 };
 
 export type PutPersonsIdSettingsTwofactorErrors = {
@@ -27808,8 +27652,7 @@ export type PutPersonsIdSettingsTwofactorErrors = {
     404: unknown;
 };
 
-export type PutPersonsIdSettingsTwofactorError =
-    PutPersonsIdSettingsTwofactorErrors[keyof PutPersonsIdSettingsTwofactorErrors];
+export type PutPersonTwofactorError = PutPersonTwofactorErrors[keyof PutPersonTwofactorErrors];
 
 export type GetPersonsIdSettingsTwofactorForceData = {
     body?: never;
@@ -27820,7 +27663,7 @@ export type GetPersonsIdSettingsTwofactorForceData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor/force';
+    url: "/persons/{personId}/settings/twofactor/force";
 };
 
 export type GetPersonsIdSettingsTwofactorForceErrors = {
@@ -27838,8 +27681,7 @@ export type GetPersonsIdSettingsTwofactorForceErrors = {
     404: unknown;
 };
 
-export type GetPersonsIdSettingsTwofactorForceError =
-    GetPersonsIdSettingsTwofactorForceErrors[keyof GetPersonsIdSettingsTwofactorForceErrors];
+export type GetPersonTwofactorForceError = GetPersonTwofactorForceErrors[keyof GetPersonTwofactorForceErrors];
 
 export type PutPersonsIdSettingsTwofactorForceData = {
     body?: never;
@@ -27850,7 +27692,7 @@ export type PutPersonsIdSettingsTwofactorForceData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/settings/twofactor/force';
+    url: "/persons/{personId}/settings/twofactor/force";
 };
 
 export type PutPersonsIdSettingsTwofactorForceErrors = {
@@ -27868,8 +27710,7 @@ export type PutPersonsIdSettingsTwofactorForceErrors = {
     404: unknown;
 };
 
-export type PutPersonsIdSettingsTwofactorForceError =
-    PutPersonsIdSettingsTwofactorForceErrors[keyof PutPersonsIdSettingsTwofactorForceErrors];
+export type PutPersonTwofactorForceError = PutPersonTwofactorForceErrors[keyof PutPersonTwofactorForceErrors];
 
 export type GetPersonsIdSettingsModuleData = {
     body?: never;
@@ -27884,7 +27725,7 @@ export type GetPersonsIdSettingsModuleData = {
         module: string;
     };
     query?: never;
-    url: '/persons/{personId}/settings/{module}';
+    url: "/persons/{personId}/settings/{module}";
 };
 
 export type GetPersonsIdSettingsModuleErrors = {
@@ -27898,7 +27739,7 @@ export type GetPersonsIdSettingsModuleErrors = {
     403: unknown;
 };
 
-export type GetPersonsIdSettingsModuleError = GetPersonsIdSettingsModuleErrors[keyof GetPersonsIdSettingsModuleErrors];
+export type GetPersonModuleSettingsError = GetPersonModuleSettingsErrors[keyof GetPersonModuleSettingsErrors];
 
 export type GetPersonsIdSettingsModuleResponses = {
     /**
@@ -27909,8 +27750,7 @@ export type GetPersonsIdSettingsModuleResponses = {
     };
 };
 
-export type GetPersonsIdSettingsModuleResponse =
-    GetPersonsIdSettingsModuleResponses[keyof GetPersonsIdSettingsModuleResponses];
+export type GetPersonModuleSettingsResponse = GetPersonModuleSettingsResponses[keyof GetPersonModuleSettingsResponses];
 
 export type DeletePersonsIdSettingsModuleAttributeData = {
     body?: never;
@@ -27929,7 +27769,7 @@ export type DeletePersonsIdSettingsModuleAttributeData = {
         module: string;
     };
     query?: never;
-    url: '/persons/{personId}/settings/{module}/{attribute}';
+    url: "/persons/{personId}/settings/{module}/{attribute}";
 };
 
 export type DeletePersonsIdSettingsModuleAttributeErrors = {
@@ -27943,8 +27783,7 @@ export type DeletePersonsIdSettingsModuleAttributeErrors = {
     403: unknown;
 };
 
-export type DeletePersonsIdSettingsModuleAttributeError =
-    DeletePersonsIdSettingsModuleAttributeErrors[keyof DeletePersonsIdSettingsModuleAttributeErrors];
+export type DeletePersonSettingError = DeletePersonSettingErrors[keyof DeletePersonSettingErrors];
 
 export type DeletePersonsIdSettingsModuleAttributeResponses = {
     /**
@@ -27953,8 +27792,7 @@ export type DeletePersonsIdSettingsModuleAttributeResponses = {
     204: void;
 };
 
-export type DeletePersonsIdSettingsModuleAttributeResponse =
-    DeletePersonsIdSettingsModuleAttributeResponses[keyof DeletePersonsIdSettingsModuleAttributeResponses];
+export type DeletePersonSettingResponse = DeletePersonSettingResponses[keyof DeletePersonSettingResponses];
 
 export type GetPersonsIdSettingsModuleAttributeData = {
     body?: never;
@@ -27973,7 +27811,7 @@ export type GetPersonsIdSettingsModuleAttributeData = {
         module: string;
     };
     query?: never;
-    url: '/persons/{personId}/settings/{module}/{attribute}';
+    url: "/persons/{personId}/settings/{module}/{attribute}";
 };
 
 export type GetPersonsIdSettingsModuleAttributeErrors = {
@@ -27987,8 +27825,7 @@ export type GetPersonsIdSettingsModuleAttributeErrors = {
     403: unknown;
 };
 
-export type GetPersonsIdSettingsModuleAttributeError =
-    GetPersonsIdSettingsModuleAttributeErrors[keyof GetPersonsIdSettingsModuleAttributeErrors];
+export type GetPersonSettingError = GetPersonSettingErrors[keyof GetPersonSettingErrors];
 
 export type GetPersonsIdSettingsModuleAttributeResponses = {
     /**
@@ -27999,8 +27836,7 @@ export type GetPersonsIdSettingsModuleAttributeResponses = {
     };
 };
 
-export type GetPersonsIdSettingsModuleAttributeResponse =
-    GetPersonsIdSettingsModuleAttributeResponses[keyof GetPersonsIdSettingsModuleAttributeResponses];
+export type GetPersonSettingResponse = GetPersonSettingResponses[keyof GetPersonSettingResponses];
 
 export type PutPersonsIdSettingsModuleAttributeData = {
     body: {
@@ -28021,7 +27857,7 @@ export type PutPersonsIdSettingsModuleAttributeData = {
         module: string;
     };
     query?: never;
-    url: '/persons/{personId}/settings/{module}/{attribute}';
+    url: "/persons/{personId}/settings/{module}/{attribute}";
 };
 
 export type PutPersonsIdSettingsModuleAttributeErrors = {
@@ -28035,8 +27871,7 @@ export type PutPersonsIdSettingsModuleAttributeErrors = {
     403: unknown;
 };
 
-export type PutPersonsIdSettingsModuleAttributeError =
-    PutPersonsIdSettingsModuleAttributeErrors[keyof PutPersonsIdSettingsModuleAttributeErrors];
+export type UpdatePersonSettingError = UpdatePersonSettingErrors[keyof UpdatePersonSettingErrors];
 
 export type PutPersonsIdSettingsModuleAttributeResponses = {
     /**
@@ -28047,8 +27882,7 @@ export type PutPersonsIdSettingsModuleAttributeResponses = {
     };
 };
 
-export type PutPersonsIdSettingsModuleAttributeResponse =
-    PutPersonsIdSettingsModuleAttributeResponses[keyof PutPersonsIdSettingsModuleAttributeResponses];
+export type UpdatePersonSettingResponse = UpdatePersonSettingResponses[keyof UpdatePersonSettingResponses];
 
 export type GetPersonsIdTagsData = {
     body?: never;
@@ -28059,7 +27893,7 @@ export type GetPersonsIdTagsData = {
         personId: number;
     };
     query?: never;
-    url: '/persons/{personId}/tags';
+    url: "/persons/{personId}/tags";
 };
 
 export type GetPersonsIdTagsErrors = {
@@ -28084,13 +27918,13 @@ export type GetPersonsIdTagsResponses = {
     };
 };
 
-export type GetPersonsIdTagsResponse = GetPersonsIdTagsResponses[keyof GetPersonsIdTagsResponses];
+export type GetPersonTagsResponse = GetPersonTagsResponses[keyof GetPersonTagsResponses];
 
 export type GetPostGroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/post/groups';
+    url: "/post/groups";
 };
 
 export type GetPostGroupsErrors = {
@@ -28116,13 +27950,14 @@ export type GetPostGroupsResponses = {
     };
 };
 
-export type GetPostGroupsResponse = GetPostGroupsResponses[keyof GetPostGroupsResponses];
+export type GetPostGroupsResponse =
+    GetPostGroupsResponses[keyof GetPostGroupsResponses];
 
 export type GetPostHiddenData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/post/hidden';
+    url: "/post/hidden";
 };
 
 export type GetPostHiddenErrors = {
@@ -28147,16 +27982,17 @@ export type GetPostHiddenResponses = {
     };
 };
 
-export type GetPostHiddenResponse = GetPostHiddenResponses[keyof GetPostHiddenResponses];
+export type GetPostHiddenResponse =
+    GetPostHiddenResponses[keyof GetPostHiddenResponses];
 
 export type DeletePostHiddenDomaintypeDomainidData = {
     body?: never;
     path: {
-        domainType: 'post' | 'actor' | 'group';
+        domainType: "post" | "actor" | "group";
         domainId: number;
     };
     query?: never;
-    url: '/post/hidden/{domainType}/{domainId}';
+    url: "/post/hidden/{domainType}/{domainId}";
 };
 
 export type DeletePostHiddenDomaintypeDomainidErrors = {
@@ -28190,9 +28026,9 @@ export type GetPostLinkingsData = {
         /**
          * Filters for which posts the linkings should be loaded.
          */
-        'post_ids[]'?: Array<number>;
+        "post_ids[]"?: Array<number>;
     };
-    url: '/post/linkings';
+    url: "/post/linkings";
 };
 
 export type GetPostLinkingsErrors = {
@@ -28206,7 +28042,8 @@ export type GetPostLinkingsErrors = {
     403: unknown;
 };
 
-export type GetPostLinkingsError = GetPostLinkingsErrors[keyof GetPostLinkingsErrors];
+export type GetPostLinkingsError =
+    GetPostLinkingsErrors[keyof GetPostLinkingsErrors];
 
 export type GetPostLinkingsResponses = {
     /**
@@ -28218,17 +28055,18 @@ export type GetPostLinkingsResponses = {
     };
 };
 
-export type GetPostLinkingsResponse = GetPostLinkingsResponses[keyof GetPostLinkingsResponses];
+export type GetPostLinkingsResponse =
+    GetPostLinkingsResponses[keyof GetPostLinkingsResponses];
 
 export type GetPostReportsData = {
     body?: never;
     path?: never;
     query?: {
-        domain_type?: 'post' | 'post_comment';
+        domain_type?: "post" | "post_comment";
         domain_id?: number;
-        status?: 'pending' | 'accepted' | 'declined' | 'pending-again';
+        status?: "pending" | "accepted" | "declined" | "pending-again";
     };
-    url: '/post/reports';
+    url: "/post/reports";
 };
 
 export type GetPostReportsErrors = {
@@ -28242,7 +28080,8 @@ export type GetPostReportsErrors = {
     403: unknown;
 };
 
-export type GetPostReportsError = GetPostReportsErrors[keyof GetPostReportsErrors];
+export type GetPostReportsError =
+    GetPostReportsErrors[keyof GetPostReportsErrors];
 
 export type GetPostReportsResponses = {
     /**
@@ -28254,13 +28093,14 @@ export type GetPostReportsResponses = {
     };
 };
 
-export type GetPostReportsResponse = GetPostReportsResponses[keyof GetPostReportsResponses];
+export type GetPostReportsResponse =
+    GetPostReportsResponses[keyof GetPostReportsResponses];
 
 export type PostPostReportsData = {
     body: ReportCreate;
     path?: never;
     query?: never;
-    url: '/post/reports';
+    url: "/post/reports";
 };
 
 export type PostPostReportsErrors = {
@@ -28274,7 +28114,8 @@ export type PostPostReportsErrors = {
     403: unknown;
 };
 
-export type PostPostReportsError = PostPostReportsErrors[keyof PostPostReportsErrors];
+export type PostPostReportsError =
+    PostPostReportsErrors[keyof PostPostReportsErrors];
 
 export type PostPostReportsResponses = {
     /**
@@ -28285,13 +28126,14 @@ export type PostPostReportsResponses = {
     };
 };
 
-export type PostPostReportsResponse = PostPostReportsResponses[keyof PostPostReportsResponses];
+export type PostPostReportsResponse =
+    PostPostReportsResponses[keyof PostPostReportsResponses];
 
 export type PutPostReportsAnswerData = {
     body: ReportAnswer;
     path?: never;
     query?: never;
-    url: '/post/reports/answer';
+    url: "/post/reports/answer";
 };
 
 export type PutPostReportsAnswerErrors = {
@@ -28305,7 +28147,8 @@ export type PutPostReportsAnswerErrors = {
     403: unknown;
 };
 
-export type PutPostReportsAnswerError = PutPostReportsAnswerErrors[keyof PutPostReportsAnswerErrors];
+export type PutPostReportsAnswerError =
+    PutPostReportsAnswerErrors[keyof PutPostReportsAnswerErrors];
 
 export type PutPostReportsAnswerResponses = {
     /**
@@ -28314,7 +28157,8 @@ export type PutPostReportsAnswerResponses = {
     204: void;
 };
 
-export type PutPostReportsAnswerResponse = PutPostReportsAnswerResponses[keyof PutPostReportsAnswerResponses];
+export type PutPostReportsAnswerResponse =
+    PutPostReportsAnswerResponses[keyof PutPostReportsAnswerResponses];
 
 export type GetPostSearchData = {
     body?: never;
@@ -28327,11 +28171,11 @@ export type GetPostSearchData = {
         /**
          * The order the posts are returned in.
          */
-        order_by?: 'publishedDate' | 'relevance';
+        order_by?: "publishedDate" | "relevance";
         /**
          * The order direction. Only works for order_by publishedDate.
          */
-        order_direction?: 'ASC' | 'DESC';
+        order_direction?: "ASC" | "DESC";
         /**
          * If set, only posts created before this date are returned. The date must be in RFC3339 format (Zulu-Date).
          */
@@ -28343,33 +28187,33 @@ export type GetPostSearchData = {
         /**
          * If set, only posts of these campuses are returned. If not set, posts of all campuses are returned.
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * If set, only posts by these persons are returned. If not set, posts by all persons are returned.
          */
-        'actor_ids[]'?: Array<number>;
+        "actor_ids[]"?: Array<number>;
         /**
          * If set, only posts are returned that belong to groups with this visibility.
          */
-        group_visibility?: GroupVisibility;
+        group_visibility?: 'hidden' | 'internal' | 'public' | 'restricted';
         /**
          * If set, only posts with that visibility are returned.
          */
-        post_visibility?: 'group_intern' | 'group_visible';
+        post_visibility?: "group_intern" | "group_visible";
         /**
          * If set, only posts of these groups are returned. If not set, posts of all groups are returned.
          */
-        'group_ids[]'?: Array<number>;
+        "group_ids[]"?: Array<number>;
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'comments' | 'reactions' | 'linkings'>;
+        include?: Array<"comments" | "reactions" | "linkings">;
         /**
          * If set to true, only posts of groups the user is member of are returned. If not set, posts of all groups are returned.
          */
         only_my_groups?: boolean;
     };
-    url: '/post/search';
+    url: "/post/search";
 };
 
 export type GetPostSearchErrors = {
@@ -28399,7 +28243,7 @@ export type GetPostSearchResponses = {
     };
 };
 
-export type GetPostSearchResponse = GetPostSearchResponses[keyof GetPostSearchResponses];
+export type SearchPostsResponse = SearchPostsResponses[keyof SearchPostsResponses];
 
 export type GetPostsData = {
     body?: never;
@@ -28426,27 +28270,27 @@ export type GetPostsData = {
         /**
          * If set, only posts of these campuses are returned. If not set, posts of all campuses are returned.
          */
-        'campus_ids[]'?: Array<number>;
+        "campus_ids[]"?: Array<number>;
         /**
          * If set, only posts by these persons are returned. If not set, posts by all persons are returned.
          */
-        'actor_ids[]'?: Array<number>;
+        "actor_ids[]"?: Array<number>;
         /**
          * If set, only posts are returned that belong to groups with this visibility.
          */
-        group_visibility?: GroupVisibility;
+        group_visibility?: 'hidden' | 'intern' | 'public' | 'restricted';
         /**
          * If set, only posts with that visibility are returned.
          */
-        post_visibility?: 'group_intern' | 'group_visible';
+        post_visibility?: "group_intern" | "group_visible";
         /**
          * If set, only posts of these groups are returned. If not set, posts of all groups are returned.
          */
-        'group_ids[]'?: Array<number>;
+        "group_ids[]"?: Array<number>;
         /**
          * If set, the response will include the specified data.
          */
-        'include[]'?: Array<'comments' | 'reactions' | 'linkings'>;
+        "include[]"?: Array<"comments" | "reactions" | "linkings">;
         /**
          * Number of results per page.
          */
@@ -28456,7 +28300,7 @@ export type GetPostsData = {
          */
         only_my_groups?: boolean;
     };
-    url: '/posts';
+    url: "/posts";
 };
 
 export type GetPostsErrors = {
@@ -28492,7 +28336,7 @@ export type PostPostsData = {
     body: PostCreate;
     path?: never;
     query?: never;
-    url: '/posts';
+    url: "/posts";
 };
 
 export type PostPostsErrors = {
@@ -28537,7 +28381,7 @@ export type DeletePostsPostIdData = {
          */
         dryRun: boolean;
     };
-    url: '/posts/{postId}';
+    url: "/posts/{postId}";
 };
 
 export type DeletePostsPostIdErrors = {
@@ -28555,7 +28399,8 @@ export type DeletePostsPostIdErrors = {
     404: unknown;
 };
 
-export type DeletePostsPostIdError = DeletePostsPostIdErrors[keyof DeletePostsPostIdErrors];
+export type DeletePostsPostIdError =
+    DeletePostsPostIdErrors[keyof DeletePostsPostIdErrors];
 
 export type DeletePostsPostIdResponses = {
     /**
@@ -28564,7 +28409,8 @@ export type DeletePostsPostIdResponses = {
     204: void;
 };
 
-export type DeletePostsPostIdResponse = DeletePostsPostIdResponses[keyof DeletePostsPostIdResponses];
+export type DeletePostsPostIdResponse =
+    DeletePostsPostIdResponses[keyof DeletePostsPostIdResponses];
 
 export type GetPostsPostIdData = {
     body?: never;
@@ -28578,9 +28424,9 @@ export type GetPostsPostIdData = {
         /**
          * If set, the response will include the specified data.
          */
-        include?: Array<'comments' | 'reactions'>;
+        include?: Array<"comments" | "reactions">;
     };
-    url: '/posts/{postId}';
+    url: "/posts/{postId}";
 };
 
 export type GetPostsPostIdErrors = {
@@ -28598,7 +28444,8 @@ export type GetPostsPostIdErrors = {
     404: unknown;
 };
 
-export type GetPostsPostIdError = GetPostsPostIdErrors[keyof GetPostsPostIdErrors];
+export type GetPostsPostIdError =
+    GetPostsPostIdErrors[keyof GetPostsPostIdErrors];
 
 export type GetPostsPostIdResponses = {
     /**
@@ -28609,7 +28456,8 @@ export type GetPostsPostIdResponses = {
     };
 };
 
-export type GetPostsPostIdResponse = GetPostsPostIdResponses[keyof GetPostsPostIdResponses];
+export type GetPostsPostIdResponse =
+    GetPostsPostIdResponses[keyof GetPostsPostIdResponses];
 
 export type PatchPostsPostIdData = {
     body: PostUpdate;
@@ -28620,7 +28468,7 @@ export type PatchPostsPostIdData = {
         postId: number;
     };
     query?: never;
-    url: '/posts/{postId}';
+    url: "/posts/{postId}";
 };
 
 export type PatchPostsPostIdErrors = {
@@ -28642,7 +28490,8 @@ export type PatchPostsPostIdErrors = {
     409: unknown;
 };
 
-export type PatchPostsPostIdError = PatchPostsPostIdErrors[keyof PatchPostsPostIdErrors];
+export type PatchPostsPostIdError =
+    PatchPostsPostIdErrors[keyof PatchPostsPostIdErrors];
 
 export type PatchPostsPostIdResponses = {
     /**
@@ -28653,7 +28502,8 @@ export type PatchPostsPostIdResponses = {
     };
 };
 
-export type PatchPostsPostIdResponse = PatchPostsPostIdResponses[keyof PatchPostsPostIdResponses];
+export type PatchPostsPostIdResponse =
+    PatchPostsPostIdResponses[keyof PatchPostsPostIdResponses];
 
 export type GetPostsPostIdCommentsData = {
     body?: never;
@@ -28664,7 +28514,7 @@ export type GetPostsPostIdCommentsData = {
         postId: number;
     };
     query?: never;
-    url: '/posts/{postId}/comments';
+    url: "/posts/{postId}/comments";
 };
 
 export type GetPostsPostIdCommentsErrors = {
@@ -28682,7 +28532,8 @@ export type GetPostsPostIdCommentsErrors = {
     404: unknown;
 };
 
-export type GetPostsPostIdCommentsError = GetPostsPostIdCommentsErrors[keyof GetPostsPostIdCommentsErrors];
+export type GetPostsPostIdCommentsError =
+    GetPostsPostIdCommentsErrors[keyof GetPostsPostIdCommentsErrors];
 
 export type GetPostsPostIdCommentsResponses = {
     /**
@@ -28693,7 +28544,8 @@ export type GetPostsPostIdCommentsResponses = {
     };
 };
 
-export type GetPostsPostIdCommentsResponse = GetPostsPostIdCommentsResponses[keyof GetPostsPostIdCommentsResponses];
+export type GetPostsPostIdCommentsResponse =
+    GetPostsPostIdCommentsResponses[keyof GetPostsPostIdCommentsResponses];
 
 export type PostPostsPostIdCommentsData = {
     body: PostCommentCreate;
@@ -28704,7 +28556,7 @@ export type PostPostsPostIdCommentsData = {
         postId: number;
     };
     query?: never;
-    url: '/posts/{postId}/comments';
+    url: "/posts/{postId}/comments";
 };
 
 export type PostPostsPostIdCommentsErrors = {
@@ -28722,7 +28574,8 @@ export type PostPostsPostIdCommentsErrors = {
     404: unknown;
 };
 
-export type PostPostsPostIdCommentsError = PostPostsPostIdCommentsErrors[keyof PostPostsPostIdCommentsErrors];
+export type PostPostsPostIdCommentsError =
+    PostPostsPostIdCommentsErrors[keyof PostPostsPostIdCommentsErrors];
 
 export type PostPostsPostIdCommentsResponses = {
     /**
@@ -28733,7 +28586,8 @@ export type PostPostsPostIdCommentsResponses = {
     };
 };
 
-export type PostPostsPostIdCommentsResponse = PostPostsPostIdCommentsResponses[keyof PostPostsPostIdCommentsResponses];
+export type PostPostsPostIdCommentsResponse =
+    PostPostsPostIdCommentsResponses[keyof PostPostsPostIdCommentsResponses];
 
 export type DeletePostsPostIdCommentsCommentIdData = {
     body?: never;
@@ -28745,7 +28599,7 @@ export type DeletePostsPostIdCommentsCommentIdData = {
         commentId: number;
     };
     query?: never;
-    url: '/posts/{postId}/comments/{commentId}';
+    url: "/posts/{postId}/comments/{commentId}";
 };
 
 export type DeletePostsPostIdCommentsCommentIdErrors = {
@@ -28785,7 +28639,7 @@ export type PutPostsPostIdExpireData = {
         postId: number;
     };
     query?: never;
-    url: '/posts/{postId}/expire';
+    url: "/posts/{postId}/expire";
 };
 
 export type PutPostsPostIdExpireErrors = {
@@ -28806,7 +28660,8 @@ export type PutPostsPostIdExpireResponses = {
     204: void;
 };
 
-export type PutPostsPostIdExpireResponse = PutPostsPostIdExpireResponses[keyof PutPostsPostIdExpireResponses];
+export type PutPostsPostIdExpireResponse =
+    PutPostsPostIdExpireResponses[keyof PutPostsPostIdExpireResponses];
 
 export type PutPostsPostIdHiddenDomainTypeData = {
     body?: never;
@@ -28818,10 +28673,10 @@ export type PutPostsPostIdHiddenDomainTypeData = {
         /**
          * The type of the domain where the post is hidden. This can be `actor`, `post`, or `group`.
          */
-        domainType: 'post' | 'group' | 'actor';
+        domainType: "post" | "group" | "actor";
     };
     query?: never;
-    url: '/posts/{postId}/hidden/{domainType}';
+    url: "/posts/{postId}/hidden/{domainType}";
 };
 
 export type PutPostsPostIdHiddenDomainTypeErrors = {
@@ -28851,7 +28706,7 @@ export type GetPostsPostIdReactionsData = {
         postId: number;
     };
     query?: never;
-    url: '/posts/{postId}/reactions';
+    url: "/posts/{postId}/reactions";
 };
 
 export type GetPostsPostIdReactionsErrors = {
@@ -28869,7 +28724,8 @@ export type GetPostsPostIdReactionsErrors = {
     404: unknown;
 };
 
-export type GetPostsPostIdReactionsError = GetPostsPostIdReactionsErrors[keyof GetPostsPostIdReactionsErrors];
+export type GetPostsPostIdReactionsError =
+    GetPostsPostIdReactionsErrors[keyof GetPostsPostIdReactionsErrors];
 
 export type GetPostsPostIdReactionsResponses = {
     /**
@@ -28880,7 +28736,8 @@ export type GetPostsPostIdReactionsResponses = {
     };
 };
 
-export type GetPostsPostIdReactionsResponse = GetPostsPostIdReactionsResponses[keyof GetPostsPostIdReactionsResponses];
+export type GetPostsPostIdReactionsResponse =
+    GetPostsPostIdReactionsResponses[keyof GetPostsPostIdReactionsResponses];
 
 export type DeletePostsPostIdReactionsEmojiPersonsPersonIdData = {
     body?: never;
@@ -28893,7 +28750,7 @@ export type DeletePostsPostIdReactionsEmojiPersonsPersonIdData = {
         personId: string;
     };
     query?: never;
-    url: '/posts/{postId}/reactions/{emoji}/persons/{personId}';
+    url: "/posts/{postId}/reactions/{emoji}/persons/{personId}";
 };
 
 export type DeletePostsPostIdReactionsEmojiPersonsPersonIdErrors = {
@@ -28935,7 +28792,7 @@ export type PutPostsPostIdReactionsEmojiPersonsPersonIdData = {
         personId: string;
     };
     query?: never;
-    url: '/posts/{postId}/reactions/{emoji}/persons/{personId}';
+    url: "/posts/{postId}/reactions/{emoji}/persons/{personId}";
 };
 
 export type PutPostsPostIdReactionsEmojiPersonsPersonIdErrors = {
@@ -28972,7 +28829,7 @@ export type GetPrMasterdataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/pr/masterdata';
+    url: "/pr/masterdata";
 };
 
 export type GetPrMasterdataErrors = {
@@ -28990,7 +28847,8 @@ export type GetPrMasterdataErrors = {
     404: unknown;
 };
 
-export type GetPrMasterdataError = GetPrMasterdataErrors[keyof GetPrMasterdataErrors];
+export type GetPrMasterdataError =
+    GetPrMasterdataErrors[keyof GetPrMasterdataErrors];
 
 export type GetPrMasterdataResponses = {
     /**
@@ -29008,13 +28866,14 @@ export type GetPrMasterdataResponses = {
     };
 };
 
-export type GetPrMasterdataResponse = GetPrMasterdataResponses[keyof GetPrMasterdataResponses];
+export type GetPrMasterdataResponse =
+    GetPrMasterdataResponses[keyof GetPrMasterdataResponses];
 
 export type GetPrintersData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/printers';
+    url: "/printers";
 };
 
 export type GetPrintersErrors = {
@@ -29028,7 +28887,7 @@ export type GetPrintersErrors = {
     403: unknown;
 };
 
-export type GetPrintersError = GetPrintersErrors[keyof GetPrintersErrors];
+export type GetAllPrintersError = GetAllPrintersErrors[keyof GetAllPrintersErrors];
 
 export type GetPrintersResponses = {
     /**
@@ -29040,13 +28899,13 @@ export type GetPrintersResponses = {
     };
 };
 
-export type GetPrintersResponse = GetPrintersResponses[keyof GetPrintersResponses];
+export type GetAllPrintersResponse = GetAllPrintersResponses[keyof GetAllPrintersResponses];
 
 export type GetProfilesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/profiles';
+    url: "/profiles";
 };
 
 export type GetProfilesResponses = {
@@ -29064,13 +28923,13 @@ export type GetProfilesResponses = {
     };
 };
 
-export type GetProfilesResponse = GetProfilesResponses[keyof GetProfilesResponses];
+export type GetApiProfilesResponse = GetApiProfilesResponses[keyof GetApiProfilesResponses];
 
 export type GetProfilesChurchData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/profiles/church';
+    url: "/profiles/church";
 };
 
 export type GetProfilesChurchResponses = {
@@ -29082,13 +28941,14 @@ export type GetProfilesChurchResponses = {
     };
 };
 
-export type GetProfilesChurchResponse = GetProfilesChurchResponses[keyof GetProfilesChurchResponses];
+export type GetProfilesChurchResponse =
+    GetProfilesChurchResponses[keyof GetProfilesChurchResponses];
 
 export type PutProfilesChurchData = {
     body: ProfileUpdate;
     path?: never;
     query?: never;
-    url: '/profiles/church';
+    url: "/profiles/church";
 };
 
 export type PutProfilesChurchResponses = {
@@ -29100,7 +28960,8 @@ export type PutProfilesChurchResponses = {
     };
 };
 
-export type PutProfilesChurchResponse = PutProfilesChurchResponses[keyof PutProfilesChurchResponses];
+export type PutProfilesChurchResponse =
+    PutProfilesChurchResponses[keyof PutProfilesChurchResponses];
 
 export type GetProfilesSlugcheckSlugData = {
     body?: never;
@@ -29111,7 +28972,7 @@ export type GetProfilesSlugcheckSlugData = {
         slug: string;
     };
     query?: never;
-    url: '/profiles/slugcheck/{slug}';
+    url: "/profiles/slugcheck/{slug}";
 };
 
 export type GetProfilesSlugcheckSlugErrors = {
@@ -29138,7 +28999,7 @@ export type GetPublicgroupsIdData = {
         groupId: string;
     };
     query?: never;
-    url: '/publicgroups/{groupId}';
+    url: "/publicgroups/{groupId}";
 };
 
 export type GetPublicgroupsIdResponses = {
@@ -29209,7 +29070,7 @@ export type GetPublicgroupsIdResponses = {
     };
 };
 
-export type GetPublicgroupsIdResponse = GetPublicgroupsIdResponses[keyof GetPublicgroupsIdResponses];
+export type GetPublicgroupResponse = GetPublicgroupResponses[keyof GetPublicgroupResponses];
 
 export type GetPublicgroupsGroupIdFormData = {
     body?: never;
@@ -29229,7 +29090,7 @@ export type GetPublicgroupsGroupIdFormData = {
          */
         personId: string;
     };
-    url: '/publicgroups/{groupId}/form';
+    url: "/publicgroups/{groupId}/form";
 };
 
 export type GetPublicgroupsGroupIdFormErrors = {
@@ -29271,7 +29132,7 @@ export type PostPublicgroupsGroupIdMailToLeadersData = {
         groupId: string;
     };
     query?: never;
-    url: '/publicgroups/{groupId}/mailToLeaders';
+    url: "/publicgroups/{groupId}/mailToLeaders";
 };
 
 export type PostPublicgroupsGroupIdMailToLeadersErrors = {
@@ -29306,7 +29167,7 @@ export type GetPublicgroupsGroupIdPossiblerequestersData = {
          */
         token: string;
     };
-    url: '/publicgroups/{groupId}/possiblerequesters';
+    url: "/publicgroups/{groupId}/possiblerequesters";
 };
 
 export type GetPublicgroupsGroupIdPossiblerequestersResponses = {
@@ -29327,7 +29188,7 @@ export type GetPublicgroupsIdSignoutdataData = {
         groupId: string;
     };
     query?: never;
-    url: '/publicgroups/{groupId}/signoutdata';
+    url: "/publicgroups/{groupId}/signoutdata";
 };
 
 export type GetPublicgroupsIdSignoutdataResponses = {
@@ -29386,7 +29247,7 @@ export type PostPublicgroupsGroupIdSignupData = {
         groupId: string;
     };
     query?: never;
-    url: '/publicgroups/{groupId}/signup';
+    url: "/publicgroups/{groupId}/signup";
 };
 
 export type PostPublicgroupsGroupIdSignupErrors = {
@@ -29445,7 +29306,7 @@ export type PostPublicgroupsGroupIdTokenData = {
         groupId: number;
     };
     query?: never;
-    url: '/publicgroups/{groupId}/token';
+    url: "/publicgroups/{groupId}/token";
 };
 
 export type PostPublicgroupsGroupIdTokenErrors = {
@@ -29457,8 +29318,7 @@ export type PostPublicgroupsGroupIdTokenErrors = {
     };
 };
 
-export type PostPublicgroupsGroupIdTokenError =
-    PostPublicgroupsGroupIdTokenErrors[keyof PostPublicgroupsGroupIdTokenErrors];
+export type IssueSignUpTokenError = IssueSignUpTokenErrors[keyof IssueSignUpTokenErrors];
 
 export type PostPublicgroupsGroupIdTokenResponses = {
     /**
@@ -29492,8 +29352,7 @@ export type PostPublicgroupsGroupIdTokenResponses = {
     };
 };
 
-export type PostPublicgroupsGroupIdTokenResponse =
-    PostPublicgroupsGroupIdTokenResponses[keyof PostPublicgroupsGroupIdTokenResponses];
+export type IssueSignUpTokenResponse = IssueSignUpTokenResponses[keyof IssueSignUpTokenResponses];
 
 export type GetPublicgroupsIdHashData = {
     body?: never;
@@ -29508,7 +29367,7 @@ export type GetPublicgroupsIdHashData = {
         groupId: string;
     };
     query?: never;
-    url: '/publicgroups/{groupId}/{hash}';
+    url: "/publicgroups/{groupId}/{hash}";
 };
 
 export type GetPublicgroupsIdHashErrors = {
@@ -29529,15 +29388,15 @@ export type GetPublicgroupsIdHashResponses = {
     200: PublicGroup;
 };
 
-export type GetPublicgroupsIdHashResponse = GetPublicgroupsIdHashResponses[keyof GetPublicgroupsIdHashResponses];
+export type GetGroupForHomepageResponse = GetGroupForHomepageResponses[keyof GetGroupForHomepageResponses];
 
 export type PostQueuesQueueData = {
     body?: never;
     path: {
-        queue: 'default';
+        queue: "default";
     };
     query?: never;
-    url: '/queues/{queue}';
+    url: "/queues/{queue}";
 };
 
 export type PostQueuesQueueResponses = {
@@ -29558,7 +29417,7 @@ export type PostQueuesQueueResponses = {
     };
 };
 
-export type PostQueuesQueueResponse = PostQueuesQueueResponses[keyof PostQueuesQueueResponses];
+export type StartQueueWorkerResponse = StartQueueWorkerResponses[keyof StartQueueWorkerResponses];
 
 export type GetQueuesQueueJobgroupsJobGroupData = {
     body?: never;
@@ -29570,7 +29429,7 @@ export type GetQueuesQueueJobgroupsJobGroupData = {
         queue: string;
     };
     query?: never;
-    url: '/queues/{queue}/jobgroups/{jobGroup}';
+    url: "/queues/{queue}/jobgroups/{jobGroup}";
 };
 
 export type GetQueuesQueueJobgroupsJobGroupResponses = {
@@ -29583,8 +29442,7 @@ export type GetQueuesQueueJobgroupsJobGroupResponses = {
     };
 };
 
-export type GetQueuesQueueJobgroupsJobGroupResponse =
-    GetQueuesQueueJobgroupsJobGroupResponses[keyof GetQueuesQueueJobgroupsJobGroupResponses];
+export type GetQueueJobGroupsStatusResponse = GetQueueJobGroupsStatusResponses[keyof GetQueueJobGroupsStatusResponses];
 
 export type GetRegistrationconfigIdData = {
     body?: never;
@@ -29595,7 +29453,7 @@ export type GetRegistrationconfigIdData = {
         id: number;
     };
     query?: never;
-    url: '/registrationconfig/{id}';
+    url: "/registrationconfig/{id}";
 };
 
 export type GetRegistrationconfigIdResponses = {
@@ -29607,7 +29465,8 @@ export type GetRegistrationconfigIdResponses = {
     };
 };
 
-export type GetRegistrationconfigIdResponse = GetRegistrationconfigIdResponses[keyof GetRegistrationconfigIdResponses];
+export type GetRegistrationconfigIdResponse =
+    GetRegistrationconfigIdResponses[keyof GetRegistrationconfigIdResponses];
 
 export type PatchRegistrationconfigIdData = {
     body?: never;
@@ -29618,7 +29477,7 @@ export type PatchRegistrationconfigIdData = {
         id: number;
     };
     query?: never;
-    url: '/registrationconfig/{id}';
+    url: "/registrationconfig/{id}";
 };
 
 export type PatchRegistrationconfigIdResponses = {
@@ -29637,7 +29496,7 @@ export type PostRegistrationsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/registrations';
+    url: "/registrations";
 };
 
 export type PostRegistrationsResponses = {
@@ -29653,7 +29512,8 @@ export type PostRegistrationsResponses = {
     204: void;
 };
 
-export type PostRegistrationsResponse = PostRegistrationsResponses[keyof PostRegistrationsResponses];
+export type PostRegistrationsResponse =
+    PostRegistrationsResponses[keyof PostRegistrationsResponses];
 
 export type DeleteRegistrationsGuidData = {
     body?: never;
@@ -29664,7 +29524,7 @@ export type DeleteRegistrationsGuidData = {
         guid: string;
     };
     query?: never;
-    url: '/registrations/{guid}';
+    url: "/registrations/{guid}";
 };
 
 export type DeleteRegistrationsGuidResponses = {
@@ -29674,7 +29534,8 @@ export type DeleteRegistrationsGuidResponses = {
     204: void;
 };
 
-export type DeleteRegistrationsGuidResponse = DeleteRegistrationsGuidResponses[keyof DeleteRegistrationsGuidResponses];
+export type DeleteRegistrationsGuidResponse =
+    DeleteRegistrationsGuidResponses[keyof DeleteRegistrationsGuidResponses];
 
 export type PostRegistrationsGuidConfirmData = {
     body?: never;
@@ -29687,7 +29548,7 @@ export type PostRegistrationsGuidConfirmData = {
     query: {
         token: string;
     };
-    url: '/registrations/{guid}/confirm';
+    url: "/registrations/{guid}/confirm";
 };
 
 export type PostRegistrationsGuidConfirmResponses = {
@@ -29721,7 +29582,7 @@ export type PostRegistrationsGuidConvertData = {
     query: {
         token: string;
     };
-    url: '/registrations/{guid}/convert';
+    url: "/registrations/{guid}/convert";
 };
 
 export type PostRegistrationsGuidConvertResponses = {
@@ -29743,7 +29604,7 @@ export type PostRegistrationsGuidResendData = {
         guid: string;
     };
     query?: never;
-    url: '/registrations/{guid}/resend';
+    url: "/registrations/{guid}/resend";
 };
 
 export type PostRegistrationsGuidResendResponses = {
@@ -29762,7 +29623,7 @@ export type PostResetPasswordData = {
     };
     path?: never;
     query?: never;
-    url: '/reset-password';
+    url: "/reset-password";
 };
 
 export type PostResetPasswordResponses = {
@@ -29776,13 +29637,14 @@ export type PostResetPasswordResponses = {
     };
 };
 
-export type PostResetPasswordResponse = PostResetPasswordResponses[keyof PostResetPasswordResponses];
+export type PostResetPasswordResponse =
+    PostResetPasswordResponses[keyof PostResetPasswordResponses];
 
 export type GetResourceMasterdataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/resource/masterdata';
+    url: "/resource/masterdata";
 };
 
 export type GetResourceMasterdataResponses = {
@@ -29794,13 +29656,14 @@ export type GetResourceMasterdataResponses = {
     };
 };
 
-export type GetResourceMasterdataResponse = GetResourceMasterdataResponses[keyof GetResourceMasterdataResponses];
+export type GetResourceMasterdataResponse =
+    GetResourceMasterdataResponses[keyof GetResourceMasterdataResponses];
 
 export type GetResourcesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/resources';
+    url: "/resources";
 };
 
 export type GetResourcesErrors = {
@@ -29826,13 +29689,14 @@ export type GetResourcesResponses = {
     };
 };
 
-export type GetResourcesResponse = GetResourcesResponses[keyof GetResourcesResponses];
+export type GetResourcesResponse =
+    GetResourcesResponses[keyof GetResourcesResponses];
 
 export type PostResourcesData = {
     body: ResourceCreate;
     path?: never;
     query?: never;
-    url: '/resources';
+    url: "/resources";
 };
 
 export type PostResourcesErrors = {
@@ -29861,7 +29725,8 @@ export type PostResourcesResponses = {
     };
 };
 
-export type PostResourcesResponse = PostResourcesResponses[keyof PostResourcesResponses];
+export type PostResourcesResponse =
+    PostResourcesResponses[keyof PostResourcesResponses];
 
 export type DeleteResourcesResourceIdData = {
     body?: never;
@@ -29869,7 +29734,7 @@ export type DeleteResourcesResourceIdData = {
         resourceId: number;
     };
     query?: never;
-    url: '/resources/{resourceId}';
+    url: "/resources/{resourceId}";
 };
 
 export type DeleteResourcesResourceIdErrors = {
@@ -29917,7 +29782,7 @@ export type DeleteResourcesResourceIdErrors = {
     };
 };
 
-export type DeleteResourcesResourceIdError = DeleteResourcesResourceIdErrors[keyof DeleteResourcesResourceIdErrors];
+export type DeleteResourcesResourceId2Error = DeleteResourcesResourceId2Errors[keyof DeleteResourcesResourceId2Errors];
 
 export type DeleteResourcesResourceIdResponses = {
     /**
@@ -29935,7 +29800,7 @@ export type GetResourcesResourceIdData = {
         resourceId: number;
     };
     query?: never;
-    url: '/resources/{resourceId}';
+    url: "/resources/{resourceId}";
 };
 
 export type GetResourcesResourceIdErrors = {
@@ -29953,7 +29818,8 @@ export type GetResourcesResourceIdErrors = {
     404: unknown;
 };
 
-export type GetResourcesResourceIdError = GetResourcesResourceIdErrors[keyof GetResourcesResourceIdErrors];
+export type GetResourcesResourceIdError =
+    GetResourcesResourceIdErrors[keyof GetResourcesResourceIdErrors];
 
 export type GetResourcesResourceIdResponses = {
     /**
@@ -29964,7 +29830,8 @@ export type GetResourcesResourceIdResponses = {
     };
 };
 
-export type GetResourcesResourceIdResponse = GetResourcesResourceIdResponses[keyof GetResourcesResourceIdResponses];
+export type GetResourcesResourceIdResponse =
+    GetResourcesResourceIdResponses[keyof GetResourcesResourceIdResponses];
 
 export type PutResourcesResourceIdData = {
     body: ResourceCreate;
@@ -29972,7 +29839,7 @@ export type PutResourcesResourceIdData = {
         resourceId: number;
     };
     query?: never;
-    url: '/resources/{resourceId}';
+    url: "/resources/{resourceId}";
 };
 
 export type PutResourcesResourceIdErrors = {
@@ -29990,7 +29857,8 @@ export type PutResourcesResourceIdErrors = {
     404: unknown;
 };
 
-export type PutResourcesResourceIdError = PutResourcesResourceIdErrors[keyof PutResourcesResourceIdErrors];
+export type PutResourcesResourceIdError =
+    PutResourcesResourceIdErrors[keyof PutResourcesResourceIdErrors];
 
 export type PutResourcesResourceIdResponses = {
     /**
@@ -30001,7 +29869,8 @@ export type PutResourcesResourceIdResponses = {
     };
 };
 
-export type PutResourcesResourceIdResponse = PutResourcesResourceIdResponses[keyof PutResourcesResourceIdResponses];
+export type PutResourcesResourceIdResponse =
+    PutResourcesResourceIdResponses[keyof PutResourcesResourceIdResponses];
 
 export type GetResourcesResourceIdStatisticsData = {
     body?: never;
@@ -30009,7 +29878,7 @@ export type GetResourcesResourceIdStatisticsData = {
         resourceId: number;
     };
     query?: never;
-    url: '/resources/{resourceId}/statistics';
+    url: "/resources/{resourceId}/statistics";
 };
 
 export type GetResourcesResourceIdStatisticsErrors = {
@@ -30046,7 +29915,7 @@ export type GetResourcetypesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/resourcetypes';
+    url: "/resourcetypes";
 };
 
 export type GetResourcetypesErrors = {
@@ -30056,7 +29925,8 @@ export type GetResourcetypesErrors = {
     401: string;
 };
 
-export type GetResourcetypesError = GetResourcetypesErrors[keyof GetResourcetypesErrors];
+export type GetResourcetypesError =
+    GetResourcetypesErrors[keyof GetResourcetypesErrors];
 
 export type GetResourcetypesResponses = {
     /**
@@ -30068,13 +29938,14 @@ export type GetResourcetypesResponses = {
     };
 };
 
-export type GetResourcetypesResponse = GetResourcetypesResponses[keyof GetResourcetypesResponses];
+export type GetResourcetypesResponse =
+    GetResourcetypesResponses[keyof GetResourcetypesResponses];
 
 export type PostResourcetypesData = {
     body: ResourceTypeCreate;
     path?: never;
     query?: never;
-    url: '/resourcetypes';
+    url: "/resourcetypes";
 };
 
 export type PostResourcetypesErrors = {
@@ -30092,7 +29963,8 @@ export type PostResourcetypesErrors = {
     404: unknown;
 };
 
-export type PostResourcetypesError = PostResourcetypesErrors[keyof PostResourcetypesErrors];
+export type PostResourcetypesError =
+    PostResourcetypesErrors[keyof PostResourcetypesErrors];
 
 export type PostResourcetypesResponses = {
     /**
@@ -30103,7 +29975,8 @@ export type PostResourcetypesResponses = {
     };
 };
 
-export type PostResourcetypesResponse = PostResourcetypesResponses[keyof PostResourcetypesResponses];
+export type PostResourcetypesResponse =
+    PostResourcetypesResponses[keyof PostResourcetypesResponses];
 
 export type DeleteResourcetypesResourceTypeIdData = {
     body?: never;
@@ -30111,7 +29984,7 @@ export type DeleteResourcetypesResourceTypeIdData = {
         resourceTypeId: number;
     };
     query?: never;
-    url: '/resourcetypes/{resourceTypeId}';
+    url: "/resourcetypes/{resourceTypeId}";
 };
 
 export type DeleteResourcetypesResourceTypeIdErrors = {
@@ -30178,7 +30051,7 @@ export type GetResourcetypesResourceTypeIdData = {
         resourceTypeId: number;
     };
     query?: never;
-    url: '/resourcetypes/{resourceTypeId}';
+    url: "/resourcetypes/{resourceTypeId}";
 };
 
 export type GetResourcetypesResourceTypeIdErrors = {
@@ -30217,7 +30090,7 @@ export type PutResourcetypesResourceTypeIdData = {
         resourceTypeId: number;
     };
     query?: never;
-    url: '/resourcetypes/{resourceTypeId}';
+    url: "/resourcetypes/{resourceTypeId}";
 };
 
 export type PutResourcetypesResourceTypeIdErrors = {
@@ -30254,7 +30127,7 @@ export type GetRoutinesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/routines';
+    url: "/routines";
 };
 
 export type GetRoutinesResponses = {
@@ -30267,13 +30140,14 @@ export type GetRoutinesResponses = {
     };
 };
 
-export type GetRoutinesResponse = GetRoutinesResponses[keyof GetRoutinesResponses];
+export type GetRoutinesResponse =
+    GetRoutinesResponses[keyof GetRoutinesResponses];
 
 export type PostRoutinesData = {
     body: RoutineCreate;
     path?: never;
     query?: never;
-    url: '/routines';
+    url: "/routines";
 };
 
 export type PostRoutinesErrors = {
@@ -30298,13 +30172,14 @@ export type PostRoutinesResponses = {
     };
 };
 
-export type PostRoutinesResponse = PostRoutinesResponses[keyof PostRoutinesResponses];
+export type PostRoutinesResponse =
+    PostRoutinesResponses[keyof PostRoutinesResponses];
 
 export type PostRoutinesExecuteData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/routines/execute';
+    url: "/routines/execute";
 };
 
 export type PostRoutinesExecuteErrors = {
@@ -30314,7 +30189,8 @@ export type PostRoutinesExecuteErrors = {
     401: string;
 };
 
-export type PostRoutinesExecuteError = PostRoutinesExecuteErrors[keyof PostRoutinesExecuteErrors];
+export type PostRoutinesExecuteError =
+    PostRoutinesExecuteErrors[keyof PostRoutinesExecuteErrors];
 
 export type PostRoutinesExecuteResponses = {
     /**
@@ -30323,7 +30199,8 @@ export type PostRoutinesExecuteResponses = {
     204: void;
 };
 
-export type PostRoutinesExecuteResponse = PostRoutinesExecuteResponses[keyof PostRoutinesExecuteResponses];
+export type PostRoutinesExecuteResponse =
+    PostRoutinesExecuteResponses[keyof PostRoutinesExecuteResponses];
 
 export type DeleteRoutinesRoutineIdData = {
     body?: never;
@@ -30334,7 +30211,7 @@ export type DeleteRoutinesRoutineIdData = {
         routineId: number;
     };
     query?: never;
-    url: '/routines/{routineId}';
+    url: "/routines/{routineId}";
 };
 
 export type DeleteRoutinesRoutineIdErrors = {
@@ -30352,7 +30229,8 @@ export type DeleteRoutinesRoutineIdErrors = {
     404: unknown;
 };
 
-export type DeleteRoutinesRoutineIdError = DeleteRoutinesRoutineIdErrors[keyof DeleteRoutinesRoutineIdErrors];
+export type DeleteRoutinesRoutineIdError =
+    DeleteRoutinesRoutineIdErrors[keyof DeleteRoutinesRoutineIdErrors];
 
 export type DeleteRoutinesRoutineIdResponses = {
     /**
@@ -30361,7 +30239,8 @@ export type DeleteRoutinesRoutineIdResponses = {
     204: void;
 };
 
-export type DeleteRoutinesRoutineIdResponse = DeleteRoutinesRoutineIdResponses[keyof DeleteRoutinesRoutineIdResponses];
+export type DeleteRoutinesRoutineIdResponse =
+    DeleteRoutinesRoutineIdResponses[keyof DeleteRoutinesRoutineIdResponses];
 
 export type GetRoutinesRoutineIdData = {
     body?: never;
@@ -30372,7 +30251,7 @@ export type GetRoutinesRoutineIdData = {
         routineId: number;
     };
     query?: never;
-    url: '/routines/{routineId}';
+    url: "/routines/{routineId}";
 };
 
 export type GetRoutinesRoutineIdErrors = {
@@ -30390,7 +30269,8 @@ export type GetRoutinesRoutineIdErrors = {
     404: unknown;
 };
 
-export type GetRoutinesRoutineIdError = GetRoutinesRoutineIdErrors[keyof GetRoutinesRoutineIdErrors];
+export type GetRoutinesRoutineIdError =
+    GetRoutinesRoutineIdErrors[keyof GetRoutinesRoutineIdErrors];
 
 export type GetRoutinesRoutineIdResponses = {
     /**
@@ -30401,7 +30281,8 @@ export type GetRoutinesRoutineIdResponses = {
     };
 };
 
-export type GetRoutinesRoutineIdResponse = GetRoutinesRoutineIdResponses[keyof GetRoutinesRoutineIdResponses];
+export type GetRoutinesRoutineIdResponse =
+    GetRoutinesRoutineIdResponses[keyof GetRoutinesRoutineIdResponses];
 
 export type PatchRoutinesRoutineIdData = {
     body: RoutineUpdate;
@@ -30414,7 +30295,7 @@ export type PatchRoutinesRoutineIdData = {
     query?: {
         dry_run?: boolean;
     };
-    url: '/routines/{routineId}';
+    url: "/routines/{routineId}";
 };
 
 export type PatchRoutinesRoutineIdErrors = {
@@ -30432,7 +30313,8 @@ export type PatchRoutinesRoutineIdErrors = {
     404: unknown;
 };
 
-export type PatchRoutinesRoutineIdError = PatchRoutinesRoutineIdErrors[keyof PatchRoutinesRoutineIdErrors];
+export type PatchRoutinesRoutineIdError =
+    PatchRoutinesRoutineIdErrors[keyof PatchRoutinesRoutineIdErrors];
 
 export type PatchRoutinesRoutineIdResponses = {
     /**
@@ -30443,7 +30325,8 @@ export type PatchRoutinesRoutineIdResponses = {
     };
 };
 
-export type PatchRoutinesRoutineIdResponse = PatchRoutinesRoutineIdResponses[keyof PatchRoutinesRoutineIdResponses];
+export type PatchRoutinesRoutineIdResponse =
+    PatchRoutinesRoutineIdResponses[keyof PatchRoutinesRoutineIdResponses];
 
 export type GetRoutinesRoutineIdRunsData = {
     body?: never;
@@ -30457,10 +30340,10 @@ export type GetRoutinesRoutineIdRunsData = {
         /**
          * Include additional information
          */
-        include?: Array<'domainObject'>;
+        include?: Array<"domainObject">;
         with_potential_domain_objects?: boolean;
     };
-    url: '/routines/{routineId}/runs';
+    url: "/routines/{routineId}/runs";
 };
 
 export type GetRoutinesRoutineIdRunsErrors = {
@@ -30478,7 +30361,8 @@ export type GetRoutinesRoutineIdRunsErrors = {
     404: unknown;
 };
 
-export type GetRoutinesRoutineIdRunsError = GetRoutinesRoutineIdRunsErrors[keyof GetRoutinesRoutineIdRunsErrors];
+export type GetRoutinesRoutineIdRunsError =
+    GetRoutinesRoutineIdRunsErrors[keyof GetRoutinesRoutineIdRunsErrors];
 
 export type GetRoutinesRoutineIdRunsResponses = {
     /**
@@ -30504,10 +30388,10 @@ export type PostRoutinesIdRunsIdRunActionData = {
          * ID of a routine run
          */
         runId: number;
-        runAction: 'pause' | 'resume' | 'restart';
+        runAction: "pause" | "resume" | "restart";
     };
     query?: never;
-    url: '/routines/{routineId}/runs/{runId}/{runAction}';
+    url: "/routines/{routineId}/runs/{runId}/{runAction}";
 };
 
 export type PostRoutinesIdRunsIdRunActionErrors = {
@@ -30546,7 +30430,7 @@ export type PostRoutinesRoutineIdStepsValidateData = {
         routineId: number;
     };
     query?: never;
-    url: '/routines/{routineId}/steps/validate';
+    url: "/routines/{routineId}/steps/validate";
 };
 
 export type PostRoutinesRoutineIdStepsValidateErrors = {
@@ -30581,7 +30465,7 @@ export type PostSamlAcsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/saml/acs';
+    url: "/saml/acs";
 };
 
 export type PostSamlAcsErrors = {
@@ -30605,7 +30489,7 @@ export type GetSamlLoginData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/saml/login';
+    url: "/saml/login";
 };
 
 export type GetSamlLoginErrors = {
@@ -30629,7 +30513,7 @@ export type GetSamlMetadataData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/saml/metadata';
+    url: "/saml/metadata";
 };
 
 export type GetSamlMetadataErrors = {
@@ -30647,16 +30531,19 @@ export type GetSamlMetadataErrors = {
     404: unknown;
 };
 
-export type GetSamlMetadataError = GetSamlMetadataErrors[keyof GetSamlMetadataErrors];
+export type GetSamlMetadataError =
+    GetSamlMetadataErrors[keyof GetSamlMetadataErrors];
 
 export type GetSearchData = {
     body?: never;
     path?: never;
     query: {
         query: string;
-        'domain_types[]'?: Array<'person' | 'group' | 'song' | 'wiki_page' | 'action'>;
+        "domain_types[]"?: Array<
+            "person" | "group" | "song" | "wiki_page" | "action"
+        >;
     };
-    url: '/search';
+    url: "/search";
 };
 
 export type GetSearchResponses = {
@@ -30666,7 +30553,7 @@ export type GetSearchResponses = {
     200: {
         data: Array<
             SearchDomainObject & {
-                type: 'action' | 'domainObject';
+                type: "action" | "domainObject";
             }
         >;
         meta: MetaCount;
@@ -30679,7 +30566,7 @@ export type GetSecuritylevelsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/securitylevels';
+    url: "/securitylevels";
 };
 
 export type GetSecuritylevelsResponses = {
@@ -30696,7 +30583,8 @@ export type GetSecuritylevelsResponses = {
     };
 };
 
-export type GetSecuritylevelsResponse = GetSecuritylevelsResponses[keyof GetSecuritylevelsResponses];
+export type GetSecuritylevelsResponse =
+    GetSecuritylevelsResponses[keyof GetSecuritylevelsResponses];
 
 export type DeleteSecuritylevelsIdData = {
     body?: never;
@@ -30707,7 +30595,7 @@ export type DeleteSecuritylevelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/securitylevels/{id}';
+    url: "/securitylevels/{id}";
 };
 
 export type DeleteSecuritylevelsIdErrors = {
@@ -30728,7 +30616,7 @@ export type DeleteSecuritylevelsIdResponses = {
     204: void;
 };
 
-export type DeleteSecuritylevelsIdResponse = DeleteSecuritylevelsIdResponses[keyof DeleteSecuritylevelsIdResponses];
+export type DeleteSecuritylevelIdResponse = DeleteSecuritylevelIdResponses[keyof DeleteSecuritylevelIdResponses];
 
 export type GetSecuritylevelsIdData = {
     body?: never;
@@ -30739,7 +30627,7 @@ export type GetSecuritylevelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/securitylevels/{id}';
+    url: "/securitylevels/{id}";
 };
 
 export type GetSecuritylevelsIdErrors = {
@@ -30777,7 +30665,7 @@ export type PatchSecuritylevelsIdData = {
          */
         forcereorder?: boolean;
     };
-    url: '/securitylevels/{id}';
+    url: "/securitylevels/{id}";
 };
 
 export type PatchSecuritylevelsIdErrors = {
@@ -30801,7 +30689,7 @@ export type PatchSecuritylevelsIdResponses = {
     };
 };
 
-export type PatchSecuritylevelsIdResponse = PatchSecuritylevelsIdResponses[keyof PatchSecuritylevelsIdResponses];
+export type PatchSecuritylevelIdResponse = PatchSecuritylevelIdResponses[keyof PatchSecuritylevelIdResponses];
 
 export type PostSecuritylevelsIdData = {
     body: {
@@ -30814,7 +30702,7 @@ export type PostSecuritylevelsIdData = {
         id: number;
     };
     query?: never;
-    url: '/securitylevels/{id}';
+    url: "/securitylevels/{id}";
 };
 
 export type PostSecuritylevelsIdErrors = {
@@ -30835,13 +30723,13 @@ export type PostSecuritylevelsIdResponses = {
     };
 };
 
-export type PostSecuritylevelsIdResponse = PostSecuritylevelsIdResponses[keyof PostSecuritylevelsIdResponses];
+export type PostSecuritylevelIdResponse = PostSecuritylevelIdResponses[keyof PostSecuritylevelIdResponses];
 
 export type GetServicegroupsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/servicegroups';
+    url: "/servicegroups";
 };
 
 export type GetServicegroupsResponses = {
@@ -30854,7 +30742,7 @@ export type GetServicegroupsResponses = {
     };
 };
 
-export type GetServicegroupsResponse = GetServicegroupsResponses[keyof GetServicegroupsResponses];
+export type GetServiceGroupsResponse = GetServiceGroupsResponses[keyof GetServiceGroupsResponses];
 
 export type GetServicegroupsIdData = {
     body?: never;
@@ -30862,7 +30750,7 @@ export type GetServicegroupsIdData = {
         serviceGroupId: string;
     };
     query?: never;
-    url: '/servicegroups/{serviceGroupId}';
+    url: "/servicegroups/{serviceGroupId}";
 };
 
 export type GetServicegroupsIdResponses = {
@@ -30874,13 +30762,13 @@ export type GetServicegroupsIdResponses = {
     };
 };
 
-export type GetServicegroupsIdResponse = GetServicegroupsIdResponses[keyof GetServicegroupsIdResponses];
+export type GetServiceGroupResponse = GetServiceGroupResponses[keyof GetServiceGroupResponses];
 
 export type GetServicesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/services';
+    url: "/services";
 };
 
 export type GetServicesResponses = {
@@ -30893,7 +30781,8 @@ export type GetServicesResponses = {
     };
 };
 
-export type GetServicesResponse = GetServicesResponses[keyof GetServicesResponses];
+export type GetServicesResponse =
+    GetServicesResponses[keyof GetServicesResponses];
 
 export type GetServicesIdData = {
     body?: never;
@@ -30901,7 +30790,7 @@ export type GetServicesIdData = {
         serviceId: string;
     };
     query?: never;
-    url: '/services/{serviceId}';
+    url: "/services/{serviceId}";
 };
 
 export type GetServicesIdResponses = {
@@ -30919,7 +30808,7 @@ export type DeleteSimulateData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/simulate';
+    url: "/simulate";
 };
 
 export type DeleteSimulateResponses = {
@@ -30933,7 +30822,8 @@ export type DeleteSimulateResponses = {
     };
 };
 
-export type DeleteSimulateResponse = DeleteSimulateResponses[keyof DeleteSimulateResponses];
+export type DeleteSimulateResponse =
+    DeleteSimulateResponses[keyof DeleteSimulateResponses];
 
 export type PostSimulateData = {
     body: {
@@ -30941,7 +30831,7 @@ export type PostSimulateData = {
     };
     path?: never;
     query?: never;
-    url: '/simulate';
+    url: "/simulate";
 };
 
 export type PostSimulateResponses = {
@@ -30951,7 +30841,8 @@ export type PostSimulateResponses = {
     204: void;
 };
 
-export type PostSimulateResponse = PostSimulateResponses[keyof PostSimulateResponses];
+export type PostSimulateResponse =
+    PostSimulateResponses[keyof PostSimulateResponses];
 
 export type GetSongsData = {
     body?: never;
@@ -30960,11 +30851,11 @@ export type GetSongsData = {
         /**
          * Filter response by category IDs.
          */
-        'song_category_ids[]'?: Array<number>;
+        "song_category_ids[]"?: Array<number>;
         /**
          * Filter by Song IDs.
          */
-        'ids[]'?: Array<number>;
+        "ids[]"?: Array<number>;
         /**
          * Filter by field `shouldPractice`.
          */
@@ -30984,7 +30875,7 @@ export type GetSongsData = {
         /**
          * Include additional information
          */
-        include?: Array<'arrangements' | 'tags'>;
+        include?: Array<"arrangements" | "tags">;
         /**
          * Page number to show page in pagination. If empty, start at first page.
          */
@@ -30994,7 +30885,7 @@ export type GetSongsData = {
          */
         limit?: number;
     };
-    url: '/songs';
+    url: "/songs";
 };
 
 export type GetSongsErrors = {
@@ -31028,7 +30919,7 @@ export type PostSongsData = {
     body: SongCreate;
     path?: never;
     query?: never;
-    url: '/songs';
+    url: "/songs";
 };
 
 export type PostSongsErrors = {
@@ -31064,7 +30955,7 @@ export type DeleteSongsSongIdData = {
         songId: number;
     };
     query?: never;
-    url: '/songs/{songId}';
+    url: "/songs/{songId}";
 };
 
 export type DeleteSongsSongIdErrors = {
@@ -31082,7 +30973,8 @@ export type DeleteSongsSongIdErrors = {
     404: unknown;
 };
 
-export type DeleteSongsSongIdError = DeleteSongsSongIdErrors[keyof DeleteSongsSongIdErrors];
+export type DeleteSongsSongIdError =
+    DeleteSongsSongIdErrors[keyof DeleteSongsSongIdErrors];
 
 export type DeleteSongsSongIdResponses = {
     /**
@@ -31091,7 +30983,8 @@ export type DeleteSongsSongIdResponses = {
     204: void;
 };
 
-export type DeleteSongsSongIdResponse = DeleteSongsSongIdResponses[keyof DeleteSongsSongIdResponses];
+export type DeleteSongsSongIdResponse =
+    DeleteSongsSongIdResponses[keyof DeleteSongsSongIdResponses];
 
 export type GetSongsSongIdData = {
     body?: never;
@@ -31105,9 +30998,9 @@ export type GetSongsSongIdData = {
         /**
          * Include additional information
          */
-        include?: Array<'arrangements' | 'tags'>;
+        include?: Array<"arrangements" | "tags">;
     };
-    url: '/songs/{songId}';
+    url: "/songs/{songId}";
 };
 
 export type GetSongsSongIdErrors = {
@@ -31125,7 +31018,8 @@ export type GetSongsSongIdErrors = {
     404: unknown;
 };
 
-export type GetSongsSongIdError = GetSongsSongIdErrors[keyof GetSongsSongIdErrors];
+export type GetSongsSongIdError =
+    GetSongsSongIdErrors[keyof GetSongsSongIdErrors];
 
 export type GetSongsSongIdResponses = {
     /**
@@ -31136,7 +31030,8 @@ export type GetSongsSongIdResponses = {
     };
 };
 
-export type GetSongsSongIdResponse = GetSongsSongIdResponses[keyof GetSongsSongIdResponses];
+export type GetSongsSongIdResponse =
+    GetSongsSongIdResponses[keyof GetSongsSongIdResponses];
 
 export type PutSongsSongIdData = {
     body: SongCreate;
@@ -31147,7 +31042,7 @@ export type PutSongsSongIdData = {
         songId: number;
     };
     query?: never;
-    url: '/songs/{songId}';
+    url: "/songs/{songId}";
 };
 
 export type PutSongsSongIdErrors = {
@@ -31169,7 +31064,8 @@ export type PutSongsSongIdErrors = {
     404: unknown;
 };
 
-export type PutSongsSongIdError = PutSongsSongIdErrors[keyof PutSongsSongIdErrors];
+export type PutSongsSongIdError =
+    PutSongsSongIdErrors[keyof PutSongsSongIdErrors];
 
 export type PutSongsSongIdResponses = {
     /**
@@ -31180,7 +31076,8 @@ export type PutSongsSongIdResponses = {
     };
 };
 
-export type PutSongsSongIdResponse = PutSongsSongIdResponses[keyof PutSongsSongIdResponses];
+export type PutSongsSongIdResponse =
+    PutSongsSongIdResponses[keyof PutSongsSongIdResponses];
 
 export type GetSongsSongIdArrangementsData = {
     body?: never;
@@ -31191,7 +31088,7 @@ export type GetSongsSongIdArrangementsData = {
         songId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements';
+    url: "/songs/{songId}/arrangements";
 };
 
 export type GetSongsSongIdArrangementsErrors = {
@@ -31213,7 +31110,8 @@ export type GetSongsSongIdArrangementsErrors = {
     404: unknown;
 };
 
-export type GetSongsSongIdArrangementsError = GetSongsSongIdArrangementsErrors[keyof GetSongsSongIdArrangementsErrors];
+export type GetSongsSongIdArrangementsError =
+    GetSongsSongIdArrangementsErrors[keyof GetSongsSongIdArrangementsErrors];
 
 export type GetSongsSongIdArrangementsResponses = {
     /**
@@ -31236,7 +31134,7 @@ export type PostSongsSongIdArrangementsData = {
         songId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements';
+    url: "/songs/{songId}/arrangements";
 };
 
 export type PostSongsSongIdArrangementsErrors = {
@@ -31286,7 +31184,7 @@ export type DeleteSongsSongIdArrangementsArrangementIdData = {
         arrangementId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements/{arrangementId}';
+    url: "/songs/{songId}/arrangements/{arrangementId}";
 };
 
 export type DeleteSongsSongIdArrangementsArrangementIdErrors = {
@@ -31330,7 +31228,7 @@ export type GetSongsSongIdArrangementsArrangementIdData = {
         arrangementId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements/{arrangementId}';
+    url: "/songs/{songId}/arrangements/{arrangementId}";
 };
 
 export type GetSongsSongIdArrangementsArrangementIdErrors = {
@@ -31376,7 +31274,7 @@ export type PutSongsSongIdArrangementsArrangementIdData = {
         arrangementId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements/{arrangementId}';
+    url: "/songs/{songId}/arrangements/{arrangementId}";
 };
 
 export type PutSongsSongIdArrangementsArrangementIdErrors = {
@@ -31422,7 +31320,7 @@ export type PatchSongsSongIdArrangementsArrangementIdDefaultData = {
         arrangementId: number;
     };
     query?: never;
-    url: '/songs/{songId}/arrangements/{arrangementId}/default';
+    url: "/songs/{songId}/arrangements/{arrangementId}/default";
 };
 
 export type PatchSongsSongIdArrangementsArrangementIdDefaultErrors = {
@@ -31457,7 +31355,7 @@ export type GetSsoLoginsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/sso-logins';
+    url: "/sso-logins";
 };
 
 export type GetSsoLoginsErrors = {
@@ -31483,13 +31381,14 @@ export type GetSsoLoginsResponses = {
     };
 };
 
-export type GetSsoLoginsResponse = GetSsoLoginsResponses[keyof GetSsoLoginsResponses];
+export type GetSsoLoginsResponse =
+    GetSsoLoginsResponses[keyof GetSsoLoginsResponses];
 
 export type GetStartpageData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/startpage';
+    url: "/startpage";
 };
 
 export type GetStartpageResponses = {
@@ -31502,13 +31401,14 @@ export type GetStartpageResponses = {
     };
 };
 
-export type GetStartpageResponse = GetStartpageResponses[keyof GetStartpageResponses];
+export type GetStartpageResponse =
+    GetStartpageResponses[keyof GetStartpageResponses];
 
 export type GetStatusesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/statuses';
+    url: "/statuses";
 };
 
 export type GetStatusesErrors = {
@@ -31532,7 +31432,7 @@ export type GetStatusesResponses = {
     };
 };
 
-export type GetStatusesResponse = GetStatusesResponses[keyof GetStatusesResponses];
+export type GetAllStatusesResponse = GetAllStatusesResponses[keyof GetAllStatusesResponses];
 
 export type PostStatusesData = {
     /**
@@ -31541,7 +31441,7 @@ export type PostStatusesData = {
     body: StatusNew;
     path?: never;
     query?: never;
-    url: '/statuses';
+    url: "/statuses";
 };
 
 export type PostStatusesErrors = {
@@ -31561,7 +31461,7 @@ export type PostStatusesResponses = {
     };
 };
 
-export type PostStatusesResponse = PostStatusesResponses[keyof PostStatusesResponses];
+export type CreateNewStatusResponse = CreateNewStatusResponses[keyof CreateNewStatusResponses];
 
 export type DeleteStatusesIdData = {
     body?: never;
@@ -31572,7 +31472,7 @@ export type DeleteStatusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/statuses/{id}';
+    url: "/statuses/{id}";
 };
 
 export type DeleteStatusesIdErrors = {
@@ -31593,7 +31493,7 @@ export type DeleteStatusesIdResponses = {
     204: void;
 };
 
-export type DeleteStatusesIdResponse = DeleteStatusesIdResponses[keyof DeleteStatusesIdResponses];
+export type DeleteStatusResponse = DeleteStatusResponses[keyof DeleteStatusResponses];
 
 export type GetStatusesIdData = {
     body?: never;
@@ -31604,7 +31504,7 @@ export type GetStatusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/statuses/{id}';
+    url: "/statuses/{id}";
 };
 
 export type GetStatusesIdErrors = {
@@ -31641,7 +31541,7 @@ export type PutStatusesIdData = {
         id: number;
     };
     query?: never;
-    url: '/statuses/{id}';
+    url: "/statuses/{id}";
 };
 
 export type PutStatusesIdResponses = {
@@ -31664,7 +31564,7 @@ export type GetSubscriptionsPersonIdData = {
         personId: number;
     };
     query?: never;
-    url: '/subscriptions/{personId}';
+    url: "/subscriptions/{personId}";
 };
 
 export type GetSubscriptionsPersonIdErrors = {
@@ -31678,7 +31578,8 @@ export type GetSubscriptionsPersonIdErrors = {
     403: unknown;
 };
 
-export type GetSubscriptionsPersonIdError = GetSubscriptionsPersonIdErrors[keyof GetSubscriptionsPersonIdErrors];
+export type GetSubscriptionsPersonIdError =
+    GetSubscriptionsPersonIdErrors[keyof GetSubscriptionsPersonIdErrors];
 
 export type GetSubscriptionsPersonIdResponses = {
     /**
@@ -31699,10 +31600,10 @@ export type GetSubscriptionsPersonIdSubjectData = {
          * ID of person
          */
         personId: number;
-        subject: 'post' | 'post_summary' | 'group' | 'public_channel' | 'meetingrequests' | 'servicerequests';
+        subject: 'post' | 'post_summary' | 'group' | 'public_channel';
     };
     query?: never;
-    url: '/subscriptions/{personId}/{subject}';
+    url: "/subscriptions/{personId}/{subject}";
 };
 
 export type GetSubscriptionsPersonIdSubjectErrors = {
@@ -31738,11 +31639,11 @@ export type DeleteSubscriptionsPersonIdSubjectSubjectIdentifierData = {
          * ID of person
          */
         personId: number;
-        subject: 'post' | 'post_summary' | 'group' | 'public_channel' | 'meetingrequests' | 'servicerequests';
+        subject: 'post' | 'post_summary' | 'group' | 'public_channel';
         subjectIdentifier: string;
     };
     query?: never;
-    url: '/subscriptions/{personId}/{subject}/{subjectIdentifier}';
+    url: "/subscriptions/{personId}/{subject}/{subjectIdentifier}";
 };
 
 export type DeleteSubscriptionsPersonIdSubjectSubjectIdentifierErrors = {
@@ -31776,11 +31677,11 @@ export type GetSubscriptionsPersonIdSubjectSubjectIdentifierData = {
          * ID of person
          */
         personId: number;
-        subject: 'post' | 'post_summary' | 'group' | 'public_channel' | 'meetingrequests' | 'servicerequests';
+        subject: 'post' | 'post_summary' | 'group' | 'public_channel';
         subjectIdentifier: string;
     };
     query?: never;
-    url: '/subscriptions/{personId}/{subject}/{subjectIdentifier}';
+    url: "/subscriptions/{personId}/{subject}/{subjectIdentifier}";
 };
 
 export type GetSubscriptionsPersonIdSubjectSubjectIdentifierErrors = {
@@ -31816,11 +31717,11 @@ export type PutSubscriptionsPersonIdSubjectSubjectIdentifierData = {
          * ID of person
          */
         personId: number;
-        subject: 'post' | 'post_summary' | 'group' | 'public_channel' | 'meetingrequests' | 'servicerequests';
+        subject: 'post' | 'post_summary' | 'group' | 'public_channel';
         subjectIdentifier: string;
     };
     query?: never;
-    url: '/subscriptions/{personId}/{subject}/{subjectIdentifier}';
+    url: "/subscriptions/{personId}/{subject}/{subjectIdentifier}";
 };
 
 export type PutSubscriptionsPersonIdSubjectSubjectIdentifierErrors = {
@@ -31853,7 +31754,7 @@ export type GetSyncAdaptersData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/sync/adapters';
+    url: "/sync/adapters";
 };
 
 export type GetSyncAdaptersResponses = {
@@ -31866,7 +31767,8 @@ export type GetSyncAdaptersResponses = {
     };
 };
 
-export type GetSyncAdaptersResponse = GetSyncAdaptersResponses[keyof GetSyncAdaptersResponses];
+export type GetSyncAdaptersResponse =
+    GetSyncAdaptersResponses[keyof GetSyncAdaptersResponses];
 
 export type PostSyncAdaptersData = {
     /**
@@ -31875,7 +31777,7 @@ export type PostSyncAdaptersData = {
     body: SyncAdapterCreate;
     path?: never;
     query?: never;
-    url: '/sync/adapters';
+    url: "/sync/adapters";
 };
 
 export type PostSyncAdaptersErrors = {
@@ -31893,7 +31795,8 @@ export type PostSyncAdaptersErrors = {
     404: unknown;
 };
 
-export type PostSyncAdaptersError = PostSyncAdaptersErrors[keyof PostSyncAdaptersErrors];
+export type PostSyncAdaptersError =
+    PostSyncAdaptersErrors[keyof PostSyncAdaptersErrors];
 
 export type PostSyncAdaptersResponses = {
     /**
@@ -31906,50 +31809,6 @@ export type PostSyncAdaptersResponses = {
 
 export type PostSyncAdaptersResponse = PostSyncAdaptersResponses[keyof PostSyncAdaptersResponses];
 
-export type GetSyncAdaptersProxyData = {
-    body?: never;
-    path: {
-        adapterName: string;
-        uri: string;
-    };
-    query?: never;
-    url: '/sync/adapters/{adapterName}/proxy/{uri}';
-};
-
-export type GetSyncAdaptersProxyErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: string;
-    /**
-     * Forbidden to see, create, update, or delete resource
-     */
-    403: unknown;
-    /**
-     * Resource not found
-     */
-    404: unknown;
-};
-
-export type GetSyncAdaptersProxyError = GetSyncAdaptersProxyErrors[keyof GetSyncAdaptersProxyErrors];
-
-export type GetSyncAdaptersProxyResponses = {
-    /**
-     * OK
-     */
-    200: {
-        data: {
-            [key: string]: unknown;
-        };
-    };
-};
-
-export type GetSyncAdaptersProxyResponse = GetSyncAdaptersProxyResponses[keyof GetSyncAdaptersProxyResponses];
-
 export type DeleteSyncAdaptersIdData = {
     body?: never;
     path: {
@@ -31959,7 +31818,7 @@ export type DeleteSyncAdaptersIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/adapters/{id}';
+    url: "/sync/adapters/{id}";
 };
 
 export type DeleteSyncAdaptersIdErrors = {
@@ -32007,7 +31866,8 @@ export type DeleteSyncAdaptersIdErrors = {
     };
 };
 
-export type DeleteSyncAdaptersIdError = DeleteSyncAdaptersIdErrors[keyof DeleteSyncAdaptersIdErrors];
+export type DeleteSyncAdaptersIdError =
+    DeleteSyncAdaptersIdErrors[keyof DeleteSyncAdaptersIdErrors];
 
 export type DeleteSyncAdaptersIdResponses = {
     /**
@@ -32016,7 +31876,8 @@ export type DeleteSyncAdaptersIdResponses = {
     204: void;
 };
 
-export type DeleteSyncAdaptersIdResponse = DeleteSyncAdaptersIdResponses[keyof DeleteSyncAdaptersIdResponses];
+export type DeleteSyncAdaptersIdResponse =
+    DeleteSyncAdaptersIdResponses[keyof DeleteSyncAdaptersIdResponses];
 
 export type GetSyncAdaptersIdData = {
     body?: never;
@@ -32027,7 +31888,7 @@ export type GetSyncAdaptersIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/adapters/{id}';
+    url: "/sync/adapters/{id}";
 };
 
 export type GetSyncAdaptersIdErrors = {
@@ -32045,7 +31906,8 @@ export type GetSyncAdaptersIdErrors = {
     404: unknown;
 };
 
-export type GetSyncAdaptersIdError = GetSyncAdaptersIdErrors[keyof GetSyncAdaptersIdErrors];
+export type GetSyncAdaptersIdError =
+    GetSyncAdaptersIdErrors[keyof GetSyncAdaptersIdErrors];
 
 export type GetSyncAdaptersIdResponses = {
     /**
@@ -32056,7 +31918,8 @@ export type GetSyncAdaptersIdResponses = {
     };
 };
 
-export type GetSyncAdaptersIdResponse = GetSyncAdaptersIdResponses[keyof GetSyncAdaptersIdResponses];
+export type GetSyncAdaptersIdResponse =
+    GetSyncAdaptersIdResponses[keyof GetSyncAdaptersIdResponses];
 
 export type PutSyncAdaptersIdData = {
     /**
@@ -32070,7 +31933,7 @@ export type PutSyncAdaptersIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/adapters/{id}';
+    url: "/sync/adapters/{id}";
 };
 
 export type PutSyncAdaptersIdErrors = {
@@ -32088,7 +31951,8 @@ export type PutSyncAdaptersIdErrors = {
     404: unknown;
 };
 
-export type PutSyncAdaptersIdError = PutSyncAdaptersIdErrors[keyof PutSyncAdaptersIdErrors];
+export type PutSyncAdaptersIdError =
+    PutSyncAdaptersIdErrors[keyof PutSyncAdaptersIdErrors];
 
 export type PutSyncAdaptersIdResponses = {
     /**
@@ -32099,7 +31963,8 @@ export type PutSyncAdaptersIdResponses = {
     };
 };
 
-export type PutSyncAdaptersIdResponse = PutSyncAdaptersIdResponses[keyof PutSyncAdaptersIdResponses];
+export type PutSyncAdaptersIdResponse =
+    PutSyncAdaptersIdResponses[keyof PutSyncAdaptersIdResponses];
 
 export type GetSyncConflictsData = {
     body?: never;
@@ -32108,19 +31973,24 @@ export type GetSyncConflictsData = {
         /**
          * Filter Response by Conflict Type
          */
-        'types[]'?: Array<
-            'create' | 'update' | 'duplicate in CT' | 'link and update' | 'delete or create' | 'duplicate in source'
+        "types[]"?: Array<
+            | "create"
+            | "update"
+            | "duplicate in CT"
+            | "link and update"
+            | "delete or create"
+            | "duplicate in source"
         >;
         /**
          * Filter Response by Domain Types of Related Entity Mappings
          */
-        'domain_types[]'?: Array<string>;
+        "domain_types[]"?: Array<string>;
         /**
          * Filter Response by Source Ids of Related Entity Mappings
          */
-        'source_ids[]'?: Array<number>;
+        "source_ids[]"?: Array<number>;
     };
-    url: '/sync/conflicts';
+    url: "/sync/conflicts";
 };
 
 export type GetSyncConflictsErrors = {
@@ -32144,7 +32014,8 @@ export type GetSyncConflictsResponses = {
     };
 };
 
-export type GetSyncConflictsResponse = GetSyncConflictsResponses[keyof GetSyncConflictsResponses];
+export type GetSyncConflictsResponse =
+    GetSyncConflictsResponses[keyof GetSyncConflictsResponses];
 
 export type PostSyncConflictsData = {
     body: {
@@ -32163,11 +32034,17 @@ export type PostSyncConflictsData = {
         /**
          * Type of Conflict
          */
-        type: 'create' | 'update' | 'duplicate in CT' | 'link and update' | 'delete or create' | 'duplicate in source';
+        type:
+            | "create"
+            | "update"
+            | "duplicate in CT"
+            | "link and update"
+            | "delete or create"
+            | "duplicate in source";
     };
     path?: never;
     query?: never;
-    url: '/sync/conflicts';
+    url: "/sync/conflicts";
 };
 
 export type PostSyncConflictsErrors = {
@@ -32194,7 +32071,7 @@ export type PostSyncConflictsResponses = {
     };
 };
 
-export type PostSyncConflictsResponse = PostSyncConflictsResponses[keyof PostSyncConflictsResponses];
+export type SaveSyncConflictResponse = SaveSyncConflictResponses[keyof SaveSyncConflictResponses];
 
 export type DeleteSyncConflictsIdData = {
     body?: never;
@@ -32205,7 +32082,7 @@ export type DeleteSyncConflictsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/conflicts/{id}';
+    url: "/sync/conflicts/{id}";
 };
 
 export type DeleteSyncConflictsIdResponses = {
@@ -32215,7 +32092,7 @@ export type DeleteSyncConflictsIdResponses = {
     204: void;
 };
 
-export type DeleteSyncConflictsIdResponse = DeleteSyncConflictsIdResponses[keyof DeleteSyncConflictsIdResponses];
+export type DeleteSyncConflictResponse = DeleteSyncConflictResponses[keyof DeleteSyncConflictResponses];
 
 export type GetSyncConflictsIdData = {
     body?: never;
@@ -32226,7 +32103,7 @@ export type GetSyncConflictsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/conflicts/{id}';
+    url: "/sync/conflicts/{id}";
 };
 
 export type GetSyncConflictsIdErrors = {
@@ -32253,7 +32130,7 @@ export type GetSyncConflictsIdResponses = {
     };
 };
 
-export type GetSyncConflictsIdResponse = GetSyncConflictsIdResponses[keyof GetSyncConflictsIdResponses];
+export type GetSyncConflictResponse = GetSyncConflictResponses[keyof GetSyncConflictResponses];
 
 export type PutSyncConflictsIdData = {
     body: {
@@ -32272,7 +32149,13 @@ export type PutSyncConflictsIdData = {
         /**
          * Type of Conflict
          */
-        type: 'create' | 'update' | 'duplicate in CT' | 'link an dupdate' | 'delete or create' | 'duplicate in source';
+        type:
+            | "create"
+            | "update"
+            | "duplicate in CT"
+            | "link an dupdate"
+            | "delete or create"
+            | "duplicate in source";
     };
     path: {
         /**
@@ -32281,7 +32164,7 @@ export type PutSyncConflictsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/conflicts/{id}';
+    url: "/sync/conflicts/{id}";
 };
 
 export type PutSyncConflictsIdErrors = {
@@ -32312,7 +32195,7 @@ export type PutSyncConflictsIdResponses = {
     };
 };
 
-export type PutSyncConflictsIdResponse = PutSyncConflictsIdResponses[keyof PutSyncConflictsIdResponses];
+export type UpdateSyncConflictResponse = UpdateSyncConflictResponses[keyof UpdateSyncConflictResponses];
 
 export type GetSyncEntitymappingsData = {
     body?: never;
@@ -32335,7 +32218,7 @@ export type GetSyncEntitymappingsData = {
          */
         scope?: string;
     };
-    url: '/sync/entitymappings';
+    url: "/sync/entitymappings";
 };
 
 export type GetSyncEntitymappingsErrors = {
@@ -32363,7 +32246,7 @@ export type GetSyncEntitymappingsResponses = {
     };
 };
 
-export type GetSyncEntitymappingsResponse = GetSyncEntitymappingsResponses[keyof GetSyncEntitymappingsResponses];
+export type GetSyncMappingsResponse = GetSyncMappingsResponses[keyof GetSyncMappingsResponses];
 
 export type PostSyncEntitymappingsData = {
     /**
@@ -32397,11 +32280,11 @@ export type PostSyncEntitymappingsData = {
         /**
          * Status of Entity Mapping
          */
-        status: 'synced' | 'conflict' | 'deleted in CT';
+        status: "synced" | "conflict" | "deleted in CT";
     };
     path?: never;
     query?: never;
-    url: '/sync/entitymappings';
+    url: "/sync/entitymappings";
 };
 
 export type PostSyncEntitymappingsResponses = {
@@ -32413,7 +32296,7 @@ export type PostSyncEntitymappingsResponses = {
     };
 };
 
-export type PostSyncEntitymappingsResponse = PostSyncEntitymappingsResponses[keyof PostSyncEntitymappingsResponses];
+export type CreateSyncMappingResponse = CreateSyncMappingResponses[keyof CreateSyncMappingResponses];
 
 export type DeleteSyncEntitymappingsIdData = {
     body?: never;
@@ -32424,7 +32307,7 @@ export type DeleteSyncEntitymappingsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/entitymappings/{id}';
+    url: "/sync/entitymappings/{id}";
 };
 
 export type DeleteSyncEntitymappingsIdErrors = {
@@ -32449,8 +32332,7 @@ export type DeleteSyncEntitymappingsIdResponses = {
     204: void;
 };
 
-export type DeleteSyncEntitymappingsIdResponse =
-    DeleteSyncEntitymappingsIdResponses[keyof DeleteSyncEntitymappingsIdResponses];
+export type DeleteEntityMappingResponse = DeleteEntityMappingResponses[keyof DeleteEntityMappingResponses];
 
 export type GetSyncEntitymappingsIdData = {
     body?: never;
@@ -32461,7 +32343,7 @@ export type GetSyncEntitymappingsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/entitymappings/{id}';
+    url: "/sync/entitymappings/{id}";
 };
 
 export type GetSyncEntitymappingsIdErrors = {
@@ -32486,7 +32368,7 @@ export type GetSyncEntitymappingsIdResponses = {
     200: SyncEntityMapping;
 };
 
-export type GetSyncEntitymappingsIdResponse = GetSyncEntitymappingsIdResponses[keyof GetSyncEntitymappingsIdResponses];
+export type GetEntityMappingResponse = GetEntityMappingResponses[keyof GetEntityMappingResponses];
 
 export type PutSyncEntitymappingsIdData = {
     body: {
@@ -32517,7 +32399,7 @@ export type PutSyncEntitymappingsIdData = {
         /**
          * Status of Entity Mapping
          */
-        status: 'synced' | 'conflict' | 'deleted in CT';
+        status: "synced" | "conflict" | "deleted in CT";
     };
     path: {
         /**
@@ -32526,7 +32408,7 @@ export type PutSyncEntitymappingsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/entitymappings/{id}';
+    url: "/sync/entitymappings/{id}";
 };
 
 export type PutSyncEntitymappingsIdErrors = {
@@ -32553,7 +32435,7 @@ export type PutSyncEntitymappingsIdResponses = {
     };
 };
 
-export type PutSyncEntitymappingsIdResponse = PutSyncEntitymappingsIdResponses[keyof PutSyncEntitymappingsIdResponses];
+export type UpdateEntityMappingResponse = UpdateEntityMappingResponses[keyof UpdateEntityMappingResponses];
 
 export type GetSyncExecutionsData = {
     body?: never;
@@ -32562,11 +32444,11 @@ export type GetSyncExecutionsData = {
         /**
          * Filter by external system
          */
-        'es_ids[]'?: Array<number>;
+        "es_ids[]"?: Array<number>;
         /**
          * Filter by sync job configuration
          */
-        'job_ids[]'?: Array<number>;
+        "job_ids[]"?: Array<number>;
         /**
          * Return executions after that date
          */
@@ -32589,7 +32471,7 @@ export type GetSyncExecutionsData = {
         limit?: number;
         is_dry_run?: boolean;
     };
-    url: '/sync/executions';
+    url: "/sync/executions";
 };
 
 export type GetSyncExecutionsErrors = {
@@ -32650,13 +32532,14 @@ export type GetSyncExecutionsResponses = {
     };
 };
 
-export type GetSyncExecutionsResponse = GetSyncExecutionsResponses[keyof GetSyncExecutionsResponses];
+export type GetSyncExecutionsResponse =
+    GetSyncExecutionsResponses[keyof GetSyncExecutionsResponses];
 
 export type GetSyncExternalsystemsData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/sync/externalsystems';
+    url: "/sync/externalsystems";
 };
 
 export type GetSyncExternalsystemsResponses = {
@@ -32669,13 +32552,14 @@ export type GetSyncExternalsystemsResponses = {
     };
 };
 
-export type GetSyncExternalsystemsResponse = GetSyncExternalsystemsResponses[keyof GetSyncExternalsystemsResponses];
+export type GetSyncExternalsystemsResponse =
+    GetSyncExternalsystemsResponses[keyof GetSyncExternalsystemsResponses];
 
 export type PostSyncExternalsystemsData = {
     body: ExternalSystem;
     path?: never;
     query?: never;
-    url: '/sync/externalsystems';
+    url: "/sync/externalsystems";
 };
 
 export type PostSyncExternalsystemsResponses = {
@@ -32699,7 +32583,7 @@ export type DeleteSyncExternalsystemsIdFieldmappingsDomainTypeData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}';
+    url: "/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}";
 };
 
 export type DeleteSyncExternalsystemsIdFieldmappingsDomainTypeErrors = {
@@ -32720,8 +32604,7 @@ export type DeleteSyncExternalsystemsIdFieldmappingsDomainTypeResponses = {
     204: void;
 };
 
-export type DeleteSyncExternalsystemsIdFieldmappingsDomainTypeResponse =
-    DeleteSyncExternalsystemsIdFieldmappingsDomainTypeResponses[keyof DeleteSyncExternalsystemsIdFieldmappingsDomainTypeResponses];
+export type DeleteSyncFieldMappingsResponse = DeleteSyncFieldMappingsResponses[keyof DeleteSyncFieldMappingsResponses];
 
 export type GetSyncExternalsystemsIdFieldmappingsDomaintypeData = {
     body?: never;
@@ -32733,7 +32616,7 @@ export type GetSyncExternalsystemsIdFieldmappingsDomaintypeData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}';
+    url: "/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}";
 };
 
 export type GetSyncExternalsystemsIdFieldmappingsDomaintypeErrors = {
@@ -32760,8 +32643,7 @@ export type GetSyncExternalsystemsIdFieldmappingsDomaintypeResponses = {
     };
 };
 
-export type GetSyncExternalsystemsIdFieldmappingsDomaintypeResponse =
-    GetSyncExternalsystemsIdFieldmappingsDomaintypeResponses[keyof GetSyncExternalsystemsIdFieldmappingsDomaintypeResponses];
+export type GetSyncFieldMappingsResponse = GetSyncFieldMappingsResponses[keyof GetSyncFieldMappingsResponses];
 
 export type PutSyncExternalsystemsIdFieldmappingsDomainTypeData = {
     body: {
@@ -32794,7 +32676,7 @@ export type PutSyncExternalsystemsIdFieldmappingsDomainTypeData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}';
+    url: "/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}";
 };
 
 export type PutSyncExternalsystemsIdFieldmappingsDomainTypeErrors = {
@@ -32822,8 +32704,7 @@ export type PutSyncExternalsystemsIdFieldmappingsDomainTypeResponses = {
     };
 };
 
-export type PutSyncExternalsystemsIdFieldmappingsDomainTypeResponse =
-    PutSyncExternalsystemsIdFieldmappingsDomainTypeResponses[keyof PutSyncExternalsystemsIdFieldmappingsDomainTypeResponses];
+export type PutSyncFieldMappingsResponse = PutSyncFieldMappingsResponses[keyof PutSyncFieldMappingsResponses];
 
 export type GetSyncExternalsystemsIdFieldmappingsDomaintypeNosuggestionsData = {
     body?: never;
@@ -32835,7 +32716,7 @@ export type GetSyncExternalsystemsIdFieldmappingsDomaintypeNosuggestionsData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}/nosuggestions';
+    url: "/sync/externalsystems/{externalSystemId}/fieldmappings/{domainType}/nosuggestions";
 };
 
 export type GetSyncExternalsystemsIdFieldmappingsDomaintypeNosuggestionsErrors = {
@@ -32873,7 +32754,7 @@ export type GetSyncExternalsystemsIdJobconfigsData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs";
 };
 
 export type GetSyncExternalsystemsIdJobconfigsResponses = {
@@ -32895,7 +32776,7 @@ export type PostSyncExternalsystemsExternalSystemIdJobconfigsData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs";
 };
 
 export type PostSyncExternalsystemsExternalSystemIdJobconfigsResponses = {
@@ -32917,15 +32798,16 @@ export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}";
 };
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponses = {
-    /**
-     * Successfully deleted
-     */
-    204: void;
-};
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponses =
+    {
+        /**
+         * Successfully deleted
+         */
+        204: void;
+    };
 
 export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponse =
     DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponses[keyof DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponses];
@@ -32937,7 +32819,7 @@ export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}";
 };
 
 export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdResponses = {
@@ -32959,7 +32841,7 @@ export type PutSyncExternalsystemsExternalSystemIdJobconfigsData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}";
 };
 
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsResponses = {
@@ -32974,43 +32856,46 @@ export type PutSyncExternalsystemsExternalSystemIdJobconfigsResponses = {
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsResponse =
     PutSyncExternalsystemsExternalSystemIdJobconfigsResponses[keyof PutSyncExternalsystemsExternalSystemIdJobconfigsResponses];
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterData = {
-    body?: never;
-    path: {
-        /**
-         * External System ID
-         */
-        externalSystemId: string;
-        /**
-         * Job Configuration ID
-         */
-        jobId: string;
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterData =
+    {
+        body?: never;
+        path: {
+            /**
+             * External System ID
+             */
+            externalSystemId: string;
+            /**
+             * Job Configuration ID
+             */
+            jobId: string;
+        };
+        query?: never;
+        url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter";
     };
-    query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter';
-};
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses = {
-    /**
-     * Successfully deleted
-     */
-    204: void;
-};
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses =
+    {
+        /**
+         * Successfully deleted
+         */
+        204: void;
+    };
 
 export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponse =
     DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses[keyof DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses];
@@ -33028,41 +32913,41 @@ export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter";
 };
 
-export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
 export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses = {
-    /**
-     * OK
-     */
     200: {
         data: {
             es: Array<{
                 field: string;
-                operator?: string;
                 system: string;
-                values: Array<string>;
+                values: {
+                    [key: string]: unknown;
+                };
             }>;
             master: Array<{
                 field: string;
-                operator?: string;
                 system: string;
-                values: Array<string>;
+                values: {
+                    [key: string]: unknown;
+                };
             }>;
         };
     };
@@ -33097,41 +32982,41 @@ export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/filter";
 };
 
-export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses = {
-    /**
-     * OK
-     */
     200: {
-        data: {
+        data?: {
             es: Array<{
                 field: string;
-                operator?: string;
                 system: string;
-                values: Array<string>;
+                values: {
+                    [key: string]: unknown;
+                };
             }>;
             master: Array<{
                 field: string;
-                operator?: string;
                 system: string;
-                values: Array<string>;
+                values: {
+                    [key: string]: unknown;
+                };
             }>;
         };
     };
@@ -33140,82 +33025,84 @@ export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponse =
     PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses[keyof PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdFilterResponses];
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData = {
-    body?: never;
-    path: {
-        /**
-         * External System ID
-         */
-        externalSystemId: string;
-        /**
-         * Job Configuration ID
-         */
-        jobId: string;
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData =
+    {
+        body?: never;
+        path: {
+            /**
+             * External System ID
+             */
+            externalSystemId: string;
+            /**
+             * Job Configuration ID
+             */
+            jobId: string;
+        };
+        query?: never;
+        url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/properties";
     };
-    query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/properties';
-};
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
-export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses = {
-    /**
-     * Successfully deleted
-     */
-    204: void;
-};
+export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses =
+    {
+        /**
+         * Successfully deleted
+         */
+        204: void;
+    };
 
 export type DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponse =
     DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses[keyof DeleteSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses];
 
-export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData = {
-    body?: never;
-    path: {
-        /**
-         * External System ID
-         */
-        externalSystemId: string;
-        /**
-         * Job Configuration ID
-         */
-        jobId: string;
+export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData =
+    {
+        body?: never;
+        path: {
+            /**
+             * External System ID
+             */
+            externalSystemId: string;
+            /**
+             * Job Configuration ID
+             */
+            jobId: string;
+        };
+        query?: never;
+        url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/properties";
     };
-    query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/properties';
-};
 
-export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
 export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses = {
-    /**
-     * OK
-     */
     200: {
         data: {
             domainType: string;
@@ -33246,7 +33133,7 @@ export type GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesRespo
     GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses[keyof GetSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses];
 
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData = {
-    body: {
+    body?: {
         propertyMappingsESToMaster: Array<{
             fieldMappingId: number;
             from: string;
@@ -33278,25 +33165,23 @@ export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesData 
     url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/properties';
 };
 
-export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
 export type PutSyncExternalsystemsExternalSystemIdJobconfigsJobIdPropertiesResponses = {
-    /**
-     * OK
-     */
     200: {
         data: {
             domainType: string;
@@ -33342,30 +33227,32 @@ export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartData = {
         jobId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/start';
+    url: "/sync/externalsystems/{externalSystemId}/jobconfigs/{jobId}/start";
 };
 
-export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartErrors = {
-    /**
-     * Bad Request
-     */
-    400: unknown;
-    /**
-     * Unauthorized
-     */
-    401: unknown;
-    /**
-     * Forbidden
-     */
-    403: unknown;
-};
+export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartErrors =
+    {
+        /**
+         * Bad Request
+         */
+        400: unknown;
+        /**
+         * Unauthorized
+         */
+        401: unknown;
+        /**
+         * Forbidden
+         */
+        403: unknown;
+    };
 
-export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartResponses = {
-    /**
-     * Successfully deleted
-     */
-    204: void;
-};
+export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartResponses =
+    {
+        /**
+         * Successfully deleted
+         */
+        204: void;
+    };
 
 export type PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartResponse =
     PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartResponses[keyof PostSyncExternalsystemsExternalSystemIdJobconfigsJobIdStartResponses];
@@ -33376,7 +33263,7 @@ export type PostSyncExternalsystemsIdTestData = {
         externalSystemId: string;
     };
     query?: never;
-    url: '/sync/externalsystems/{externalSystemId}/test';
+    url: "/sync/externalsystems/{externalSystemId}/test";
 };
 
 export type PostSyncExternalsystemsIdTestErrors = {
@@ -33410,7 +33297,7 @@ export type DeleteSyncExternalsystemsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/externalsystems/{id}';
+    url: "/sync/externalsystems/{id}";
 };
 
 export type DeleteSyncExternalsystemsIdResponses = {
@@ -33432,7 +33319,7 @@ export type GetSyncExternalsystemsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/externalsystems/{id}';
+    url: "/sync/externalsystems/{id}";
 };
 
 export type GetSyncExternalsystemsIdResponses = {
@@ -33456,7 +33343,7 @@ export type PutSyncExternalsystemsIdData = {
         id: number;
     };
     query?: never;
-    url: '/sync/externalsystems/{id}';
+    url: "/sync/externalsystems/{id}";
 };
 
 export type PutSyncExternalsystemsIdResponses = {
@@ -33475,9 +33362,9 @@ export type GetSyncJobconfigsData = {
     body?: never;
     path?: never;
     query?: {
-        'external_system_ids[]'?: Array<number>;
+        "external_system_ids[]"?: Array<number>;
     };
-    url: '/sync/jobconfigs';
+    url: "/sync/jobconfigs";
 };
 
 export type GetSyncJobconfigsResponses = {
@@ -33490,7 +33377,8 @@ export type GetSyncJobconfigsResponses = {
     };
 };
 
-export type GetSyncJobconfigsResponse = GetSyncJobconfigsResponses[keyof GetSyncJobconfigsResponses];
+export type GetSyncJobconfigsResponse =
+    GetSyncJobconfigsResponses[keyof GetSyncJobconfigsResponses];
 
 export type GetSyncLogsData = {
     body?: never;
@@ -33507,11 +33395,11 @@ export type GetSyncLogsData = {
         /**
          * Filter by External Systems
          */
-        'es_ids[]'?: Array<number>;
+        "es_ids[]"?: Array<number>;
         /**
          * Filter by Jobs
          */
-        'job_ids[]'?: Array<number>;
+        "job_ids[]"?: Array<number>;
         /**
          * Show Logs From This Date on
          */
@@ -33534,7 +33422,7 @@ export type GetSyncLogsData = {
         levels?: Array<string>;
         is_dry_run?: boolean;
     };
-    url: '/sync/logs';
+    url: "/sync/logs";
 };
 
 export type GetSyncLogsErrors = {
@@ -33562,7 +33450,8 @@ export type GetSyncLogsResponses = {
     };
 };
 
-export type GetSyncLogsResponse = GetSyncLogsResponses[keyof GetSyncLogsResponses];
+export type GetSyncLogsResponse =
+    GetSyncLogsResponses[keyof GetSyncLogsResponses];
 
 export type PostSyncLogsData = {
     body: {
@@ -33589,19 +33478,27 @@ export type PostSyncLogsData = {
             executionId: string | null;
             isDryRun?: boolean;
             jobId: number;
-            level: 'debug' | 'info' | 'notice' | 'warning' | 'error' | 'critical' | 'alert' | 'emergency';
+            level:
+                | "debug"
+                | "info"
+                | "notice"
+                | "warning"
+                | "error"
+                | "critical"
+                | "alert"
+                | "emergency";
             /**
              * Translation Key
              */
             messageKey: string;
-            sourceEntityId?: string | null;
-            system?: 'es' | 'master' | 'both';
+            sourceEntityId: string | null;
+            system: 'es' | 'master' | 'both';
             type: 'create' | 'update' | 'link' | 'delete' | 'execution';
         }>;
     };
     path?: never;
     query?: never;
-    url: '/sync/logs';
+    url: "/sync/logs";
 };
 
 export type PostSyncLogsErrors = {
@@ -33632,16 +33529,92 @@ export type PostSyncLogsResponses = {
 
 export type PostSyncLogsResponse = PostSyncLogsResponses[keyof PostSyncLogsResponses];
 
+export type GetTagsData = {
+    body?: never;
+    path?: never;
+    query: {
+        /**
+         * Use `GET /tags/{domainType}` instead
+         */
+        type: 'persons' | 'songs';
+    };
+    url: '/tags';
+};
+
+export type GetTagsErrors = {
+    /**
+     * Unauthorized
+     */
+    401: string;
+    /**
+     * Forbidden to see, create, update, or delete resource
+     */
+    403: unknown;
+    /**
+     * Resource not found
+     */
+    404: unknown;
+};
+
+export type GetTagsError = GetTagsErrors[keyof GetTagsErrors];
+
+export type GetTagsResponses = {
+    /**
+     * Array with all tags of a type
+     */
+    200: {
+        data?: Array<Tag>;
+        meta?: MetaCount;
+    };
+};
+
+export type GetTagsResponse = GetTagsResponses[keyof GetTagsResponses];
+
+export type PostTagsData = {
+    body?: {
+        name?: string;
+    };
+    path?: never;
+    query: {
+        type: 'persons' | 'songs';
+    };
+    url: '/tags';
+};
+
+export type PostTagsErrors = {
+    /**
+     * Unauthorized
+     */
+    401: string;
+    /**
+     * Forbidden to see, create, update, or delete resource
+     */
+    403: unknown;
+};
+
+export type PostTagsError = PostTagsErrors[keyof PostTagsErrors];
+
+export type PostTagsResponses = {
+    /**
+     * The newly created tag
+     */
+    201: {
+        data?: Tag;
+    };
+};
+
+export type PostTagsResponse = PostTagsResponses[keyof PostTagsResponses];
+
 export type GetTagsDomainTypeData = {
     body?: never;
     path: {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
     };
     query?: never;
-    url: '/tags/{domainType}';
+    url: "/tags/{domainType}";
 };
 
 export type GetTagsDomainTypeResponses = {
@@ -33654,7 +33627,8 @@ export type GetTagsDomainTypeResponses = {
     };
 };
 
-export type GetTagsDomainTypeResponse = GetTagsDomainTypeResponses[keyof GetTagsDomainTypeResponses];
+export type GetTagsDomainTypeResponse =
+    GetTagsDomainTypeResponses[keyof GetTagsDomainTypeResponses];
 
 export type PostTagsDomainTypeData = {
     body: TagUpdate;
@@ -33662,10 +33636,10 @@ export type PostTagsDomainTypeData = {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
     };
     query?: never;
-    url: '/tags/{domainType}';
+    url: "/tags/{domainType}";
 };
 
 export type PostTagsDomainTypeErrors = {
@@ -33679,7 +33653,8 @@ export type PostTagsDomainTypeErrors = {
     403: unknown;
 };
 
-export type PostTagsDomainTypeError = PostTagsDomainTypeErrors[keyof PostTagsDomainTypeErrors];
+export type PostTagsDomainTypeError =
+    PostTagsDomainTypeErrors[keyof PostTagsDomainTypeErrors];
 
 export type PostTagsDomainTypeResponses = {
     /**
@@ -33690,7 +33665,8 @@ export type PostTagsDomainTypeResponses = {
     };
 };
 
-export type PostTagsDomainTypeResponse = PostTagsDomainTypeResponses[keyof PostTagsDomainTypeResponses];
+export type PostTagsDomainTypeResponse =
+    PostTagsDomainTypeResponses[keyof PostTagsDomainTypeResponses];
 
 export type GetTagsDomainTypeDomainIdData = {
     body?: never;
@@ -33698,14 +33674,14 @@ export type GetTagsDomainTypeDomainIdData = {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
         /**
          * the domain id
          */
         domainId: number;
     };
     query?: never;
-    url: '/tags/{domainType}/{domainId}';
+    url: "/tags/{domainType}/{domainId}";
 };
 
 export type GetTagsDomainTypeDomainIdErrors = {
@@ -33723,7 +33699,8 @@ export type GetTagsDomainTypeDomainIdErrors = {
     404: unknown;
 };
 
-export type GetTagsDomainTypeDomainIdError = GetTagsDomainTypeDomainIdErrors[keyof GetTagsDomainTypeDomainIdErrors];
+export type GetTagsDomainTypeDomainIdError =
+    GetTagsDomainTypeDomainIdErrors[keyof GetTagsDomainTypeDomainIdErrors];
 
 export type GetTagsDomainTypeDomainIdResponses = {
     /**
@@ -33746,14 +33723,14 @@ export type PostTagsDomainTypeDomainIdData = {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
         /**
          * the domain id
          */
         domainId: number;
     };
     query?: never;
-    url: '/tags/{domainType}/{domainId}';
+    url: "/tags/{domainType}/{domainId}";
 };
 
 export type PostTagsDomainTypeDomainIdErrors = {
@@ -33767,7 +33744,8 @@ export type PostTagsDomainTypeDomainIdErrors = {
     403: unknown;
 };
 
-export type PostTagsDomainTypeDomainIdError = PostTagsDomainTypeDomainIdErrors[keyof PostTagsDomainTypeDomainIdErrors];
+export type PostTagsDomainTypeDomainIdError =
+    PostTagsDomainTypeDomainIdErrors[keyof PostTagsDomainTypeDomainIdErrors];
 
 export type PostTagsDomainTypeDomainIdResponses = {
     /**
@@ -33787,7 +33765,7 @@ export type DeleteTagsDomainTypeDomainIdTagIdData = {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
         /**
          * the domain id
          */
@@ -33798,7 +33776,7 @@ export type DeleteTagsDomainTypeDomainIdTagIdData = {
         tagId: number;
     };
     query?: never;
-    url: '/tags/{domainType}/{domainId}/{tagId}';
+    url: "/tags/{domainType}/{domainId}/{tagId}";
 };
 
 export type DeleteTagsDomainTypeDomainIdTagIdResponses = {
@@ -33817,7 +33795,7 @@ export type PutTagsDomainTypeDomainIdTagIdData = {
         /**
          * Domain types that tags can be used with
          */
-        domainType: 'person' | 'group' | 'song';
+        domainType: "person" | "group" | "song";
         /**
          * the domain id
          */
@@ -33828,7 +33806,7 @@ export type PutTagsDomainTypeDomainIdTagIdData = {
         tagId: number;
     };
     query?: never;
-    url: '/tags/{domainType}/{domainId}/{tagId}';
+    url: "/tags/{domainType}/{domainId}/{tagId}";
 };
 
 export type PutTagsDomainTypeDomainIdTagIdErrors = {
@@ -33863,7 +33841,7 @@ export type DeleteTagsTagIdData = {
         tagId: number;
     };
     query?: never;
-    url: '/tags/{tagId}';
+    url: "/tags/{tagId}";
 };
 
 export type DeleteTagsTagIdErrors = {
@@ -33877,7 +33855,8 @@ export type DeleteTagsTagIdErrors = {
     403: unknown;
 };
 
-export type DeleteTagsTagIdError = DeleteTagsTagIdErrors[keyof DeleteTagsTagIdErrors];
+export type DeleteTagsTagIdError =
+    DeleteTagsTagIdErrors[keyof DeleteTagsTagIdErrors];
 
 export type DeleteTagsTagIdResponses = {
     /**
@@ -33886,7 +33865,8 @@ export type DeleteTagsTagIdResponses = {
     204: void;
 };
 
-export type DeleteTagsTagIdResponse = DeleteTagsTagIdResponses[keyof DeleteTagsTagIdResponses];
+export type DeleteTagsTagIdResponse =
+    DeleteTagsTagIdResponses[keyof DeleteTagsTagIdResponses];
 
 export type GetTagsTagIdData = {
     body?: never;
@@ -33894,7 +33874,7 @@ export type GetTagsTagIdData = {
         tagId: number;
     };
     query?: never;
-    url: '/tags/{tagId}';
+    url: "/tags/{tagId}";
 };
 
 export type GetTagsTagIdErrors = {
@@ -33923,7 +33903,8 @@ export type GetTagsTagIdResponses = {
     };
 };
 
-export type GetTagsTagIdResponse = GetTagsTagIdResponses[keyof GetTagsTagIdResponses];
+export type GetTagsTagIdResponse =
+    GetTagsTagIdResponses[keyof GetTagsTagIdResponses];
 
 export type PutTagsTagIdData = {
     body: TagUpdate;
@@ -33931,7 +33912,7 @@ export type PutTagsTagIdData = {
         tagId: number;
     };
     query?: never;
-    url: '/tags/{tagId}';
+    url: "/tags/{tagId}";
 };
 
 export type PutTagsTagIdErrors = {
@@ -33960,7 +33941,8 @@ export type PutTagsTagIdResponses = {
     };
 };
 
-export type PutTagsTagIdResponse = PutTagsTagIdResponses[keyof PutTagsTagIdResponses];
+export type PutTagsTagIdResponse =
+    PutTagsTagIdResponses[keyof PutTagsTagIdResponses];
 
 export type GetTranslationsData = {
     body?: never;
@@ -33975,7 +33957,7 @@ export type GetTranslationsData = {
          */
         needs_check?: boolean;
     };
-    url: '/translations';
+    url: "/translations";
 };
 
 export type GetTranslationsErrors = {
@@ -33989,7 +33971,7 @@ export type GetTranslationsErrors = {
     403: unknown;
 };
 
-export type GetTranslationsError = GetTranslationsErrors[keyof GetTranslationsErrors];
+export type GetAllTranslationsError = GetAllTranslationsErrors[keyof GetAllTranslationsErrors];
 
 export type GetTranslationsResponses = {
     /**
@@ -34001,7 +33983,7 @@ export type GetTranslationsResponses = {
     };
 };
 
-export type GetTranslationsResponse = GetTranslationsResponses[keyof GetTranslationsResponses];
+export type GetAllTranslationsResponse = GetAllTranslationsResponses[keyof GetAllTranslationsResponses];
 
 export type GetTranslationsKeysbytextData = {
     body?: never;
@@ -34012,7 +33994,7 @@ export type GetTranslationsKeysbytextData = {
          */
         query?: string;
     };
-    url: '/translations/keysbytext';
+    url: "/translations/keysbytext";
 };
 
 export type GetTranslationsKeysbytextErrors = {
@@ -34037,8 +34019,7 @@ export type GetTranslationsKeysbytextResponses = {
     };
 };
 
-export type GetTranslationsKeysbytextResponse =
-    GetTranslationsKeysbytextResponses[keyof GetTranslationsKeysbytextResponses];
+export type GetKeysByTextResponse = GetKeysByTextResponses[keyof GetKeysByTextResponses];
 
 export type DeleteTranslationsIdData = {
     body?: never;
@@ -34049,7 +34030,7 @@ export type DeleteTranslationsIdData = {
         keyId: number;
     };
     query?: never;
-    url: '/translations/{keyId}';
+    url: "/translations/{keyId}";
 };
 
 export type DeleteTranslationsIdErrors = {
@@ -34063,7 +34044,7 @@ export type DeleteTranslationsIdErrors = {
     403: unknown;
 };
 
-export type DeleteTranslationsIdError = DeleteTranslationsIdErrors[keyof DeleteTranslationsIdErrors];
+export type DeleteTranslationKeyError = DeleteTranslationKeyErrors[keyof DeleteTranslationKeyErrors];
 
 export type DeleteTranslationsIdResponses = {
     /**
@@ -34072,7 +34053,7 @@ export type DeleteTranslationsIdResponses = {
     204: void;
 };
 
-export type DeleteTranslationsIdResponse = DeleteTranslationsIdResponses[keyof DeleteTranslationsIdResponses];
+export type DeleteTranslationKeyResponse = DeleteTranslationKeyResponses[keyof DeleteTranslationKeyResponses];
 
 export type PutTranslationsIdData = {
     body: TranslationKey;
@@ -34083,7 +34064,7 @@ export type PutTranslationsIdData = {
         keyId: number;
     };
     query?: never;
-    url: '/translations/{keyId}';
+    url: "/translations/{keyId}";
 };
 
 export type PutTranslationsIdErrors = {
@@ -34097,7 +34078,7 @@ export type PutTranslationsIdErrors = {
     403: unknown;
 };
 
-export type PutTranslationsIdError = PutTranslationsIdErrors[keyof PutTranslationsIdErrors];
+export type UpdateTranslationKeyError = UpdateTranslationKeyErrors[keyof UpdateTranslationKeyErrors];
 
 export type PutTranslationsIdResponses = {
     /**
@@ -34106,7 +34087,7 @@ export type PutTranslationsIdResponses = {
     204: void;
 };
 
-export type PutTranslationsIdResponse = PutTranslationsIdResponses[keyof PutTranslationsIdResponses];
+export type UpdateTranslationKeyResponse = UpdateTranslationKeyResponses[keyof UpdateTranslationKeyResponses];
 
 export type DeleteTranslationsIdLanguagesIdData = {
     body?: never;
@@ -34121,7 +34102,7 @@ export type DeleteTranslationsIdLanguagesIdData = {
         languageId: number;
     };
     query?: never;
-    url: '/translations/{keyId}/languages/{languageId}';
+    url: "/translations/{keyId}/languages/{languageId}";
 };
 
 export type DeleteTranslationsIdLanguagesIdErrors = {
@@ -34135,8 +34116,7 @@ export type DeleteTranslationsIdLanguagesIdErrors = {
     403: unknown;
 };
 
-export type DeleteTranslationsIdLanguagesIdError =
-    DeleteTranslationsIdLanguagesIdErrors[keyof DeleteTranslationsIdLanguagesIdErrors];
+export type DeleteTranslationLanguageError = DeleteTranslationLanguageErrors[keyof DeleteTranslationLanguageErrors];
 
 export type DeleteTranslationsIdLanguagesIdResponses = {
     /**
@@ -34152,7 +34132,7 @@ export type PostTwofactorTotpData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/twofactor/totp';
+    url: "/twofactor/totp";
 };
 
 export type PostTwofactorTotpErrors = {
@@ -34170,7 +34150,8 @@ export type PostTwofactorTotpErrors = {
     404: unknown;
 };
 
-export type PostTwofactorTotpError = PostTwofactorTotpErrors[keyof PostTwofactorTotpErrors];
+export type PostTwofactorTotpError =
+    PostTwofactorTotpErrors[keyof PostTwofactorTotpErrors];
 
 export type GetWebsiteDataData = {
     body?: never;
@@ -34179,9 +34160,9 @@ export type GetWebsiteDataData = {
         /**
          * Include additional information
          */
-        'include[]'?: Array<'domainData'>;
+        "include[]"?: Array<"domainData">;
     };
-    url: '/website/data';
+    url: "/website/data";
 };
 
 export type GetWebsiteDataResponses = {
@@ -34194,13 +34175,14 @@ export type GetWebsiteDataResponses = {
     };
 };
 
-export type GetWebsiteDataResponse = GetWebsiteDataResponses[keyof GetWebsiteDataResponses];
+export type GetWebsiteDataResponse =
+    GetWebsiteDataResponses[keyof GetWebsiteDataResponses];
 
 export type PostWebsiteDataData = {
     body: WebsiteDataCreate;
     path?: never;
     query?: never;
-    url: '/website/data';
+    url: "/website/data";
 };
 
 export type PostWebsiteDataErrors = {
@@ -34214,7 +34196,8 @@ export type PostWebsiteDataErrors = {
     403: unknown;
 };
 
-export type PostWebsiteDataError = PostWebsiteDataErrors[keyof PostWebsiteDataErrors];
+export type PostWebsiteDataError =
+    PostWebsiteDataErrors[keyof PostWebsiteDataErrors];
 
 export type PostWebsiteDataResponses = {
     /**
@@ -34225,7 +34208,8 @@ export type PostWebsiteDataResponses = {
     };
 };
 
-export type PostWebsiteDataResponse = PostWebsiteDataResponses[keyof PostWebsiteDataResponses];
+export type PostWebsiteDataResponse =
+    PostWebsiteDataResponses[keyof PostWebsiteDataResponses];
 
 export type DeleteWebsiteDataData = {
     body?: never;
@@ -34236,7 +34220,7 @@ export type DeleteWebsiteDataData = {
         id: number;
     };
     query?: never;
-    url: '/website/data/{id}';
+    url: "/website/data/{id}";
 };
 
 export type DeleteWebsiteDataResponses = {
@@ -34246,13 +34230,14 @@ export type DeleteWebsiteDataResponses = {
     204: void;
 };
 
-export type DeleteWebsiteDataResponse = DeleteWebsiteDataResponses[keyof DeleteWebsiteDataResponses];
+export type DeleteWebsiteDataResponse =
+    DeleteWebsiteDataResponses[keyof DeleteWebsiteDataResponses];
 
 export type GetWebsiteStarttestData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/website/starttest';
+    url: "/website/starttest";
 };
 
 export type GetWebsiteStarttestErrors = {
@@ -34270,7 +34255,8 @@ export type GetWebsiteStarttestErrors = {
     404: unknown;
 };
 
-export type GetWebsiteStarttestError = GetWebsiteStarttestErrors[keyof GetWebsiteStarttestErrors];
+export type GetWebsiteStarttestError =
+    GetWebsiteStarttestErrors[keyof GetWebsiteStarttestErrors];
 
 export type GetWebsiteStarttestResponses = {
     /**
@@ -34288,7 +34274,7 @@ export type GetWhoamiData = {
          */
         only_allow_authenticated?: boolean;
     };
-    url: '/whoami';
+    url: "/whoami";
 };
 
 export type GetWhoamiErrors = {
@@ -34316,7 +34302,7 @@ export type GetWidgetsBlogData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/widgets/blog';
+    url: "/widgets/blog";
 };
 
 export type GetWidgetsBlogResponses = {
@@ -34334,13 +34320,13 @@ export type GetWidgetsBlogResponses = {
     };
 };
 
-export type GetWidgetsBlogResponse = GetWidgetsBlogResponses[keyof GetWidgetsBlogResponses];
+export type GetWidgetBlogResponse = GetWidgetBlogResponses[keyof GetWidgetBlogResponses];
 
 export type GetWidgetsRssData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/widgets/rss';
+    url: "/widgets/rss";
 };
 
 export type GetWidgetsRssResponses = {
@@ -34352,13 +34338,13 @@ export type GetWidgetsRssResponses = {
     };
 };
 
-export type GetWidgetsRssResponse = GetWidgetsRssResponses[keyof GetWidgetsRssResponses];
+export type GetWidgetRssResponse = GetWidgetRssResponses[keyof GetWidgetRssResponses];
 
 export type GetWikiCategoriesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/wiki/categories';
+    url: "/wiki/categories";
 };
 
 export type GetWikiCategoriesResponses = {
@@ -34374,13 +34360,14 @@ export type GetWikiCategoriesResponses = {
     };
 };
 
-export type GetWikiCategoriesResponse = GetWikiCategoriesResponses[keyof GetWikiCategoriesResponses];
+export type GetWikiCategoriesResponse =
+    GetWikiCategoriesResponses[keyof GetWikiCategoriesResponses];
 
 export type PostWikiCategoriesData = {
     body?: never;
     path?: never;
     query?: never;
-    url: '/wiki/categories';
+    url: "/wiki/categories";
 };
 
 export type PostWikiCategoriesErrors = {
@@ -34398,7 +34385,7 @@ export type PostWikiCategoriesErrors = {
     404: unknown;
 };
 
-export type PostWikiCategoriesError = PostWikiCategoriesErrors[keyof PostWikiCategoriesErrors];
+export type PostWikiCategoryError = PostWikiCategoryErrors[keyof PostWikiCategoryErrors];
 
 export type PostWikiCategoriesResponses = {
     /**
@@ -34409,7 +34396,7 @@ export type PostWikiCategoriesResponses = {
     };
 };
 
-export type PostWikiCategoriesResponse = PostWikiCategoriesResponses[keyof PostWikiCategoriesResponses];
+export type PostWikiCategoryResponse = PostWikiCategoryResponses[keyof PostWikiCategoryResponses];
 
 export type PutWikiCategoriesIdData = {
     body?: never;
@@ -34420,7 +34407,7 @@ export type PutWikiCategoriesIdData = {
         wikiCategoryId: number;
     };
     query?: never;
-    url: '/wiki/categories/{wikiCategoryId}';
+    url: "/wiki/categories/{wikiCategoryId}";
 };
 
 export type PutWikiCategoriesIdErrors = {
@@ -34438,7 +34425,7 @@ export type PutWikiCategoriesIdErrors = {
     404: unknown;
 };
 
-export type PutWikiCategoriesIdError = PutWikiCategoriesIdErrors[keyof PutWikiCategoriesIdErrors];
+export type PutWikiCategoryError = PutWikiCategoryErrors[keyof PutWikiCategoryErrors];
 
 export type PutWikiCategoriesIdResponses = {
     /**
@@ -34449,7 +34436,7 @@ export type PutWikiCategoriesIdResponses = {
     };
 };
 
-export type PutWikiCategoriesIdResponse = PutWikiCategoriesIdResponses[keyof PutWikiCategoriesIdResponses];
+export type PutWikiCategoryResponse = PutWikiCategoryResponses[keyof PutWikiCategoryResponses];
 
 export type GetWikiCategoriesIdPagesData = {
     body?: never;
@@ -34460,7 +34447,7 @@ export type GetWikiCategoriesIdPagesData = {
         wikiCategoryId: number;
     };
     query?: never;
-    url: '/wiki/categories/{wikiCategoryId}/pages';
+    url: "/wiki/categories/{wikiCategoryId}/pages";
 };
 
 export type GetWikiCategoriesIdPagesResponses = {
@@ -34489,7 +34476,7 @@ export type GetWikiCategoriesIdPagesIdentifierData = {
         identifier: string;
     };
     query?: never;
-    url: '/wiki/categories/{wikiCategoryId}/pages/{identifier}';
+    url: "/wiki/categories/{wikiCategoryId}/pages/{identifier}";
 };
 
 export type GetWikiCategoriesIdPagesIdentifierResponses = {
@@ -34518,7 +34505,7 @@ export type GetWikiCategoriesIdPagesIdentifierVersionsData = {
         identifier: string;
     };
     query?: never;
-    url: '/wiki/categories/{wikiCategoryId}/pages/{identifier}/versions';
+    url: "/wiki/categories/{wikiCategoryId}/pages/{identifier}/versions";
 };
 
 export type GetWikiCategoriesIdPagesIdentifierVersionsResponses = {
@@ -34548,7 +34535,7 @@ export type GetWikiCategoriesIdPagesIdVersionsIdData = {
         identifier: string;
     };
     query?: never;
-    url: '/wiki/categories/{wikiCategoryId}/pages/{identifier}/versions/{version}';
+    url: "/wiki/categories/{wikiCategoryId}/pages/{identifier}/versions/{version}";
 };
 
 export type GetWikiCategoriesIdPagesIdVersionsIdResponses = {
@@ -34571,9 +34558,9 @@ export type GetWikiSearchData = {
         /**
          * wiki categories that should be searched. if noone is given all categories are searched
          */
-        'wiki_category_ids[]'?: Array<number>;
+        "wiki_category_ids[]"?: Array<number>;
     };
-    url: '/wiki/search';
+    url: "/wiki/search";
 };
 
 export type GetWikiSearchResponses = {
@@ -34586,4 +34573,9 @@ export type GetWikiSearchResponses = {
     };
 };
 
-export type GetWikiSearchResponse = GetWikiSearchResponses[keyof GetWikiSearchResponses];
+export type GetWikiCategoriesWikiCategoryIdSearchResponse =
+    GetWikiCategoriesWikiCategoryIdSearchResponses[keyof GetWikiCategoriesWikiCategoryIdSearchResponses];
+
+export type ClientOptions = {
+    baseUrl: `${string}://${string}/api` | 'http://churchtools.test/api' | (string & {});
+};
