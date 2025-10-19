@@ -127,6 +127,28 @@ import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
+import { resetFilterOptions } from "./filters";
+
+/**
+ * Wrapper to apply new filter options
+ * @returns void
+ */
+async function submitFilterOptions() {
+    console.log("Applying new filter options...");
+}
+
+function setupButtonHandler(buttonId: string, handler: () => void) {
+    const button = document.getElementById(buttonId);
+    if (!button) {
+        console.error(`Button #${buttonId} not found!`);
+        return;
+    }
+    // Remove any previous listener to avoid duplicates
+    button.replaceWith(button.cloneNode(true));
+    const newButton = document.getElementById(buttonId) as HTMLButtonElement;
+    newButton.addEventListener("click", handler);
+}
+
 /** Main plugin function */
 async function main() {
     // Configuration
@@ -157,43 +179,87 @@ async function main() {
     /* HTML Updates */
 
     document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; gap: 20px;">
-    <div id="welcome">
-      <h1>Welcome ${user.firstName} ${user.lastName}</h1>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; gap: 20px;">
+        <div id="welcome">
+            <h1>Welcome ${user.firstName} ${user.lastName}</h1>
+            <div id="test">ChurchTools at ${baseUrl}</div>
+            <button type="button" id="resetFilterBtn">Refresh available Filter Options</button>
+        </div>
+        <div class="container-fluid">
+            <form id="filters" class="form-floating mb-3">
+            <h2>Filterung</h2>
+            <div class="col-auto">
+                <label for="selected_calendars" class="form-label">Kalender</label>
+                <select class="form-select" multiple aria-label="multiple select" id="selected_calendars"
+                    size="10" name="selected_calendars">
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            <div class="col-auto">
+                <div class="row">
+                    <label for="from_date" class="form-label">Von</label>
+                    <input type="date" id="from_date" class="form-control" name="from_date"
+                        value="{{ from_date.strftime('%Y-%m-%d') }}">
+                </div>
+                <div class="row">
+                    <label for="to_date" class="form-label">Bis</label>
+                    <input type="date" id="to_date" class="form-control" name="to_date"
+                        value="{{ to_date.strftime('%Y-%m-%d') }}">
+                </div>
+                <div class="row">
+                    <label for="min_services_count" class="form-label">Mindestens # Dienste</label>
+                    <input type="number" id="min_services_count" class="form-control" name="min_services_count"
+                        value="{{ min_services_count }}">
+                </div>
+            </div>
+            <div class="col-auto">
+                <label for="selected_service_types" class="form-label">Dienste</label>
+                <select class="form-select" multiple aria-label="multiple select" size="10"
+                    name="selected_service_types" id="selected_service_types">
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            <button type="button" id="submitFilterBtn" class="btn btn-primary">Auswahl anpassen</button>
+            </form>
+        </div>
+
+        <div id="events">
+        ${events
+            .map(
+                (event) => `
+                <h2>${event.name} (${event.startDate} - ${event.endDate})</h2>
+                <ul>
+                ${
+                    event.eventServices
+                        ?.map(
+                            (service: Service) =>
+                                `<li>${
+                                    servicesDict[service.serviceId]?.name ?? "?"
+                                } ${service.name ?? "?"}</li>`,
+                        )
+                        .join("") ?? "<li>No services</li>"
+                }
+                </ul>
+            `,
+            )
+            .join("")}
+        </div>
+        <div id="charts_container">
+        <div id="chart1">
+        <canvas id="CountServicesPerPerson" width="800" height="400"></canvas>
+        </div>
+        <div id="chart2">
+        <canvas id="CummulativePersontTime" width="800" height="400"></canvas>
+        </div>
     </div>
-    <div id="events">
-      ${events
-          .map(
-              (event) => `
-            <h2>${event.name} (${event.startDate} - ${event.endDate})</h2>
-            <ul>
-              ${
-                  event.eventServices
-                      ?.map(
-                          (service) =>
-                              `<li>${
-                                  servicesDict[service.serviceId]?.name ?? "?"
-                              } ${service.name ?? "?"}</li>`,
-                      )
-                      .join("") ?? "<li>No services</li>"
-              }
-            </ul>
-          `,
-          )
-          .join("")}
     </div>
-    <div id="charts_container">
-    <div id="chart1">
-      <canvas id="CountServicesPerPerson" width="800" height="400"></canvas>
-      </div>
-      <div id="chart2">
-      <canvas id="CummulativePersontTime" width="800" height="400"></canvas>
-    </div>
-  </div>
-  </div>
 `;
     renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
     renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
+
+    setupButtonHandler("resetFilterBtn", resetFilterOptions);
+    setupButtonHandler("submitFilterBtn", submitFilterOptions);
+    resetFilterOptions();
 }
 
 main();

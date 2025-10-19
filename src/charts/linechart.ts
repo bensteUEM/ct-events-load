@@ -27,7 +27,7 @@ const chartInstances: Record<string, Chart> = {};
 
 export function renderLineChart(
     containerId: string,
-    dataPoints: (DataPoint & { date: string })[],
+    dataPoints: { person: string; count: number; date: string }[],
 ): Chart | null {
     console.log(`Rendering line chart in #${containerId}`, dataPoints);
 

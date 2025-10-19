@@ -61,3 +61,34 @@ canvas {
     max-width: 100%;
     height: auto;
 }
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #4a90e2; /* blue tone */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: #357ABD; /* darker on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #2a5d9f;
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: add margin below welcome div so button isn't jammed */
+button {
+    margin-top: 10px;
+}
