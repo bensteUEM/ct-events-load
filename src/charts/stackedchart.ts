@@ -9,6 +9,7 @@ import {
     Legend,
 } from "chart.js";
 
+// Register chart.js components once
 Chart.register(
     BarController,
     BarElement,
@@ -18,11 +19,15 @@ Chart.register(
     Legend,
 );
 
+// Store chart instances by containerId
+const chartInstances: Record<string, Chart> = {};
+
 export function renderStackedChart(
     containerId: string,
     dataPoints: DataPoint[],
-) {
-    console.log(`Rendering chart with DataPoints`, dataPoints);
+): Chart | null {
+    console.log(`Rendering chart in #${containerId}`, dataPoints);
+
     const persons = Array.from(new Set(dataPoints.map((d) => d.person)));
     const serviceNames = Array.from(
         new Set(dataPoints.map((d) => d.serviceName)),
@@ -39,16 +44,33 @@ export function renderStackedChart(
         backgroundColor: `hsl(${(idx * 60) % 360}, 70%, 60%)`,
     }));
 
-    const ctx = document.getElementById(containerId) as HTMLCanvasElement;
-    new Chart(ctx, {
+    const ctx = document.getElementById(
+        containerId,
+    ) as HTMLCanvasElement | null;
+    if (!ctx) {
+        console.error(`No canvas found with id="${containerId}"`);
+        return null;
+    }
+
+    // Destroy previous chart if it exists
+    if (chartInstances[containerId]) {
+        chartInstances[containerId].destroy();
+    }
+
+    // Create new chart
+    const chart = new Chart(ctx, {
         type: "bar",
         data: { labels: persons, datasets },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 x: { stacked: true },
                 y: { stacked: true, beginAtZero: true },
             },
         },
     });
+
+    chartInstances[containerId] = chart;
+    return chart;
 }

@@ -122,9 +122,10 @@ async function printEventServices(
         console.log("-------------------------------------");
     });
 }
-import { countServicesPerPersonPerMonth } from "./math/counts";
+import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 
 import { renderStackedChart } from "./charts/stackedchart";
+import { renderLineChart } from "./charts/linechart";
 
 /** Main plugin function */
 async function main() {
@@ -141,7 +142,13 @@ async function main() {
     //   console.log(servicesDict);
     //   printEventServices(events, servicesDict, relevant_services);
 
-    const dataPoints = countServicesPerPersonPerMonth(
+    const dpCountServicesPerPerson = countServicesPerPerson(
+        events,
+        servicesDict,
+        selected_services,
+    );
+
+    const dpCummulativePersontTime = cummulativePersonTime(
         events,
         servicesDict,
         selected_services,
@@ -176,11 +183,15 @@ async function main() {
           .join("")}
     </div>
     <div>
-      <canvas id="chart" width="800" height="400"></canvas>
+      <canvas id="CountServicesPerPerson" width="800" height="400"></canvas>
+      </div>
+      <div>
+      <canvas id="CummulativePersontTime" width="800" height="400"></canvas>
     </div>
   </div>
 `;
-    renderStackedChart("chart", dataPoints);
+    renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
+    renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
 }
 
 main();

@@ -7,7 +7,7 @@ import type { Event, Service } from "../utils/ct-types";
  * @param relevant_services - list of service ids to filter
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
-export function countServicesPerPersonPerMonth(
+export function countServicesPerPerson(
     events: Event[],
     servicesDict: Record<number, Service>,
     relevant_services: number[],
@@ -42,5 +42,47 @@ export function countServicesPerPersonPerMonth(
         });
     });
 
+    return dataPoints;
+}
+export function cummulativePersonTime(
+    events: Event[],
+    servicesDict: Record<number, Service>,
+    relevant_services: number[],
+): { person: string; count: number; date: string }[] {
+    console.log("Filtering for services:", relevant_services);
+
+    const dataPointsMap: Record<string, Record<string, number>> = {};
+    // dataPointsMap[person][date] = count
+
+    events.forEach((event) => {
+        if (!event.startDate) return;
+        const eventDate = event.startDate.slice(0, 10); // YYYY-MM-DD
+
+        event.eventServices?.forEach((service) => {
+            if (!relevant_services.includes(service.serviceId)) return;
+
+            const personName = service.name ?? "?";
+
+            if (!dataPointsMap[personName]) dataPointsMap[personName] = {};
+            if (!dataPointsMap[personName][eventDate])
+                dataPointsMap[personName][eventDate] = 0;
+
+            dataPointsMap[personName][eventDate]++;
+        });
+    });
+
+    // Flatten into DataPoint array
+    const dataPoints: { person: string; count: number; date: string }[] = [];
+    for (const person in dataPointsMap) {
+        for (const date in dataPointsMap[person]) {
+            dataPoints.push({
+                person,
+                count: dataPointsMap[person][date],
+                date,
+            });
+        }
+    }
+
+    console.log("Flattened DataPoints:", dataPoints);
     return dataPoints;
 }
