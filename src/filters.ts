@@ -137,3 +137,47 @@ function initMinServicesOptions(MIN_SERVICES_COUNT = 5) {
 
     minServicesCountInput.value = MIN_SERVICES_COUNT.toString();
 }
+/* HTML used to display filter options 
+content needs to be populated dynamically
+*/
+export function createFilterHTML(): string {
+    return `<form id="filters" class="form-floating mb-3">
+                <h2>Filterung</h2>
+                <div class="row g-3 mb-3">
+                    <div class="col-auto">
+                        <label for="selected_calendars" class="form-label">Kalender</label>
+                        <select class="form-select" multiple aria-label="multiple select" id="selected_calendars"
+                            size="10" name="selected_calendars">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <div class="row">
+                            <label for="from_date" class="form-label">Von</label>
+                            <input type="date" id="from_date" class="form-control" name="from_date"
+                                value="{{ from_date.strftime('%Y-%m-%d') }}">
+                        </div>
+                        <div class="row">
+                            <label for="to_date" class="form-label">Bis</label>
+                            <input type="date" id="to_date" class="form-control" name="to_date"
+                                value="{{ to_date.strftime('%Y-%m-%d') }}">
+                        </div>
+                        <div class="row">
+                            <label for="min_services_count" class="form-label">Mindestens # Dienste</label>
+                            <input type="number" id="min_services_count" class="form-control" name="min_services_count"
+                                value="{{ min_services_count }}">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label for="selected_service_types" class="form-label">Dienste</label>
+                        <select class="form-select" multiple aria-label="multiple select" size="10"
+                            name="selected_service_types" id="selected_service_types">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="submitFilterBtn" class="btn btn-primary">Auswahl anpassen</button>
+                <button type="button" id="resetFilterBtn" class="btn btn-secondary">Refresh available Filter Options</button>
+                </form>
+                `;
+}

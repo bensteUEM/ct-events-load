@@ -42,12 +42,11 @@ async function fetchEvents(
     // Fetch all events
     const now = new Date().toISOString();
     // Fetch events from calendar ID 2 starting from now
-    const allEvents: Event[] = await churchtoolsClient.get(
-        "/events?include=eventServices",
-        {
-            params: {}, //TODO params are ignored ...???
-        },
-    );
+    const allEvents: Event[] = await churchtoolsClient.get("/events", {
+        from: fromDate.toISOString().split("T")[0],
+        to: toDate.toISOString().split("T")[0],
+        include: "eventServices",
+    });
 
     // Filter calendar and daterange sort by startDate j
     const calendarEvents = allEvents.filter((event) => {
@@ -62,12 +61,6 @@ async function fetchEvents(
             eventDate <= toDate
         );
     });
-
-    // calendarEvents.sort(
-    //     (a, b) =>
-    //         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
-    // );
-    // const events = calendarEvents.slice(0, 10);
 
     console.log("Events:", calendarEvents);
 
@@ -127,14 +120,69 @@ import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
-import { resetFilterOptions } from "./filters";
+import { createFilterHTML, resetFilterOptions } from "./filters";
+import { createEventListHTML } from "./eventlist";
 
 /**
  * Wrapper to apply new filter options
  * @returns void
  */
 async function submitFilterOptions() {
-    console.log("Applying new filter options...");
+    /* retrieve filter option selected_calendars from HTML form */
+    const selectCalendars = document.getElementById(
+        "selected_calendars",
+    ) as HTMLSelectElement;
+    const selected_calendars = Array.from(selectCalendars.selectedOptions).map(
+        (option) => Number(option.value),
+    );
+    console.log("Selected calendars:", selected_calendars);
+
+    /* retrieve filter option selected_services from HTML form */
+    const selectServices = document.getElementById(
+        "selected_service_types",
+    ) as HTMLSelectElement;
+    const selectedServiceIds: number[] = Array.from(
+        selectServices.selectedOptions,
+    ).map((option) => Number(option.value));
+
+    console.log("Selected services:", selectedServiceIds);
+
+    /* retrieve filter options from HTML form */
+    const inputFrom = document.getElementById("from_date") as HTMLInputElement;
+    const fromDate = new Date(inputFrom.value);
+
+    const inputTo = document.getElementById("to_date") as HTMLInputElement;
+    const toDate = new Date(inputTo.value);
+
+    console.log("Selected date range:", fromDate, toDate);
+
+    const min_services_count_input = document.getElementById(
+        "min_services_count",
+    ) as HTMLInputElement;
+    const min_services_count = Number(min_services_count_input.value);
+    console.log("Selected min_services_count:", min_services_count);
+
+    // data gathering
+    const events = await fetchEvents(selected_calendars, fromDate, toDate);
+    const servicesDict = await fetchServicesDict();
+    //   console.log(servicesDict);
+    //   printEventServices(events, servicesDict, relevant_services);
+
+    const dpCountServicesPerPerson = countServicesPerPerson(
+        events,
+        servicesDict,
+        selectedServiceIds,
+        min_services_count,
+    );
+
+    const dpCummulativePersontTime = cummulativePersonTime(
+        events,
+        selectedServiceIds,
+        min_services_count,
+    );
+
+    renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
+    renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
 }
 
 function setupButtonHandler(buttonId: string, handler: () => void) {
@@ -167,30 +215,7 @@ async function add_bootstrap_styles() {
 
 /** Main plugin function */
 async function main() {
-    // Configuration
-    const selected_calendars = [2]; // on ELKW1610.krz.tools this is "Gottesdienste"
-    const selected_services = [6, 57, 69, 72, 104]; // ELKW1610.krz.tools these are all tech services
-    const fromDate = new Date(); // today
-    const toDate = new Date();
-    toDate.setMonth(toDate.getMonth() + 6); // add 6 months
-
-    // data gathering
-    const events = await fetchEvents(selected_calendars, fromDate, toDate);
-    const servicesDict = await fetchServicesDict();
-    //   console.log(servicesDict);
-    //   printEventServices(events, servicesDict, relevant_services);
-
-    const dpCountServicesPerPerson = countServicesPerPerson(
-        events,
-        servicesDict,
-        selected_services,
-    );
-
-    const dpCummulativePersontTime = cummulativePersonTime(
-        events,
-        servicesDict,
-        selected_services,
-    );
+    const filterHTML = createFilterHTML();
 
     /* HTML Updates */
 
@@ -201,44 +226,7 @@ async function main() {
             <div id="test" class="text-muted small">ChurchTools at ${baseUrl}</div>
         </div>
         <div class="container-fluid">
-            <form id="filters" class="form-floating mb-3">
-            <h2>Filterung</h2>
-            <div class="row g-3 mb-3">
-                <div class="col-auto">
-                    <label for="selected_calendars" class="form-label">Kalender</label>
-                    <select class="form-select" multiple aria-label="multiple select" id="selected_calendars"
-                        size="10" name="selected_calendars">
-                        <!-- Options will be populated dynamically -->
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <div class="row">
-                        <label for="from_date" class="form-label">Von</label>
-                        <input type="date" id="from_date" class="form-control" name="from_date"
-                            value="{{ from_date.strftime('%Y-%m-%d') }}">
-                    </div>
-                    <div class="row">
-                        <label for="to_date" class="form-label">Bis</label>
-                        <input type="date" id="to_date" class="form-control" name="to_date"
-                            value="{{ to_date.strftime('%Y-%m-%d') }}">
-                    </div>
-                    <div class="row">
-                        <label for="min_services_count" class="form-label">Mindestens # Dienste</label>
-                        <input type="number" id="min_services_count" class="form-control" name="min_services_count"
-                            value="{{ min_services_count }}">
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <label for="selected_service_types" class="form-label">Dienste</label>
-                    <select class="form-select" multiple aria-label="multiple select" size="10"
-                        name="selected_service_types" id="selected_service_types">
-                        <!-- Options will be populated dynamically -->
-                    </select>
-                </div>
-            </div>
-            <button type="button" id="submitFilterBtn" class="btn btn-primary">Auswahl anpassen</button>
-            <button type="button" id="resetFilterBtn" class="btn btn-secondary">Refresh available Filter Options</button>
-            </form>
+            ${filterHTML}
         </div>
         <div class="container my-4">
             <div class="row g-4 justify-content-center">
@@ -250,34 +238,11 @@ async function main() {
                 </div>
             </div>
         </div>
-        <div class="flex-fill overflow-auto p-3 border rounded" style="min-height: 40vh; max-height: 70vh;">
-        ${events
-            .map(
-                (event) => `
-                <h2 class="h5 mt-0">${event.name} (${event.startDate} - ${event.endDate})</h2>
-                <ul class="list-unstyled mb-2 ps-3">
-                ${
-                    event.eventServices
-                        ?.map(
-                            (service: Service) =>
-                                `<li class="mb-1">${
-                                    servicesDict[service.serviceId]?.name ?? "?"
-                                } ${service.name ?? "?"}</li>`,
-                        )
-                        .join("") ?? "<li>No services</li>"
-                }
-                </ul>
-            `,
-            )
-            .join("")}
-        </div>
+        ${createEventListHTML()}
     </div>
     </div>
 `;
     add_bootstrap_styles();
-
-    renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
-    renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
 
     setupButtonHandler("resetFilterBtn", resetFilterOptions);
     setupButtonHandler("submitFilterBtn", submitFilterOptions);
