@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from "vite";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
