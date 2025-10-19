@@ -1,5 +1,5 @@
 /* HTML used to display event list */
-import type { Event, EventService } from "./utils/ct-types";
+import type { Event, Service } from "./utils/ct-types";
 
 /** Create HTML for event list
  * @param div_id - ID of the div which should be get the eventList content
@@ -10,7 +10,7 @@ import type { Event, EventService } from "./utils/ct-types";
 export function updateEventListHTML(
     div_id: string = "eventList",
     events: Event[] = [],
-    servicesDict: Record<string, EventService> = {},
+    servicesDict: Record<string, Service> = {},
     selectedServiceIds: number[] = [],
 ) {
     const div = document.getElementById(div_id);
@@ -31,7 +31,7 @@ export function updateEventListHTML(
                             selectedServiceIds.includes(service.serviceId),
                         )
                         .map(
-                            (service: EventService) =>
+                            (service) =>
                                 `<li class="mb-1">${
                                     service.serviceId != null
                                         ? (servicesDict[String(service.serviceId)]?.name ?? "?")

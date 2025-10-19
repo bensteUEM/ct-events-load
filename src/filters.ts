@@ -1,6 +1,6 @@
 /* This module includes everything related to the filter options */
 import { getWritebleServicegroupIds } from "./permissions";
-import type { Calendar, EventService, ServiceGroup } from "./utils/ct-types";
+import type { Calendar, Service, ServiceGroup } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 /**
@@ -64,7 +64,7 @@ async function refreshAvailableServices(
 
     const allowedServiceGroupIds = await getWritebleServicegroupIds();
 
-    const allServices: EventService[] =
+    const allServices: Service[] =
         await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 

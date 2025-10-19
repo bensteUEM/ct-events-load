@@ -1,4 +1,4 @@
-import type { Person, Event, EventService } from "./utils/ct-types";
+import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 // only import reset.css in development mode
@@ -69,13 +69,13 @@ async function getEvents(
  * Fetch fetchServicesDict
  *
  * @returns dict of serviceId and ServiceObject
- */ async function getServicesDict(): Promise<Record<number, EventService>> {
-    const services: EventService[] = await churchtoolsClient.get("/services");
+ */ async function getServicesDict(): Promise<Record<number, Service>> {
+    const services: Service[] = await churchtoolsClient.get("/services");
     const servicesDict = Object.fromEntries(
         services
             .filter((service) => service.id != null)
             .map((service) => [service.id!, service]),
-    ) as Record<number, EventService>;
+    ) as Record<number, Service>;
     return servicesDict;
 }
 
@@ -136,7 +136,7 @@ async function submitFilterOptions() {
     const events = await getEvents(selected_calendars, fromDate, toDate);
     const servicesDict = await getServicesDict();
     //   console.log(servicesDict);
-    //   printEventServices(events, servicesDict, relevant_services);
+    //   printServices(events, servicesDict, relevant_services);
 
     const dpCountServicesPerPerson = countServicesPerPerson(
         events,
