@@ -30,32 +30,49 @@ const user = await churchtoolsClient.get<Person>(`/whoami`);
 /** Type for flattened chart data */
 type DataPoint = { person: string; serviceName: string; count: number };
 
-/** Fetch recent events from ChurchTools*/
-
-async function fetchEvents(): Promise<Event[]> {
+/** Fetch recent events from ChurchTools
+ * @param relevant_calendars - list of calendar ids to filter
+ * @param fromDate - start date to filter events
+ * @param toDate - end date to filter events
+ * @returns list of filtered events
+ */
+async function fetchEvents(
+    relevant_calendars: number[],
+    fromDate: Date,
+    toDate: Date
+): Promise<Event[]> {
+    console.log("Fetching events for calendars:", relevant_calendars);
     // Fetch all events
     const now = new Date().toISOString();
     // Fetch events from calendar ID 2 starting from now
     const allEvents: Event[] = await churchtoolsClient.get(
         "/events?include=eventServices",
         {
-            params: { from: now },
+            params: {}, //TODO params are ignored ...???
         }
     );
-    // console.log(allEvents)
 
-    // Filter calendar and sort by startDate j
-    const calendar2Events = allEvents.filter((event) => {
-        return event.calendar?.domainIdentifier == 2;
+    // Filter calendar and daterange sort by startDate j
+    const calendarEvents = allEvents.filter((event) => {
+        const eventDate = new Date(event.startDate);
+        return (
+            relevant_calendars.some(
+                (id) => id == event.calendar.domainIdentifier
+            ) &&
+            eventDate >= fromDate &&
+            eventDate <= toDate
+        );
     });
-    calendar2Events.sort(
-        (a, b) =>
-            new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
-    );
-    const events = calendar2Events.slice(0, 10);
-    console.log("Events:",events);
 
-    return events;
+    // calendarEvents.sort(
+    //     (a, b) =>
+    //         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+    // );
+    // const events = calendarEvents.slice(0, 10);
+
+    console.log("Events:", calendarEvents);
+
+    return calendarEvents;
 }
 
 /**
@@ -74,12 +91,15 @@ async function fetchEvents(): Promise<Event[]> {
  * Console printout for debugging shows each event and service with names
  *
  * @param events - list of events
- * @param services - mapping of service ids to readable names
+ * @param servicesDict - mapping of service ids to readable names
+ * @param relevant_services - list of service ids to filter
+
  * @returns dict of serviceId and ServiceObject
  */
 async function printEventServices(
     events: Event[],
-    services: Record<number, Service[]>
+    servicesDict: Record<number, Service[]>,
+    relevant_services: number[]
 ) {
     // Print nicely
     events.forEach((event) => {
@@ -88,8 +108,10 @@ async function printEventServices(
         );
         if (event.eventServices && event.eventServices.length > 0) {
             event.eventServices.forEach((service) => {
+                if (!relevant_services.some((id) => id == service.serviceId))
+                    return;
                 console.log(
-                    `${services[service.serviceId].name} ${service.name}`
+                    `${servicesDict[service.serviceId].name} ${service.name}`
                 );
             });
         } else {
@@ -103,18 +125,23 @@ async function printEventServices(
  * Count number of services per service, per person per month
  * @param events - list of events
  * @param servicesDict - mapping of service ids to readable names
+ * @param relevant_services - list of service ids to filter
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
 function countServicesPerPersonPerMonth(
     events: Event[],
-    servicesDict: Record<number, Service>
+    servicesDict: Record<number, Service>,
+    relevant_services: number[]
 ): DataPoint[] {
+    console.log("Filtering for services:", relevant_services);
     const dataPoints: DataPoint[] = [];
     events.forEach((event) => {
         // console.log("Processing event:", event);
         if (!event.startDate) return;
         const month = event.startDate.slice(0, 7); // optional, can include if needed
         event.eventServices?.forEach((service) => {
+            if (!relevant_services.some((id) => id == service.serviceId))
+                return;
             const personName = service.name ?? "?"; // or use event.person?.name if you have it
             const serviceName = servicesDict[service.serviceId]?.name ?? "?";
 
@@ -158,7 +185,7 @@ Chart.register(
 );
 
 function renderStackedChart(containerId: string, dataPoints: DataPoint[]) {
-    console.log(`Rendering chart with DataPoints`,dataPoints);
+    console.log(`Rendering chart with DataPoints`, dataPoints);
     const persons = Array.from(new Set(dataPoints.map((d) => d.person)));
     const serviceNames = Array.from(
         new Set(dataPoints.map((d) => d.serviceName))
@@ -191,21 +218,24 @@ function renderStackedChart(containerId: string, dataPoints: DataPoint[]) {
 
 /** Main plugin function */
 async function main() {
-    const events = await fetchEvents();
+    // Configuration
+    const selected_calendars = [2]; // on ELKW1610.krz.tools this is "Gottesdienste"
+    const selected_services = [6, 57, 69, 72, 104]; // ELKW1610.krz.tools these are all tech services
+    const fromDate = new Date(); // today
+    const toDate = new Date();
+    toDate.setMonth(toDate.getMonth() + 6); // add 6 months
+
+    // data gathering
+    const events = await fetchEvents(selected_calendars, fromDate, toDate);
     const servicesDict = await fetchServicesDict();
     //   console.log(servicesDict);
-    //   printEventServices(events, servicesDict);
+    //   printEventServices(events, servicesDict, relevant_services);
 
-    const dataPoints = countServicesPerPersonPerMonth(events, servicesDict);
-
-    const sampleDataPoints: DataPoint[] = [
-        { person: "Alice", serviceName: "Welcome", count: 3 },
-        { person: "Alice", serviceName: "Reading", count: 2 },
-        { person: "Bob", serviceName: "Welcome", count: 1 },
-        { person: "Bob", serviceName: "Music", count: 4 },
-        { person: "Charlie", serviceName: "Reading", count: 1 },
-        { person: "Charlie", serviceName: "Music", count: 2 },
-    ];
+    const dataPoints = countServicesPerPersonPerMonth(
+        events,
+        servicesDict,
+        selected_services
+    );
 
     /* HTML Updates */
 
