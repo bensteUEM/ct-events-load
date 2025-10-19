@@ -1,5 +1,5 @@
 import type { DataPoint } from "../charts/dtypes";
-import type { Event, Service } from "../utils/ct-types";
+import type { Event, EventService } from "../utils/ct-types";
 /**
  * Count number of services per service, per person per month
  * @param events - list of events
@@ -10,7 +10,7 @@ import type { Event, Service } from "../utils/ct-types";
  */
 export function countServicesPerPerson(
     events: Event[],
-    servicesDict: Record<number, Service>,
+    servicesDict: Record<number, EventService>,
     relevant_services: number[],
     min_services_count: number = 1,
 ): DataPoint[] {
@@ -21,12 +21,11 @@ export function countServicesPerPerson(
     events.forEach((event) => {
         // console.log("Processing event:", event);
         if (!event.startDate) return;
-        const month = event.startDate.slice(0, 7); // optional, can include if needed
         event.eventServices?.forEach((service) => {
+            if (service.serviceId == null) return;
             if (!relevant_services.includes(service.serviceId)) return;
 
-            const personName = service.name ?? "?"; // or use event.person?.name if you have it
-            // @ts-expect-error TS2538
+            const personName = service.name ?? "?";
             const serviceName = servicesDict[service.serviceId]?.name ?? "?";
 
             // check if this combination already exists in dataPoints
@@ -72,6 +71,7 @@ export function cummulativePersonTime(
         const eventDate = event.startDate.slice(0, 10); // YYYY-MM-DD
 
         event.eventServices?.forEach((service) => {
+            if (service.serviceId == null) return;
             if (!relevant_services.includes(service.serviceId)) return;
 
             const personName = service.name ?? "?";

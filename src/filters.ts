@@ -1,5 +1,5 @@
 /* This module includes everything related to the filter options */
-import type { Calendar, Service, ServiceGroup } from "./utils/ct-types";
+import type { Calendar, EventService, ServiceGroup } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 /**
@@ -61,24 +61,19 @@ async function refreshAvailableServices(
     ) as Record<number, string>;
     console.log("Available serviceGroups:", available_service_categories);
 
-    const allServices: Service[] = await churchtoolsClient.get("/services");
+    const allServices: EventService[] = await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 
-    // Group by serviceGroupId
-    const available_service_types_by_category: Record<
-        number,
-        { id: number; name: string }[]
-    > = allServices.reduce(
-        (acc, service) => {
-            const groupId = service.serviceGroupId;
-            if (groupId == null) return acc; // skip if undefined/null
+const available_service_types_by_category: Record<number, { id: number; name: string }[]> =
+  allServices.reduce<Record<number, { id: number; name: string }[]>>((acc, service) => {
+    const groupId = service.serviceGroupId;
+    if (groupId == null) return acc; // skip if undefined or null
 
-            if (!acc[groupId]) acc[groupId] = [];
-            acc[groupId].push({ id: service.id, name: service.nameTranslated });
-            return acc;
-        },
-        {} as Record<number, { id: number; name: string }[]>,
-    );
+    if (!acc[groupId]) acc[groupId] = [];
+    acc[groupId].push({ id: service.id, name: service.nameTranslated });
+    return acc;
+  }, {});
+
 
     console.log(
         "Available ServiceGroups with Services:",

@@ -1,4 +1,4 @@
-import type { Person, Event, Service } from "./utils/ct-types";
+import type { Person, Event, EventService } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 // only import reset.css in development mode
@@ -69,13 +69,13 @@ async function fetchEvents(
  * Fetch fetchServicesDict
  *
  * @returns dict of serviceId and ServiceObject
- */ async function fetchServicesDict(): Promise<Record<number, Service>> {
-    const services: Service[] = await churchtoolsClient.get("/services");
+ */ async function fetchServicesDict(): Promise<Record<number, EventService>> {
+    const services: EventService[] = await churchtoolsClient.get("/services");
     const servicesDict = Object.fromEntries(
         services
             .filter((service) => service.id != null)
             .map((service) => [service.id!, service]),
-    ) as Record<number, Service>;
+    ) as Record<number, EventService>;
     return servicesDict;
 }
 
