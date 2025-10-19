@@ -1,4 +1,3 @@
-import type { DataPoint } from "./dtypes";
 import {
     Chart,
     LineController,

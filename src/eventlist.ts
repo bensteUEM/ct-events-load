@@ -1,6 +1,9 @@
 /* HTML used to display event list */
 import type { Event, Service } from "./utils/ct-types";
-export function createEventListHTML(events: Event[] = []): string {
+export function createEventListHTML(
+    events: Event[] = [],
+    servicesDict: {} = {},
+): string {
     return `<div class="flex-fill overflow-auto p-3 border rounded" style="min-height: 40vh; max-height: 70vh;">
         ${events
             .map(

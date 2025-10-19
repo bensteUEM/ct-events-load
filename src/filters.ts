@@ -54,28 +54,32 @@ async function refreshAvailableServices(
     const allServiceGroups: ServiceGroup[] =
         await churchtoolsClient.get("/servicegroups");
 
-    const available_service_categories = allServiceGroups.reduce(
-        (acc, group) => {
-            acc[group.id] = group.name;
-            return acc;
-        },
-        {} as Record<number, string>,
-    );
+    const available_service_categories = Object.fromEntries(
+        allServiceGroups
+            .filter((group) => group.id != null) // skip undefined IDs
+            .map((group) => [group.id, group.name]),
+    ) as Record<number, string>;
     console.log("Available serviceGroups:", available_service_categories);
 
     const allServices: Service[] = await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 
     // Group by serviceGroupId
-    const available_service_types_by_category = allServices.reduce(
+    const available_service_types_by_category: Record<
+        number,
+        { id: number; name: string }[]
+    > = allServices.reduce(
         (acc, service) => {
             const groupId = service.serviceGroupId;
+            if (groupId == null) return acc; // skip if undefined/null
+
             if (!acc[groupId]) acc[groupId] = [];
             acc[groupId].push({ id: service.id, name: service.nameTranslated });
             return acc;
         },
-        {},
+        {} as Record<number, { id: number; name: string }[]>,
     );
+
     console.log(
         "Available ServiceGroups with Services:",
         available_service_types_by_category,

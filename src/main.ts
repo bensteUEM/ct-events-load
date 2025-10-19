@@ -73,13 +73,12 @@ async function fetchEvents(
  * @returns dict of serviceId and ServiceObject
  */ async function fetchServicesDict(): Promise<Record<number, Service>> {
     const services: Service[] = await churchtoolsClient.get("/services");
-    return services.reduce(
-        (acc, service) => {
-            acc[service.id] = service;
-            return acc;
-        },
-        {} as Record<number, Service>,
-    );
+    const servicesDict = Object.fromEntries(
+        services
+            .filter((service) => service.id != null)
+            .map((service) => [service.id!, service]),
+    ) as Record<number, Service>;
+    return servicesDict;
 }
 
 /**
