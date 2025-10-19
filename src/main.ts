@@ -33,7 +33,7 @@ const user = await churchtoolsClient.get<Person>(`/whoami`);
  * @param toDate - end date to filter events
  * @returns list of filtered events
  */
-async function fetchEvents(
+async function getEvents(
     relevant_calendars: number[],
     fromDate: Date = new Date(),
     toDate: Date = new Date(new Date().setMonth(new Date().getMonth() + 6)),
@@ -69,7 +69,7 @@ async function fetchEvents(
  * Fetch fetchServicesDict
  *
  * @returns dict of serviceId and ServiceObject
- */ async function fetchServicesDict(): Promise<Record<number, EventService>> {
+ */ async function getServicesDict(): Promise<Record<number, EventService>> {
     const services: EventService[] = await churchtoolsClient.get("/services");
     const servicesDict = Object.fromEntries(
         services
@@ -127,8 +127,8 @@ async function submitFilterOptions() {
     console.log("Selected min_services_count:", min_services_count);
 
     // data gathering
-    const events = await fetchEvents(selected_calendars, fromDate, toDate);
-    const servicesDict = await fetchServicesDict();
+    const events = await getEvents(selected_calendars, fromDate, toDate);
+    const servicesDict = await getServicesDict();
     //   console.log(servicesDict);
     //   printEventServices(events, servicesDict, relevant_services);
 
