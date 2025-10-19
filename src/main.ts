@@ -1,4 +1,4 @@
-import type { Person, Event, Calendar, Service } from "./utils/ct-types";
+import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 // only import reset.css in development mode
@@ -27,7 +27,7 @@ export { KEY };
 
 const user = await churchtoolsClient.get<Person>(`/whoami`);
 
-/** Fetch recent events from ChurchTools
+/** Fetch events in relevant timeframe from ChurchTools
  * @param relevant_calendars - list of calendar ids to filter
  * @param fromDate - start date to filter events
  * @param toDate - end date to filter events
@@ -35,13 +35,11 @@ const user = await churchtoolsClient.get<Person>(`/whoami`);
  */
 async function fetchEvents(
     relevant_calendars: number[],
-    fromDate: Date,
-    toDate: Date,
+    fromDate: Date = new Date(),
+    toDate: Date = new Date(new Date().setMonth(new Date().getMonth() + 6)),
 ): Promise<Event[]> {
     console.log("Fetching events for calendars:", relevant_calendars);
     // Fetch all events
-    const now = new Date().toISOString();
-    // Fetch events from calendar ID 2 starting from now
     const allEvents: Event[] = await churchtoolsClient.get("/events", {
         from: fromDate.toISOString().split("T")[0],
         to: toDate.toISOString().split("T")[0],
@@ -81,46 +79,13 @@ async function fetchEvents(
     return servicesDict;
 }
 
-/**
- * Console printout for debugging shows each event and service with names
- *
- * @param events - list of events
- * @param servicesDict - mapping of service ids to readable names
- * @param relevant_services - list of service ids to filter
-
- * @returns dict of serviceId and ServiceObject
- */
-async function printEventServices(
-    events: Event[],
-    servicesDict: Record<number, Service[]>,
-    relevant_services: number[],
-) {
-    // Print nicely
-    events.forEach((event) => {
-        console.log(
-            `Event: ${event.name} (${event.startDate} - ${event.endDate})`,
-        );
-        if (event.eventServices && event.eventServices.length > 0) {
-            event.eventServices.forEach((service) => {
-                if (!relevant_services.some((id) => id == service.serviceId))
-                    return;
-                console.log(
-                    `${servicesDict[service.serviceId].name} ${service.name}`,
-                );
-            });
-        } else {
-            console.log("  No services for this event.");
-        }
-        console.log("-------------------------------------");
-    });
-}
 import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
 import { createFilterHTML, resetFilterOptions } from "./filters";
-import { createEventListHTML } from "./eventlist";
+import { updateEventListHTML } from "./eventlist";
 
 /**
  * Wrapper to apply new filter options
@@ -182,6 +147,8 @@ async function submitFilterOptions() {
 
     renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
     renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
+
+    updateEventListHTML("eventList", events, servicesDict, selectedServiceIds);
 }
 
 function setupButtonHandler(buttonId: string, handler: () => void) {
@@ -237,7 +204,7 @@ async function main() {
                 </div>
             </div>
         </div>
-        ${createEventListHTML()}
+        <div id="eventList" class="container my-4 w-100"></div>
     </div>
     </div>
 `;

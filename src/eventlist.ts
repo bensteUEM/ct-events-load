@@ -1,10 +1,24 @@
 /* HTML used to display event list */
 import type { Event, Service } from "./utils/ct-types";
-export function createEventListHTML(
+
+/** Create HTML for event list
+ * @param div_id - ID of the div which should be get the eventList content
+ * @param events - list of events to display
+ * @param servicesDict - dictionary of services by service ID
+ * @param selectedServiceIds - list of service IDs to include
+ */
+export function updateEventListHTML(
+    div_id: string = "eventList",
     events: Event[] = [],
-    servicesDict: {} = {},
-): string {
-    return `<div class="flex-fill overflow-auto p-3 border rounded" style="min-height: 40vh; max-height: 70vh;">
+    servicesDict: Record<string, Service> = {},
+    selectedServiceIds: number[] = [],
+) {
+    const div = document.getElementById(div_id);
+    if (!div) {
+        console.error(`No div found with id="${div_id}"`);
+        return "";
+    }
+    div.innerHTML = `
         ${events
             .map(
                 (event: Event) => `
@@ -12,7 +26,10 @@ export function createEventListHTML(
                 <ul class="list-unstyled mb-2 ps-3">
                 ${
                     event.eventServices
-                        ?.map(
+                        ?.filter((service) =>
+                            selectedServiceIds.includes(service.serviceId),
+                        )
+                        .map(
                             (service: Service) =>
                                 `<li class="mb-1">${
                                     servicesDict[service.serviceId]?.name ?? "?"
@@ -23,7 +40,5 @@ export function createEventListHTML(
                 </ul>
             `,
             )
-            .join("")}
-        </div>
-                `;
+            .join("")}`;
 }
