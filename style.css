@@ -1,5 +1,9 @@
 /* style.css */
 
+.error {
+    color: #ff0000
+}
+
 #app {
     display: flex;
     height: 100vh;
@@ -7,88 +11,4 @@
     /* space between divs */
     padding: 10px;
     box-sizing: border-box;
-}
-
-/* First div: welcome */
-#welcome {
-    flex: 0 0 auto;
-    /* fixed size, doesn’t grow */
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-}
-
-/* Second div: event list */
-#events {
-    flex: 1 1 auto;
-    /* takes remaining space */
-    padding: 20px;
-    background-color: #fff;
-    overflow-y: auto;
-    /* scroll if content exceeds height */
-    border-radius: 8px;
-}
-
-/* Optional styling for event items */
-#events h2 {
-    margin-top: 0;
-}
-
-#events ul {
-    padding-left: 20px;
-}
-
-#events li {
-    margin-bottom: 5px;
-}
-
-#charts_container {
-    display: flex;
-    gap: 20px; /* space between charts */
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap; /* wrap to next line if screen is too narrow */
-    padding: 20px;
-}
-
-#charts_container > div {
-    flex: 1 1 45%; /* each chart takes roughly 45% of container width */
-    display: flex;
-    justify-content: center;
-}
-
-canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Button styling */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    background-color: #4a90e2; /* blue tone */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-button:hover {
-    background-color: #357ABD; /* darker on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-    background-color: #2a5d9f;
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Optional: add margin below welcome div so button isn't jammed */
-button {
-    margin-top: 10px;
 }
