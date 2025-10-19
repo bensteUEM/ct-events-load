@@ -1,0 +1,39 @@
+/* style.css */
+
+#app {
+  display: flex;
+  height: 100vh;
+  gap: 20px; /* space between divs */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* First div: welcome */
+#welcome {
+  flex: 0 0 auto; /* fixed size, doesn’t grow */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+/* Second div: event list */
+#events {
+  flex: 1 1 auto; /* takes remaining space */
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: auto; /* scroll if content exceeds height */
+  border-radius: 8px;
+}
+
+/* Optional styling for event items */
+#events h2 {
+  margin-top: 0;
+}
+
+#events ul {
+  padding-left: 20px;
+}
+
+#events li {
+  margin-bottom: 5px;
+}

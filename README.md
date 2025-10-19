@@ -1,6 +1,6 @@
-# ChurchTools Extension Boilerplate
+# CT Events Load Extension
 
-This project provides a boilerplate for building your own extension for [ChurchTools](https://www.church.tools).
+This project visualizes event load for services.
 
 ## Getting Started
 
