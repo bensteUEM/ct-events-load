@@ -27,9 +27,6 @@ export { KEY };
 
 const user = await churchtoolsClient.get<Person>(`/whoami`);
 
-/** Type for flattened chart data */
-type DataPoint = { person: string; serviceName: string; count: number };
-
 /** Fetch recent events from ChurchTools
  * @param relevant_calendars - list of calendar ids to filter
  * @param fromDate - start date to filter events
@@ -54,10 +51,12 @@ async function fetchEvents(
 
     // Filter calendar and daterange sort by startDate j
     const calendarEvents = allEvents.filter((event) => {
+        if (!event.startDate) return;
         const eventDate = new Date(event.startDate);
         return (
             relevant_calendars.some(
-                (id) => id == event.calendar.domainIdentifier,
+                // @ts-expect-error TS2339
+                (id) => id == event?.calendar?.domainIdentifier,
             ) &&
             eventDate >= fromDate &&
             eventDate <= toDate
@@ -123,101 +122,9 @@ async function printEventServices(
         console.log("-------------------------------------");
     });
 }
+import { countServicesPerPersonPerMonth } from "./math/counts";
 
-/**
- * Count number of services per service, per person per month
- * @param events - list of events
- * @param servicesDict - mapping of service ids to readable names
- * @param relevant_services - list of service ids to filter
- * @returns Record<personId, Record<YYYY-MM, count>>
- */
-function countServicesPerPersonPerMonth(
-    events: Event[],
-    servicesDict: Record<number, Service>,
-    relevant_services: number[],
-): DataPoint[] {
-    console.log("Filtering for services:", relevant_services);
-    const dataPoints: DataPoint[] = [];
-    events.forEach((event) => {
-        // console.log("Processing event:", event);
-        if (!event.startDate) return;
-        const month = event.startDate.slice(0, 7); // optional, can include if needed
-        event.eventServices?.forEach((service) => {
-            if (!relevant_services.some((id) => id == service.serviceId))
-                return;
-            const personName = service.name ?? "?"; // or use event.person?.name if you have it
-            const serviceName = servicesDict[service.serviceId]?.name ?? "?";
-
-            // check if this combination already exists in dataPoints
-            const existing = dataPoints.find(
-                (d) => d.person == personName && d.serviceName == serviceName,
-            );
-
-            if (existing) {
-                existing.count++;
-            } else {
-                dataPoints.push({
-                    person: personName,
-                    serviceName,
-                    count: 1,
-                });
-            }
-        });
-    });
-
-    return dataPoints;
-}
-
-import {
-    Chart,
-    BarController,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-    Tooltip,
-    Legend,
-} from "chart.js";
-
-Chart.register(
-    BarController,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-    Tooltip,
-    Legend,
-);
-
-function renderStackedChart(containerId: string, dataPoints: DataPoint[]) {
-    console.log(`Rendering chart with DataPoints`, dataPoints);
-    const persons = Array.from(new Set(dataPoints.map((d) => d.person)));
-    const serviceNames = Array.from(
-        new Set(dataPoints.map((d) => d.serviceName)),
-    );
-
-    const datasets = serviceNames.map((serviceName, idx) => ({
-        label: serviceName,
-        data: persons.map(
-            (p) =>
-                dataPoints.find(
-                    (d) => d.person === p && d.serviceName === serviceName,
-                )?.count ?? 0,
-        ),
-        backgroundColor: `hsl(${(idx * 60) % 360}, 70%, 60%)`,
-    }));
-
-    const ctx = document.getElementById(containerId) as HTMLCanvasElement;
-    new Chart(ctx, {
-        type: "bar",
-        data: { labels: persons, datasets },
-        options: {
-            responsive: true,
-            scales: {
-                x: { stacked: true },
-                y: { stacked: true, beginAtZero: true },
-            },
-        },
-    });
-}
+import { renderStackedChart } from "./charts/stackedchart";
 
 /** Main plugin function */
 async function main() {
