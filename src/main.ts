@@ -182,12 +182,14 @@ async function main() {
           )
           .join("")}
     </div>
-    <div>
+    <div id="charts_container">
+    <div id="chart1">
       <canvas id="CountServicesPerPerson" width="800" height="400"></canvas>
       </div>
-      <div>
+      <div id="chart2">
       <canvas id="CummulativePersontTime" width="800" height="400"></canvas>
     </div>
+  </div>
   </div>
 `;
     renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);

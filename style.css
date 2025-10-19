@@ -42,12 +42,22 @@
     margin-bottom: 5px;
 }
 
-#chart {
-    flex: 1 1 auto;
-    /* takes remaining space */
+#charts_container {
+    display: flex;
+    gap: 20px; /* space between charts */
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; /* wrap to next line if screen is too narrow */
     padding: 20px;
-    background-color: #fff;
-    overflow-y: auto;
-    /* scroll if content exceeds height */
-    border-radius: 8px;
+}
+
+#charts_container > div {
+    flex: 1 1 45%; /* each chart takes roughly 45% of container width */
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
 }
