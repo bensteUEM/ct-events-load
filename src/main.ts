@@ -86,6 +86,7 @@ import { renderLineChart } from "./charts/linechart";
 
 import { createFilterHTML, resetFilterOptions } from "./filters";
 import { updateEventListHTML } from "./eventlist";
+import { getWritebleServicegroupIds } from "./permissions";
 
 /**
  * Wrapper to apply new filter options
@@ -110,6 +111,11 @@ async function submitFilterOptions() {
     ).map((option) => Number(option.value));
 
     console.log("Selected services:", selectedServiceIds);
+    //Filter options based on allowed servicegroups
+    
+    const allowedServiceGroupIds = await getWritebleServicegroupIds();
+    console.log("Allowed service group IDs:", allowedServiceGroupIds);
+    // TODO@bensteUEM: https://github.com/bensteUEM/ct-events-load/issues/1
 
     /* retrieve filter options from HTML form */
     const inputFrom = document.getElementById("from_date") as HTMLInputElement;

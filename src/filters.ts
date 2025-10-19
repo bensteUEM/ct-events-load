@@ -1,4 +1,5 @@
 /* This module includes everything related to the filter options */
+import { getWritebleServicegroupIds } from "./permissions";
 import type { Calendar, EventService, ServiceGroup } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
@@ -54,26 +55,35 @@ async function refreshAvailableServices(
     const allServiceGroups: ServiceGroup[] =
         await churchtoolsClient.get("/servicegroups");
 
-    const available_service_categories = Object.fromEntries(
+    const availableServicegroups = Object.fromEntries(
         allServiceGroups
             .filter((group) => group.id != null) // skip undefined IDs
             .map((group) => [group.id, group.name]),
     ) as Record<number, string>;
-    console.log("Available serviceGroups:", available_service_categories);
+    console.log("Available serviceGroups:", availableServicegroups);
 
-    const allServices: EventService[] = await churchtoolsClient.get("/services");
+    const allowedServiceGroupIds = await getWritebleServicegroupIds();
+
+    const allServices: EventService[] =
+        await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 
-const available_service_types_by_category: Record<number, { id: number; name: string }[]> =
-  allServices.reduce<Record<number, { id: number; name: string }[]>>((acc, service) => {
-    const groupId = service.serviceGroupId;
-    if (groupId == null) return acc; // skip if undefined or null
-
-    if (!acc[groupId]) acc[groupId] = [];
-    acc[groupId].push({ id: service.id, name: service.nameTranslated });
-    return acc;
-  }, {});
-
+    const available_service_types_by_category: Record<
+        number,
+        { id: number; name: string }[]
+    > = allServices.reduce<Record<number, { id: number; name: string }[]>>(
+        (acc, service) => {
+            const groupId = service.serviceGroupId;
+            if (groupId == null) return acc; // skip if undefined or null
+            if (!allowedServiceGroupIds.includes(service.serviceGroupId)) {
+                return acc;
+            }
+            if (!acc[groupId]) acc[groupId] = [];
+            acc[groupId].push({ id: service.id, name: service.nameTranslated });
+            return acc;
+        },
+        {},
+    );
 
     console.log(
         "Available ServiceGroups with Services:",
@@ -89,7 +99,7 @@ const available_service_types_by_category: Record<number, { id: number; name: st
 
     for (const categoryId in available_service_types_by_category) {
         const optgroup = document.createElement("optgroup");
-        optgroup.label = available_service_categories[Number(categoryId)] ?? "";
+        optgroup.label = availableServicegroups[Number(categoryId)] ?? "";
 
         available_service_types_by_category[Number(categoryId)].forEach(
             (service) => {
