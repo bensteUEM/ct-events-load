@@ -2114,7 +2114,7 @@ export type EventService = {
      * @deprecated
      */
     counter?: number;
-    id?: number;
+    id: number; //TODO https://forum.church.tools/topic/11314/verwendung-der-src-utils-ct-types-d-ts/3
     index?: number | null;
     isAccepted?: boolean;
     isValid?: boolean;
@@ -2127,6 +2127,8 @@ export type EventService = {
      * @deprecated
      */
     personId?: number;
+    nameTranslated: string; //TODO https://forum.church.tools/topic/11314/verwendung-der-src-utils-ct-types-d-ts/3
+    serviceGroupId: number; //TOOD https://forum.church.tools/topic/11314/verwendung-der-src-utils-ct-types-d-ts/3
     requestedDate?: string;
     requesterPerson?: DomainObjectPerson;
     /**
