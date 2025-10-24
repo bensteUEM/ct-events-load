@@ -1,5 +1,14 @@
 import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
+import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
+
+import { renderStackedChart } from "./charts/stackedchart";
+import { renderLineChart } from "./charts/linechart";
+
+import { createFilterHTML, resetFilterOptions } from "./filters";
+import { updateEventListHTML } from "./eventlist";
+import { getWritebleServicegroupIds } from "./permissions";
+import { resetStoredCategories, getFilters, setFilters } from "./persistance";
 
 // only import reset.css in development mode
 if (import.meta.env.MODE === "development") {
@@ -79,15 +88,6 @@ async function getEvents(
     return servicesDict;
 }
 
-import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
-
-import { renderStackedChart } from "./charts/stackedchart";
-import { renderLineChart } from "./charts/linechart";
-
-import { createFilterHTML, resetFilterOptions } from "./filters";
-import { updateEventListHTML } from "./eventlist";
-import { getWritebleServicegroupIds } from "./permissions";
-
 /**
  * Wrapper to apply new filter options
  * @returns void
@@ -112,7 +112,7 @@ async function submitFilterOptions() {
 
     console.log("Selected services:", selectedServiceIds);
     //Filter options based on allowed servicegroups
-    
+
     const allowedServiceGroupIds = await getWritebleServicegroupIds();
     console.log("Allowed service group IDs:", allowedServiceGroupIds);
     // TODO@bensteUEM: https://github.com/bensteUEM/ct-events-load/issues/1
@@ -219,6 +219,16 @@ async function main() {
     setupButtonHandler("resetFilterBtn", resetFilterOptions);
     setupButtonHandler("submitFilterBtn", submitFilterOptions);
     resetFilterOptions();
+
+    let selected_filters = await getFilters()
+    if (!selected_filters) {
+        const new_filter = { calendars: [2], services: [6, 69, 72], months: 6 };
+        setFilters(new_filter);
+        selected_filters = await getFilters()
+    }
+    else {
+        console.log("Using stored filters:", selected_filters);
+    }
 }
 
 main();
