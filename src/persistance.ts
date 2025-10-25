@@ -8,8 +8,6 @@ import type {
     Person,
 } from "./utils/ct-types";
 
-const user = await churchtoolsClient.get<Person>(`/whoami`);
-
 /**
  * ────────────────────────────────────────────────
  *  CUSTOM MODULE itself
@@ -235,8 +233,14 @@ export async function resetStoredCategories(): Promise<boolean> {
                         calendars: { type: "array", items: { type: "number" } },
                         services: { type: "array", items: { type: "number" } },
                         months: { type: "number" },
+                        minServicesCount: { type: "number" },
                     },
-                    required: ["calendars", "services", "months"],
+                    required: [
+                        "calendars",
+                        "services",
+                        "months",
+                        "minServicesCount",
+                    ],
                 },
             },
         },
@@ -260,7 +264,12 @@ export async function resetStoredCategories(): Promise<boolean> {
 
 /* Store filter selections for a user */
 export async function setFilters(
-    selected: { calendars: number[]; services: number[]; months: number },
+    selected: {
+        calendars: number[];
+        services: number[];
+        months: number;
+        minServicesCount: number;
+    },
     userId?: number,
 ) {
     if (!userId) {
@@ -289,7 +298,12 @@ export async function setFilters(
 
 /* Update filter selections for users with existing filter */
 export async function updateFilters(
-    selected: { calendars: number[]; services: number[]; months: number },
+    selected: {
+        calendars: number[];
+        services: number[];
+        months: number;
+        minServicesCount: number;
+    },
     userId?: number,
 ) {
     if (!userId) {
@@ -333,9 +347,12 @@ export async function updateFilters(
 }
 
 /* Retrieve filter selections for a user */
-export async function getFilters(
-    userId?: number,
-): Promise<{ calendars: number[]; services: number[]; months: number } | null> {
+export async function getFilters(userId?: number): Promise<{
+    calendars: number[];
+    services: number[];
+    months: number;
+    minServicesCount: number;
+} | null> {
     if (!userId) {
         const user = await churchtoolsClient.get<{ id: number }>(`/whoami`);
         userId = user.id;

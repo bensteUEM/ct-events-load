@@ -5,11 +5,13 @@ import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
-import { createFilterHTML, resetFilterOptions } from "./filters";
+import {
+    createFilterHTML,
+    resetFilterOptions,
+    saveFilterOptions,
+    parseSelectedFilterOptions,
+} from "./filters";
 import { updateEventListHTML } from "./eventlist";
-import { getWritebleServicegroupIds } from "./permissions";
-import { resetStoredCategories, getFilters, setFilters } from "./persistance";
-
 // only import reset.css in development mode
 if (import.meta.env.MODE === "development") {
     import("./utils/reset.css");
@@ -92,48 +94,16 @@ async function getEvents(
  * Wrapper to apply new filter options
  * @returns void
  */
-async function submitFilterOptions() {
+async function submitFilterOptions(document: Document = window.document) {
     /* retrieve filter option selected_calendars from HTML form */
-    const selectCalendars = document.getElementById(
-        "selected_calendars",
-    ) as HTMLSelectElement;
-    const selected_calendars = Array.from(selectCalendars.selectedOptions).map(
-        (option) => Number(option.value),
-    );
-    console.log("Selected calendars:", selected_calendars);
-
-    /* retrieve filter option selected_services from HTML form */
-    const selectServices = document.getElementById(
-        "selected_service_types",
-    ) as HTMLSelectElement;
-    const selectedServiceIds: number[] = Array.from(
-        selectServices.selectedOptions,
-    ).map((option) => Number(option.value));
-
-    console.log("Selected services:", selectedServiceIds);
-    //Filter options based on allowed servicegroups
-
-    const allowedServiceGroupIds = await getWritebleServicegroupIds();
-    console.log("Allowed service group IDs:", allowedServiceGroupIds);
-    // TODO@bensteUEM: https://github.com/bensteUEM/ct-events-load/issues/1
-
-    /* retrieve filter options from HTML form */
-    const inputFrom = document.getElementById("from_date") as HTMLInputElement;
-    const fromDate = new Date(inputFrom.value);
-
-    const inputTo = document.getElementById("to_date") as HTMLInputElement;
-    const toDate = new Date(inputTo.value);
-
-    console.log("Selected date range:", fromDate, toDate);
-
-    const min_services_count_input = document.getElementById(
-        "min_services_count",
-    ) as HTMLInputElement;
-    const min_services_count = Number(min_services_count_input.value);
-    console.log("Selected min_services_count:", min_services_count);
+    const selectedFilters = await parseSelectedFilterOptions(document);
 
     // data gathering
-    const events = await getEvents(selected_calendars, fromDate, toDate);
+    const events = await getEvents(
+        selectedFilters.calendars,
+        selectedFilters.fromDate,
+        selectedFilters.toDate,
+    );
     const servicesDict = await getServicesDict();
     //   console.log(servicesDict);
     //   printServices(events, servicesDict, relevant_services);
@@ -141,20 +111,25 @@ async function submitFilterOptions() {
     const dpCountServicesPerPerson = countServicesPerPerson(
         events,
         servicesDict,
-        selectedServiceIds,
-        min_services_count,
+        selectedFilters.services,
+        selectedFilters.minServicesCount,
     );
 
     const dpCummulativePersontTime = cummulativePersonTime(
         events,
-        selectedServiceIds,
-        min_services_count,
+        selectedFilters.services,
+        selectedFilters.minServicesCount,
     );
 
     renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
     renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
 
-    updateEventListHTML("eventList", events, servicesDict, selectedServiceIds);
+    updateEventListHTML(
+        "eventList",
+        events,
+        servicesDict,
+        selectedFilters.services,
+    );
 }
 
 function setupButtonHandler(buttonId: string, handler: () => void) {
@@ -216,19 +191,10 @@ async function main() {
 `;
     add_bootstrap_styles();
 
-    setupButtonHandler("resetFilterBtn", resetFilterOptions);
-    setupButtonHandler("submitFilterBtn", submitFilterOptions);
+    setupButtonHandler("resetFilterBtn", () => resetFilterOptions());
+    setupButtonHandler("saveFilterBtn", () => saveFilterOptions(document));
+    setupButtonHandler("submitFilterBtn", () => submitFilterOptions());
     resetFilterOptions();
-
-    let selected_filters = await getFilters()
-    if (!selected_filters) {
-        const new_filter = { calendars: [2], services: [6, 69, 72], months: 6 };
-        setFilters(new_filter);
-        selected_filters = await getFilters()
-    }
-    else {
-        console.log("Using stored filters:", selected_filters);
-    }
 }
 
 main();

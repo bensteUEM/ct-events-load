@@ -1,17 +1,128 @@
 /* This module includes everything related to the filter options */
 import { getWritebleServicegroupIds } from "./permissions";
+import { getFilters, setFilters, updateFilters } from "./persistance";
 import type { Calendar, Service, ServiceGroup } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 
 /**
- * Wrapper to reset all filter options
+ * Wrapper to reset all filter options.
+ * Tries to retrieve user config for store selected options and set them if not available
  * @returns void
  */
 export async function resetFilterOptions() {
-    refreshAvailableCalendars();
-    refreshAvailableServices();
-    initDateOptions();
-    initMinServicesOptions();
+    let selectedFilters = await getFilters();
+    if (!selectedFilters) {
+        const defaultFilter = {
+            calendars: [2],
+            services: [6, 69, 72],
+            months: 6,
+            minServicesCount: 5,
+        };
+        setFilters(defaultFilter);
+        selectedFilters = await getFilters();
+    } else {
+        console.log("Using stored filters:", selectedFilters);
+    }
+
+    refreshAvailableCalendars(selectedFilters?.calendars ?? []);
+    refreshAvailableServices(selectedFilters?.services ?? []);
+    initDateOptions(selectedFilters?.months ?? 6);
+    initMinServicesOptions(selectedFilters?.minServicesCount ?? 5);
+}
+
+/**
+ * Wrapper to save all filter options
+ * @param document - the HTML reference to parse from
+ * @returns void
+ */
+export async function saveFilterOptions(document: Document) {
+    const selectedFilters = await parseSelectedFilterOptions(document);
+
+    const storeableFilters = {
+        calendars: selectedFilters.calendars,
+        services: selectedFilters.services,
+        months: diffInMonths(selectedFilters.fromDate, selectedFilters.toDate),
+        minServicesCount: selectedFilters.minServicesCount,
+    };
+
+    if (await getFilters()) {
+        updateFilters(storeableFilters);
+    } else {
+        setFilters(storeableFilters);
+    }
+}
+
+function diffInMonths(date1: Date, date2: Date): number {
+    const years = date2.getFullYear() - date1.getFullYear();
+    const months = date2.getMonth() - date1.getMonth();
+    let result = years * 12 + months + 1;
+
+    if (date2.getDate() < date1.getDate()) {
+        result -= 1;
+    }
+
+    return result;
+}
+
+/**
+ * Parse selected filter options from HTML form
+ * @param document - the HTML reference to parse from
+ */
+export async function parseSelectedFilterOptions(document: Document): Promise<{
+    calendars: number[];
+    services: number[];
+    fromDate: Date;
+    toDate: Date;
+    minServicesCount: number;
+}> {
+    /* retrieve filter option selected_calendars from HTML form */
+    const selectCalendars = document.getElementById(
+        "selected_calendars",
+    ) as HTMLSelectElement;
+    const selected_calendars = Array.from(selectCalendars.selectedOptions).map(
+        (option) => Number(option.value),
+    );
+    console.log("Selected calendars:", selected_calendars);
+
+    /* retrieve filter option selected_services from HTML form */
+    const selectServices = document.getElementById(
+        "selected_service_types",
+    ) as HTMLSelectElement;
+    const selectedServiceIds: number[] = Array.from(
+        selectServices.selectedOptions,
+    ).map((option) => Number(option.value));
+
+    console.log("Selected services:", selectedServiceIds);
+    //Filter options based on allowed servicegroups
+
+    const allowedServiceGroupIds = await getWritebleServicegroupIds();
+    console.log("Allowed service group IDs:", allowedServiceGroupIds);
+    // TODO@bensteUEM: https://github.com/bensteUEM/ct-events-load/issues/1
+
+    /* retrieve filter options from HTML form */
+    const inputFrom = document.getElementById("from_date") as HTMLInputElement;
+    const fromDate = new Date(inputFrom.value);
+
+    const inputTo = document.getElementById("to_date") as HTMLInputElement;
+    const toDate = new Date(inputTo.value);
+
+    console.log("Selected date range:", fromDate, toDate);
+
+    const minServicesCountInput = document.getElementById(
+        "min_services_count",
+    ) as HTMLInputElement;
+    const minServicesCount = Number(minServicesCountInput.value);
+
+    console.log("Selected minServicesCount:", minServicesCount);
+
+    const result = {
+        calendars: selected_calendars,
+        services: selectedServiceIds,
+        fromDate: fromDate,
+        toDate: toDate,
+        minServicesCount: minServicesCount,
+    };
+    return result;
 }
 
 /**
@@ -21,6 +132,11 @@ export async function resetFilterOptions() {
  * @returns void
  */
 async function refreshAvailableCalendars(selectedCalendars: number[] = []) {
+    console.log(
+        "Refreshing available calendars with selected calendars:",
+        selectedCalendars,
+    );
+
     const allCalendars: Calendar[] = await churchtoolsClient.get("/calendars");
     console.log("Available calendars:", allCalendars);
 
@@ -33,7 +149,7 @@ async function refreshAvailableCalendars(selectedCalendars: number[] = []) {
     selectEl.innerHTML = "";
 
     allCalendars.forEach((calendar) => {
-        const option = document.createElement("option");
+        const option: HTMLOptionElement = document.createElement("option");
         option.value = calendar.id.toString();
         option.textContent = calendar.name;
         if (selectedCalendars.includes(calendar.id)) {
@@ -46,12 +162,15 @@ async function refreshAvailableCalendars(selectedCalendars: number[] = []) {
 /**
  * Retrieve list of available services by servicegroup and populate the filter including default selections
  *
- * @param selected_service_types - list of ids that should be selected upon init
+ * @param selectedServices - list of ids that should be selected upon init
  * @returns void
  */
-async function refreshAvailableServices(
-    selected_service_types: number[] = [6, 69, 72],
-) {
+async function refreshAvailableServices(selectedServices: number[] = []) {
+    console.log(
+        "Refreshing available services for filter options with selected services:",
+        selectedServices,
+    );
+
     const allServiceGroups: ServiceGroup[] =
         await churchtoolsClient.get("/servicegroups");
 
@@ -64,8 +183,7 @@ async function refreshAvailableServices(
 
     const allowedServiceGroupIds = await getWritebleServicegroupIds();
 
-    const allServices: Service[] =
-        await churchtoolsClient.get("/services");
+    const allServices: Service[] = await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 
     const available_service_types_by_category: Record<
@@ -107,7 +225,7 @@ async function refreshAvailableServices(
                 option.value = service.id.toString();
                 option.textContent = service.name;
 
-                if (selected_service_types.includes(service.id)) {
+                if (selectedServices.includes(service.id)) {
                     option.selected = true;
                 }
 
@@ -118,7 +236,15 @@ async function refreshAvailableServices(
     }
 }
 
-function initDateOptions(DEFAULT_TIMEFRAME_MONTHS = 6) {
+/**
+ * Initialize date options with default values based on NOW() and defaultTimeFrameMonths
+ *
+ * @param moths - number of months for default timeframe
+ * @returns void
+ */
+function initDateOptions(months = 6) {
+    console.log("init date options with now +", months, " months");
+
     const fromDateInput = document.getElementById(
         "from_date",
     ) as HTMLInputElement;
@@ -130,7 +256,7 @@ function initDateOptions(DEFAULT_TIMEFRAME_MONTHS = 6) {
 
     // End: fromDate + 6 months, at 23:59:59
     const toDate = new Date(fromDate);
-    toDate.setMonth(toDate.getMonth() + DEFAULT_TIMEFRAME_MONTHS);
+    toDate.setMonth(toDate.getMonth() + months);
     toDate.setHours(23, 59, 59, 999);
 
     console.log("From:", fromDate, "To:", toDate);
@@ -139,12 +265,12 @@ function initDateOptions(DEFAULT_TIMEFRAME_MONTHS = 6) {
     toDateInput.value = toDate.toISOString().slice(0, 10);
 }
 
-function initMinServicesOptions(MIN_SERVICES_COUNT = 5) {
+function initMinServicesOptions(selectedFilters = 5) {
     const minServicesCountInput = document.getElementById(
         "min_services_count",
     ) as HTMLInputElement;
 
-    minServicesCountInput.value = MIN_SERVICES_COUNT.toString();
+    minServicesCountInput.value = selectedFilters.toString();
 }
 /* HTML used to display filter options 
 content needs to be populated dynamically
@@ -186,7 +312,8 @@ export function createFilterHTML(): string {
                     </div>
                 </div>
                 <button type="button" id="submitFilterBtn" class="btn btn-primary">Auswahl anpassen</button>
-                <button type="button" id="resetFilterBtn" class="btn btn-secondary">Refresh available Filter Options</button>
+                <button type="button" id="saveFilterBtn" class="btn btn-secondary">Save Filter as Default</button>
+                <button type="button" id="resetFilterBtn" class="btn btn-secondary">Reload Filter Options</button>
                 </form>
                 `;
 }
