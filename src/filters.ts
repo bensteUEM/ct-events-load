@@ -245,7 +245,7 @@ function initDateOptions(days = 90) {
     const fromDate = new Date();
     fromDate.setHours(0, 0, 0, 0);
 
-    // End: fromDate + 6 days, at 23:59:59
+    // End: fromDate + days
     const toDate = new Date(fromDate);
     toDate.setDate(toDate.getDate() + days);
 
@@ -269,138 +269,157 @@ export function createFilterHTML(): HTMLFormElement {
     // Create the form
     const form = document.createElement("form");
     form.id = "filters";
-    form.className = "form-floating mb-3";
+    form.className = "c-card__main form-floating mb-3";
 
     // Heading
     const heading = document.createElement("h2");
-    heading.textContent = "Filterung";
+    heading.textContent = "Filters";
+    heading.className = "text-body-l-emphasized m-0 grow";
     form.appendChild(heading);
 
     // Row container
     const row = document.createElement("div");
-    row.className = "row g-3 mb-3";
+    row.className = "flex gap-4 px-4 pb-4 justify-center";
     form.appendChild(row);
 
-    // --- Calendar select ---
+    // --- Calendar select column ---
     const calCol = document.createElement("div");
-    calCol.className = "col-auto";
+    calCol.className = "flex flex-col px-4 py-3 gap-2";
 
+    // Label above the select
     const calLabel = document.createElement("label");
     calLabel.htmlFor = "selectedCalendars";
-    calLabel.className = "form-label";
+    calLabel.className = "font-bold";
     calLabel.textContent = "Kalender";
 
+    // Multi-select
     const calSelect = document.createElement("select");
-    calSelect.className = "form-select";
+    calSelect.className = "multi-select-status flex-1";
     calSelect.id = "selectedCalendars";
     calSelect.name = "selectedCalendars";
     calSelect.multiple = true;
     calSelect.size = 10;
 
+    // Combine
     calCol.appendChild(calLabel);
     calCol.appendChild(calSelect);
     row.appendChild(calCol);
 
     // --- Date & minServices inputs ---
     const dateCol = document.createElement("div");
-    dateCol.className = "col-auto";
+    dateCol.className = "flex flex-col px-4 py-3 gap-2";
 
+    // --- From Date ---
     const fromRow = document.createElement("div");
-    fromRow.className = "row";
+    fromRow.className = "flex items-center gap-2";
     const fromLabel = document.createElement("label");
     fromLabel.htmlFor = "fromDate";
-    fromLabel.className = "form-label";
+    fromLabel.className = "font-bold w-32 shrink-0";
     fromLabel.textContent = "Von";
     const fromInput = document.createElement("input");
     fromInput.type = "date";
     fromInput.id = "fromDate";
-    fromInput.className = "form-control";
     fromInput.name = "fromDate";
-    fromInput.value = "2000-01-01"; //init later
+    fromInput.className = "flex-1";
+    fromInput.value = "2000-01-01";
     fromRow.appendChild(fromLabel);
     fromRow.appendChild(fromInput);
 
+    // --- To Date ---
     const toRow = document.createElement("div");
-    toRow.className = "row";
+    toRow.className = "flex items-center gap-2";
     const toLabel = document.createElement("label");
     toLabel.htmlFor = "toDate";
-    toLabel.className = "form-label";
+    toLabel.className = "font-bold w-32 shrink-0";
     toLabel.textContent = "Bis";
     const toInput = document.createElement("input");
     toInput.type = "date";
     toInput.id = "toDate";
-    toInput.className = "form-control";
     toInput.name = "toDate";
-    toInput.value = "2000-01-01"; //init later
+    toInput.className = "flex-1";
+    toInput.value = "2000-01-01"; // init value
     toRow.appendChild(toLabel);
     toRow.appendChild(toInput);
 
+    // --- Min Services Count ---
     const minRow = document.createElement("div");
-    minRow.className = "row";
+    minRow.className = "flex items-center gap-2";
     const minLabel = document.createElement("label");
     minLabel.htmlFor = "minServicesCount";
-    minLabel.className = "form-label";
+    minLabel.className = "font-bold w-32 shrink-0";
     minLabel.textContent = "Mindestens # Dienste";
     const minInput = document.createElement("input");
     minInput.type = "number";
     minInput.id = "minServicesCount";
-    minInput.className = "form-control";
     minInput.name = "minServicesCount";
-    minInput.value = (0).toString(); //initialized later
+    minInput.className = "flex-1 font-bold";
+    minInput.value = "0"; // init value
     minRow.appendChild(minLabel);
     minRow.appendChild(minInput);
 
+    // --- Combine
     dateCol.appendChild(fromRow);
     dateCol.appendChild(toRow);
     dateCol.appendChild(minRow);
+
+    // --- Append to parent row/container ---
     row.appendChild(dateCol);
 
-    // --- Services select ---
+    // --- Services select column ---
     const serviceCol = document.createElement("div");
-    serviceCol.className = "col-auto";
+    serviceCol.className = "flex flex-col px-4 py-3 gap-2";
 
+    // Label above the select
     const serviceLabel = document.createElement("label");
     serviceLabel.htmlFor = "selectedServices";
-    serviceLabel.className = "form-label";
+    serviceLabel.className = "font-bold";
     serviceLabel.textContent = "Dienste";
 
+    // Multi-select
     const serviceSelect = document.createElement("select");
-    serviceSelect.className = "form-select";
+    serviceSelect.className = "form-select flex-1";
     serviceSelect.id = "selectedServices";
     serviceSelect.name = "selectedServices";
     serviceSelect.multiple = true;
     serviceSelect.size = 10;
 
+    // Combine
     serviceCol.appendChild(serviceLabel);
     serviceCol.appendChild(serviceSelect);
     row.appendChild(serviceCol);
 
-    // --- Buttons ---
+    // --- Button group ---
     const btnGroup = document.createElement("div");
-    btnGroup.className = "d-flex gap-2 mt-2"; // flex row with spacing
+    btnGroup.className = "flex gap-2 mt-2 justify-center";
 
+    // --- Refresh Chart button ---
     const btnRefresh = document.createElement("button");
     btnRefresh.type = "button";
     btnRefresh.id = "submitFilterBtn";
-    btnRefresh.className = "btn btn-primary";
+    btnRefresh.className =
+        "c-button c-button__S c-button__primary rounded-sm text-body-m-emphasized gap-2 justify-center bg-green-b-bright px-4 py-2 text-white";
     btnRefresh.textContent = "Refresh Chart";
 
+    // --- Save Filter button ---
     const btnSave = document.createElement("button");
     btnSave.type = "button";
     btnSave.id = "saveFilterBtn";
-    btnSave.className = "btn btn-secondary";
+    btnSave.className =
+        "c-button c-button__S c-button__accent c-button__outlined rounded-sm text-body-m-emphasized gap-2 justify-center px-4 py-2";
     btnSave.textContent = "Save Filter as Default";
 
+    // --- Reload Filter button ---
     const btnReload = document.createElement("button");
     btnReload.type = "button";
     btnReload.id = "resetFilterBtn";
-    btnReload.className = "btn btn-secondary";
+    btnReload.className =
+        "c-button c-button__S c-button__accent c-button__outlined rounded-sm text-body-m-emphasized gap-2 justify-center px-4 py-2";
     btnReload.textContent = "Reload Filter Options";
 
+    // --- Combine buttons into group ---
     btnGroup.appendChild(btnRefresh);
     btnGroup.appendChild(btnSave);
     btnGroup.appendChild(btnReload);
-
     form.appendChild(btnGroup);
 
     return form;

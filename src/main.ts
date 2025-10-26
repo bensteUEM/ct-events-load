@@ -15,7 +15,8 @@ import {
 import { updateEventListHTML } from "./eventlist";
 // only import reset.css in development mode
 if (import.meta.env.MODE === "development") {
-    import("./utils/reset.css");
+    //import("./utils/reset.css");
+    import("../20251026_ct_styles.css");
 }
 
 declare const window: Window &
@@ -152,47 +153,31 @@ function setupButtonHandler(buttonId: string, handler: () => void) {
     newButton.addEventListener("click", handler);
 }
 
-/** add bootstrap styles */
-async function addBootstrapStyles() {
-    // Add CSS
-    const bootstrapCss = document.createElement("link");
-    bootstrapCss.rel = "stylesheet";
-    bootstrapCss.href =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
-    document.head.appendChild(bootstrapCss);
-
-    // Add JS
-    const bootstrapJs = document.createElement("script");
-    bootstrapJs.src =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js";
-    document.head.appendChild(bootstrapJs);
-}
-
 /** Main plugin function */
 async function main() {
     /* HTML Updates */
-    addBootstrapStyles();
+    //addBootstrapStyles();
 
     const app = document.querySelector<HTMLDivElement>("#app")!;
     app.innerHTML = `
 <div class="container d-flex flex-column align-items-center justify-content-start min-vh-100 gap-3">
-    <div class="container-fluid" id="filterWrapper"></div>
-    <div class="container my-4 row" id="chartsWrapper"></div>
-    <div class="container my-4 w-100" id="eventListWrapper"></div>
+    <div class="container" id="filterWrapper"></div>
+    <div class="container" id="chartsWrapper"></div>
+    <div class="container" id="eventListWrapper"></div>
 </div>
 `;
 
     // Conditionally add dev-only welcome section
     if (import.meta.env.MODE === "development") {
         const devHeader = document.createElement("div");
-        devHeader.className = "p-4 mb-4 bg-light rounded shadow text-center";
+        devHeader.className = "p-4 mb-4 bg-gray-100 rounded shadow text-center";
 
         const h1 = document.createElement("h1");
-        h1.className = "display-5";
+        h1.className = "text-4xl font-semibold";
         h1.textContent = `Welcome ${user.firstName} ${user.lastName}`;
 
         const subDiv = document.createElement("div");
-        subDiv.className = "text-muted small";
+        subDiv.className = "text-gray-500 text-sm";
         subDiv.textContent = `ChurchTools at ${baseUrl}`;
 
         devHeader.appendChild(h1);
@@ -202,15 +187,13 @@ async function main() {
         const container = app.querySelector(".container")!;
         container.insertBefore(devHeader, container.firstChild);
     }
-    
+
     // Insert the filter DOM element into the placeholder
     const filterHTML = createFilterHTML();
     const filterWrapper =
         document.querySelector<HTMLDivElement>("#filterWrapper")!;
     filterWrapper.innerHTML = "";
     filterWrapper.appendChild(filterHTML);
-
-    addBootstrapStyles();
 
     // additional setup links
     setupButtonHandler("resetFilterBtn", () => resetFilterOptions());
