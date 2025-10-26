@@ -45,8 +45,15 @@ export function countServicesPerPerson(
         });
     });
 
-    // Filter results by minServicesCount
-    return dataPoints.filter((d) => d.count >= minServicesCount);
+
+    // Compute total counts per person
+    const totalCountsPerPerson: Record<string, number> = {};
+    dataPoints.forEach((d) => {
+        totalCountsPerPerson[d.person] = (totalCountsPerPerson[d.person] || 0) + d.count;
+    });
+
+    // Filter out all datapoints for persons below minServicesCount
+    return dataPoints.filter((d) => totalCountsPerPerson[d.person] >= minServicesCount);
 }
 
 /**
