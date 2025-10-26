@@ -232,13 +232,13 @@ export async function resetStoredCategories(): Promise<boolean> {
                     properties: {
                         calendars: { type: "array", items: { type: "number" } },
                         services: { type: "array", items: { type: "number" } },
-                        months: { type: "number" },
+                        days: { type: "number" },
                         minServicesCount: { type: "number" },
                     },
                     required: [
                         "calendars",
                         "services",
-                        "months",
+                        "days",
                         "minServicesCount",
                     ],
                 },
@@ -267,7 +267,7 @@ export async function setFilters(
     selected: {
         calendars: number[];
         services: number[];
-        months: number;
+        days: number;
         minServicesCount: number;
     },
     userId?: number,
@@ -301,7 +301,7 @@ export async function updateFilters(
     selected: {
         calendars: number[];
         services: number[];
-        months: number;
+        days: number;
         minServicesCount: number;
     },
     userId?: number,
@@ -350,7 +350,7 @@ export async function updateFilters(
 export async function getFilters(userId?: number): Promise<{
     calendars: number[];
     services: number[];
-    months: number;
+    days: number;
     minServicesCount: number;
 } | null> {
     if (!userId) {

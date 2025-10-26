@@ -16,7 +16,7 @@ export async function resetFilterOptions() {
         const defaultFilter = {
             calendars: [2],
             services: [6, 69, 72],
-            months: 6,
+            days: 90,
             minServicesCount: 5,
         };
         setFilters(defaultFilter);
@@ -28,7 +28,7 @@ export async function resetFilterOptions() {
 
     refreshAvailableCalendars(selectedFilters?.calendars ?? []);
     refreshAvailableServices(selectedFilters?.services ?? []);
-    initDateOptions(selectedFilters?.months ?? 6);
+    initDateOptions(selectedFilters?.days ?? 90);
     initMinServicesOptions(selectedFilters?.minServicesCount ?? 5);
 }
 
@@ -43,7 +43,10 @@ export async function saveFilterOptions(document: Document) {
     const storeableFilters = {
         calendars: selectedFilters.calendars,
         services: selectedFilters.services,
-        months: diffInMonths(selectedFilters.fromDate, selectedFilters.toDate),
+        days:
+            (selectedFilters.toDate.getTime() -
+                selectedFilters.fromDate.getTime()) /
+            (1000 * 60 * 60 * 24), //convert from miliseconds
         minServicesCount: selectedFilters.minServicesCount,
     };
 
@@ -52,18 +55,6 @@ export async function saveFilterOptions(document: Document) {
     } else {
         setFilters(storeableFilters);
     }
-}
-
-function diffInMonths(date1: Date, date2: Date): number {
-    const years = date2.getFullYear() - date1.getFullYear();
-    const months = date2.getMonth() - date1.getMonth();
-    let result = years * 12 + months + 1;
-
-    if (date2.getDate() < date1.getDate()) {
-        result -= 1;
-    }
-
-    return result;
 }
 
 /**
@@ -239,11 +230,11 @@ async function refreshAvailableServices(selectedServices: number[] = []) {
 /**
  * Initialize date options with default values based on NOW() and defaultTimeFrameMonths
  *
- * @param moths - number of months for default timeframe
+ * @param days - number of days for default timeframe
  * @returns void
  */
-function initDateOptions(months = 6) {
-    console.log("init date options with now +", months, " months");
+function initDateOptions(days = 90) {
+    console.log("init date options with now +", days, " days");
 
     const fromDateInput = document.getElementById(
         "fromDate",
@@ -254,10 +245,9 @@ function initDateOptions(months = 6) {
     const fromDate = new Date();
     fromDate.setHours(0, 0, 0, 0);
 
-    // End: fromDate + 6 months, at 23:59:59
+    // End: fromDate + 6 days, at 23:59:59
     const toDate = new Date(fromDate);
-    toDate.setMonth(toDate.getMonth() + months);
-    toDate.setHours(23, 59, 59, 999);
+    toDate.setDate(toDate.getDate() + days);
 
     console.log("From:", fromDate, "To:", toDate);
 
