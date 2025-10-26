@@ -171,21 +171,38 @@ async function addBootstrapStyles() {
 /** Main plugin function */
 async function main() {
     /* HTML Updates */
-
-    document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-    <div class="container d-flex flex-column align-items-center justify-content-start min-vh-100 gap-3">
-        <div class="p-4 mb-4 bg-light rounded shadow text-center">
-            <h1 class="display-5">Welcome ${user.firstName} ${user.lastName}</h1>
-            <div id="test" class="text-muted small">ChurchTools at ${baseUrl}</div>
-        </div>
-        <div class="container-fluid" id="filterWrapper"></div>
-        <div class="container my-4 row" id="chartsWrapper"></div>
-        <div class="container my-4 w-100" id="eventListWrapper" ></div>
-    </div>
-    </div>
-`;
     addBootstrapStyles();
 
+    const app = document.querySelector<HTMLDivElement>("#app")!;
+    app.innerHTML = `
+<div class="container d-flex flex-column align-items-center justify-content-start min-vh-100 gap-3">
+    <div class="container-fluid" id="filterWrapper"></div>
+    <div class="container my-4 row" id="chartsWrapper"></div>
+    <div class="container my-4 w-100" id="eventListWrapper"></div>
+</div>
+`;
+
+    // Conditionally add dev-only welcome section
+    if (import.meta.env.MODE === "development") {
+        const devHeader = document.createElement("div");
+        devHeader.className = "p-4 mb-4 bg-light rounded shadow text-center";
+
+        const h1 = document.createElement("h1");
+        h1.className = "display-5";
+        h1.textContent = `Welcome ${user.firstName} ${user.lastName}`;
+
+        const subDiv = document.createElement("div");
+        subDiv.className = "text-muted small";
+        subDiv.textContent = `ChurchTools at ${baseUrl}`;
+
+        devHeader.appendChild(h1);
+        devHeader.appendChild(subDiv);
+
+        // Insert at the top of the container
+        const container = app.querySelector(".container")!;
+        container.insertBefore(devHeader, container.firstChild);
+    }
+    
     // Insert the filter DOM element into the placeholder
     const filterHTML = createFilterHTML();
     const filterWrapper =
