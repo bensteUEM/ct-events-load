@@ -15,7 +15,8 @@ import {
 import { updateEventListHTML } from "./eventlist";
 // only import reset.css in development mode
 if (import.meta.env.MODE === "development") {
-    import("./utils/reset.css");
+    //import("./utils/reset.css");
+    import("../20251026_ct_styles.css");
 }
 
 declare const window: Window &
@@ -152,47 +153,31 @@ function setupButtonHandler(buttonId: string, handler: () => void) {
     newButton.addEventListener("click", handler);
 }
 
-/* add ChurchTools specific styles - required in dev only*/
-async function addCtDevStyles() {
-    if (import.meta.env.MODE === "development") {
-        const cssFiles = ["/ccm/ct-events-load/20251026_ct_styles.css"];
-
-        cssFiles.forEach((file) => {
-            const link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = `${file}`;
-            link.type = "text/css";
-            document.head.appendChild(link);
-        });
-    }
-}
-
 /** Main plugin function */
 async function main() {
     /* HTML Updates */
     //addBootstrapStyles();
-    addCtDevStyles();
 
     const app = document.querySelector<HTMLDivElement>("#app")!;
     app.innerHTML = `
 <div class="container d-flex flex-column align-items-center justify-content-start min-vh-100 gap-3">
-    <div class="container-fluid" id="filterWrapper"></div>
-    <div class="container my-4 row" id="chartsWrapper"></div>
-    <div class="container my-4 w-100" id="eventListWrapper"></div>
+    <div class="container" id="filterWrapper"></div>
+    <div class="container" id="chartsWrapper"></div>
+    <div class="container" id="eventListWrapper"></div>
 </div>
 `;
 
     // Conditionally add dev-only welcome section
     if (import.meta.env.MODE === "development") {
         const devHeader = document.createElement("div");
-        devHeader.className = "p-4 mb-4 bg-light rounded shadow text-center";
+        devHeader.className = "p-4 mb-4 bg-gray-100 rounded shadow text-center";
 
         const h1 = document.createElement("h1");
-        h1.className = "display-5";
+        h1.className = "text-4xl font-semibold";
         h1.textContent = `Welcome ${user.firstName} ${user.lastName}`;
 
         const subDiv = document.createElement("div");
-        subDiv.className = "text-muted small";
+        subDiv.className = "text-gray-500 text-sm";
         subDiv.textContent = `ChurchTools at ${baseUrl}`;
 
         devHeader.appendChild(h1);
