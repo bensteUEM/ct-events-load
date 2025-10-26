@@ -75,18 +75,18 @@ export async function parseSelectedFilterOptions(document: Document): Promise<{
     toDate: Date;
     minServicesCount: number;
 }> {
-    /* retrieve filter option selected_calendars from HTML form */
+    /* retrieve filter option selectedCalendars from HTML form */
     const selectCalendars = document.getElementById(
-        "selected_calendars",
+        "selectedCalendars",
     ) as HTMLSelectElement;
-    const selected_calendars = Array.from(selectCalendars.selectedOptions).map(
+    const selectedCalendars = Array.from(selectCalendars.selectedOptions).map(
         (option) => Number(option.value),
     );
-    console.log("Selected calendars:", selected_calendars);
+    console.log("Selected calendars:", selectedCalendars);
 
-    /* retrieve filter option selected_services from HTML form */
+    /* retrieve filter option selectedServices from HTML form */
     const selectServices = document.getElementById(
-        "selected_service_types",
+        "selectedServices",
     ) as HTMLSelectElement;
     const selectedServiceIds: number[] = Array.from(
         selectServices.selectedOptions,
@@ -100,23 +100,23 @@ export async function parseSelectedFilterOptions(document: Document): Promise<{
     // TODO@bensteUEM: https://github.com/bensteUEM/ct-events-load/issues/1
 
     /* retrieve filter options from HTML form */
-    const inputFrom = document.getElementById("from_date") as HTMLInputElement;
+    const inputFrom = document.getElementById("fromDate") as HTMLInputElement;
     const fromDate = new Date(inputFrom.value);
 
-    const inputTo = document.getElementById("to_date") as HTMLInputElement;
+    const inputTo = document.getElementById("toDate") as HTMLInputElement;
     const toDate = new Date(inputTo.value);
 
     console.log("Selected date range:", fromDate, toDate);
 
     const minServicesCountInput = document.getElementById(
-        "min_services_count",
+        "minServicesCount",
     ) as HTMLInputElement;
     const minServicesCount = Number(minServicesCountInput.value);
 
     console.log("Selected minServicesCount:", minServicesCount);
 
     const result = {
-        calendars: selected_calendars,
+        calendars: selectedCalendars,
         services: selectedServiceIds,
         fromDate: fromDate,
         toDate: toDate,
@@ -141,7 +141,7 @@ async function refreshAvailableCalendars(selectedCalendars: number[] = []) {
     console.log("Available calendars:", allCalendars);
 
     const selectEl = document.getElementById(
-        "selected_calendars",
+        "selectedCalendars",
     ) as HTMLSelectElement;
     if (!selectEl) return;
 
@@ -186,7 +186,7 @@ async function refreshAvailableServices(selectedServices: number[] = []) {
     const allServices: Service[] = await churchtoolsClient.get("/services");
     console.log("Available services:", allServices);
 
-    const available_service_types_by_category: Record<
+    const availableServicesByCategory: Record<
         number,
         { id: number; name: string }[]
     > = allServices.reduce<Record<number, { id: number; name: string }[]>>(
@@ -205,21 +205,21 @@ async function refreshAvailableServices(selectedServices: number[] = []) {
 
     console.log(
         "Available ServiceGroups with Services:",
-        available_service_types_by_category,
+        availableServicesByCategory,
     );
 
     const selectElement = document.getElementById(
-        "selected_service_types",
+        "selectedServices",
     ) as HTMLSelectElement;
 
     // Remove all existing children
     selectElement.innerHTML = "";
 
-    for (const categoryId in available_service_types_by_category) {
+    for (const categoryId in availableServicesByCategory) {
         const optgroup = document.createElement("optgroup");
         optgroup.label = availableServicegroups[Number(categoryId)] ?? "";
 
-        available_service_types_by_category[Number(categoryId)].forEach(
+        availableServicesByCategory[Number(categoryId)].forEach(
             (service) => {
                 const option = document.createElement("option");
                 option.value = service.id.toString();
@@ -246,9 +246,9 @@ function initDateOptions(months = 6) {
     console.log("init date options with now +", months, " months");
 
     const fromDateInput = document.getElementById(
-        "from_date",
+        "fromDate",
     ) as HTMLInputElement;
-    const toDateInput = document.getElementById("to_date") as HTMLInputElement;
+    const toDateInput = document.getElementById("toDate") as HTMLInputElement;
 
     // Start: today at 00:00
     const fromDate = new Date();
@@ -267,7 +267,7 @@ function initDateOptions(months = 6) {
 
 function initMinServicesOptions(selectedFilters = 5) {
     const minServicesCountInput = document.getElementById(
-        "min_services_count",
+        "minServicesCount",
     ) as HTMLInputElement;
 
     minServicesCountInput.value = selectedFilters.toString();
@@ -280,38 +280,38 @@ export function createFilterHTML(): string {
                 <h2>Filterung</h2>
                 <div class="row g-3 mb-3">
                     <div class="col-auto">
-                        <label for="selected_calendars" class="form-label">Kalender</label>
-                        <select class="form-select" multiple aria-label="multiple select" id="selected_calendars"
-                            size="10" name="selected_calendars">
+                        <label for="selectedCalendars" class="form-label">Kalender</label>
+                        <select class="form-select" multiple aria-label="multiple select" id="selectedCalendars"
+                            size="10" name="selectedCalendars">
                             <!-- Options will be populated dynamically -->
                         </select>
                     </div>
                     <div class="col-auto">
                         <div class="row">
-                            <label for="from_date" class="form-label">Von</label>
-                            <input type="date" id="from_date" class="form-control" name="from_date"
-                                value="{{ from_date.strftime('%Y-%m-%d') }}">
+                            <label for="fromDate" class="form-label">Von</label>
+                            <input type="date" id="fromDate" class="form-control" name="fromDate"
+                                value="{{ fromDate.strftime('%Y-%m-%d') }}">
                         </div>
                         <div class="row">
-                            <label for="to_date" class="form-label">Bis</label>
-                            <input type="date" id="to_date" class="form-control" name="to_date"
-                                value="{{ to_date.strftime('%Y-%m-%d') }}">
+                            <label for="toDate" class="form-label">Bis</label>
+                            <input type="date" id="toDate" class="form-control" name="toDate"
+                                value="{{ toDate.strftime('%Y-%m-%d') }}">
                         </div>
                         <div class="row">
-                            <label for="min_services_count" class="form-label">Mindestens # Dienste</label>
-                            <input type="number" id="min_services_count" class="form-control" name="min_services_count"
-                                value="{{ min_services_count }}">
+                            <label for="minServicesCount" class="form-label">Mindestens # Dienste</label>
+                            <input type="number" id="minServicesCount" class="form-control" name="minServicesCount"
+                                value="{{ minServicesCount }}">
                         </div>
                     </div>
                     <div class="col-auto">
-                        <label for="selected_service_types" class="form-label">Dienste</label>
+                        <label for="selectedServices" class="form-label">Dienste</label>
                         <select class="form-select" multiple aria-label="multiple select" size="10"
-                            name="selected_service_types" id="selected_service_types">
+                            name="selectedServices" id="selectedServices">
                             <!-- Options will be populated dynamically -->
                         </select>
                     </div>
                 </div>
-                <button type="button" id="submitFilterBtn" class="btn btn-primary">Auswahl anpassen</button>
+                <button type="button" id="submitFilterBtn" class="btn btn-primary">Refresh Chart</button>
                 <button type="button" id="saveFilterBtn" class="btn btn-secondary">Save Filter as Default</button>
                 <button type="button" id="resetFilterBtn" class="btn btn-secondary">Reload Filter Options</button>
                 </form>

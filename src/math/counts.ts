@@ -4,17 +4,17 @@ import type { Event, EventService } from "../utils/ct-types";
  * Count number of services per service, per person per month
  * @param events - list of events
  * @param servicesDict - mapping of service ids to readable names
- * @param relevant_services - list of service ids to filter
- * @param min_services_count: only include entries with more than x services,
+ * @param relevantServices - list of service ids to filter
+ * @param minServicesCount: only include entries with more than x services,
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
 export function countServicesPerPerson(
     events: Event[],
     servicesDict: Record<number, EventService>,
-    relevant_services: number[],
-    min_services_count: number = 1,
+    relevantServices: number[],
+    minServicesCount: number = 1,
 ): DataPoint[] {
-    console.log("Filtering for services:", relevant_services);
+    console.log("Filtering for services:", relevantServices);
 
     const dataPoints: DataPoint[] & { serviceName?: string }[] = [];
 
@@ -23,7 +23,7 @@ export function countServicesPerPerson(
         if (!event.startDate) return;
         event.eventServices?.forEach((service) => {
             if (service.serviceId == null) return;
-            if (!relevant_services.includes(service.serviceId)) return;
+            if (!relevantServices.includes(service.serviceId)) return;
 
             const personName = service.name ?? "?";
             const serviceName = servicesDict[service.serviceId]?.name ?? "?";
@@ -45,23 +45,23 @@ export function countServicesPerPerson(
         });
     });
 
-    // Filter results by min_services_count
-    return dataPoints.filter((d) => d.count >= min_services_count);
+    // Filter results by minServicesCount
+    return dataPoints.filter((d) => d.count >= minServicesCount);
 }
 
 /**
  * cummulate number of services per person per event
  * @param events - list of events
- * @param relevant_services - list of service ids to filter
- * @param min_services_count: only include entries with more than x services,
+ * @param relevantServices - list of service ids to filter
+ * @param minServicesCount: only include entries with more than x services,
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
 export function cummulativePersonTime(
     events: Event[],
-    relevant_services: number[],
-    min_services_count: number = 1,
+    relevantServices: number[],
+    minServicesCount: number = 1,
 ): { person: string; count: number; date: string }[] {
-    console.log("Filtering for services:", relevant_services);
+    console.log("Filtering for services:", relevantServices);
 
     const dataPointsMap: Record<string, Record<string, number>> = {};
     // dataPointsMap[person][date] = count
@@ -72,7 +72,7 @@ export function cummulativePersonTime(
 
         event.eventServices?.forEach((service) => {
             if (service.serviceId == null) return;
-            if (!relevant_services.includes(service.serviceId)) return;
+            if (!relevantServices.includes(service.serviceId)) return;
 
             const personName = service.name ?? "?";
 
@@ -84,7 +84,7 @@ export function cummulativePersonTime(
         });
     });
 
-    // Flatten into array, only for persons where max count exceeds min_services_count
+    // Flatten into array, only for persons where max count exceeds minServicesCount
     const dataPoints: { person: string; count: number; date: string }[] = [];
 
     for (const person in dataPointsMap) {
@@ -92,7 +92,7 @@ export function cummulativePersonTime(
             (sum, count) => sum + count,
             0,
         );
-        if (totalCount < min_services_count) continue; // skip this person
+        if (totalCount < minServicesCount) continue; // skip this person
 
         for (const date in dataPointsMap[person]) {
             dataPoints.push({

@@ -221,7 +221,7 @@ export async function resetStoredCategories(): Promise<boolean> {
         return true; // nothing to do
     }
 
-    const data_schema = JSON.stringify({
+    const dataSchema = JSON.stringify({
         type: "object",
         properties: {
             userId: { type: ["string", "number"] },
@@ -252,7 +252,7 @@ export async function resetStoredCategories(): Promise<boolean> {
         name: "filters",
         shorty: "filters",
         description: "Stores filter selections for users",
-        data: data_schema,
+        data: dataSchema,
     })
         .then((category) => {
             console.log("Created category:", category);

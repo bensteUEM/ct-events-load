@@ -39,17 +39,17 @@ export { KEY };
 const user = await churchtoolsClient.get<Person>(`/whoami`);
 
 /** Fetch events in relevant timeframe from ChurchTools
- * @param relevant_calendars - list of calendar ids to filter
+ * @param relevantCalendars - list of calendar ids to filter
  * @param fromDate - start date to filter events
  * @param toDate - end date to filter events
  * @returns list of filtered events
  */
 async function getEvents(
-    relevant_calendars: number[],
+    relevantCalendars: number[],
     fromDate: Date = new Date(),
     toDate: Date = new Date(new Date().setMonth(new Date().getMonth() + 6)),
 ): Promise<Event[]> {
-    console.log("Fetching events for calendars:", relevant_calendars);
+    console.log("Fetching events for calendars:", relevantCalendars);
     // Fetch all events
     const allEvents: Event[] = await churchtoolsClient.get("/events", {
         from: fromDate.toISOString().split("T")[0],
@@ -62,7 +62,7 @@ async function getEvents(
         if (!event.startDate) return;
         const eventDate = new Date(event.startDate);
         return (
-            relevant_calendars.some(
+            relevantCalendars.some(
                 // @ts-expect-error TS2339
                 (id) => id == event?.calendar?.domainIdentifier,
             ) &&
@@ -95,7 +95,7 @@ async function getEvents(
  * @returns void
  */
 async function submitFilterOptions(document: Document = window.document) {
-    /* retrieve filter option selected_calendars from HTML form */
+    /* retrieve filter option selectedCalendars from HTML form */
     const selectedFilters = await parseSelectedFilterOptions(document);
 
     // data gathering
@@ -106,7 +106,7 @@ async function submitFilterOptions(document: Document = window.document) {
     );
     const servicesDict = await getServicesDict();
     //   console.log(servicesDict);
-    //   printServices(events, servicesDict, relevant_services);
+    //   printServices(events, servicesDict, relevantServices);
 
     const dpCountServicesPerPerson = countServicesPerPerson(
         events,
@@ -145,7 +145,7 @@ function setupButtonHandler(buttonId: string, handler: () => void) {
 }
 
 /** add bootstrap styles */
-async function add_bootstrap_styles() {
+async function addBootstrapStyles() {
     // Add CSS
     const bootstrapCss = document.createElement("link");
     bootstrapCss.rel = "stylesheet";
@@ -189,7 +189,7 @@ async function main() {
     </div>
     </div>
 `;
-    add_bootstrap_styles();
+    addBootstrapStyles();
 
     setupButtonHandler("resetFilterBtn", () => resetFilterOptions());
     setupButtonHandler("saveFilterBtn", () => saveFilterOptions(document));
