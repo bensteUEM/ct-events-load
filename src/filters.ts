@@ -12,6 +12,7 @@ import { churchtoolsClient } from "@churchtools/churchtools-client";
 export async function resetFilterOptions() {
     let selectedFilters = await getFilters();
     if (!selectedFilters) {
+        // this set of defaults only applies to ELKW1610.KRZ.TOOLS - but can be overwritten using save
         const defaultFilter = {
             calendars: [2],
             services: [6, 69, 72],
@@ -19,7 +20,8 @@ export async function resetFilterOptions() {
             minServicesCount: 5,
         };
         setFilters(defaultFilter);
-        selectedFilters = await getFilters();
+        selectedFilters = defaultFilter;
+        console.log("Initialized and saved default filters:", selectedFilters);
     } else {
         console.log("Using stored filters:", selectedFilters);
     }
@@ -219,19 +221,17 @@ async function refreshAvailableServices(selectedServices: number[] = []) {
         const optgroup = document.createElement("optgroup");
         optgroup.label = availableServicegroups[Number(categoryId)] ?? "";
 
-        availableServicesByCategory[Number(categoryId)].forEach(
-            (service) => {
-                const option = document.createElement("option");
-                option.value = service.id.toString();
-                option.textContent = service.name;
+        availableServicesByCategory[Number(categoryId)].forEach((service) => {
+            const option = document.createElement("option");
+            option.value = service.id.toString();
+            option.textContent = service.name;
 
-                if (selectedServices.includes(service.id)) {
-                    option.selected = true;
-                }
+            if (selectedServices.includes(service.id)) {
+                option.selected = true;
+            }
 
-                optgroup.appendChild(option);
-            },
-        );
+            optgroup.appendChild(option);
+        });
         selectElement.appendChild(optgroup);
     }
 }
