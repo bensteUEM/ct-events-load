@@ -152,26 +152,26 @@ function setupButtonHandler(buttonId: string, handler: () => void) {
     newButton.addEventListener("click", handler);
 }
 
-/** add bootstrap styles */
-async function addBootstrapStyles() {
-    // Add CSS
-    const bootstrapCss = document.createElement("link");
-    bootstrapCss.rel = "stylesheet";
-    bootstrapCss.href =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
-    document.head.appendChild(bootstrapCss);
+/* add ChurchTools specific styles - required in dev only*/
+async function addCtDevStyles() {
+    if (import.meta.env.MODE === "development") {
+        const cssFiles = ["/ccm/ct-events-load/20251026_ct_styles.css"];
 
-    // Add JS
-    const bootstrapJs = document.createElement("script");
-    bootstrapJs.src =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js";
-    document.head.appendChild(bootstrapJs);
+        cssFiles.forEach((file) => {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = `${file}`;
+            link.type = "text/css";
+            document.head.appendChild(link);
+        });
+    }
 }
 
 /** Main plugin function */
 async function main() {
     /* HTML Updates */
-    addBootstrapStyles();
+    //addBootstrapStyles();
+    addCtDevStyles();
 
     const app = document.querySelector<HTMLDivElement>("#app")!;
     app.innerHTML = `
@@ -202,15 +202,13 @@ async function main() {
         const container = app.querySelector(".container")!;
         container.insertBefore(devHeader, container.firstChild);
     }
-    
+
     // Insert the filter DOM element into the placeholder
     const filterHTML = createFilterHTML();
     const filterWrapper =
         document.querySelector<HTMLDivElement>("#filterWrapper")!;
     filterWrapper.innerHTML = "";
     filterWrapper.appendChild(filterHTML);
-
-    addBootstrapStyles();
 
     // additional setup links
     setupButtonHandler("resetFilterBtn", () => resetFilterOptions());
