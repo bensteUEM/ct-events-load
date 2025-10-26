@@ -265,45 +265,143 @@ function initMinServicesOptions(selectedFilters = 5) {
 /* HTML used to display filter options 
 content needs to be populated dynamically
 */
-export function createFilterHTML(): string {
-    return `<form id="filters" class="form-floating mb-3">
-                <h2>Filterung</h2>
-                <div class="row g-3 mb-3">
-                    <div class="col-auto">
-                        <label for="selectedCalendars" class="form-label">Kalender</label>
-                        <select class="form-select" multiple aria-label="multiple select" id="selectedCalendars"
-                            size="10" name="selectedCalendars">
-                            <!-- Options will be populated dynamically -->
-                        </select>
-                    </div>
-                    <div class="col-auto">
-                        <div class="row">
-                            <label for="fromDate" class="form-label">Von</label>
-                            <input type="date" id="fromDate" class="form-control" name="fromDate"
-                                value="{{ fromDate.strftime('%Y-%m-%d') }}">
-                        </div>
-                        <div class="row">
-                            <label for="toDate" class="form-label">Bis</label>
-                            <input type="date" id="toDate" class="form-control" name="toDate"
-                                value="{{ toDate.strftime('%Y-%m-%d') }}">
-                        </div>
-                        <div class="row">
-                            <label for="minServicesCount" class="form-label">Mindestens # Dienste</label>
-                            <input type="number" id="minServicesCount" class="form-control" name="minServicesCount"
-                                value="{{ minServicesCount }}">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <label for="selectedServices" class="form-label">Dienste</label>
-                        <select class="form-select" multiple aria-label="multiple select" size="10"
-                            name="selectedServices" id="selectedServices">
-                            <!-- Options will be populated dynamically -->
-                        </select>
-                    </div>
-                </div>
-                <button type="button" id="submitFilterBtn" class="btn btn-primary">Refresh Chart</button>
-                <button type="button" id="saveFilterBtn" class="btn btn-secondary">Save Filter as Default</button>
-                <button type="button" id="resetFilterBtn" class="btn btn-secondary">Reload Filter Options</button>
-                </form>
-                `;
+export function createFilterHTML(): HTMLFormElement {
+    // Create the form
+    const form = document.createElement("form");
+    form.id = "filters";
+    form.className = "form-floating mb-3";
+
+    // Heading
+    const heading = document.createElement("h2");
+    heading.textContent = "Filterung";
+    form.appendChild(heading);
+
+    // Row container
+    const row = document.createElement("div");
+    row.className = "row g-3 mb-3";
+    form.appendChild(row);
+
+    // --- Calendar select ---
+    const calCol = document.createElement("div");
+    calCol.className = "col-auto";
+
+    const calLabel = document.createElement("label");
+    calLabel.htmlFor = "selectedCalendars";
+    calLabel.className = "form-label";
+    calLabel.textContent = "Kalender";
+
+    const calSelect = document.createElement("select");
+    calSelect.className = "form-select";
+    calSelect.id = "selectedCalendars";
+    calSelect.name = "selectedCalendars";
+    calSelect.multiple = true;
+    calSelect.size = 10;
+
+    calCol.appendChild(calLabel);
+    calCol.appendChild(calSelect);
+    row.appendChild(calCol);
+
+    // --- Date & minServices inputs ---
+    const dateCol = document.createElement("div");
+    dateCol.className = "col-auto";
+
+    const fromRow = document.createElement("div");
+    fromRow.className = "row";
+    const fromLabel = document.createElement("label");
+    fromLabel.htmlFor = "fromDate";
+    fromLabel.className = "form-label";
+    fromLabel.textContent = "Von";
+    const fromInput = document.createElement("input");
+    fromInput.type = "date";
+    fromInput.id = "fromDate";
+    fromInput.className = "form-control";
+    fromInput.name = "fromDate";
+    fromInput.value = "2000-01-01"; //init later
+    fromRow.appendChild(fromLabel);
+    fromRow.appendChild(fromInput);
+
+    const toRow = document.createElement("div");
+    toRow.className = "row";
+    const toLabel = document.createElement("label");
+    toLabel.htmlFor = "toDate";
+    toLabel.className = "form-label";
+    toLabel.textContent = "Bis";
+    const toInput = document.createElement("input");
+    toInput.type = "date";
+    toInput.id = "toDate";
+    toInput.className = "form-control";
+    toInput.name = "toDate";
+    toInput.value = "2000-01-01"; //init later
+    toRow.appendChild(toLabel);
+    toRow.appendChild(toInput);
+
+    const minRow = document.createElement("div");
+    minRow.className = "row";
+    const minLabel = document.createElement("label");
+    minLabel.htmlFor = "minServicesCount";
+    minLabel.className = "form-label";
+    minLabel.textContent = "Mindestens # Dienste";
+    const minInput = document.createElement("input");
+    minInput.type = "number";
+    minInput.id = "minServicesCount";
+    minInput.className = "form-control";
+    minInput.name = "minServicesCount";
+    minInput.value = (0).toString(); //initialized later
+    minRow.appendChild(minLabel);
+    minRow.appendChild(minInput);
+
+    dateCol.appendChild(fromRow);
+    dateCol.appendChild(toRow);
+    dateCol.appendChild(minRow);
+    row.appendChild(dateCol);
+
+    // --- Services select ---
+    const serviceCol = document.createElement("div");
+    serviceCol.className = "col-auto";
+
+    const serviceLabel = document.createElement("label");
+    serviceLabel.htmlFor = "selectedServices";
+    serviceLabel.className = "form-label";
+    serviceLabel.textContent = "Dienste";
+
+    const serviceSelect = document.createElement("select");
+    serviceSelect.className = "form-select";
+    serviceSelect.id = "selectedServices";
+    serviceSelect.name = "selectedServices";
+    serviceSelect.multiple = true;
+    serviceSelect.size = 10;
+
+    serviceCol.appendChild(serviceLabel);
+    serviceCol.appendChild(serviceSelect);
+    row.appendChild(serviceCol);
+
+    // --- Buttons ---
+    const btnGroup = document.createElement("div");
+    btnGroup.className = "d-flex gap-2 mt-2"; // flex row with spacing
+
+    const btnRefresh = document.createElement("button");
+    btnRefresh.type = "button";
+    btnRefresh.id = "submitFilterBtn";
+    btnRefresh.className = "btn btn-primary";
+    btnRefresh.textContent = "Refresh Chart";
+
+    const btnSave = document.createElement("button");
+    btnSave.type = "button";
+    btnSave.id = "saveFilterBtn";
+    btnSave.className = "btn btn-secondary";
+    btnSave.textContent = "Save Filter as Default";
+
+    const btnReload = document.createElement("button");
+    btnReload.type = "button";
+    btnReload.id = "resetFilterBtn";
+    btnReload.className = "btn btn-secondary";
+    btnReload.textContent = "Reload Filter Options";
+
+    btnGroup.appendChild(btnRefresh);
+    btnGroup.appendChild(btnSave);
+    btnGroup.appendChild(btnReload);
+
+    form.appendChild(btnGroup);
+
+    return form;
 }

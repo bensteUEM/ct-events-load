@@ -2,6 +2,7 @@ import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 
+import { createChartsHTML } from "./charts/charts.ts";
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
@@ -121,11 +122,18 @@ async function submitFilterOptions(document: Document = window.document) {
         selectedFilters.minServicesCount,
     );
 
+    // Insert the charts DOM element into the placeholder
+    const chartsHTML = createChartsHTML();
+    const chartsWrapper =
+        document.querySelector<HTMLDivElement>("#chartsWrapper")!;
+    chartsWrapper.innerHTML = "";
+    chartsWrapper.append(chartsHTML);
+
     renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
     renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
 
     updateEventListHTML(
-        "eventList",
+        "eventListWrapper",
         events,
         servicesDict,
         selectedFilters.services,
@@ -162,8 +170,6 @@ async function addBootstrapStyles() {
 
 /** Main plugin function */
 async function main() {
-    const filterHTML = createFilterHTML();
-
     /* HTML Updates */
 
     document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -172,25 +178,24 @@ async function main() {
             <h1 class="display-5">Welcome ${user.firstName} ${user.lastName}</h1>
             <div id="test" class="text-muted small">ChurchTools at ${baseUrl}</div>
         </div>
-        <div class="container-fluid">
-            ${filterHTML}
-        </div>
-        <div class="container my-4">
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center">
-                    <canvas id="CountServicesPerPerson" class="w-400" height="400"></canvas>
-                </div>
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center">
-                    <canvas id="CummulativePersontTime" class="w-400" height="400"></canvas>
-                </div>
-            </div>
-        </div>
-        <div id="eventList" class="container my-4 w-100"></div>
+        <div class="container-fluid" id="filterWrapper"></div>
+        <div class="container my-4 row" id="chartsWrapper"></div>
+        <div class="container my-4 w-100" id="eventListWrapper" ></div>
     </div>
     </div>
 `;
     addBootstrapStyles();
 
+    // Insert the filter DOM element into the placeholder
+    const filterHTML = createFilterHTML();
+    const filterWrapper =
+        document.querySelector<HTMLDivElement>("#filterWrapper")!;
+    filterWrapper.innerHTML = "";
+    filterWrapper.appendChild(filterHTML);
+
+    addBootstrapStyles();
+
+    // additional setup links
     setupButtonHandler("resetFilterBtn", () => resetFilterOptions());
     setupButtonHandler("saveFilterBtn", () => saveFilterOptions(document));
     setupButtonHandler("submitFilterBtn", () => submitFilterOptions());
