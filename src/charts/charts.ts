@@ -11,26 +11,24 @@ export function createChartsHTML(): HTMLDivElement {
 
     // Charts row container
     const chartsRow = document.createElement("div");
-    chartsRow.className = "flex flex-wrap gap-4 justify-center w-full";
+    chartsRow.className = "flex flex-wrap justify-center w-full";
 
     // First chart
     const chart1Col = document.createElement("div");
-    chart1Col.className = "flex justify-center";
+    chart1Col.className = "flex min-w-full image-content";
 
     const chart1 = document.createElement("canvas");
+    chart1.className = "image";
     chart1.id = "CountServicesPerPerson";
-    chart1.height = 400;
-    chart1.width = 600;
     chart1Col.appendChild(chart1);
 
     // Second chart
     const chart2Col = document.createElement("div");
-    chart2Col.className = "flex justify-center";
+    chart2Col.className = "flex min-w-full image-content";
 
     const chart2 = document.createElement("canvas");
+    chart2.className = "image";
     chart2.id = "CummulativePersontTime";
-    chart2.height = 400;
-    chart2.width = 600;
     chart2Col.appendChild(chart2);
 
     // Append chart columns to row
