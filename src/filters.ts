@@ -279,7 +279,7 @@ export function createFilterHTML(): HTMLFormElement {
 
     // Row container
     const row = document.createElement("div");
-    row.className = "flex gap-4 px-4 pb-4 justify-center";
+    row.className = "flex flex-wrap gap-4 px-4 pb-4 justify-center";
     form.appendChild(row);
 
     // --- Calendar select column ---
