@@ -173,7 +173,7 @@ async function main() {
         devHeader.className = "p-4 mb-4 bg-gray-100 rounded shadow text-center";
 
         const h1 = document.createElement("h1");
-        h1.className = "text-4xl font-semibold";
+        h1.className = "text-4xl font-bold";
         h1.textContent = `Welcome ${user.firstName} ${user.lastName}`;
 
         const subDiv = document.createElement("div");

@@ -289,7 +289,7 @@ export function createFilterHTML(): HTMLFormElement {
     // Label above the select
     const calLabel = document.createElement("label");
     calLabel.htmlFor = "selectedCalendars";
-    calLabel.className = "font-bold";
+    calLabel.className = "text-body-s-emphasized";
     calLabel.textContent = "Kalender";
 
     // Multi-select
@@ -314,7 +314,7 @@ export function createFilterHTML(): HTMLFormElement {
     fromRow.className = "flex items-center gap-2";
     const fromLabel = document.createElement("label");
     fromLabel.htmlFor = "fromDate";
-    fromLabel.className = "font-bold w-32 shrink-0";
+    fromLabel.className = "text-body-s-emphasized w-32 shrink-0";
     fromLabel.textContent = "Von";
     const fromInput = document.createElement("input");
     fromInput.type = "date";
@@ -330,7 +330,7 @@ export function createFilterHTML(): HTMLFormElement {
     toRow.className = "flex items-center gap-2";
     const toLabel = document.createElement("label");
     toLabel.htmlFor = "toDate";
-    toLabel.className = "font-bold w-32 shrink-0";
+    toLabel.className = "text-body-s-emphasized w-32 shrink-0";
     toLabel.textContent = "Bis";
     const toInput = document.createElement("input");
     toInput.type = "date";
@@ -346,13 +346,13 @@ export function createFilterHTML(): HTMLFormElement {
     minRow.className = "flex items-center gap-2";
     const minLabel = document.createElement("label");
     minLabel.htmlFor = "minServicesCount";
-    minLabel.className = "font-bold w-32 shrink-0";
+    minLabel.className = "text-body-s-emphasized w-32 shrink-0";
     minLabel.textContent = "Mindestens # Dienste";
     const minInput = document.createElement("input");
     minInput.type = "number";
     minInput.id = "minServicesCount";
     minInput.name = "minServicesCount";
-    minInput.className = "flex-1 font-bold";
+    minInput.className = "flex-1";
     minInput.value = "0"; // init value
     minRow.appendChild(minLabel);
     minRow.appendChild(minInput);
@@ -372,7 +372,7 @@ export function createFilterHTML(): HTMLFormElement {
     // Label above the select
     const serviceLabel = document.createElement("label");
     serviceLabel.htmlFor = "selectedServices";
-    serviceLabel.className = "font-bold";
+    serviceLabel.className = "text-body-s-emphasized";
     serviceLabel.textContent = "Dienste";
 
     // Multi-select
@@ -397,7 +397,9 @@ export function createFilterHTML(): HTMLFormElement {
     btnRefresh.type = "button";
     btnRefresh.id = "submitFilterBtn";
     btnRefresh.className =
-        "c-button c-button__S c-button__primary rounded-sm text-body-m-emphasized gap-2 justify-center bg-green-b-bright px-4 py-2 text-white";
+        "c-button c-button__S c-button__primary rounded-sm text-body-m-emphasized " +
+        "gap-2 justify-center px-4 py-2 " +
+        "text-white bg-green-b-bright ";
     btnRefresh.textContent = "Refresh Chart";
 
     // --- Save Filter button ---
@@ -405,7 +407,9 @@ export function createFilterHTML(): HTMLFormElement {
     btnSave.type = "button";
     btnSave.id = "saveFilterBtn";
     btnSave.className =
-        "c-button c-button__S c-button__accent c-button__outlined rounded-sm text-body-m-emphasized gap-2 justify-center px-4 py-2";
+        "c-button c-button__S c-button__primary rounded-sm text-body-m-emphasized " +
+        "gap-2 justify-center px-4 py-2 " +
+        "text-white bg-gray-b-bright ";
     btnSave.textContent = "Save Filter as Default";
 
     // --- Reload Filter button ---
@@ -413,7 +417,9 @@ export function createFilterHTML(): HTMLFormElement {
     btnReload.type = "button";
     btnReload.id = "resetFilterBtn";
     btnReload.className =
-        "c-button c-button__S c-button__accent c-button__outlined rounded-sm text-body-m-emphasized gap-2 justify-center px-4 py-2";
+        "c-button c-button__S c-button__primary rounded-sm text-body-m-emphasized " +
+        "gap-2 justify-center px-4 py-2 " +
+        "text-white bg-gray-b-bright ";
     btnReload.textContent = "Reload Filter Options";
 
     // --- Combine buttons into group ---
