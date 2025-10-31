@@ -2,7 +2,7 @@ import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
 import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
 
-import { createChartsHTML } from "./charts/charts.ts";
+import { createChartsHTML, getCTChartColors } from "./charts/charts.ts";
 import { renderStackedChart } from "./charts/stackedchart";
 import { renderLineChart } from "./charts/linechart";
 
@@ -129,9 +129,14 @@ async function submitFilterOptions(document: Document = window.document) {
         document.querySelector<HTMLDivElement>("#chartsWrapper")!;
     chartsWrapper.innerHTML = "";
     chartsWrapper.append(chartsHTML);
+    const colors = getCTChartColors();
 
-    renderStackedChart("CountServicesPerPerson", dpCountServicesPerPerson);
-    renderLineChart("CummulativePersontTime", dpCummulativePersontTime);
+    renderStackedChart(
+        "CountServicesPerPerson",
+        dpCountServicesPerPerson,
+        colors,
+    );
+    renderLineChart("CummulativePersontTime", dpCummulativePersontTime, colors);
 
     updateEventListHTML(
         "eventListWrapper",

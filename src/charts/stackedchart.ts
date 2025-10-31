@@ -22,10 +22,19 @@ Chart.register(
 // Store chart instances by containerId
 const chartInstances: Record<string, Chart> = {};
 
+/**
+ * Create a stacked chart
+ * @param containerId reference for canvas to use
+ * @param dataPoints 
+ * @param chartColors 
+ * @returns 
+ */
 export function renderStackedChart(
     containerId: string,
     dataPoints: DataPoint[],
+    chartColors: string[]
 ): Chart | null {
+
     console.log(`Rendering chart in #${containerId}`, dataPoints);
 
     const persons = Array.from(new Set(dataPoints.map((d) => d.person)));
@@ -41,7 +50,7 @@ export function renderStackedChart(
                     (d) => d.person === p && d.serviceName === serviceName,
                 )?.count ?? 0,
         ),
-        backgroundColor: `hsl(${(idx * 60) % 360}, 70%, 60%)`,
+        backgroundColor: chartColors[idx % chartColors.length],
     }));
 
     const ctx = document.getElementById(

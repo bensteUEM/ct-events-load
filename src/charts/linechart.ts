@@ -24,9 +24,17 @@ Chart.register(
 
 const chartInstances: Record<string, Chart> = {};
 
+/**
+ * Create a Line chart
+ * @param containerId reference for canvas to use
+ * @param dataPoints 
+ * @param colors 
+ * @returns 
+ */
 export function renderLineChart(
     containerId: string,
     dataPoints: { person: string; count: number; date: string }[],
+    colors: string[], // Array of CSS colors or computed color strings
 ): Chart | null {
     console.log(`Rendering line chart in #${containerId}`, dataPoints);
 
@@ -51,7 +59,7 @@ export function renderLineChart(
             label: person,
             data,
             fill: false,
-            borderColor: `hsl(${(idx * 60) % 360}, 70%, 50%)`,
+            borderColor: colors[idx % colors.length],
             tension: 0.2, // smooth curves
         };
     });
