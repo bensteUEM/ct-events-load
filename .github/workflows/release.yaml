@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout the code
+      - uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies
+      - run: npm ci
+
+      # 4. Determine next version using release-please (draft mode)
+      - name: Determine next version
+        id: release
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: ct-events-load
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+
+      # 5. Run your build & deploy scripts
+      - name: Build and deploy
+        run: |
+          npm run build
+          npm run deploy
+
+      # 6. Package the release ZIP with correct version + commit hash
+      - name: Package release ZIP
+        id: zip
+        run: |
+          VERSION=${{ steps.release.outputs.version }}
+          SHORT_HASH=$(git rev-parse --short HEAD)
+          ZIP_FILE="releases/ct-events-load-${VERSION}-${SHORT_HASH}.zip"
+          echo "Creating $ZIP_FILE from dist/"
+          zip -r "$ZIP_FILE" dist/
+          echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
+
+      # 7. Publish GitHub release with the ZIP attached
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.release.outputs.version }}
+          files: ${{ steps.zip.outputs.zip_file }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
