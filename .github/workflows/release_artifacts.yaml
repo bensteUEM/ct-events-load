@@ -1,0 +1,42 @@
+name: Build and Publish Release Artifacts
+
+on:
+    release:
+        types: [created]
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.release.tag_name }}
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+
+            - run: npm ci
+
+            - name: Build and deploy
+              run: |
+                  npm run build
+                  npm run deploy
+
+            - name: Package release ZIP
+              id: zip
+              run: |
+                  VERSION=${{ github.event.release.tag_name }}
+                  SHORT_HASH=$(git rev-parse --short HEAD)
+                  ZIP_FILE="releases/ct-events-load-${VERSION}-${SHORT_HASH}.zip"
+                  mkdir -p releases
+                  zip -r "$ZIP_FILE" dist/
+                  echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
+
+            - name: Upload asset
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: ${{ steps.zip.outputs.zip_file }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
