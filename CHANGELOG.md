@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/bensteUEM/ct-events-load/compare/v1.0.1...v1.1.0) (2025-12-05)
+
+
+### Features
+
+* merged upstream changes ([c937454](https://github.com/bensteUEM/ct-events-load/commit/c9374540c212e234a76b9ba758e85d9ffc4f87f2))
+
+
+### Bug Fixes
+
+* adding vite_key of extension to support web-built ([#26](https://github.com/bensteUEM/ct-events-load/issues/26)) ([4816d75](https://github.com/bensteUEM/ct-events-load/commit/4816d75372c21a0bfe5af342779609f3584b194d))
+
 ## [1.0.1](https://github.com/bensteUEM/ct-events-load/compare/v1.0.0...v1.0.1) (2025-12-04)
 
 
