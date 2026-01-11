@@ -1,7 +1,7 @@
 import { Chart } from "chart.js";
 
 /**
- * Create DIV element with respective children used for charts 
+ * Create DIV element with respective children used for charts
  * @returns HTML div element which can be inserted
  */
 export function createChartsHTML(): HTMLDivElement {
@@ -18,27 +18,51 @@ export function createChartsHTML(): HTMLDivElement {
     const chartsRow = document.createElement("div");
     chartsRow.className = "flex flex-wrap justify-center w-full";
 
-    // First chart
+    // First chart - Count Services per Person
     const chart1Col = document.createElement("div");
     chart1Col.className = "flex min-w-full image-content";
-
+    const chart1h3 = Object.assign(document.createElement("h3"), { textContent: "CountServicesPerPerson" , className : "mb-2"});
     const chart1 = document.createElement("canvas");
     chart1.className = "image";
     chart1.id = "CountServicesPerPerson";
     chart1Col.appendChild(chart1);
 
-    // Second chart
+    // Second chart - Cummulative Services per Person over time
     const chart2Col = document.createElement("div");
     chart2Col.className = "flex min-w-full image-content";
-
+    const chart2h3 = Object.assign(document.createElement("h3"), { textContent: "CummulativeServicesPerPersonTime" , className : "mb-2"});
     const chart2 = document.createElement("canvas");
     chart2.className = "image";
-    chart2.id = "CummulativePersontTime";
+    chart2.id = "CummulativeServicesPerPersonTime";
     chart2Col.appendChild(chart2);
 
+    // Third chart - Count Events per Person
+    const chart3Col = document.createElement("div");
+    chart3Col.className = "flex min-w-full image-content";
+    const chart3h3 = Object.assign(document.createElement("h3"), { textContent: "CountEventsPerPerson", className : "mb-2" });
+    const chart3 = document.createElement("canvas");
+    chart3.className = "image";
+    chart3.id = "CountEventsPerPerson";
+    chart3Col.appendChild(chart3);
+
+    // Fourth chart - CumumlativeEventPerPersonTime
+    const chart4Col = document.createElement("div");
+    chart4Col.className = "flex min-w-full image-content";
+    const chart4h3 = Object.assign(document.createElement("h3"), { textContent: "CumumlativeEventPerPersonTime", className : "mb-2" });
+    const chart4 = document.createElement("canvas");
+    chart4.className = "image";
+    chart4.id = "CumumlativeEventPerPersonTime";
+    chart4Col.appendChild(chart4);  
+
     // Append chart columns to row
+    chartsRow.appendChild(chart1h3);
     chartsRow.appendChild(chart1Col);
+    chartsRow.appendChild(chart2h3);
     chartsRow.appendChild(chart2Col);
+    chartsRow.appendChild(chart3h3);
+    chartsRow.appendChild(chart3Col);
+    chartsRow.appendChild(chart4h3);
+    chartsRow.appendChild(chart4Col);
 
     // Append row to container
     container.appendChild(chartsRow);
@@ -79,9 +103,7 @@ export function getCTChartColors(): string[] {
     ];
 
     // Get computed values
-    const chartColors = colorNames.map((name) =>
-        cssVar(name),
-    );
+    const chartColors = colorNames.map((name) => cssVar(name));
     console.log("using colors from css: ", chartColors);
     return chartColors;
 }
