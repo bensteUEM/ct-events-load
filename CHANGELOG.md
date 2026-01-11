@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/bensteUEM/ct-events-load/compare/v1.2.0...v1.2.1) (2026-01-11)
+
+
+### Bug Fixes
+
+* corrected typing ([#27](https://github.com/bensteUEM/ct-events-load/issues/27)) ([dba33de](https://github.com/bensteUEM/ct-events-load/commit/dba33de118c8bb4ffc4b27269828d637924e7293))
+
 ## [1.2.0](https://github.com/bensteUEM/ct-events-load/compare/v1.1.0...v1.2.0) (2026-01-11)
 
 
