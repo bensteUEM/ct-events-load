@@ -1,26 +1,39 @@
 import type { DataPoint } from "../charts/dtypes";
 import type { Event, EventService } from "../utils/ct-types";
+
+export enum AggregationType {
+    SERVICE = "SERVICE",
+    EVENT = "EVENT",
+}
 /**
- * Count number of services per service, per person per month
+ * Count number of assignments per person
  * @param events - list of events
  * @param servicesDict - mapping of service ids to readable names
  * @param relevantServices - list of service ids to filter
  * @param minServicesCount: only include entries with more than x services,
+ * @param aggregationType - aggregation by service or by event - only counting first service per person per event if EVENT
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
-export function countServicesPerPerson(
+export function countPerPerson(
     events: Event[],
     servicesDict: Record<number, EventService>,
     relevantServices: number[],
     minServicesCount: number = 1,
+    aggregationType: AggregationType = AggregationType.SERVICE,
 ): DataPoint[] {
     console.log("Filtering for services:", relevantServices);
 
     const dataPoints: DataPoint[] & { serviceName?: string }[] = [];
 
     events.forEach((event) => {
-        // console.log("Processing event:", event);
         if (!event.startDate) return;
+
+        // Collect services per person for THIS event
+        const servicesPerPerson = new Map<
+            string,
+            Array<{ serviceName: string; serviceId: number }>
+        >();
+
         event.eventServices?.forEach((service) => {
             if (service.serviceId == null) return;
             if (!relevantServices.includes(service.serviceId)) return;
@@ -28,20 +41,40 @@ export function countServicesPerPerson(
             const personName = service.name ?? "?";
             const serviceName = servicesDict[service.serviceId]?.name ?? "?";
 
-            // check if this combination already exists in dataPoints
-            const existing = dataPoints.find(
-                (d) => d.person === personName && d.serviceName === serviceName,
-            );
-
-            if (existing) {
-                existing.count++;
-            } else {
-                dataPoints.push({
-                    person: personName,
-                    serviceName,
-                    count: 1,
-                });
+            if (!servicesPerPerson.has(personName)) {
+                servicesPerPerson.set(personName, []);
             }
+
+            servicesPerPerson.get(personName)!.push({
+                serviceName,
+                serviceId: service.serviceId,
+            });
+        });
+
+        // Now apply fractional weight per person in this event
+        servicesPerPerson.forEach((services, personName) => {
+            const weight = 1 / services.length;
+
+            services.forEach(({ serviceName }) => {
+                const existing = dataPoints.find(
+                    (d) =>
+                        d.person === personName &&
+                        d.serviceName === serviceName,
+                );
+
+                const increment =
+                    aggregationType === AggregationType.EVENT ? weight : 1;
+
+                if (existing) {
+                    existing.count += increment;
+                } else {
+                    dataPoints.push({
+                        person: personName,
+                        serviceName,
+                        count: increment,
+                    });
+                }
+            });
         });
     });
 
@@ -63,12 +96,14 @@ export function countServicesPerPerson(
  * @param events - list of events
  * @param relevantServices - list of service ids to filter
  * @param minServicesCount: only include entries with more than x services,
+ * @param aggregationType - aggregation by service or by event - only counting first service per person per event if EVENT
  * @returns Record<personId, Record<YYYY-MM, count>>
  */
 export function cummulativePersonTime(
     events: Event[],
     relevantServices: number[],
     minServicesCount: number = 1,
+    aggregationType: AggregationType = AggregationType.SERVICE,
 ): { person: string; count: number; date: string }[] {
     console.log("Filtering for services:", relevantServices);
 
@@ -79,17 +114,38 @@ export function cummulativePersonTime(
         if (!event.startDate) return;
         const eventDate = event.startDate.slice(0, 10); // YYYY-MM-DD
 
+        const serviceCountsPerPerson = new Map<string, number>();
+
         event.eventServices?.forEach((service) => {
             if (service.serviceId == null) return;
             if (!relevantServices.includes(service.serviceId)) return;
 
             const personName = service.name ?? "?";
 
+            serviceCountsPerPerson.set(
+                personName,
+                (serviceCountsPerPerson.get(personName) ?? 0) + 1,
+            );
+        });
+
+        // apply fractions -  AggregationType.EVENT
+        event.eventServices?.forEach((service) => {
+            if (service.serviceId == null) return;
+            if (!relevantServices.includes(service.serviceId)) return;
+
+            const personName = service.name ?? "?";
+
+            const totalServices = serviceCountsPerPerson.get(personName) ?? 1;
+            const increment =
+                aggregationType === AggregationType.EVENT
+                    ? 1 / totalServices
+                    : 1;
+
             if (!dataPointsMap[personName]) dataPointsMap[personName] = {};
             if (!dataPointsMap[personName][eventDate])
                 dataPointsMap[personName][eventDate] = 0;
 
-            dataPointsMap[personName][eventDate]++;
+            dataPointsMap[personName][eventDate] += increment;
         });
     });
 

@@ -1,6 +1,10 @@
 import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
-import { countServicesPerPerson, cummulativePersonTime } from "./math/counts";
+import {
+    AggregationType,
+    countPerPerson,
+    cummulativePersonTime,
+} from "./math/counts";
 
 import { createChartsHTML, getCTChartColors } from "./charts/charts.ts";
 import { renderStackedChart } from "./charts/stackedchart";
@@ -110,17 +114,34 @@ async function submitFilterOptions(document: Document = window.document) {
     //   console.log(servicesDict);
     //   printServices(events, servicesDict, relevantServices);
 
-    const dpCountServicesPerPerson = countServicesPerPerson(
+    const dpCountServicesPerPerson = countPerPerson(
         events,
         servicesDict,
         selectedFilters.services,
         selectedFilters.minServicesCount,
+        AggregationType.SERVICE,
+    );
+
+    const dpCountEventsPerPerson = countPerPerson(
+        events,
+        servicesDict,
+        selectedFilters.services,
+        selectedFilters.minServicesCount,
+        AggregationType.EVENT,
     );
 
     const dpCummulativePersontTime = cummulativePersonTime(
         events,
         selectedFilters.services,
         selectedFilters.minServicesCount,
+        AggregationType.SERVICE,
+    );
+
+    const dpCumumlativeEventPerPersonTime = cummulativePersonTime(
+        events,
+        selectedFilters.services,
+        selectedFilters.minServicesCount,
+        AggregationType.EVENT,
     );
 
     // Insert the charts DOM element into the placeholder
@@ -136,7 +157,18 @@ async function submitFilterOptions(document: Document = window.document) {
         dpCountServicesPerPerson,
         colors,
     );
-    renderLineChart("CummulativePersontTime", dpCummulativePersontTime, colors);
+    renderLineChart(
+        "CummulativeServicesPerPersonTime",
+        dpCummulativePersontTime,
+        colors,
+    );
+
+    renderStackedChart("CountEventsPerPerson", dpCountEventsPerPerson, colors);
+    renderLineChart(
+        "CumumlativeEventPerPersonTime",
+        dpCumumlativeEventPerPersonTime,
+        colors,
+    );
 
     updateEventListHTML(
         "eventListWrapper",
