@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/bensteUEM/ct-events-load/compare/v1.1.0...v1.2.0) (2026-01-11)
+
+
+### Features
+
+* implement counts per event in addition to services ([#27](https://github.com/bensteUEM/ct-events-load/issues/27)) ([380fa0c](https://github.com/bensteUEM/ct-events-load/commit/380fa0cc5e552de003d04b2906e11ac79b81c9bd))
+
 ## [1.1.0](https://github.com/bensteUEM/ct-events-load/compare/v1.0.1...v1.1.0) (2025-12-05)
 
 
