@@ -1,10 +1,7 @@
 import type { DataPoint } from "../charts/dtypes";
 import type { Event, EventService } from "../utils/ct-types";
 
-export enum AggregationType {
-    SERVICE = "SERVICE",
-    EVENT = "EVENT",
-}
+export type AggregationType = "SERVICE" | "EVENT";
 /**
  * Count number of assignments per person
  * @param events - list of events
@@ -19,7 +16,7 @@ export function countPerPerson(
     servicesDict: Record<number, EventService>,
     relevantServices: number[],
     minServicesCount: number = 1,
-    aggregationType: AggregationType = AggregationType.SERVICE,
+    aggregationType: AggregationType = "SERVICE",
 ): DataPoint[] {
     console.log("Filtering for services:", relevantServices);
 
@@ -63,7 +60,7 @@ export function countPerPerson(
                 );
 
                 const increment =
-                    aggregationType === AggregationType.EVENT ? weight : 1;
+                    aggregationType === "EVENT" ? weight : 1;
 
                 if (existing) {
                     existing.count += increment;
@@ -103,7 +100,7 @@ export function cummulativePersonTime(
     events: Event[],
     relevantServices: number[],
     minServicesCount: number = 1,
-    aggregationType: AggregationType = AggregationType.SERVICE,
+    aggregationType: AggregationType = "SERVICE",
 ): { person: string; count: number; date: string }[] {
     console.log("Filtering for services:", relevantServices);
 
@@ -137,7 +134,7 @@ export function cummulativePersonTime(
 
             const totalServices = serviceCountsPerPerson.get(personName) ?? 1;
             const increment =
-                aggregationType === AggregationType.EVENT
+                aggregationType === "EVENT"
                     ? 1 / totalServices
                     : 1;
 

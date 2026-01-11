@@ -1,10 +1,6 @@
 import type { Person, Event, Service } from "./utils/ct-types";
 import { churchtoolsClient } from "@churchtools/churchtools-client";
-import {
-    AggregationType,
-    countPerPerson,
-    cummulativePersonTime,
-} from "./math/counts";
+import { countPerPerson, cummulativePersonTime } from "./math/counts";
 
 import { createChartsHTML, getCTChartColors } from "./charts/charts.ts";
 import { renderStackedChart } from "./charts/stackedchart";
@@ -119,7 +115,7 @@ async function submitFilterOptions(document: Document = window.document) {
         servicesDict,
         selectedFilters.services,
         selectedFilters.minServicesCount,
-        AggregationType.SERVICE,
+        "SERVICE",
     );
 
     const dpCountEventsPerPerson = countPerPerson(
@@ -127,21 +123,21 @@ async function submitFilterOptions(document: Document = window.document) {
         servicesDict,
         selectedFilters.services,
         selectedFilters.minServicesCount,
-        AggregationType.EVENT,
+        "EVENT",
     );
 
     const dpCummulativePersontTime = cummulativePersonTime(
         events,
         selectedFilters.services,
         selectedFilters.minServicesCount,
-        AggregationType.SERVICE,
+        "SERVICE",
     );
 
     const dpCumumlativeEventPerPersonTime = cummulativePersonTime(
         events,
         selectedFilters.services,
         selectedFilters.minServicesCount,
-        AggregationType.EVENT,
+        "EVENT",
     );
 
     // Insert the charts DOM element into the placeholder
